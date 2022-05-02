@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xarray-I: Data Structure &#8212; eo2cube documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eo2cube documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to the eo2cube documentation
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../beginners_guide.html">
+   Welcome to the Beginners Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="simple">
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/beginners_guide/02_xarrayI_data_structure.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://eo2cube_documentation/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://eo2cube_documentation//issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/02_xarrayI_data_structure.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#description">
+   Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-inside-a-xarray-dataset">
+   <strong>
+    What is inside a
+    <code class="docutils literal notranslate">
+     <span class="pre">
+      xarray.dataset
+     </span>
+    </code>
+    ?
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subset-dataset-dataarray">
+   <strong>
+    Subset Dataset / DataArray
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subset-dataset-with-isel-vs-sel">
+     <strong>
+      subset dataset with
+      <code class="docutils literal notranslate">
+       <span class="pre">
+        isel
+       </span>
+      </code>
+      vs.
+      <code class="docutils literal notranslate">
+       <span class="pre">
+        sel
+       </span>
+      </code>
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reshape-dataset">
+   <strong>
+    Reshape Dataset
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-next-steps">
+   Recommended next steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-information">
+   Additional information
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Xarray-I: Data Structure</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#description">
+   Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-inside-a-xarray-dataset">
+   <strong>
+    What is inside a
+    <code class="docutils literal notranslate">
+     <span class="pre">
+      xarray.dataset
+     </span>
+    </code>
+    ?
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#subset-dataset-dataarray">
+   <strong>
+    Subset Dataset / DataArray
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subset-dataset-with-isel-vs-sel">
+     <strong>
+      subset dataset with
+      <code class="docutils literal notranslate">
+       <span class="pre">
+        isel
+       </span>
+      </code>
+      vs.
+      <code class="docutils literal notranslate">
+       <span class="pre">
+        sel
+       </span>
+      </code>
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reshape-dataset">
+   <strong>
+    Reshape Dataset
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-next-steps">
+   Recommended next steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-information">
+   Additional information
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <img align="right" src="../../additional_data/banner_siegel.png" style="width:1000px;"><div class="tex2jax_ignore mathjax_ignore section" id="xarray-i-data-structure">
+<h1>Xarray-I: Data Structure<a class="headerlink" href="#xarray-i-data-structure" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.phenocube.org/"><strong>Sign up to the JupyterHub</strong></a> to run this notebook interactively from your browser</p></li>
+<li><p><strong>Compatibility:</strong> Notebook currently compatible with the Open Data Cube environments of the University of Wuerzburg</p></li>
+<li><p><strong>Prerequisites</strong>: There is no prerequisite learning required.</p></li>
+</ul>
+<div class="section" id="background">
+<h2>Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>In the previous notebook, we experienced that the data we wanna access are loaded in a form called <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong>. This is the form in which earth observation data are usually stored in a datacube.</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">xarray</span></code></strong> is an open source project and Python package which offers a toolkit for working with <em><strong>multi-dimensional arrays</strong></em> of data. <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong> is an in-memory representation of a netCDF (network Common Data Form) file. Understanding the structure of a <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong> is the key to enable us work with these data. Thus, in this notebook, we are mainly dedicated to helping users of our datacube understand its data structure.</p>
+<p>Firstly let’s come to the end stage of the previous notebook, where we have loaded a data product. The data product “s2_l2a_bavaria” is used as example in this notebook.</p>
+</div>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>The following topics are convered in this notebook:</p>
+<ul class="simple">
+<li><p><strong>What is inside a <code class="docutils literal notranslate"><span class="pre">xrray.dataset</span></code> (the structure)?</strong></p></li>
+<li><p><strong>(Basic) Subset Dataset / DataArray</strong></p></li>
+<li><p><strong>Reshape a Dataset</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datacube</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">DcViewer</span> 
+<span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Set config for displaying tables nicely</span>
+<span class="c1"># !! USEFUL !! otherwise parts of longer infos won&#39;t be displayed in tables</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Connect to DataCube</span>
+<span class="c1"># argument &quot;app&quot; --- user defined name for a session (e.g. choose one matching the purpose of this notebook)</span>
+<span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s2">&quot;nb_understand_ndArrays&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">958707</span><span class="n">d5dc26</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">datacube</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">DcViewer</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;odc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Data Product</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">product</span><span class="o">=</span> <span class="s2">&quot;s2_l2a&quot;</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span> <span class="p">[</span><span class="mf">12.94</span> <span class="p">,</span><span class="mf">13.05</span><span class="p">],</span>
+             <span class="n">y</span><span class="o">=</span> <span class="p">[</span><span class="mf">53.88</span><span class="p">,</span><span class="mf">53.94</span><span class="p">],</span>
+             <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32632&quot;</span><span class="p">,</span>
+             <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2020-10-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-12-31&quot;</span><span class="p">),</span>
+             <span class="n">measurements</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;nir&quot;</span><span class="p">],</span>
+             <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
+             <span class="n">group_by</span> <span class="o">=</span> <span class="s2">&quot;solar_day&quot;</span><span class="p">,</span>
+             <span class="n">progress_cbk</span><span class="o">=</span><span class="n">with_ui_cbk</span><span class="p">())</span>
+
+<span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#da = ds.to_array().rename({&quot;variable&quot;:&quot;band&quot;})</span>
+<span class="c1">#print(da)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ds2 = da.to_dataset(dim=&quot;time&quot;)</span>
+<span class="c1">#ds2</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="what-is-inside-a-xarray-dataset">
+<h2><strong>What is inside a <code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code>?</strong><a class="headerlink" href="#what-is-inside-a-xarray-dataset" title="Permalink to this headline">¶</a></h2>
+<p>The figure below is a diagramm depicting the structure of the <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong> we’ve just loaded. Combined with the diagramm, we hope you may better interpret the texts below explaining the data strucutre of a <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong>.</p>
+<p><img alt="xarray data structure" src="https://live.staticflickr.com/65535/51083605166_70dd29baa8_k.jpg" /></p>
+<p>As read from the output block, this dataset has three <em><strong>Data Variables</strong></em> , “blue”, “green” and “red” (shown with colors in the diagramm), referring to individual spectral band.</p>
+<p>Each data variable can be regarded as a <strong>multi-dimensional <em>Data Array</em></strong> of same structure; in this case, it is a <strong>three-dimensional array</strong> (shown as 3D Cube in the diagramm) where <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> are its <em><strong>Dimensions</strong></em> (shown as axis along each cube in the diagramm).</p>
+<p>In this dataset, there are 35 <em><strong>Coordinates</strong></em> under <code class="docutils literal notranslate"><span class="pre">time</span></code> dimension, which means there are 35 time steps along the <code class="docutils literal notranslate"><span class="pre">time</span></code> axis. There are 164 coordinates under <code class="docutils literal notranslate"><span class="pre">x</span></code> dimension and 82 coordinates under <code class="docutils literal notranslate"><span class="pre">y</span></code> dimension, indicating that there are 164 pixels along <code class="docutils literal notranslate"><span class="pre">x</span></code> axis and 82 pixels along <code class="docutils literal notranslate"><span class="pre">y</span></code> axis.</p>
+<p>As for the term <em><strong>Dataset</strong></em>, it is like a <em>Container</em> holding all the multi-dimensional arrays of same structure (shown as the red-lined box holding all 3D Cubes in the diagramm).</p>
+<p>So this instance dataset has a spatial extent of 164 by 82 pixels at given lon/lat locations, spans over 35 time stamps and 3 spectral band.</p>
+<p><strong>In summary, <em><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></em> is substantially a container for high-dimensional <em><code class="docutils literal notranslate"><span class="pre">DataArray</span></code></em> with common attributes (e.g. crs) attached</strong>, :</p>
+<ul class="simple">
+<li><p><strong>Data Variables (<code class="docutils literal notranslate"><span class="pre">values</span></code>)</strong>: <strong>it’s generally the first/highest dimension to subset from a high dimensional array.</strong> Each <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">variable</span></code> contains a multi-dimensional array of all other dimensions.</p></li>
+<li><p><strong>Dimensions (<code class="docutils literal notranslate"><span class="pre">dims</span></code>)</strong>: other dimensions arranged in hierachical order <em>(e.g. ‘time’, ‘y’, ‘x’)</em>.</p></li>
+<li><p><strong>Coordinates (<code class="docutils literal notranslate"><span class="pre">coords</span></code>)</strong>: Coordinates along each <code class="docutils literal notranslate"><span class="pre">Dimension</span></code> <em>(e.g. timesteps along ‘time’ dimension, latitudes along ‘y’ dimension, longitudes along ‘x’ dimension)</em></p></li>
+<li><p><strong>Attributes (<code class="docutils literal notranslate"><span class="pre">attrs</span></code>)</strong>: A dictionary(<code class="docutils literal notranslate"><span class="pre">dict</span></code>) containing Metadata.</p></li>
+</ul>
+<p>Now let’s deconstruct the dataset we have just loaded a bit further to have things more clarified!:D</p>
+<ul class="simple">
+<li><p><strong>To check existing dimensions of a dataset</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">dims</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To check the coordinates of a dataset</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">coords</span><span class="c1">#[&#39;time&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To check all coordinates along a specific dimension</strong>
+<br>
+<img src=https://live.staticflickr.com/65535/51115452191_ec160d4514_o.png, width="450"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">time</span>
+<span class="c1"># OR</span>
+<span class="c1">#ds.coords[&#39;time&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To check attributes of the dataset</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">attrs</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="subset-dataset-dataarray">
+<h2><strong>Subset Dataset / DataArray</strong><a class="headerlink" href="#subset-dataset-dataarray" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>To select all data of “blue” band</strong>
+<br>
+<img src=https://live.staticflickr.com/65535/51115092614_366cb774a8_o.png, width="350"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">blue</span>
+<span class="c1"># OR</span>
+<span class="c1">#ds[&#39;blue&#39;]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Only print pixel values</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">blue</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To select blue band data at the first time stamp</strong>
+<br>
+<img src=https://live.staticflickr.com/65535/51116131265_8464728bc1_o.png, width="350"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">blue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To select blue band data at the first time stamp while the latitude is the largest in the defined spatial extent</strong>
+<img src=https://live.staticflickr.com/65535/51115337046_aeb75d0d03_o.png, width="350"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">blue</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To select the upper-left corner pixel</strong>
+<br>
+<img src=https://live.staticflickr.com/65535/51116131235_b0cca9589f_o.png, width="350"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">blue</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="subset-dataset-with-isel-vs-sel">
+<h3><strong>subset dataset with <code class="docutils literal notranslate"><span class="pre">isel</span></code> vs. <code class="docutils literal notranslate"><span class="pre">sel</span></code></strong><a class="headerlink" href="#subset-dataset-with-isel-vs-sel" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">isel</span></code> when subsetting with <strong>index</strong></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">sel</span></code> when subsetting with <strong>labels</strong></p></li>
+</ul>
+<ul class="simple">
+<li><p><strong>To select data of all spectral bands at the first time stamp</strong>
+<br>
+<img src=https://live.staticflickr.com/65535/51114879732_7d62db54f4_o.png, width="750"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>To select data of all spectral bands of year 2020</strong>
+<br>
+<img src=https://live.staticflickr.com/65535/51116281070_75f1b46a9c_o.png, width="750"></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2020-12&#39;</span><span class="p">)</span>
+<span class="c1">#print(ds.sel(time=&#39;2019&#39;))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><em><strong>Tip: More about indexing and sebsetting Dataset or DataArray is presented in the <a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/05_xarrayII.ipynb">Notebook_05</a>.</strong></em></p>
+</div>
+</div>
+<div class="section" id="reshape-dataset">
+<h2><strong>Reshape Dataset</strong><a class="headerlink" href="#reshape-dataset" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Convert the Dataset (subset to 2019) to a <em>4-dimension</em> DataArray</strong></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">da</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;2020-12&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_array</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;variable&quot;</span><span class="p">:</span><span class="s2">&quot;band&quot;</span><span class="p">})</span>
+<span class="n">da</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><strong>Convert the <em>4-dimension</em> DataArray back to a Dataset by setting the “time” as DataVariable (reshaped)</strong></p></li>
+</ul>
+<p><img alt="ds_reshaped" src="https://live.staticflickr.com/65535/51151694092_ca550152d6_o.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_reshp</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds_reshp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recommended-next-steps">
+<h2>Recommended next steps<a class="headerlink" href="#recommended-next-steps" title="Permalink to this headline">¶</a></h2>
+<p>If you now understand the <strong>data structure</strong> of <code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code> and <strong>basic indexing</strong> methods illustrated in this notebook, you are ready to move on to the next notebook where you will learn more about <strong>advanced indexing</strong> and calculating some <strong>basic statistical parameters</strong> of the n-dimensional arrays!:D</p>
+<p>In case you are gaining interest in exploring the world of <strong>xarrays</strong>, you may lay yourself into the <a class="reference external" href="http://xarray.pydata.org/en/stable/index.html">Xarray user guide</a>.</p>
+<br>
+To continue working through the notebooks in this beginner's guide, the following notebooks are designed to be worked through in the following order:
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/01_jupyter_introduction.ipynb">Jupyter Notebooks</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/02_eo2cube_introduction.ipynb">eo2cube</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/03_data_lookup_and_loading.ipynb">Loading Data</a></p></li>
+<li><p><em><strong>Xarray I: Data Structure (this notebook)</strong></em></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/05_xarrayII.ipynb">Xarray II: Index and Statistics</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/06_plotting_basics.ipynb">Plotting data</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/07_basic_analysis.ipynb">Spatial analysis</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/08_parallel_processing_with_dask.ipynb">Parallel processing with Dask</a></p></li>
+</ol>
+<p>The additional notebooks are designed for users to build up both basic and advanced skills which are not covered by the beginner’s guide. Self-motivated users can go through them according to their own needs. They act as complements for the guide:
+<br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/I_file_management.ipynb">Python’s file management tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/II_numpy_image_processing.ipynb">Image Processing basics using NumPy and Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/III_process_vector_data.ipynb">Vector Processing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/IV_advanced_plotting.ipynb">Advanced Plotting</a></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p>This notebook is for the usage of Jupyter Notebook of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>.</p>
+<p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.</p>
+<p><strong>Contact:</strong> If you would like to report an issue with this notebook, you can file one on <a class="reference external" href="https://github.com">Github</a>.</p>
+<p><strong>Last modified:</strong> April 2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/beginners_guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By eo2cube community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
