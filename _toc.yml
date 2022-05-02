@@ -7,7 +7,7 @@ chapters:
 - file: introduction
 - file: beginners_guide
   sections:
-  - file: notebooks/beginner_guide//home/wascal/eo2cube_book/notebooks/beginners_guide/01_data_lookup_and_loading.ipynb
-  - file: notebooks/beginner_guide//home/wascal/eo2cube_book/notebooks/beginners_guide/02_xarrayI_data_structure.ipynb 
-  - file: notebooks/beginner_guide//home/wascal/eo2cube_book/notebooks/beginners_guide/03_xarrayII.ipynb  
-- file: examples
+  - file: notebooks/beginners_guide/01_data_lookup_and_loading.ipynb
+  - file: notebooks/beginners_guide/02_xarrayI_data_structure.ipynb 
+  - file: notebooks/beginners_guide/03_xarrayII.ipynb 
+
