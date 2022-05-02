@@ -1,11 +1,7 @@
-# Welcome to your Jupyter Book
+# Welcome to the eo2cube documentation
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+The eo2cube project aims to create an innovative data analysis infrastructure, supporting agencies and scientific institutions by reducing the complexity and effort that comes with processing Big Data.The overall goal is to unleash the power of satellite data. Our Data Cubes make use of the [Open Data Cube](https://www.opendatacube.org/) (ODC) architecture. ODC is an Open Source Project for the geospatial data management and analyses of Big Earth data such as satellite time series. 
 
-Check out the content pages bundled with this sample book to see more.
 
 ```{tableofcontents}
 ```

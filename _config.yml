@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: The eo2cube documentation
+title: eo2cube documentation 
 author: eo2cube community
 logo: logo.png
 
