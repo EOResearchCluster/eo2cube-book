@@ -1,14 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <img align="right" src="../../additional_data/banner_siegel.png" style="width:1000px;">
+# <img align="right" src="images/banner_siegel.png" style="width:1000px;">
 
 # # Xarray-I: Data Structure 
-# 
-# * [**Sign up to the JupyterHub**](https://www.phenocube.org/) to run this notebook interactively from your browser
-# * **Compatibility:** Notebook currently compatible with the Open Data Cube environments of the University of Wuerzburg
-# * **Prerequisites**: There is no prerequisite learning required.
-# 
 
 # ## Background
 # 

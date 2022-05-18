@@ -1,0 +1,2617 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parallel processing with Dask &#8212; eo2cube documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eo2cube documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to the eo2cube documentation
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../beginners_guide.html">
+   Welcome to the Beginners Guide
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_data_lookup_and_loading.html">
+     Data Lookup and Loading
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_xarrayI_data_structure.html">
+     Xarray-I: Data Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_xarrayII.html">
+     Advanced Xarray
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/beginners_guide/06_parallel_processing_with_dask.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://eo2cube_documentation/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://eo2cube_documentation//issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/06_parallel_processing_with_dask.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-dask">
+   What is Dask?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-import-and-datacube-connection">
+   Package import and datacube connection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connecting-to-the-datacube">
+     Connecting to the datacube
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dask-schedulers">
+   Dask Schedulers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-machine-scheduler-vs-distributed-scheduler">
+     (Single machine scheduler vs. Distributed scheduler)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-dask-distributed">
+     Setting up Dask.distributed
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-data-using-dask">
+   Loading the data using dask
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dask-chunks">
+   Dask Chunks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lazy-operations">
+   Lazy operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-graph">
+   Task Graph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-computing-lazy-data">
+   Loading/ computing lazy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute">
+     compute()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-information">
+   Further Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-next-steps">
+   Recommended next steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-information">
+   Additional information
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Parallel processing with Dask</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-dask">
+   What is Dask?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#package-import-and-datacube-connection">
+   Package import and datacube connection
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#connecting-to-the-datacube">
+     Connecting to the datacube
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dask-schedulers">
+   Dask Schedulers
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-machine-scheduler-vs-distributed-scheduler">
+     (Single machine scheduler vs. Distributed scheduler)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up-dask-distributed">
+     Setting up Dask.distributed
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-data-using-dask">
+   Loading the data using dask
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dask-chunks">
+   Dask Chunks
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lazy-operations">
+   Lazy operations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-graph">
+   Task Graph
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-computing-lazy-data">
+   Loading/ computing lazy data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compute">
+     compute()
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-information">
+   Further Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-next-steps">
+   Recommended next steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-information">
+   Additional information
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <img align="right" src="../../additional_data/banner_siegel.png" style="width:1000px;"><div class="tex2jax_ignore mathjax_ignore section" id="parallel-processing-with-dask">
+<h1>Parallel processing with Dask<a class="headerlink" href="#parallel-processing-with-dask" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.phenocube.org/"><strong>Sign up to the JupyterHub</strong></a> to run this notebook interactively from your browser</p></li>
+<li><p><strong>Compatibility:</strong> Notebook currently compatible with the Open Data Cube environments of the University of Wuerzburg</p></li>
+<li><p><strong>Products used</strong>:</p></li>
+<li><p><strong>Prerequisites</strong>:  Users of this notebook should have a basic understanding of:</p>
+<ul>
+<li><p>How to run a <span class="xref myst">Jupyter notebook</span></p></li>
+<li><p>The basic structure of the eo2cube <span class="xref myst">satellite datasets</span></p></li>
+<li><p>How to browse through the available <span class="xref myst">products and measurements</span> of the eo2cube datacube</p></li>
+<li><p>How to <span class="xref myst">load data from the eo2cube datacube</span></p></li>
+<li><p>How the data is stored and structured in a <span class="xref myst">xarray</span></p></li>
+<li><p>How to <span class="xref myst">visualize the data</span></p></li>
+<li><p>How to do a <span class="xref myst">basic analysis of remote sensing data</span> in the eo2cube environment</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="what-is-dask">
+<h2>What is Dask?<a class="headerlink" href="#what-is-dask" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://dask.org/">Dask</a> is a library for parallel computing. It can be used to scale Pandas, NumPy, and Scikit-Learn workflows. Originally, datasets created with those libraries can only be scaled on a single machine. Dask internally uses the structures of Pandas, Numpy and Scikit-Learn. Thus, if you are familiar with those libraries, it will be easy to transform your “old” code in a new, scalable Dask-version of it. <br>
+In this notebook, we will mainly work with <a class="reference external" href="https://docs.dask.org/en/latest/array.html">daskArray</a> which is the dask-equivalent of NumPy ndarray.</p>
+</div>
+<div class="section" id="package-import-and-datacube-connection">
+<h2>Package import and datacube connection<a class="headerlink" href="#package-import-and-datacube-connection" title="Permalink to this headline">¶</a></h2>
+<p>First of all we start with importing all the packages that are needed for our analysis.<br>
+Most of the packages have already been introduced in the previous notebooks. The newly introduced package here is Dask.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install graphviz
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting graphviz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading graphviz-0.20-py3-none-any.whl (46 kB)
+?25l
+     |███████                         | 10 kB 1.9 MB/s eta 0:00:01
+     |██████████████                  | 20 kB 1.9 MB/s eta 0:00:01
+     |█████████████████████           | 30 kB 1.2 MB/s eta 0:00:01
+     |████████████████████████████    | 40 kB 1.3 MB/s eta 0:00:01
+     |████████████████████████████████| 46 kB 1.4 MB/s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hInstalling collected packages: graphviz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed graphviz-0.20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datacube</span>
+
+<span class="c1"># dask</span>
+<span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">deafrica_tools.dask</span> <span class="kn">import</span> <span class="n">create_local_dask_cluster</span>
+<span class="c1"># plotting</span>
+<span class="kn">import</span> <span class="nn">graphviz</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># images</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span>
+<span class="kn">import</span> <span class="nn">odc</span>
+
+<span class="c1"># vector</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">deafrica_tools.bandindices</span> <span class="kn">import</span> <span class="n">calculate_indices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">7</span><span class="n">c5e9e928de4</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">dask</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">deafrica_tools.dask</span> <span class="kn">import</span> <span class="n">create_local_dask_cluster</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># plotting</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">graphviz</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;deafrica_tools&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="connecting-to-the-datacube">
+<h3>Connecting to the datacube<a class="headerlink" href="#connecting-to-the-datacube" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s1">&#39;08_parallel_processing_with_dask&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="dask-schedulers">
+<h2>Dask Schedulers<a class="headerlink" href="#dask-schedulers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="single-machine-scheduler-vs-distributed-scheduler">
+<h3>(Single machine scheduler vs. Distributed scheduler)<a class="headerlink" href="#single-machine-scheduler-vs-distributed-scheduler" title="Permalink to this headline">¶</a></h3>
+<p>Dask can be used to scale computations across multiple computers (cluster). <br>
+But it also can be used for parallel computing on a single computer. This enables computations that normally would have been too demanding for the used machine.<br>
+For the following analysis we are using the distributed scheduler since we are working on a datacube.<br></p>
+</div>
+<div class="section" id="setting-up-dask-distributed">
+<h3>Setting up Dask.distributed<a class="headerlink" href="#setting-up-dask-distributed" title="Permalink to this headline">¶</a></h3>
+<p>To start the Dask Client, we use the Dask-plugin within the Phenocube.
+To use it, just click on the orange Dask symbol on the left side of the window. Then click on the “+ New” Button. A new LocalCluster is created. <br> By clicking on the “Scale” button, the Client can be scaled (i.e. reducing the number of workers). <br>
+Now, just drag and drop the cluster into this code and reduce the number of workers to 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="s2">&quot;tcp://127.0.0.1:42325&quot;</span><span class="p">)</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+    <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
+    <div style="margin-left: 48px;">
+        <h3 style="margin-bottom: 0px;">Client</h3>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-0f974cab-84d1-11ec-85a0-0bc452c2d6e2</p>
+        <table style="width: 100%; text-align: left;">
+
+        <tr>
+
+            <td style="text-align: left;"><strong>Connection method:</strong> Direct</td>
+            <td style="text-align: left;"></td>
+
+        </tr>
+
+
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Dashboard: </strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
+                </td>
+                <td style="text-align: left;"></td>
+            </tr>
+
+
+        </table>
+
+
+            <details>
+            <summary style="margin-bottom: 20px;"><h3 style="display: inline;">Scheduler Info</h3></summary>
+            <div style="">
+    <div>
+        <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
+        <div style="margin-left: 48px;">
+            <h3 style="margin-bottom: 0px;">Scheduler</h3>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-d12f1b6f-0208-4594-877d-4ee9b48fc61e</p>
+            <table style="width: 100%; text-align: left;">
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Comm:</strong> tcp://127.0.0.1:42325
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Workers:</strong> 8
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Dashboard:</strong> <a href="http://127.0.0.1:8787/status" target="_blank">http://127.0.0.1:8787/status</a>
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total threads:</strong> 40
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Started:</strong> 25 minutes ago
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total memory:</strong> 177.09 GiB
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <details style="margin-left: 48px;">
+        <summary style="margin-bottom: 20px;">
+            <h3 style="display: inline;">Workers</h3>
+        </summary>
+
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 0</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:44279
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:46397/status" target="_blank">http://127.0.0.1:46397/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:41675
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-vczwf6el
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 6.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 2.18 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 22.88 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 13.52 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 1</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:35045
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43457/status" target="_blank">http://127.0.0.1:43457/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:33605
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-nq8dhcj2
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 4.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 2.26 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 22.51 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 13.14 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 2</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:33305
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41721/status" target="_blank">http://127.0.0.1:41721/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37799
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-0tvaklkl
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 4.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 1.84 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 22.89 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 13.53 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 3</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:43481
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44237/status" target="_blank">http://127.0.0.1:44237/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:36853
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-vvxk2f8g
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 2.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 2.00 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 22.51 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 13.14 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 4</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:34541
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:37251/status" target="_blank">http://127.0.0.1:37251/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:43425
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-6zsexdp0
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 4.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 1.59 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 12.02 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 12.02 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 5</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:36057
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39775/status" target="_blank">http://127.0.0.1:39775/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:45843
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-p49d_p8a
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 4.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 1.64 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 22.47 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 13.12 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 6</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:34477
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:36105/status" target="_blank">http://127.0.0.1:36105/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:33301
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-9q8f6joi
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 4.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 2.26 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 21.43 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 12.09 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 7</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://127.0.0.1:39729
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 5
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:41817/status" target="_blank">http://127.0.0.1:41817/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 22.14 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:32921
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/datacube/dask-worker-space/worker-eg25k5mk
+                        </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks executing: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in memory: </strong> 0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Tasks ready: </strong> 0
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Tasks in flight: </strong>0
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>CPU usage:</strong> 4.0%
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Last seen: </strong> Just now
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Memory usage: </strong> 1.82 GiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Spilled bytes: </strong> 0 B
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Read bytes: </strong> 22.44 kiB
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Write bytes: </strong> 13.10 kiB
+                        </td>
+                    </tr>
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+
+    </details>
+</div>
+            </details>
+
+
+    </div>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## Load Area of interest</span>
+<span class="n">sample_aoi</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;../sample_data/roi.shp&#39;</span><span class="p">)</span>
+<span class="n">sample_aoi</span><span class="o">=</span> <span class="n">sample_aoi</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
+<span class="n">sample_aoi</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe src="about:blank" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" data-html=%3C%21DOCTYPE%20html%3E%0A%3Chead%3E%20%20%20%20%0A%20%20%20%20%3Cmeta%20http-equiv%3D%22content-type%22%20content%3D%22text/html%3B%20charset%3DUTF-8%22%20/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%3Cscript%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20L_NO_TOUCH%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L_DISABLE_3D%20%3D%20false%3B%0A%20%20%20%20%20%20%20%20%3C/script%3E%0A%20%20%20%20%0A%20%20%20%20%3Cstyle%3Ehtml%2C%20body%20%7Bwidth%3A%20100%25%3Bheight%3A%20100%25%3Bmargin%3A%200%3Bpadding%3A%200%3B%7D%3C/style%3E%0A%20%20%20%20%3Cstyle%3E%23map%20%7Bposition%3Aabsolute%3Btop%3A0%3Bbottom%3A0%3Bright%3A0%3Bleft%3A0%3B%7D%3C/style%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//code.jquery.com/jquery-1.12.4.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js%22%3E%3C/script%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/npm/leaflet%401.6.0/dist/leaflet.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css%22/%3E%0A%20%20%20%20%3Clink%20rel%3D%22stylesheet%22%20href%3D%22https%3A//cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css%22/%3E%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20initial-scale%3D1.0%2C%20maximum-scale%3D1.0%2C%20user-scalable%3Dno%22%20/%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23map_5eb9a31a4d394d368176b047c5bb77ab%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20position%3A%20relative%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20width%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20height%3A%20100.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20left%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20top%3A%200.0%25%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20table%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20margin%3A%20auto%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20tr%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20text-align%3A%20left%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.foliumtooltip%20th%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20padding%3A%202px%3B%20padding-right%3A%208px%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C/style%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/head%3E%0A%3Cbody%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class%3D%22folium-map%22%20id%3D%22map_5eb9a31a4d394d368176b047c5bb77ab%22%20%3E%3C/div%3E%0A%20%20%20%20%20%20%20%20%0A%3C/body%3E%0A%3Cscript%3E%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20map_5eb9a31a4d394d368176b047c5bb77ab%20%3D%20L.map%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22map_5eb9a31a4d394d368176b047c5bb77ab%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20center%3A%20%5B53.73153305682336%2C%2013.124749690615996%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20crs%3A%20L.CRS.EPSG3857%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoom%3A%2010%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20zoomControl%3A%20true%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20preferCanvas%3A%20false%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20L.control.scale%28%29.addTo%28map_5eb9a31a4d394d368176b047c5bb77ab%29%3B%0A%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20tile_layer_0c9bc9ff59ef4cbd8968498fb0309fcd%20%3D%20L.tileLayer%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%22https%3A//%7Bs%7D.tile.openstreetmap.org/%7Bz%7D/%7Bx%7D/%7By%7D.png%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%22attribution%22%3A%20%22Data%20by%20%5Cu0026copy%3B%20%5Cu003ca%20href%3D%5C%22http%3A//openstreetmap.org%5C%22%5Cu003eOpenStreetMap%5Cu003c/a%5Cu003e%2C%20under%20%5Cu003ca%20href%3D%5C%22http%3A//www.openstreetmap.org/copyright%5C%22%5Cu003eODbL%5Cu003c/a%5Cu003e.%22%2C%20%22detectRetina%22%3A%20false%2C%20%22maxNativeZoom%22%3A%2018%2C%20%22maxZoom%22%3A%2018%2C%20%22minZoom%22%3A%200%2C%20%22noWrap%22%3A%20false%2C%20%22opacity%22%3A%201%2C%20%22subdomains%22%3A%20%22abc%22%2C%20%22tms%22%3A%20false%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29.addTo%28map_5eb9a31a4d394d368176b047c5bb77ab%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20map_5eb9a31a4d394d368176b047c5bb77ab.fitBounds%28%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5B%5B53.63932824682812%2C%2012.937913653622044%5D%2C%20%5B53.8237378668186%2C%2013.31158572760995%5D%5D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7B%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%29%3B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20%20%20%20%20function%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_styler%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.5%2C%20%22weight%22%3A%202%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_highlighter%28feature%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20switch%28feature.id%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20default%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20return%20%7B%22fillOpacity%22%3A%200.75%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20function%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_pointToLayer%28feature%2C%20latlng%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20var%20opts%20%3D%20%7B%22bubblingMouseEvents%22%3A%20true%2C%20%22color%22%3A%20%22%233388ff%22%2C%20%22dashArray%22%3A%20null%2C%20%22dashOffset%22%3A%20null%2C%20%22fill%22%3A%20true%2C%20%22fillColor%22%3A%20%22%233388ff%22%2C%20%22fillOpacity%22%3A%200.2%2C%20%22fillRule%22%3A%20%22evenodd%22%2C%20%22lineCap%22%3A%20%22round%22%2C%20%22lineJoin%22%3A%20%22round%22%2C%20%22opacity%22%3A%201.0%2C%20%22radius%22%3A%202%2C%20%22stroke%22%3A%20true%2C%20%22weight%22%3A%203%7D%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20let%20style%20%3D%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_styler%28feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20Object.assign%28opts%2C%20style%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20return%20new%20L.CircleMarker%28latlng%2C%20opts%29%0A%20%20%20%20%20%20%20%20%7D%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_onEachFeature%28feature%2C%20layer%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20layer.on%28%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseout%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8.resetStyle%28e.target%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20mouseover%3A%20function%28e%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20if%28typeof%20e.target.setStyle%20%3D%3D%3D%20%22function%22%29%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20const%20highlightStyle%20%3D%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_highlighter%28e.target.feature%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20e.target.setStyle%28highlightStyle%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%7D%29%3B%0A%20%20%20%20%20%20%20%20%7D%3B%0A%20%20%20%20%20%20%20%20var%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8%20%3D%20L.geoJson%28null%2C%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20onEachFeature%3A%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_onEachFeature%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20style%3A%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_styler%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20pointToLayer%3A%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_pointToLayer%0A%20%20%20%20%20%20%20%20%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20function%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_add%20%28data%29%20%7B%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addData%28data%29%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20.addTo%28map_5eb9a31a4d394d368176b047c5bb77ab%29%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20%20%20%20%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8_add%28%7B%22bbox%22%3A%20%5B12.937913653622044%2C%2053.63932824682812%2C%2013.31158572760995%2C%2053.8237378668186%5D%2C%20%22features%22%3A%20%5B%7B%22bbox%22%3A%20%5B12.937913653622044%2C%2053.63932824682812%2C%2013.31158572760995%2C%2053.8237378668186%5D%2C%20%22geometry%22%3A%20%7B%22coordinates%22%3A%20%5B%5B%5B12.937913653622044%2C%2053.63932824682812%5D%2C%20%5B12.937913653622044%2C%2053.8237378668186%5D%2C%20%5B13.31158572760995%2C%2053.8237378668186%5D%2C%20%5B13.31158572760995%2C%2053.63932824682812%5D%2C%20%5B12.937913653622044%2C%2053.63932824682812%5D%5D%5D%2C%20%22type%22%3A%20%22Polygon%22%7D%2C%20%22id%22%3A%20%220%22%2C%20%22properties%22%3A%20%7B%22id%22%3A%201%7D%2C%20%22type%22%3A%20%22Feature%22%7D%5D%2C%20%22type%22%3A%20%22FeatureCollection%22%7D%29%3B%0A%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%0A%20%20%20%20geo_json_a7b37969d60446b6b3db720e1b5dbbe8.bindTooltip%28%0A%20%20%20%20function%28layer%29%7B%0A%20%20%20%20let%20div%20%3D%20L.DomUtil.create%28%27div%27%29%3B%0A%20%20%20%20%0A%20%20%20%20let%20handleObject%20%3D%20feature%3D%3Etypeof%28feature%29%3D%3D%27object%27%20%3F%20JSON.stringify%28feature%29%20%3A%20feature%3B%0A%20%20%20%20let%20fields%20%3D%20%5B%22id%22%5D%3B%0A%20%20%20%20let%20aliases%20%3D%20%5B%22id%22%5D%3B%0A%20%20%20%20let%20table%20%3D%20%27%3Ctable%3E%27%20%2B%0A%20%20%20%20%20%20%20%20String%28%0A%20%20%20%20%20%20%20%20fields.map%28%0A%20%20%20%20%20%20%20%20%28v%2Ci%29%3D%3E%0A%20%20%20%20%20%20%20%20%60%3Ctr%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cth%3E%24%7Baliases%5Bi%5D%7D%3C/th%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Ctd%3E%24%7BhandleObject%28layer.feature.properties%5Bv%5D%29%7D%3C/td%3E%0A%20%20%20%20%20%20%20%20%3C/tr%3E%60%29.join%28%27%27%29%29%0A%20%20%20%20%2B%27%3C/table%3E%27%3B%0A%20%20%20%20div.innerHTML%3Dtable%3B%0A%20%20%20%20%0A%20%20%20%20return%20div%0A%20%20%20%20%7D%0A%20%20%20%20%2C%7B%22className%22%3A%20%22foliumtooltip%22%2C%20%22sticky%22%3A%20true%7D%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0A%3C/script%3E onload="this.contentDocument.open();this.contentDocument.write(    decodeURIComponent(this.getAttribute('data-html')));this.contentDocument.close();" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sample_aoi</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="c1"># extract longitude extents</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">sample_aoi</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span> <span class="c1"># extract latitude extents</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-the-data-using-dask">
+<h2>Loading the data using dask<a class="headerlink" href="#loading-the-data-using-dask" title="Permalink to this headline">¶</a></h2>
+<p>For loading data with dask, you just add the “dask_chunks”-parameter.
+This looks like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deafrica_tools.datahandling</span> <span class="kn">import</span> <span class="n">load_ard</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">load_ard</span><span class="p">(</span><span class="n">dc</span><span class="o">=</span><span class="n">dc</span><span class="p">,</span>
+            <span class="n">products</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s2_l2a&#39;</span><span class="p">],</span>
+            <span class="n">x</span><span class="o">=</span> <span class="n">x</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span> <span class="n">y</span><span class="p">,</span>
+            <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-12-31&quot;</span><span class="p">),</span> <span class="c1"># specifiy time_extent</span>
+            <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32632&quot;</span><span class="p">,</span>
+            <span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;nir_1&#39;</span><span class="p">],</span>
+            <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
+            <span class="n">group_by</span> <span class="o">=</span> <span class="s2">&quot;solar_day&quot;</span><span class="p">,</span>
+            <span class="n">mask_pixel_quality</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">data_coverage</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+            <span class="n">min_gooddata</span><span class="o">=</span><span class="mf">0.90</span><span class="p">,</span>  
+            <span class="n">dask_chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span><span class="mi">1000</span><span class="p">}</span>
+             <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.9/site-packages/deafrica_tools/datahandling.py:236: UserWarning: Setting &#39;min_gooddata&#39; percentage to &gt; 0.0 will cause dask arrays to compute when loading pixel-quality data to calculate &#39;good pixel&#39; percentage. This can slow the return of your dataset.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using pixel quality parameters for Sentinel 2
+Finding datasets
+    s2_l2a
+Counting good quality pixels for each time step
+Filtering to 11 out of 72 time steps with at least 90.0% good quality pixels
+Applying pixel quality/cloud mask
+Returning 11 time steps as a dask array
+</pre></div>
+</div>
+</div>
+</div>
+<p>To understand what we have done here, lets first look at the dataset we loaded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:      (time: 11, y: 2194, x: 2583)
+Coordinates:
+  * time         (time) datetime64[ns] 2020-01-17T10:25:50 ... 2020-09-23T10:...
+  * y            (y) float64 5.973e+06 5.973e+06 ... 5.951e+06 5.951e+06
+  * x            (x) float64 7.592e+05 7.592e+05 7.592e+05 ... 7.85e+05 7.85e+05
+    spatial_ref  int32 32632
+Data variables:
+    red          (time, y, x) float32 dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;
+    green        (time, y, x) float32 dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;
+    blue         (time, y, x) float32 dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;
+    nir_1        (time, y, x) float32 dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;
+Attributes:
+    crs:           EPSG:32632
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-981c38b2-ec79-4340-95e8-c5309f1daaf9' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-981c38b2-ec79-4340-95e8-c5309f1daaf9' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 11</li><li><span class='xr-has-index'>y</span>: 2194</li><li><span class='xr-has-index'>x</span>: 2583</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-6eb7c52b-b18a-4cf8-b0de-65fdc0a7500c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6eb7c52b-b18a-4cf8-b0de-65fdc0a7500c' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2020-01-17T10:25:50 ... 2020-09-...</div><input id='attrs-79b0dbd0-7a76-4acd-922b-ceb59e5483d0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-79b0dbd0-7a76-4acd-922b-ceb59e5483d0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-34f7e90a-0bc8-4ed8-aede-fcb2263f9ffc' class='xr-var-data-in' type='checkbox'><label for='data-34f7e90a-0bc8-4ed8-aede-fcb2263f9ffc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2020-01-17T10:25:50.000000000&#x27;, &#x27;2020-03-22T10:25:52.000000000&#x27;,
+       &#x27;2020-03-27T10:25:54.000000000&#x27;, &#x27;2020-04-06T10:25:53.000000000&#x27;,
+       &#x27;2020-04-21T10:25:57.000000000&#x27;, &#x27;2020-05-06T10:25:53.000000000&#x27;,
+       &#x27;2020-06-15T10:25:58.000000000&#x27;, &#x27;2020-06-25T10:25:58.000000000&#x27;,
+       &#x27;2020-09-03T10:25:59.000000000&#x27;, &#x27;2020-09-18T10:26:00.000000000&#x27;,
+       &#x27;2020-09-23T10:25:58.000000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>5.973e+06 5.973e+06 ... 5.951e+06</div><input id='attrs-dbf31f4d-7a60-4585-82e2-8ca9311b2812' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dbf31f4d-7a60-4585-82e2-8ca9311b2812' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9f89a070-42f9-466c-9000-3170c73384d9' class='xr-var-data-in' type='checkbox'><label for='data-9f89a070-42f9-466c-9000-3170c73384d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32632</dd></dl></div><div class='xr-var-data'><pre>array([5972535., 5972525., 5972515., ..., 5950625., 5950615., 5950605.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>7.592e+05 7.592e+05 ... 7.85e+05</div><input id='attrs-7d3f997d-a72f-46ea-bb54-14f478042c3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7d3f997d-a72f-46ea-bb54-14f478042c3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-334fe7e3-e38e-4189-851f-ad52a39a21df' class='xr-var-data-in' type='checkbox'><label for='data-334fe7e3-e38e-4189-851f-ad52a39a21df' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32632</dd></dl></div><div class='xr-var-data'><pre>array([759155., 759165., 759175., ..., 784955., 784965., 784975.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32632</div><input id='attrs-5d41c60d-f9dc-4785-8a4f-b3c9d48c0dac' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5d41c60d-f9dc-4785-8a4f-b3c9d48c0dac' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6f7c0795-0bb3-460f-9fcd-da67bb2f6216' class='xr-var-data-in' type='checkbox'><label for='data-6f7c0795-0bb3-460f-9fcd-da67bb2f6216' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 32N&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,9],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,0],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32632&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32632, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3f07486e-6471-4f94-9f3b-7acd1070169c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3f07486e-6471-4f94-9f3b-7acd1070169c' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;</div><input id='attrs-3ef41b73-cb1e-4adb-8538-88aaa8004ee4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3ef41b73-cb1e-4adb-8538-88aaa8004ee4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-67b1971f-fbab-44a2-8881-c938f6cd40cf' class='xr-var-data-in' type='checkbox'><label for='data-67b1971f-fbab-44a2-8881-c938f6cd40cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32632</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 237.80 MiB </td>
+                        <td> 3.81 MiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (11, 2194, 2583) </td>
+                        <td> (1, 1000, 1000) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2628 Tasks </td>
+                        <td> 99 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="194" height="166" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="46" x2="24" y2="61" />
+  <line x1="10" y1="92" x2="24" y2="107" />
+  <line x1="10" y1="101" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="101" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="103" />
+  <line x1="12" y1="2" x2="12" y2="104" />
+  <line x1="14" y1="4" x2="14" y2="106" />
+  <line x1="15" y1="5" x2="15" y2="107" />
+  <line x1="16" y1="6" x2="16" y2="108" />
+  <line x1="18" y1="8" x2="18" y2="110" />
+  <line x1="19" y1="9" x2="19" y2="111" />
+  <line x1="20" y1="10" x2="20" y2="112" />
+  <line x1="22" y1="12" x2="22" y2="114" />
+  <line x1="23" y1="13" x2="23" y2="115" />
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,116.87658865823292 10.0,101.92799070847852" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="131" y2="1" />
+  <line x1="12" y1="2" x2="132" y2="2" />
+  <line x1="14" y1="4" x2="134" y2="4" />
+  <line x1="15" y1="5" x2="135" y2="5" />
+  <line x1="16" y1="6" x2="136" y2="6" />
+  <line x1="18" y1="8" x2="138" y2="8" />
+  <line x1="19" y1="9" x2="139" y2="9" />
+  <line x1="20" y1="10" x2="140" y2="10" />
+  <line x1="22" y1="12" x2="142" y2="12" />
+  <line x1="23" y1="13" x2="143" y2="13" />
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="56" y1="0" x2="71" y2="14" />
+  <line x1="102" y1="0" x2="117" y2="14" />
+  <line x1="130" y1="0" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 130.0,0.0 144.9485979497544,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="61" x2="144" y2="61" />
+  <line x1="24" y1="107" x2="144" y2="107" />
+  <line x1="24" y1="116" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+  <line x1="71" y1="14" x2="71" y2="116" />
+  <line x1="117" y1="14" x2="117" y2="116" />
+  <line x1="144" y1="14" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,116.87658865823292 24.9485979497544,116.87658865823292" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="84.948598" y="136.876589" font-size="1.0rem" font-weight="100" text-anchor="middle" >2583</text>
+  <text x="164.948598" y="65.912593" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,65.912593)">2194</text>
+  <text x="7.474299" y="129.402290" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,129.402290)">11</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;</div><input id='attrs-3629ae08-bff2-4d27-8828-cee1fa31a700' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3629ae08-bff2-4d27-8828-cee1fa31a700' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ed557364-639f-4831-909e-5f49c09754d1' class='xr-var-data-in' type='checkbox'><label for='data-ed557364-639f-4831-909e-5f49c09754d1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32632</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 237.80 MiB </td>
+                        <td> 3.81 MiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (11, 2194, 2583) </td>
+                        <td> (1, 1000, 1000) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2628 Tasks </td>
+                        <td> 99 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="194" height="166" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="46" x2="24" y2="61" />
+  <line x1="10" y1="92" x2="24" y2="107" />
+  <line x1="10" y1="101" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="101" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="103" />
+  <line x1="12" y1="2" x2="12" y2="104" />
+  <line x1="14" y1="4" x2="14" y2="106" />
+  <line x1="15" y1="5" x2="15" y2="107" />
+  <line x1="16" y1="6" x2="16" y2="108" />
+  <line x1="18" y1="8" x2="18" y2="110" />
+  <line x1="19" y1="9" x2="19" y2="111" />
+  <line x1="20" y1="10" x2="20" y2="112" />
+  <line x1="22" y1="12" x2="22" y2="114" />
+  <line x1="23" y1="13" x2="23" y2="115" />
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,116.87658865823292 10.0,101.92799070847852" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="131" y2="1" />
+  <line x1="12" y1="2" x2="132" y2="2" />
+  <line x1="14" y1="4" x2="134" y2="4" />
+  <line x1="15" y1="5" x2="135" y2="5" />
+  <line x1="16" y1="6" x2="136" y2="6" />
+  <line x1="18" y1="8" x2="138" y2="8" />
+  <line x1="19" y1="9" x2="139" y2="9" />
+  <line x1="20" y1="10" x2="140" y2="10" />
+  <line x1="22" y1="12" x2="142" y2="12" />
+  <line x1="23" y1="13" x2="143" y2="13" />
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="56" y1="0" x2="71" y2="14" />
+  <line x1="102" y1="0" x2="117" y2="14" />
+  <line x1="130" y1="0" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 130.0,0.0 144.9485979497544,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="61" x2="144" y2="61" />
+  <line x1="24" y1="107" x2="144" y2="107" />
+  <line x1="24" y1="116" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+  <line x1="71" y1="14" x2="71" y2="116" />
+  <line x1="117" y1="14" x2="117" y2="116" />
+  <line x1="144" y1="14" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,116.87658865823292 24.9485979497544,116.87658865823292" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="84.948598" y="136.876589" font-size="1.0rem" font-weight="100" text-anchor="middle" >2583</text>
+  <text x="164.948598" y="65.912593" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,65.912593)">2194</text>
+  <text x="7.474299" y="129.402290" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,129.402290)">11</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;</div><input id='attrs-154c0c9b-4e52-40ac-bfe8-c5dca6057756' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-154c0c9b-4e52-40ac-bfe8-c5dca6057756' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-45774aa6-0114-476e-955b-44a047463858' class='xr-var-data-in' type='checkbox'><label for='data-45774aa6-0114-476e-955b-44a047463858' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32632</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 237.80 MiB </td>
+                        <td> 3.81 MiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (11, 2194, 2583) </td>
+                        <td> (1, 1000, 1000) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2628 Tasks </td>
+                        <td> 99 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="194" height="166" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="46" x2="24" y2="61" />
+  <line x1="10" y1="92" x2="24" y2="107" />
+  <line x1="10" y1="101" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="101" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="103" />
+  <line x1="12" y1="2" x2="12" y2="104" />
+  <line x1="14" y1="4" x2="14" y2="106" />
+  <line x1="15" y1="5" x2="15" y2="107" />
+  <line x1="16" y1="6" x2="16" y2="108" />
+  <line x1="18" y1="8" x2="18" y2="110" />
+  <line x1="19" y1="9" x2="19" y2="111" />
+  <line x1="20" y1="10" x2="20" y2="112" />
+  <line x1="22" y1="12" x2="22" y2="114" />
+  <line x1="23" y1="13" x2="23" y2="115" />
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,116.87658865823292 10.0,101.92799070847852" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="131" y2="1" />
+  <line x1="12" y1="2" x2="132" y2="2" />
+  <line x1="14" y1="4" x2="134" y2="4" />
+  <line x1="15" y1="5" x2="135" y2="5" />
+  <line x1="16" y1="6" x2="136" y2="6" />
+  <line x1="18" y1="8" x2="138" y2="8" />
+  <line x1="19" y1="9" x2="139" y2="9" />
+  <line x1="20" y1="10" x2="140" y2="10" />
+  <line x1="22" y1="12" x2="142" y2="12" />
+  <line x1="23" y1="13" x2="143" y2="13" />
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="56" y1="0" x2="71" y2="14" />
+  <line x1="102" y1="0" x2="117" y2="14" />
+  <line x1="130" y1="0" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 130.0,0.0 144.9485979497544,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="61" x2="144" y2="61" />
+  <line x1="24" y1="107" x2="144" y2="107" />
+  <line x1="24" y1="116" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+  <line x1="71" y1="14" x2="71" y2="116" />
+  <line x1="117" y1="14" x2="117" y2="116" />
+  <line x1="144" y1="14" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,116.87658865823292 24.9485979497544,116.87658865823292" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="84.948598" y="136.876589" font-size="1.0rem" font-weight="100" text-anchor="middle" >2583</text>
+  <text x="164.948598" y="65.912593" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,65.912593)">2194</text>
+  <text x="7.474299" y="129.402290" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,129.402290)">11</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir_1</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1000, 1000), meta=np.ndarray&gt;</div><input id='attrs-64ba66b4-30a4-4c9b-a264-33b394d2b616' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-64ba66b4-30a4-4c9b-a264-33b394d2b616' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2abf1ace-9235-4fec-8cb4-cf78a6159378' class='xr-var-data-in' type='checkbox'><label for='data-2abf1ace-9235-4fec-8cb4-cf78a6159378' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32632</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 237.80 MiB </td>
+                        <td> 3.81 MiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (11, 2194, 2583) </td>
+                        <td> (1, 1000, 1000) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2628 Tasks </td>
+                        <td> 99 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="194" height="166" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="46" x2="24" y2="61" />
+  <line x1="10" y1="92" x2="24" y2="107" />
+  <line x1="10" y1="101" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="101" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="103" />
+  <line x1="12" y1="2" x2="12" y2="104" />
+  <line x1="14" y1="4" x2="14" y2="106" />
+  <line x1="15" y1="5" x2="15" y2="107" />
+  <line x1="16" y1="6" x2="16" y2="108" />
+  <line x1="18" y1="8" x2="18" y2="110" />
+  <line x1="19" y1="9" x2="19" y2="111" />
+  <line x1="20" y1="10" x2="20" y2="112" />
+  <line x1="22" y1="12" x2="22" y2="114" />
+  <line x1="23" y1="13" x2="23" y2="115" />
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,116.87658865823292 10.0,101.92799070847852" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="131" y2="1" />
+  <line x1="12" y1="2" x2="132" y2="2" />
+  <line x1="14" y1="4" x2="134" y2="4" />
+  <line x1="15" y1="5" x2="135" y2="5" />
+  <line x1="16" y1="6" x2="136" y2="6" />
+  <line x1="18" y1="8" x2="138" y2="8" />
+  <line x1="19" y1="9" x2="139" y2="9" />
+  <line x1="20" y1="10" x2="140" y2="10" />
+  <line x1="22" y1="12" x2="142" y2="12" />
+  <line x1="23" y1="13" x2="143" y2="13" />
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="56" y1="0" x2="71" y2="14" />
+  <line x1="102" y1="0" x2="117" y2="14" />
+  <line x1="130" y1="0" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 130.0,0.0 144.9485979497544,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="61" x2="144" y2="61" />
+  <line x1="24" y1="107" x2="144" y2="107" />
+  <line x1="24" y1="116" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+  <line x1="71" y1="14" x2="71" y2="116" />
+  <line x1="117" y1="14" x2="117" y2="116" />
+  <line x1="144" y1="14" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,116.87658865823292 24.9485979497544,116.87658865823292" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="84.948598" y="136.876589" font-size="1.0rem" font-weight="100" text-anchor="middle" >2583</text>
+  <text x="164.948598" y="65.912593" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,65.912593)">2194</text>
+  <text x="7.474299" y="129.402290" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,129.402290)">11</text>
+</svg>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-e4c63da7-e6d4-479b-a2ff-ef12e70d9771' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e4c63da7-e6d4-479b-a2ff-ef12e70d9771' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32632</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
+</div>
+<p>You see that the xarray.Dataset consists of multiple <a class="reference external" href="https://docs.dask.org/en/latest/array.html">dask.array</a> objects but we cannot see any values inside our data. <br>
+This type of data is called “lazy data” as it is not loaded properly but in a “lazy” way without evaluated data values.</p>
+</div>
+<div class="section" id="dask-chunks">
+<h2>Dask Chunks<a class="headerlink" href="#dask-chunks" title="Permalink to this headline">¶</a></h2>
+<p>The parameter that was added to the dc.load() command is called “dask_chunks”. It defines in how many parts our original dataset will be splitted. As described in the previous notebooks, normally the dc.load() command produces a xarray dataset consisting of integer values.<br>
+In our case, the dataset is split into smaller chunks. Since the data we are interested in is three dimensional, we also need to provide three dimensions for subdividing the data. <br>
+The chunksize of the dask.arrays scales according to the provided values within the “dask_chunks” parameter.
+<br>
+In the following we will visualize the lazy-loaded data for the red band to get an even better feeling about our type of data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># visualizing the dask chunks</span>
+<span class="n">ds</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 237.80 MiB </td>
+                        <td> 3.81 MiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (11, 2194, 2583) </td>
+                        <td> (1, 1000, 1000) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2628 Tasks </td>
+                        <td> 99 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="194" height="166" style="stroke:rgb(0,0,0);stroke-width:1" >
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="10" y1="46" x2="24" y2="61" />
+  <line x1="10" y1="92" x2="24" y2="107" />
+  <line x1="10" y1="101" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="10" y2="101" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="11" y2="103" />
+  <line x1="12" y1="2" x2="12" y2="104" />
+  <line x1="14" y1="4" x2="14" y2="106" />
+  <line x1="15" y1="5" x2="15" y2="107" />
+  <line x1="16" y1="6" x2="16" y2="108" />
+  <line x1="18" y1="8" x2="18" y2="110" />
+  <line x1="19" y1="9" x2="19" y2="111" />
+  <line x1="20" y1="10" x2="20" y2="112" />
+  <line x1="22" y1="12" x2="22" y2="114" />
+  <line x1="23" y1="13" x2="23" y2="115" />
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 24.9485979497544,14.948597949754403 24.9485979497544,116.87658865823292 10.0,101.92799070847852" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="10" y1="0" x2="130" y2="0" style="stroke-width:2" />
+  <line x1="11" y1="1" x2="131" y2="1" />
+  <line x1="12" y1="2" x2="132" y2="2" />
+  <line x1="14" y1="4" x2="134" y2="4" />
+  <line x1="15" y1="5" x2="135" y2="5" />
+  <line x1="16" y1="6" x2="136" y2="6" />
+  <line x1="18" y1="8" x2="138" y2="8" />
+  <line x1="19" y1="9" x2="139" y2="9" />
+  <line x1="20" y1="10" x2="140" y2="10" />
+  <line x1="22" y1="12" x2="142" y2="12" />
+  <line x1="23" y1="13" x2="143" y2="13" />
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="10" y1="0" x2="24" y2="14" style="stroke-width:2" />
+  <line x1="56" y1="0" x2="71" y2="14" />
+  <line x1="102" y1="0" x2="117" y2="14" />
+  <line x1="130" y1="0" x2="144" y2="14" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="10.0,0.0 130.0,0.0 144.9485979497544,14.948597949754403 24.9485979497544,14.948597949754403" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Horizontal lines -->
+  <line x1="24" y1="14" x2="144" y2="14" style="stroke-width:2" />
+  <line x1="24" y1="61" x2="144" y2="61" />
+  <line x1="24" y1="107" x2="144" y2="107" />
+  <line x1="24" y1="116" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Vertical lines -->
+  <line x1="24" y1="14" x2="24" y2="116" style="stroke-width:2" />
+  <line x1="71" y1="14" x2="71" y2="116" />
+  <line x1="117" y1="14" x2="117" y2="116" />
+  <line x1="144" y1="14" x2="144" y2="116" style="stroke-width:2" />
+
+  <!-- Colored Rectangle -->
+  <polygon points="24.9485979497544,14.948597949754403 144.9485979497544,14.948597949754403 144.9485979497544,116.87658865823292 24.9485979497544,116.87658865823292" style="fill:#ECB172A0;stroke-width:0"/>
+
+  <!-- Text -->
+  <text x="84.948598" y="136.876589" font-size="1.0rem" font-weight="100" text-anchor="middle" >2583</text>
+  <text x="164.948598" y="65.912593" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,164.948598,65.912593)">2194</text>
+  <text x="7.474299" y="129.402290" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,7.474299,129.402290)">11</text>
+</svg>
+        </td>
+    </tr>
+</table></div></div>
+</div>
+<p>Here, the red band of our lazy dataset is shown. We see that our data has been devided into numerous chunks, each having the size we defined within the “dask_chunks” parameter in the dc.load() function. <br>
+Looking at the memory size of the chunks compared to the complete array, the motivation for using dask becomes clear. Especially when working with large amounts of data, splitting the data into smaller chunks enables computations that would crash the cube environment when calculated over the complete array at once.</p>
+</div>
+<div class="section" id="lazy-operations">
+<h2>Lazy operations<a class="headerlink" href="#lazy-operations" title="Permalink to this headline">¶</a></h2>
+<p>When working with large amounts of data, it makes sense to postpone loading the data as far back as possible. To do so, we can perform operations on lazy data directly, without loading its values. <br>
+When we want to do a computation on lazy data, it makes sense to chain operations together and to just calculate the result right at the end (with the compute() function). <br>
+In the <a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/07_basic_analysis.ipynb">previous notebook</a> you did some basic analysis. Now, this analysis will be repeated but using dask. Like already mentioned, the code will not differ alot since dask is build on numpy. The main difference is that in this case the calculation is performed in a “lazy” way. Thus, the resulting values are not calculated directly but will be on demand (using the compute() function).<br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">calculate_indices</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span> <span class="s1">&#39;EVI&#39;</span> <span class="p">,</span> <span class="s1">&#39;SAVI&#39;</span><span class="p">],</span> <span class="n">collection</span><span class="o">=</span><span class="s1">&#39;s2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="task-graph">
+<h2>Task Graph<a class="headerlink" href="#task-graph" title="Permalink to this headline">¶</a></h2>
+<p>To get a better feeling for what happens when we chain tasks in dask, we now will have a look at the task graph using the <code class="docutils literal notranslate"><span class="pre">visualize()</span></code>function.
+This produces a graph which shows all the tasks that dask needs to execute.<br>
+If the graph is too large, an error occurs. In this case, just look at you working folder for a .png file. This should contain your produced graph. <br>
+If the graph opens within the notebook, doubleclicking on it will enlarge it.
+<br>
+<br>
+<strong>Note:</strong> The visualization of the graph might take some time depending on the amount of data it is calculated on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">NDVI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;graph.svg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Input</span> <span class="n">In</span> <span class="p">[</span><span class="mi">82</span><span class="p">],</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span><span class="o">.</span><span class="n">NDVI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">visualize</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;graph.svg&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/dask/base.py:214,</span> in <span class="ni">DaskMethodsMixin.visualize</span><span class="nt">(self, filename, format, optimize_graph, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span> <span class="k">def</span> <span class="nf">visualize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;mydask&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">optimize_graph</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">171</span>     <span class="sd">&quot;&quot;&quot;Render the computation of this object&#39;s task graph using graphviz.</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span><span class="sd">     Requires ``graphviz`` to be installed.</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span><span class="sd">     https://docs.dask.org/en/latest/optimize.html</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">214</span>     <span class="k">return</span> <span class="n">visualize</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>         <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>         <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">217</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="n">optimize_graph</span><span class="o">=</span><span class="n">optimize_graph</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/dask/base.py:739,</span> in <span class="ni">visualize</span><span class="nt">(filename, traverse, optimize_graph, maxval, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">736</span> <span class="k">elif</span> <span class="n">color</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">737</span>     <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Unknown value color=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">color</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">739</span> <span class="k">return</span> <span class="n">dot_graph</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/dask/dot.py:272,</span> in <span class="ni">dot_graph</span><span class="nt">(dsk, filename, format, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">234</span> <span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span><span class="sd"> Render a task graph using dot.</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">269</span><span class="sd"> dask.dot.to_graphviz</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span> <span class="n">g</span> <span class="o">=</span> <span class="n">to_graphviz</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">272</span> <span class="k">return</span> <span class="n">graphviz_to_file</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">format</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/dask/dot.py:289,</span> in <span class="ni">graphviz_to_file</span><span class="nt">(g, filename, format)</span>
+<span class="g g-Whitespace">    </span><span class="mi">286</span> <span class="k">if</span> <span class="nb">format</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">287</span>     <span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;png&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">289</span> <span class="n">data</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">290</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">291</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">292</span>         <span class="s2">&quot;Graphviz failed to properly produce an image. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">293</span>         <span class="s2">&quot;This probably means your installation of graphviz &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span>         <span class="s2">&quot;issues/485 for more information.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/piping.py:99,</span> in <span class="ni">Pipe.pipe</span><span class="nt">(self, format, renderer, formatter, quiet, engine, encoding)</span>
+<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">def</span> <span class="nf">pipe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">53</span>          <span class="nb">format</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>          <span class="n">renderer</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>          <span class="n">engine</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span>          <span class="n">encoding</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="sd">&quot;&quot;&quot;Return the source piped through the Graphviz layout command.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="sd">     Args:</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span><span class="sd">         &#39;&lt;?xml version=&#39;</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">99</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_legacy</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>                              <span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span>                              <span class="n">formatter</span><span class="o">=</span><span class="n">formatter</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span>                              <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">103</span>                              <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>                              <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/_tools.py:172,</span> in <span class="ni">deprecate_positional_args.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">163</span>     <span class="n">wanted</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">value</span><span class="si">!r}</span><span class="s1">&#39;</span>
+<span class="nn">    164                        for name, value</span> in <span class="ni">deprecated.items</span><span class="nt">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The signature of </span><span class="si">{</span><span class="n">func</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> will be reduced&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span>                   <span class="sa">f</span><span class="s1">&#39; to </span><span class="si">{</span><span class="n">supported_number</span><span class="si">}</span><span class="s1"> positional args&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">167</span>                   <span class="sa">f</span><span class="s1">&#39; </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">supported</span><span class="p">)</span><span class="si">}</span><span class="s1">: pass </span><span class="si">{</span><span class="n">wanted</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span>                   <span class="s1">&#39; as keyword arg(s)&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>                   <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>                   <span class="n">category</span><span class="o">=</span><span class="n">category</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">172</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/piping.py:114,</span> in <span class="ni">Pipe._pipe_legacy</span><span class="nt">(self, format, renderer, formatter, quiet, engine, encoding)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="nd">@_tools</span><span class="o">.</span><span class="n">deprecate_positional_args</span><span class="p">(</span><span class="n">supported_number</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span> <span class="k">def</span> <span class="nf">_pipe_legacy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>                  <span class="nb">format</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>                  <span class="n">engine</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">113</span>                  <span class="n">encoding</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">bytes</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">114</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_future</span><span class="p">(</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">115</span>                              <span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span>                              <span class="n">formatter</span><span class="o">=</span><span class="n">formatter</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span>                              <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span>                              <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>                              <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/piping.py:151,</span> in <span class="ni">Pipe._pipe_future</span><span class="nt">(self, format, renderer, formatter, quiet, engine, encoding)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span>         <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">151</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pipe_lines</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">input_encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/backend/piping.py:149,</span> in <span class="ni">pipe_lines</span><span class="nt">(engine, format, input_lines, input_encoding, renderer, formatter, quiet)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span> <span class="n">cmd</span> <span class="o">=</span> <span class="n">dot_command</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">engine</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>                          <span class="n">renderer</span><span class="o">=</span><span class="n">renderer</span><span class="p">,</span> <span class="n">formatter</span><span class="o">=</span><span class="n">formatter</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;input_lines&#39;</span><span class="p">:</span> <span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">input_encoding</span><span class="p">)</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">input_lines</span><span class="p">)}</span>
+<span class="ne">--&gt; </span><span class="mi">149</span> <span class="n">proc</span> <span class="o">=</span> <span class="n">execute</span><span class="o">.</span><span class="n">run_check</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="n">quiet</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span> <span class="k">return</span> <span class="n">proc</span><span class="o">.</span><span class="n">stdout</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/backend/execute.py:83,</span> in <span class="ni">run_check</span><span class="nt">(cmd, input_lines, encoding, capture_output, quiet, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>     <span class="k">assert</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>     <span class="k">assert</span> <span class="nb">iter</span><span class="p">(</span><span class="n">input_lines</span><span class="p">)</span> <span class="ow">is</span> <span class="n">input_lines</span>
+<span class="ne">---&gt; </span><span class="mi">83</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">_run_input_lines</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">input_lines</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>     <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/site-packages/graphviz/backend/execute.py:109,</span> in <span class="ni">_run_input_lines</span><span class="nt">(cmd, input_lines, kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">input_lines</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">107</span>     <span class="n">stdin_write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">109</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">popen</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span> <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CompletedProcess</span><span class="p">(</span><span class="n">popen</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">popen</span><span class="o">.</span><span class="n">returncode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">111</span>                                    <span class="n">stdout</span><span class="o">=</span><span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">stderr</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/subprocess.py:1134,</span> in <span class="ni">Popen.communicate</span><span class="nt">(self, input, timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>     <span class="n">endtime</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1133</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1134</span>     <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_communicate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">endtime</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1135</span> <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1136</span>     <span class="c1"># https://bugs.python.org/issue25942</span>
+<span class="g g-Whitespace">   </span><span class="mi">1137</span>     <span class="c1"># See the detailed comment in .wait().</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/subprocess.py:1979,</span> in <span class="ni">Popen._communicate</span><span class="nt">(self, input, endtime, orig_timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1972</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_timeout</span><span class="p">(</span><span class="n">endtime</span><span class="p">,</span> <span class="n">orig_timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1973</span>                         <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1974</span>                         <span class="n">skip_check_and_raise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1975</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>  <span class="c1"># Impossible :)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1976</span>         <span class="s1">&#39;_check_timeout(..., skip_check_and_raise=True) &#39;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1977</span>         <span class="s1">&#39;failed to raise TimeoutExpired.&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1979</span> <span class="n">ready</span> <span class="o">=</span> <span class="n">selector</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1980</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_timeout</span><span class="p">(</span><span class="n">endtime</span><span class="p">,</span> <span class="n">orig_timeout</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1982</span> <span class="c1"># XXX Rewrite these to use non-blocking I/O on the file</span>
+<span class="g g-Whitespace">   </span><span class="mi">1983</span> <span class="c1"># objects; they are no longer using C stdio!</span>
+
+<span class="nn">File /opt/conda/lib/python3.9/selectors.py:416,</span> in <span class="ni">_PollLikeSelector.select</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span> <span class="n">ready</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">415</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">416</span>     <span class="n">fd_event_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selector</span><span class="o">.</span><span class="n">poll</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">except</span> <span class="ne">InterruptedError</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="k">return</span> <span class="n">ready</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loading-computing-lazy-data">
+<h2>Loading/ computing lazy data<a class="headerlink" href="#loading-computing-lazy-data" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="compute">
+<h3>compute()<a class="headerlink" href="#compute" title="Permalink to this headline">¶</a></h3>
+<p>Lazy Dask arrays do not evaluate (e.g. contain actual values) until their calculation is initiated. The <code class="docutils literal notranslate"><span class="pre">compute()</span></code>-function triggers such an evaluation.<br>
+It is important to note that <code class="docutils literal notranslate"><span class="pre">compute()</span></code>writes its results into memory. So only use it if the results will fit in it. If they are too large, it is possible to write them to disk directly.
+For dask Arrays the <code class="docutils literal notranslate"><span class="pre">to_hdf5()</span></code>command can be used (<code class="docutils literal notranslate"><span class="pre">my_dask_array.to_hdf5(&quot;myfile.hdf5&quot;)</span></code>) to do so. <br>
+Running <code class="docutils literal notranslate"><span class="pre">compute()</span></code> might take some time depending on the size of your <code class="docutils literal notranslate"><span class="pre">DataArray</span></code> or <code class="docutils literal notranslate"><span class="pre">Dataset</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">})</span>
+<span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;NDVI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">NDVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
+<span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;EVI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">EVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
+<span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;SAVI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">SAVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define figure style</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">,</span> <span class="n">font_scale</span> <span class="o">=</span> <span class="o">.</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="c1"># plot</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/06_parallel_processing_with_dask_32_0.png" src="../../_images/06_parallel_processing_with_dask_32_0.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="further-information">
+<h2>Further Information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
+<p>For further information about Dask, please have a look at the <a class="reference external" href="https://docs.dask.org/en/latest/">Dask webpage</a>.</p>
+</div>
+<div class="section" id="recommended-next-steps">
+<h2>Recommended next steps<a class="headerlink" href="#recommended-next-steps" title="Permalink to this headline">¶</a></h2>
+<p>To continue working through the notebooks in this beginner’s guide, the following notebooks are designed to be worked through in the following order:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/01_jupyter_introduction.ipynb">Jupyter Notebooks</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/02_eo2cube_introduction.ipynb">eo2cube</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/03_data_lookup_and_loading.ipynb">Loading Data</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/04_xarrayI_data_structure.ipynb">Xarray I: Data Structure</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/05_xarrayII.ipynb">Xarray II: Index and Statistics</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/06_plotting_basics.ipynb">Plotting data</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/07_basic_analysis.ipynb">Spatial analysis</a></p></li>
+<li><p><em><strong>Parallel processing with Dask (this notebook)</strong></em></p></li>
+</ol>
+<p>The additional notebooks are designed for users to build up both basic and advanced skills which are not covered by the beginner’s guide. Self-motivated users can go through them according to their own needs. They act as complements for the guide:
+<br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/I_file_management.ipynb">Python’s file management tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/II_numpy_image_processing.ipynb">Image Processing basics using NumPy and Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/III_process_vector_data.ipynb">Vector Processing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/IV_advanced_plotting.ipynb">Advanced Plotting</a></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p><font size="2">This notebook for the usage in the Open Data Cube entities of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>, is adapted from <a class="reference external" href="https://github.com/GeoscienceAustralia/dea-notebooks">Geoscience Australia</a>, published using the Apache License, Version 2.0. Thanks!</font></p>
+<p><a class="reference external" href="https://doi.org/10.26186/145234">https://doi.org/10.26186/145234</a> <br></p>
+<p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+Digital Earth Australia data is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons by Attribution 4.0</a> license.</p>
+<p><strong>Contact:</strong> If you would like to report an issue with this notebook, you can file one on <a class="reference external" href="https://github.com">Github</a>.</p>
+<p><strong>Last modified:</strong> February 2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/beginners_guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By eo2cube community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

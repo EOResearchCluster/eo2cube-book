@@ -1,18 +1,9 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# <img align="right" src="../../additional_data/banner_siegel.png" style="width:1000px;">
+# <img align="right" src="images/banner_siegel.png" style="width:1000px;">
 
 # # Advanced Xarray
-# 
-# * [**Sign up to the JupyterHub**](https://www.phenocube.org/) to run this notebook interactively from your browser
-# * **Compatibility:** Notebook currently compatible with the Open Data Cube environments of the University of Wuerzburg
-# * **Products used**: `Sentinel-2`
-# * **Prerequisites**:  Users of this notebook should have a basic understanding of:
-#     * How to run a [Jupyter notebook](01_jupyter_introduction.ipynb)
-#     * The basic structure of the eo2cube [satellite datasets](02_eo2cube.ipynb)
-#     * How to browse through the available [products and measurements](03_products_and_measurements.ipynb) of the eo2cube datacube 
-#     * How to [load data from the eo2cube datacube](04_loading_data_and_basic_xarray.ipynb) 
 
 # ## Background
 # 
