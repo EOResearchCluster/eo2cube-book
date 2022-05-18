@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plotting data &#8212; eo2cube documentation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Spatial Analysis" href="05_basic_analysis.html" />
+    <link rel="prev" title="Advanced Xarray" href="03_xarrayII.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">eo2cube documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome to the eo2cube documentation
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../markdown/introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../../markdown/beginners_guide.html">
+   Welcome to the Beginners Guide
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_data_lookup_and_loading.html">
+     Data Lookup and Loading
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_xarrayI_data_structure.html">
+     Xarray-I: Data Structure
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_xarrayII.html">
+     Advanced Xarray
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Plotting data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="05_basic_analysis.html">
+     Basic Spatial Analysis
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="06_parallel_processing_with_dask.html">
+     Parallel processing with Dask
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/notebooks/beginners_guide/04_plotting_basics.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://eo2cube_documentation/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://eo2cube_documentation//issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/04_plotting_basics.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#description">
+   Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up">
+   Setting up
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-packages">
+     Load packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-data">
+     Load Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rgb-image">
+   <strong>
+    RGB Image
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#true-color-composite">
+     <strong>
+      1) True Color Composite
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#false-color-composite">
+     <strong>
+      2) False Color Composite
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histogram">
+   <strong>
+    Histogram
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatterplot">
+   <strong>
+    Scatterplot
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-pcolormesh">
+   <strong>
+    2D pcolormesh
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-single-band">
+     <strong>
+      1) Plotting Single Band
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#facet-plot">
+     <strong>
+      2) Facet Plot
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#masking">
+     <strong>
+      3) Masking
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-layout">
+     <strong>
+      5) Interactive Layout
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-linechart">
+   <strong>
+    Time Series Linechart
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-pandas-and-seaborn">
+   <strong>
+    Using Pandas and Seaborn
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-next-steps">
+   Recommended next steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-information">
+   Additional information
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Plotting data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#description">
+   Description
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up">
+   Setting up
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-packages">
+     Load packages
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-data">
+     Load Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rgb-image">
+   <strong>
+    RGB Image
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#true-color-composite">
+     <strong>
+      1) True Color Composite
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#false-color-composite">
+     <strong>
+      2) False Color Composite
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#histogram">
+   <strong>
+    Histogram
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scatterplot">
+   <strong>
+    Scatterplot
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-pcolormesh">
+   <strong>
+    2D pcolormesh
+   </strong>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plotting-single-band">
+     <strong>
+      1) Plotting Single Band
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#facet-plot">
+     <strong>
+      2) Facet Plot
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#masking">
+     <strong>
+      3) Masking
+     </strong>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-layout">
+     <strong>
+      5) Interactive Layout
+     </strong>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-series-linechart">
+   <strong>
+    Time Series Linechart
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#using-pandas-and-seaborn">
+   <strong>
+    Using Pandas and Seaborn
+   </strong>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommended-next-steps">
+   Recommended next steps
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#further-reading">
+   Further Reading
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#additional-information">
+   Additional information
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <img align="right" src="images/banner_siegel.png" style="width:1000px;"><div class="tex2jax_ignore mathjax_ignore section" id="plotting-data">
+<h1>Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>This notebook introduces users plotting within the datacube environment. It aims to introduces useful options to effectivly visualize raster data in the eo2cube environment. Within this notebook the following topics are covered:</p>
+<ul class="simple">
+<li><p>Plotting <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">Color</span> <span class="pre">Composite</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">Color</span> <span class="pre">Composite</span></code></p></li>
+<li><p>Plotting <code class="docutils literal notranslate"><span class="pre">Histogram</span></code> to show frequency distributions</p></li>
+<li><p>Creating <code class="docutils literal notranslate"><span class="pre">2D-pseudocolor</span> <span class="pre">plot</span></code> to illustrate spatial variance</p></li>
+<li><p>Creating <code class="docutils literal notranslate"><span class="pre">Facet</span> <span class="pre">Plot</span></code> to visualize time series</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Masking</span></code> scene</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="setting-up">
+<h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="load-packages">
+<h3>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datacube</span>
+<span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span> <span class="c1">#processing bar for loading data</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#matplotlib is a plotting for creating static, animated, and interactive visualizations</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">hvplot.xarray</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1">#this line allows plotting within the JupyterLab</span>
+
+<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span> <span class="c1">#holoviews allows interactive plotting</span>
+<span class="n">hv</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">&#39;bokeh&#39;</span><span class="p">)</span> <span class="c1">#this line allows plotting with the Bokeh server</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5692</span><span class="n">da93f5bc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">datacube</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span> <span class="c1">#processing bar for loading data</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#matplotlib is a plotting for creating static, animated, and interactive visualizations</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;odc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this script, we need to use two functions from a python script (.py) stored in this environment.</p>
+<p>To import the functions to the current script, we need a relative path to the file and import display_map, rgb (the name of the functions) from DEAPlotting (the name of the file). <code class="docutils literal notranslate"><span class="pre">sys.path.append()</span></code> is used to add a specific path to the python file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dea_tools.plotting</span> <span class="kn">import</span> <span class="n">display_map</span><span class="p">,</span> <span class="n">rgb</span> <span class="c1">#this line allows us to use specific functions written in another script</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example, we will use <code class="docutils literal notranslate"><span class="pre">data</span></code> which contains scenes of the s2_l2a_bavaria product from December 2019 to Februray 2020.</p>
+</div>
+<div class="section" id="load-data">
+<h3>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s1">&#39;06_plotting&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">product</span><span class="o">=</span> <span class="s2">&quot;s2_l2a&quot;</span><span class="p">,</span>
+             <span class="n">x</span><span class="o">=</span> <span class="p">[</span><span class="mf">12.94</span> <span class="p">,</span><span class="mf">13.05</span><span class="p">],</span>
+             <span class="n">y</span><span class="o">=</span> <span class="p">[</span><span class="mf">53.88</span><span class="p">,</span><span class="mf">53.94</span><span class="p">],</span>
+             <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32632&quot;</span><span class="p">,</span>
+             <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2020-05-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-07-31&quot;</span><span class="p">),</span>
+             <span class="n">measurements</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;nir&quot;</span><span class="p">,</span> <span class="s2">&quot;swir_1&quot;</span><span class="p">,</span> <span class="s2">&quot;SCL&quot;</span><span class="p">],</span>
+             <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
+             <span class="n">group_by</span> <span class="o">=</span> <span class="s2">&quot;solar_day&quot;</span><span class="p">,</span>
+             <span class="n">progress_cbk</span><span class="o">=</span><span class="n">with_ui_cbk</span><span class="p">())</span>
+
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s have a look of our data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rgb-image">
+<h2><strong>RGB Image</strong><a class="headerlink" href="#rgb-image" title="Permalink to this headline">¶</a></h2>
+<p>To have a first view of our data, we can use the function <code class="docutils literal notranslate"><span class="pre">rgb()</span></code> defined in our written script DEAPlotting. It can be found under the folder Scripts where we do the import. rgb( ) can be used to plot different bands in the Data Variables in the red, blue, and green channels (in this order). If we input all three bands accordingly into the channels, it is called a <strong>true color composite</strong>, otherwise it is plotted as a <strong>false color composite</strong>.</p>
+<p>However, we have to pay attention that the function can only plot in two dimensions (longitude and latitude). Hence, we can only input data array from a single time stamp. Here, we plot only the first time stamp (time = [0]), with col=”time” argument we define the collapse of time dimension. We can look for the band name under Data Variables of the data set.</p>
+<div class="section" id="true-color-composite">
+<h3><strong>1) True Color Composite</strong><a class="headerlink" href="#true-color-composite" title="Permalink to this headline">¶</a></h3>
+<p>With True color composite we input all bands accordingly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="false-color-composite">
+<h3><strong>2) False Color Composite</strong><a class="headerlink" href="#false-color-composite" title="Permalink to this headline">¶</a></h3>
+<p>Here we visualize Land/Water composite. You can also try out <a class="reference external" href="https://gsp.humboldt.edu/OLM/Courses/GSP_216_Online/lesson3-1/composites.html">different combinations</a> which fit for different purposes.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nir&#39;</span><span class="p">,</span> <span class="s1">&#39;swir_1&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="histogram">
+<h2><strong>Histogram</strong><a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h2>
+<p>Besides, we can look at distribution of pixel values by plotting a histogram (i.e. using plot() for a multi-temporal xarray dataset). We can see most of the pixel reflectances lie between 400 and 1000.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1">#data[&#39;coastal_aerosol&#39;].plot(color=&#39;green&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="scatterplot">
+<h2><strong>Scatterplot</strong><a class="headerlink" href="#scatterplot" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlation of Red and Green bands&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="d-pcolormesh">
+<h2><strong>2D pcolormesh</strong><a class="headerlink" href="#d-pcolormesh" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="plotting-single-band">
+<h3><strong>1) Plotting Single Band</strong><a class="headerlink" href="#plotting-single-band" title="Permalink to this headline">¶</a></h3>
+<p>We can also directly plot single individual band using xarray functionality. Important to note that it only take one time stamp and one data variable by default. Here we plot coastal aerosol band with the plot function. A specific <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">colormap</a> can be added with the cmap argument and all ther functionality of matplotlib are also available. The argument robust can be used to remove outliners.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Red Band&quot;</span><span class="p">)</span> <span class="c1">#title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1">#remove excessive space in layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#show plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="facet-plot">
+<h3><strong>2) Facet Plot</strong><a class="headerlink" href="#facet-plot" title="Permalink to this headline">¶</a></h3>
+<p>We can plot facet plot with the col=”time” argument to show all time stamps. Note that plotting too many time stamps at once is not recommanded.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data.isel(time=[0,2,4,6,8,10]).green.plot()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="masking">
+<h3><strong>3) Masking</strong><a class="headerlink" href="#masking" title="Permalink to this headline">¶</a></h3>
+<p>We can also mask out area in the plot. The following code excludes the cloud area (scl = 9).</p>
+<img align="left" src="scl.png" style="width:250px;"><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combining masking in facet plot</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SCL</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="interactive-layout">
+<h3><strong>5) Interactive Layout</strong><a class="headerlink" href="#interactive-layout" title="Permalink to this headline">¶</a></h3>
+<p>Also, interative call of different scene is possible to explore around the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">eo2cube_tools.plot</span> <span class="kn">import</span> <span class="n">plot_band</span><span class="p">,</span> <span class="n">plot_rgb</span>
+
+<span class="n">plot_band</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1">#plot_band(data[[&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]].resample(time=&#39;2W&#39;).mean())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rgb</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="time-series-linechart">
+<h2><strong>Time Series Linechart</strong><a class="headerlink" href="#time-series-linechart" title="Permalink to this headline">¶</a></h2>
+<p>Xarray’s plotting capabilities are centered around DataArray objects, and its functionality is a thin wrapper around matplotlib. Hence, many Matplotlib functionalities, such as <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code>, can be easily called.</p>
+<p>To produce time series plot, we can reduce the dimensions of longitude and latitude with <code class="docutils literal notranslate"><span class="pre">mean(dim=[&quot;longitude&quot;,&quot;latitude&quot;])</span></code> so that we get a single value of the whole area for every single time stamps. The resulting array can be used to plot a linechart with <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>(plt) framework.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">masked</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SCL</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">week_data</span> <span class="o">=</span> <span class="n">masked</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ts_plot</span> <span class="o">=</span> <span class="n">week_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orangered&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#dimension reduction</span>
+<span class="n">ts_plot</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Temporal Dynamics of Green Band&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="c1">#define title with matplotlib</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Reflectance&quot;</span><span class="p">)</span> <span class="c1">#labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Date&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1">#remove excessive space in layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#display plot</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additional arguments can be passed directly to the matplotlib function. We can, for example, also plot histogram with the data array.</p>
+</div>
+<div class="section" id="using-pandas-and-seaborn">
+<h2><strong>Using Pandas and Seaborn</strong><a class="headerlink" href="#using-pandas-and-seaborn" title="Permalink to this headline">¶</a></h2>
+<p>In the plotting basics, we have learnt how to create graphics using xarray and pyplot. Yet, we can also utilize pandas and seaborn library with their more developed tools to improve the visuals of our plot. It requires more code but meanwhile gives more flexibility for plot customization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data.to_dataframe()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;swir_1&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1">#convert to pandas</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;spatial_ref&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#delete unneeded columns</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df2</span><span class="p">[[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;swir_1&quot;</span><span class="p">]])</span> <span class="c1">#pairplot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Correlation between SWIR and Green&quot;</span><span class="p">)</span> <span class="c1">#main title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax4</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span> <span class="c1">#violin plot</span>
+
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1">#needed to generate two y-tick labels</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span><span class="s1">&#39;SWIR 1&#39;</span><span class="p">])</span> <span class="c1">#List of y-tick labels</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="recommended-next-steps">
+<h2>Recommended next steps<a class="headerlink" href="#recommended-next-steps" title="Permalink to this headline">¶</a></h2>
+<p>To continue with the beginner’s guide, the following notebooks are designed to be worked through in the following order:</p>
+<ol class="simple">
+<li><p><span class="xref myst">Jupyter Notebooks</span></p></li>
+<li><p><span class="xref myst">eo2cube</span></p></li>
+<li><p><span class="xref myst">Products and Measurements</span></p></li>
+<li><p><span class="xref myst">Loading data</span></p></li>
+<li><p><span class="xref myst">Advanced xarrays operations</span></p></li>
+<li><p><strong>Plotting data (this notebook)</strong></p></li>
+<li><p><span class="xref myst">Basic analysis of remote sensing data</span></p></li>
+<li><p><span class="xref myst">Parallel processing with Dask</span></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
+<p>For users who are not familar with basics functionality and plottings of matplotlib, please check on the following external tutorial to learn about:</p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596">Short Introduction of Matplotlib</a></p></li>
+</ol>
+<ul class="simple">
+<li><p>Plotting options and parameters of Matplotlib</p></li>
+</ul>
+<ol class="simple">
+<li><p><a class="reference external" href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/">Introduction to Plotting in Python Using Matplotlib</a>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Introduction to pyplot module</p></li>
+<li><p>Customize Plots Using Matplotlib (Tick, Label, Title, Marker, Color, etc.)</p></li>
+</ul>
+<ol class="simple">
+<li><p>Working With Datetime Objects in Python</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/">Introduction to Datetime Object</a></p></li>
+<li><p><a class="reference external" href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/plot-time-series-data-in-python/">Customize Matplotlibe Dates Ticks on the x-axis in Python</a></p></li>
+</ul>
+<br>
+To continue working through the notebooks in this beginner's guide, the following notebooks are designed to be worked through in the following order:
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/01_jupyter_introduction.ipynb">Jupyter Notebooks</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/02_eo2cube_introduction.ipynb">eo2cube</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/03_data_lookup_and_loading.ipynb">Loading Data</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/04_xarrayI_data_structure.ipynb">Xarray I: Data Structure</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/05_xarrayII.ipynb">Xarray II: Index and Statistics</a></p></li>
+<li><p><em><strong>Plotting data (this notebook)</strong></em></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/07_basic_analysis.ipynb">Spatial analysis</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/08_parallel_processing_with_dask.ipynb">Parallel processing with Dask</a></p></li>
+</ol>
+<p>The additional notebooks are designed for users to build up both basic and advanced skills which are not covered by the beginner’s guide. Self-motivated users can go through them according to their own needs. They act as complements for the guide:
+<br></p>
+<ol class="simple">
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/I_file_management.ipynb">Python’s file management tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/II_numpy_image_processing.ipynb">Image Processing basics using NumPy and Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/III_process_vector_data.ipynb">Vector Processing</a></p></li>
+<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/IV_advanced_plotting.ipynb">Advanced Plotting</a></p></li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<p><font size="2">This notebook for the usage in the Open Data Cube entities of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>, is adapted from <a class="reference external" href="https://github.com/GeoscienceAustralia/dea-notebooks">Geoscience Australia</a>, published using the Apache License, Version 2.0. Thanks! </font></p>
+<p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
+Digital Earth Australia data is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons by Attribution 4.0</a> license.</p>
+<p><strong>Contact:</strong> If you would like to report an issue with this notebook, you can file one on <a class="reference external" href="https://github.com">Github</a>.</p>
+<p><strong>Last modified:</strong> February 2021</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./notebooks/beginners_guide"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03_xarrayII.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Advanced Xarray</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="05_basic_analysis.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Basic Spatial Analysis</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By eo2cube community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
