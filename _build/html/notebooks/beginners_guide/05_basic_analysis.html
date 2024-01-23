@@ -1,350 +1,409 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basic Spatial Analysis &#8212; eo2cube documentation</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Basic Spatial Analysis &#8212; eo2cube training material</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-      
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/beginners_guide/05_basic_analysis';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Parallel processing with Dask" href="06_parallel_processing_with_dask.html" />
     <link rel="prev" title="Plotting data" href="04_plotting_basics.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">eo2cube documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Welcome to the eo2cube documentation
-  </a>
- </li>
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="eo2cube training material - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="eo2cube training material - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to the eo2cube documentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../markdown/introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../markdown/beginners_guide.html">Welcome to the Beginners Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_data_lookup_and_loading.html">Data Lookup and Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_xarrayI_data_structure.html">Xarray-I: Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_xarrayII.html">Advanced Xarray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_plotting_basics.html">Plotting data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic Spatial Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_parallel_processing_with_dask.html">Parallel processing with Dask</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../markdown/introduction.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../../markdown/beginners_guide.html">
-   Welcome to the Beginners Guide
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_data_lookup_and_loading.html">
-     Data Lookup and Loading
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_xarrayI_data_structure.html">
-     Xarray-I: Data Structure
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_xarrayII.html">
-     Advanced Xarray
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_plotting_basics.html">
-     Plotting data
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Basic Spatial Analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_parallel_processing_with_dask.html">
-     Parallel processing with Dask
-    </a>
-   </li>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/eo2cube/eo2cube_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/eo2cube/eo2cube_book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/05_basic_analysis.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/beginners_guide/05_basic_analysis.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic Spatial Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/beginners_guide/05_basic_analysis.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://eo2cube_documentation/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://eo2cube_documentation//issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/05_basic_analysis.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#description">
-   Description
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-datasets">
-     Load Datasets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-area-of-interest">
-   Load Area of interest
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-selected-remote-sensing-indices">
-     Calculate selected Remote Sensing Indices
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-cloud-free-images">
-     Loading cloud free images
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recommended-next-steps">
-   Recommended next steps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-information">
-   Additional information
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">Load Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-seasonal-median">Calculating Seasonal Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-selected-remote-sensing-indices">Calculate selected Remote Sensing Indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clip-dataset-by-spatial-vector">Clip Dataset by Spatial Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-time-series">Plot Time Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-zonal-statistics-of-time-series">Plot Zonal Statistics of Time Series</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional information</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Basic Spatial Analysis</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#description">
-   Description
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-datasets">
-     Load Datasets
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-area-of-interest">
-   Load Area of interest
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#calculate-selected-remote-sensing-indices">
-     Calculate selected Remote Sensing Indices
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#loading-cloud-free-images">
-     Loading cloud free images
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recommended-next-steps">
-   Recommended next steps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-information">
-   Additional information
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <img align="right" src="images/banner_siegel.png" style="width:1000px;"><div class="tex2jax_ignore mathjax_ignore section" id="basic-spatial-analysis">
-<h1>Basic Spatial Analysis<a class="headerlink" href="#basic-spatial-analysis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>In this notebook, we would present our readers a sample workflow of spatial data processing using spatial vector data and datasets in DataCube. Our aim in this notebook is to get a time series of some remote sensing indices and plot them.</p>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <img align="right" src="images/banner_siegel.png" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="basic-spatial-analysis">
+<h1>Basic Spatial Analysis<a class="headerlink" href="#basic-spatial-analysis" title="Permalink to this heading">#</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<p>This notebook presents a sample workflow of spatial data processing using spatial vector data and datasets in DataCube. Our aim in this notebook is to get a time series of some remote sensing indices and plot them</p>
+<p>The workflow is depicted as follows:<br></p>
+<p><img alt="nb07_workflow" src="https://live.staticflickr.com/65535/51147162605_bfbd74f2c5_o.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datacube</span>
@@ -355,10 +414,9 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">odc.algo</span>
 
 <span class="c1"># Set config for displaying tables nicely</span>
-<span class="c1"># !! USEFUL !! otherwise parts of longer infos won&#39;t be displayed in tables</span>
+<span class="c1"># !! OTHERWISE !! parts of longer infos won&#39;t be displayed in tables</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_colwidth&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
@@ -370,253 +428,1231 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/wascal/anaconda3/lib/python3.8/site-packages/geopandas/_compat.py:111: UserWarning: The Shapely GEOS version (3.8.0-CAPI-1.13.1 ) is incompatible with the GEOS version PyGEOS was compiled with (3.9.1-CAPI-1.14.2). Conversions between both will be slow.
-  warnings.warn(
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">fd0656e44898</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">odc.algo</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> 
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Set config for displaying tables nicely</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">datacube</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;odc&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;datacube&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="load-datasets">
-<h3>Load Datasets<a class="headerlink" href="#load-datasets" title="Permalink to this headline">¶</a></h3>
-<p>Now, we load the data with <code class="docutils literal notranslate"><span class="pre">dc.load()</span></code> using the calculated x and y ranges.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span><span class="o">.</span><span class="n">list_products</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">product</span> <span class="o">=</span> <span class="s2">&quot;s2_l2a&quot;</span>
-<span class="n">measurements</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">list_measurements</span><span class="p">()</span>
-<span class="n">measurements</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">product</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="load-area-of-interest">
-<h2>Load Area of interest<a class="headerlink" href="#load-area-of-interest" title="Permalink to this headline">¶</a></h2>
-<p>First of all we have will load our region of interest</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_fields</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;../sample_data/sample_fields.shp&#39;</span><span class="p">)</span>
-<span class="n">sample_fields</span> <span class="o">=</span> <span class="n">sample_fields</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">&quot;EPSG:4326&quot;</span><span class="p">)</span>
-<span class="n">sample_fields</span><span class="o">.</span><span class="n">explore</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next we extract the bounding box of our shapefile</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">sample_fields</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="c1"># extract longitude extents</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">sample_fields</span><span class="o">.</span><span class="n">total_bounds</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span> <span class="c1"># extract latitude extents</span>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;longitude_extents &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;latitude_extents &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-</pre></div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>description</th>
+      <th>license</th>
+      <th>default_crs</th>
+      <th>default_resolution</th>
+    </tr>
+    <tr>
+      <th>name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cop_dem_glo_30</th>
+      <td>cop_dem_glo_30</td>
+      <td>Copernicus DEM 30 m</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>landsat_etm_c2_l2</th>
+      <td>landsat_etm_c2_l2</td>
+      <td>Landsat Level 2 Collection 2 data acquired by the Enhanced Thematic Mapper onboard Landsat 7</td>
+      <td>CC-BY-4.0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>landsat_ot_c2_l2</th>
+      <td>landsat_ot_c2_l2</td>
+      <td>Landsat Level 2 Collection 2 data acquired by the Operational Land Imager and Thermal Infrared Sensor onboard Landsat 8 and 9</td>
+      <td>CC-BY-4.0</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>meteo_demmin</th>
+      <td>meteo_demmin</td>
+      <td>Meteorological parameters for the Agrisens Project</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>s2_c1_l2a</th>
+      <td>s2_c1_l2a</td>
+      <td>The Sentinel-2 program provides global imagery in thirteen spectral bands at 10m-60m resolution and a revisit time of approximately five days. This dataset represents the global Sentinel-2 archive...</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>s2_l2a</th>
+      <td>s2_l2a</td>
+      <td>Sentinel-2a and Sentinel-2b imagery, processed to Level 2A (Surface Reflectance) and converted to Cloud Optimized GeoTIFFs</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>s2_vi</th>
+      <td>s2_vi</td>
+      <td>Vegetation indices derived from Sentinel-2A/B</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>sentinel1_coherence</th>
+      <td>sentinel1_coherence</td>
+      <td>Sentinel-1A/B SAR Coherence</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>sentinel1_h2a</th>
+      <td>sentinel1_h2a</td>
+      <td>Sentinel-1A/B SAR Dual-polarimetric decomposition scenes</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>sentinel1_intensity</th>
+      <td>sentinel1_intensity</td>
+      <td>Sentinel 1 Gamma0 normalised radar backscatter</td>
+      <td>None</td>
+      <td>None</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</div>
-</div>
-<p>Now we are ready to load our Sentinel-2 datasets for our RoI</p>
+<section id="load-datasets">
+<h3>Load Datasets<a class="headerlink" href="#load-datasets" title="Permalink to this heading">#</a></h3>
+<p>Now, we load the data with <code class="docutils literal notranslate"><span class="pre">dc.load()</span></code> using the calculated x and y ranges.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load Data</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">product</span><span class="o">=</span> <span class="s2">&quot;s2_l2a&quot;</span><span class="p">,</span>
-                  <span class="n">x</span><span class="o">=</span> <span class="n">x</span><span class="p">,</span>
-                  <span class="n">y</span><span class="o">=</span> <span class="n">y</span><span class="p">,</span>
-                  <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-05-31&quot;</span><span class="p">),</span> <span class="c1"># specifiy time_extent</span>
-                  <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32632&quot;</span><span class="p">,</span>
-                  <span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;nir_1&quot;</span><span class="p">],</span>
-                  <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
-                  <span class="n">group_by</span> <span class="o">=</span> <span class="s2">&quot;solar_day&quot;</span><span class="p">,</span> 
-                  <span class="c1">#data_coverage = 100,</span>
-                  <span class="n">progress_cbk</span><span class="o">=</span><span class="n">with_ui_cbk</span><span class="p">())</span><span class="c1"># shows progress with loading bar</span>
-<span class="n">ds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s have a look at the different images</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dea_tools.plotting</span> <span class="kn">import</span> <span class="n">rgb</span>
-
-<span class="n">rgb</span><span class="p">(</span><span class="n">ds</span> <span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span> <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;nir_1&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="calculate-selected-remote-sensing-indices">
-<h3>Calculate selected Remote Sensing Indices<a class="headerlink" href="#calculate-selected-remote-sensing-indices" title="Permalink to this headline">¶</a></h3>
-<p>Let us now calculate the NDVI. When we look at our dataset again we can see that the red and the green band are stored in uint16. In order to calculate the NDVI properly we first have to convert these into float.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span>  <span class="n">odc</span><span class="o">.</span><span class="n">algo</span><span class="o">.</span><span class="n">to_f32</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can apply the function and write back the results to the xarray dataset</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;ndvi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">nir_1</span> <span class="o">-</span> <span class="n">ds</span><span class="o">.</span><span class="n">red</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">nir_1</span> <span class="o">+</span> <span class="n">ds</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
-<span class="n">ds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">ndvi</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>At the end we can just aggregate the NDVI for each time step and create a time series plot</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">ndvi</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="s1">&#39;b-^&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="loading-cloud-free-images">
-<h3>Loading cloud free images<a class="headerlink" href="#loading-cloud-free-images" title="Permalink to this headline">¶</a></h3>
-<p>In the example above we have seen that we have a lot of clouds in our Sentinel-2 scenes. In most cases we want to avoid cloud pixels in our analysis. In order to exclude clouds from our data beforehand we can use the load_ard function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deafrica_tools.datahandling</span> <span class="kn">import</span> <span class="n">load_ard</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">load_ard</span><span class="p">(</span><span class="n">dc</span><span class="o">=</span><span class="n">dc</span><span class="p">,</span>
-            <span class="n">products</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;s2_l2a&#39;</span><span class="p">],</span>
-            <span class="n">x</span><span class="o">=</span> <span class="n">x</span><span class="p">,</span>
-            <span class="n">y</span><span class="o">=</span> <span class="n">y</span><span class="p">,</span>
-            <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-12-31&quot;</span><span class="p">),</span> <span class="c1"># specifiy time_extent</span>
-            <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32632&quot;</span><span class="p">,</span>
-            <span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;nir_1&#39;</span><span class="p">],</span>
-            <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+            <span class="n">product</span><span class="o">=</span> <span class="s2">&quot;s2_c1_l2a&quot;</span><span class="p">,</span>
+            <span class="n">x</span><span class="o">=</span> <span class="p">(</span><span class="mf">9.96</span> <span class="p">,</span><span class="mf">10.0</span><span class="p">),</span>
+             <span class="n">y</span><span class="o">=</span> <span class="p">(</span><span class="mf">49.75</span><span class="p">,</span> <span class="mf">49.78</span><span class="p">),</span>
+             <span class="n">time</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2021-01-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2021-12-31&quot;</span><span class="p">),</span>
+             <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32734&quot;</span><span class="p">,</span>
+            <span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;nir&quot;</span><span class="p">,</span><span class="s2">&quot;nir08&quot;</span><span class="p">,</span><span class="s2">&quot;rededge2&quot;</span><span class="p">,</span> <span class="s2">&quot;scl&quot;</span><span class="p">],</span>
+            <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span>
             <span class="n">group_by</span> <span class="o">=</span> <span class="s2">&quot;solar_day&quot;</span><span class="p">,</span>
-            <span class="n">mask_pixel_quality</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">data_coverage</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-            <span class="n">min_gooddata</span><span class="o">=</span><span class="mf">0.90</span><span class="p">,</span>    
-             <span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">ds</span> <span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;nir_1&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>This time we will use the calculate_indices function. This function allows us to calculate multiple predefined band indices.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">deafrica_tools.bandindices</span> <span class="kn">import</span> <span class="n">calculate_indices</span>
+            <span class="n">progress_cbk</span><span class="o">=</span><span class="n">with_ui_cbk</span><span class="p">())</span>
 
-<span class="n">ds</span> <span class="o">=</span> <span class="n">calculate_indices</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NDVI&#39;</span><span class="p">,</span><span class="s1">&#39;EVI&#39;</span><span class="p">,</span><span class="s1">&#39;SAVI&#39;</span><span class="p">],</span> <span class="n">collection</span><span class="o">=</span><span class="s1">&#39;s2&#39;</span><span class="p">)</span>
+<span class="n">ds</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "822ceda72c50482bbc885b2ca71e12ce", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:      (time: 145, y: 126, x: 113)
+Coordinates:
+  * time         (time) datetime64[ns] 2021-01-01T10:23:29.024000 ... 2021-12...
+  * y            (y) float64 1.557e+07 1.557e+07 ... 1.557e+07 1.557e+07
+  * x            (x) float64 -2.945e+05 -2.944e+05 ... -2.911e+05 -2.911e+05
+    spatial_ref  int32 32734
+Data variables:
+    red          (time, y, x) uint16 4887 4954 4890 4468 ... 7165 6925 6878 6860
+    green        (time, y, x) uint16 4874 4766 4711 4563 ... 6893 6583 6533 6593
+    blue         (time, y, x) uint16 5085 4936 4923 4900 ... 6628 6390 6410 6426
+    nir          (time, y, x) uint16 5180 5036 4900 4754 ... 7347 7151 7132 7168
+    nir08        (time, y, x) uint16 4827 4773 4625 4491 ... 7541 7500 7136 7161
+    rededge2     (time, y, x) uint16 4771 4629 4693 4515 ... 7009 6865 6624 6693
+    scl          (time, y, x) uint8 9 9 9 9 9 9 9 9 9 9 ... 9 9 9 9 9 9 9 9 9 9
+Attributes:
+    crs:           EPSG:32734
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-850b42ab-3547-4d02-a796-e58018916317' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-850b42ab-3547-4d02-a796-e58018916317' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 145</li><li><span class='xr-has-index'>y</span>: 126</li><li><span class='xr-has-index'>x</span>: 113</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7a4edc2b-b0a7-42c3-a6af-20ad39e078f6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7a4edc2b-b0a7-42c3-a6af-20ad39e078f6' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-01-01T10:23:29.024000 ... 2...</div><input id='attrs-da0097c9-c0f8-46b3-bc73-d8a6d3e13591' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-da0097c9-c0f8-46b3-bc73-d8a6d3e13591' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d03f6941-b1a0-4ec5-a36d-0c0a77b3427d' class='xr-var-data-in' type='checkbox'><label for='data-d03f6941-b1a0-4ec5-a36d-0c0a77b3427d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-01-01T10:23:29.024000000&#x27;, &#x27;2021-01-04T10:33:29.024000000&#x27;,
+       &#x27;2021-01-06T10:24:11.024000000&#x27;, &#x27;2021-01-09T10:34:21.024000000&#x27;,
+       &#x27;2021-01-11T10:23:09.024000000&#x27;, &#x27;2021-01-14T10:33:09.024000000&#x27;,
+       &#x27;2021-01-16T10:23:51.024000000&#x27;, &#x27;2021-01-19T10:33:51.024000000&#x27;,
+       &#x27;2021-01-21T10:22:39.024000000&#x27;, &#x27;2021-01-24T10:32:29.024000000&#x27;,
+       &#x27;2021-01-26T10:23:11.024000000&#x27;, &#x27;2021-01-29T10:33:01.024000000&#x27;,
+       &#x27;2021-01-31T10:21:49.024000000&#x27;, &#x27;2021-02-03T10:31:39.024000000&#x27;,
+       &#x27;2021-02-05T10:22:21.024000000&#x27;, &#x27;2021-02-08T10:32:01.024000000&#x27;,
+       &#x27;2021-02-10T10:20:49.025000000&#x27;, &#x27;2021-02-13T10:30:39.024000000&#x27;,
+       &#x27;2021-02-15T10:21:21.024000000&#x27;, &#x27;2021-02-18T10:31:01.024000000&#x27;,
+       &#x27;2021-02-20T10:19:39.024000000&#x27;, &#x27;2021-02-23T10:29:29.024000000&#x27;,
+       &#x27;2021-02-25T10:20:21.024000000&#x27;, &#x27;2021-02-28T10:30:21.024000000&#x27;,
+       &#x27;2021-03-02T10:18:39.025000000&#x27;, &#x27;2021-03-05T10:28:09.024000000&#x27;,
+       &#x27;2021-03-07T10:20:21.024000000&#x27;, &#x27;2021-03-10T10:30:21.024000000&#x27;,
+       &#x27;2021-03-12T10:17:29.024000000&#x27;, &#x27;2021-03-15T10:27:09.024000000&#x27;,
+       &#x27;2021-03-17T10:20:21.024000000&#x27;, &#x27;2021-03-20T10:30:21.024000000&#x27;,
+       &#x27;2021-03-22T10:16:49.024000000&#x27;, &#x27;2021-03-25T10:26:39.024000000&#x27;,
+       &#x27;2021-03-27T10:20:21.024000000&#x27;, &#x27;2021-03-30T10:30:21.024000000&#x27;,
+       &#x27;2021-04-01T10:15:59.024000000&#x27;, &#x27;2021-04-04T10:25:59.024000000&#x27;,
+       &#x27;2021-04-06T10:20:21.025000000&#x27;, &#x27;2021-04-09T10:30:21.024000000&#x27;,
+       &#x27;2021-04-11T10:15:59.024000000&#x27;, &#x27;2021-04-14T10:25:59.024000000&#x27;,
+       &#x27;2021-04-16T10:20:21.024000000&#x27;, &#x27;2021-04-19T10:30:21.024000000&#x27;,
+       &#x27;2021-04-21T10:15:49.024000000&#x27;, &#x27;2021-04-24T10:25:49.024000000&#x27;,
+       &#x27;2021-04-26T10:20:21.024000000&#x27;, &#x27;2021-04-29T10:30:21.024000000&#x27;,
+       &#x27;2021-05-01T10:15:59.024000000&#x27;, &#x27;2021-05-04T10:25:59.025000000&#x27;,
+       &#x27;2021-05-06T10:20:21.024000000&#x27;, &#x27;2021-05-09T10:30:21.024000000&#x27;,
+       &#x27;2021-05-11T10:15:59.024000000&#x27;, &#x27;2021-05-14T10:25:59.025000000&#x27;,
+       &#x27;2021-05-19T10:30:21.024000000&#x27;, &#x27;2021-05-21T10:15:59.024000000&#x27;,
+       &#x27;2021-05-24T10:25:59.024000000&#x27;, &#x27;2021-05-26T10:20:21.024000000&#x27;,
+       &#x27;2021-05-29T10:30:21.024000000&#x27;, &#x27;2021-05-31T10:15:59.024000000&#x27;,
+       &#x27;2021-06-03T10:25:59.024000000&#x27;, &#x27;2021-06-05T10:20:21.024000000&#x27;,
+       &#x27;2021-06-08T10:30:21.024000000&#x27;, &#x27;2021-06-10T10:15:59.024000000&#x27;,
+       &#x27;2021-06-13T10:25:59.024000000&#x27;, &#x27;2021-06-15T10:20:21.024000000&#x27;,
+       &#x27;2021-06-18T10:30:21.024000000&#x27;, &#x27;2021-06-20T10:15:59.024000000&#x27;,
+       &#x27;2021-06-23T10:25:59.024000000&#x27;, &#x27;2021-06-25T10:20:21.024000000&#x27;,
+       &#x27;2021-06-28T10:30:21.024000000&#x27;, &#x27;2021-06-30T10:15:59.024000000&#x27;,
+       &#x27;2021-07-03T10:25:59.024000000&#x27;, &#x27;2021-07-05T10:20:31.024000000&#x27;,
+       &#x27;2021-07-08T10:30:31.024000000&#x27;, &#x27;2021-07-10T10:15:59.024000000&#x27;,
+       &#x27;2021-07-13T10:25:59.024000000&#x27;, &#x27;2021-07-15T10:20:31.025000000&#x27;,
+       &#x27;2021-07-18T10:30:31.024000000&#x27;, &#x27;2021-07-20T10:15:59.024000000&#x27;,
+       &#x27;2021-07-23T10:25:59.024000000&#x27;, &#x27;2021-07-25T10:20:31.024000000&#x27;,
+       &#x27;2021-07-28T10:30:31.024000000&#x27;, &#x27;2021-07-30T10:15:59.024000000&#x27;,
+       &#x27;2021-08-02T10:25:59.024000000&#x27;, &#x27;2021-08-04T10:20:31.024000000&#x27;,
+       &#x27;2021-08-07T10:30:31.024000000&#x27;, &#x27;2021-08-09T10:15:59.024000000&#x27;,
+       &#x27;2021-08-12T10:25:59.025000000&#x27;, &#x27;2021-08-14T10:20:31.024000000&#x27;,
+       &#x27;2021-08-17T10:30:21.024000000&#x27;, &#x27;2021-08-19T10:15:59.024000000&#x27;,
+       &#x27;2021-08-22T10:25:59.024000000&#x27;, &#x27;2021-08-24T10:20:31.024000000&#x27;,
+       &#x27;2021-08-27T10:30:21.024000000&#x27;, &#x27;2021-08-29T10:15:59.024000000&#x27;,
+       &#x27;2021-09-01T10:25:59.024000000&#x27;, &#x27;2021-09-03T10:20:21.024000000&#x27;,
+       &#x27;2021-09-06T10:30:21.024000000&#x27;, &#x27;2021-09-08T10:15:59.025000000&#x27;,
+       &#x27;2021-09-11T10:25:59.024000000&#x27;, &#x27;2021-09-13T10:20:21.025000000&#x27;,
+       &#x27;2021-09-16T10:30:21.024000000&#x27;, &#x27;2021-09-18T10:16:39.024000000&#x27;,
+       &#x27;2021-09-21T10:26:39.024000000&#x27;, &#x27;2021-09-23T10:20:31.025000000&#x27;,
+       &#x27;2021-09-26T10:30:31.024000000&#x27;, &#x27;2021-09-28T10:17:19.024000000&#x27;,
+       &#x27;2021-10-01T10:27:39.024000000&#x27;, &#x27;2021-10-03T10:18:51.024000000&#x27;,
+       &#x27;2021-10-06T10:29:21.024000000&#x27;, &#x27;2021-10-08T10:18:29.024000000&#x27;,
+       &#x27;2021-10-11T10:28:49.024000000&#x27;, &#x27;2021-10-13T10:19:51.024000000&#x27;,
+       &#x27;2021-10-16T10:30:31.025000000&#x27;, &#x27;2021-10-18T10:19:39.024000000&#x27;,
+       &#x27;2021-10-21T10:29:59.024000000&#x27;, &#x27;2021-10-23T10:21:01.024000000&#x27;,
+       &#x27;2021-10-26T10:31:31.024000000&#x27;, &#x27;2021-10-28T10:20:39.024000000&#x27;,
+       &#x27;2021-10-31T10:30:59.024000000&#x27;, &#x27;2021-11-02T10:22:01.024000000&#x27;,
+       &#x27;2021-11-05T10:32:21.024000000&#x27;, &#x27;2021-11-07T10:21:29.024000000&#x27;,
+       &#x27;2021-11-10T10:31:49.024000000&#x27;, &#x27;2021-11-12T10:22:51.024000000&#x27;,
+       &#x27;2021-11-15T10:33:11.024000000&#x27;, &#x27;2021-11-17T10:22:19.024000000&#x27;,
+       &#x27;2021-11-20T10:32:39.024000000&#x27;, &#x27;2021-11-22T10:23:31.024000000&#x27;,
+       &#x27;2021-11-25T10:33:51.024000000&#x27;, &#x27;2021-11-27T10:22:59.024000000&#x27;,
+       &#x27;2021-11-30T10:33:09.024000000&#x27;, &#x27;2021-12-02T10:24:01.024000000&#x27;,
+       &#x27;2021-12-05T10:34:21.024000000&#x27;, &#x27;2021-12-07T10:23:19.025000000&#x27;,
+       &#x27;2021-12-10T10:33:29.024000000&#x27;, &#x27;2021-12-12T10:24:31.024000000&#x27;,
+       &#x27;2021-12-15T10:34:41.024000000&#x27;, &#x27;2021-12-17T10:23:29.024000000&#x27;,
+       &#x27;2021-12-20T10:33:39.024000000&#x27;, &#x27;2021-12-22T10:24:41.024000000&#x27;,
+       &#x27;2021-12-25T10:34:41.024000000&#x27;, &#x27;2021-12-27T10:23:39.024000000&#x27;,
+       &#x27;2021-12-30T10:33:39.024000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.557e+07 1.557e+07 ... 1.557e+07</div><input id='attrs-7663f0cc-40fd-41f1-b8b6-e9d5daf43bf5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7663f0cc-40fd-41f1-b8b6-e9d5daf43bf5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d4522d6-e1c6-440c-b509-187d9bedb8cd' class='xr-var-data-in' type='checkbox'><label for='data-0d4522d6-e1c6-440c-b509-187d9bedb8cd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15572925., 15572895., 15572865., 15572835., 15572805., 15572775.,
+       15572745., 15572715., 15572685., 15572655., 15572625., 15572595.,
+       15572565., 15572535., 15572505., 15572475., 15572445., 15572415.,
+       15572385., 15572355., 15572325., 15572295., 15572265., 15572235.,
+       15572205., 15572175., 15572145., 15572115., 15572085., 15572055.,
+       15572025., 15571995., 15571965., 15571935., 15571905., 15571875.,
+       15571845., 15571815., 15571785., 15571755., 15571725., 15571695.,
+       15571665., 15571635., 15571605., 15571575., 15571545., 15571515.,
+       15571485., 15571455., 15571425., 15571395., 15571365., 15571335.,
+       15571305., 15571275., 15571245., 15571215., 15571185., 15571155.,
+       15571125., 15571095., 15571065., 15571035., 15571005., 15570975.,
+       15570945., 15570915., 15570885., 15570855., 15570825., 15570795.,
+       15570765., 15570735., 15570705., 15570675., 15570645., 15570615.,
+       15570585., 15570555., 15570525., 15570495., 15570465., 15570435.,
+       15570405., 15570375., 15570345., 15570315., 15570285., 15570255.,
+       15570225., 15570195., 15570165., 15570135., 15570105., 15570075.,
+       15570045., 15570015., 15569985., 15569955., 15569925., 15569895.,
+       15569865., 15569835., 15569805., 15569775., 15569745., 15569715.,
+       15569685., 15569655., 15569625., 15569595., 15569565., 15569535.,
+       15569505., 15569475., 15569445., 15569415., 15569385., 15569355.,
+       15569325., 15569295., 15569265., 15569235., 15569205., 15569175.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-2.945e+05 ... -2.911e+05</div><input id='attrs-8692d54e-2e18-40d7-a126-91a1ef473ca8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8692d54e-2e18-40d7-a126-91a1ef473ca8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fb2067a1-bdfc-4752-8dcf-fd7b4f6e8f6d' class='xr-var-data-in' type='checkbox'><label for='data-fb2067a1-bdfc-4752-8dcf-fd7b4f6e8f6d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-294465., -294435., -294405., -294375., -294345., -294315., -294285.,
+       -294255., -294225., -294195., -294165., -294135., -294105., -294075.,
+       -294045., -294015., -293985., -293955., -293925., -293895., -293865.,
+       -293835., -293805., -293775., -293745., -293715., -293685., -293655.,
+       -293625., -293595., -293565., -293535., -293505., -293475., -293445.,
+       -293415., -293385., -293355., -293325., -293295., -293265., -293235.,
+       -293205., -293175., -293145., -293115., -293085., -293055., -293025.,
+       -292995., -292965., -292935., -292905., -292875., -292845., -292815.,
+       -292785., -292755., -292725., -292695., -292665., -292635., -292605.,
+       -292575., -292545., -292515., -292485., -292455., -292425., -292395.,
+       -292365., -292335., -292305., -292275., -292245., -292215., -292185.,
+       -292155., -292125., -292095., -292065., -292035., -292005., -291975.,
+       -291945., -291915., -291885., -291855., -291825., -291795., -291765.,
+       -291735., -291705., -291675., -291645., -291615., -291585., -291555.,
+       -291525., -291495., -291465., -291435., -291405., -291375., -291345.,
+       -291315., -291285., -291255., -291225., -291195., -291165., -291135.,
+       -291105.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-6af51eb2-8b6d-4d2b-b4d2-bb3bff9445b3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6af51eb2-8b6d-4d2b-b4d2-bb3bff9445b3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ec680c50-3309-449c-be48-53d4ac9eabaa' class='xr-var-data-in' type='checkbox'><label for='data-ec680c50-3309-449c-be48-53d4ac9eabaa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fb96a496-854a-4cf0-beef-7ce8d498edd1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fb96a496-854a-4cf0-beef-7ce8d498edd1' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>4887 4954 4890 ... 6925 6878 6860</div><input id='attrs-e762dfc1-14e7-4c61-99c3-46d2202dfa1d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e762dfc1-14e7-4c61-99c3-46d2202dfa1d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-06fb2836-c0e3-42a4-9510-0bb1acfcb305' class='xr-var-data-in' type='checkbox'><label for='data-06fb2836-c0e3-42a4-9510-0bb1acfcb305' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 4887,  4954,  4890, ...,  6504,  6009,  6113],
+        [ 4493,  4408,  4633, ...,  6512,  6495,  6378],
+        [ 4777,  4961,  4709, ...,  6149,  6547,  6484],
+        ...,
+        [ 3957,  3755,  3768, ...,  6896,  7227,  7199],
+        [ 3406,  3901,  3539, ...,  7647,  7691,  7775],
+        [ 3515,  3602,  3684, ...,  8325,  8180,  8193]],
+
+       [[ 9529, 10187,  9935, ...,  9373,  9516,  9225],
+        [ 9182,  9625,  9927, ...,  9355,  8932,  8969],
+        [ 8491,  9302,  9805, ...,  9201,  8851,  8864],
+        ...,
+        [ 8301,  8189,  8078, ...,  9076,  9030,  8905],
+        [ 7595,  7553,  7641, ...,  9440,  9253,  9045],
+        [ 7603,  7447,  7535, ...,  9400,  9205,  9044]],
+
+       [[ 4262,  4199,  4215, ...,  4582,  4408,  4349],
+        [ 4341,  4394,  4316, ...,  4654,  4633,  4606],
+        [ 4215,  4333,  4286, ...,  4779,  4768,  4760],
+        ...,
+...
+        ...,
+        [ 6337,  6169,  6185, ...,  5960,  6011,  5552],
+        [ 6406,  6587,  6474, ...,  5988,  5860,  5614],
+        [ 6769,  7030,  7379, ...,  5825,  5818,  5884]],
+
+       [[ 5998,  6650,  6750, ...,  4955,  4933,  4519],
+        [ 5527,  5643,  5691, ...,  4813,  4777,  4637],
+        [ 5998,  5613,  5869, ...,  4636,  4731,  4776],
+        ...,
+        [ 4268,  4224,  4252, ...,  3114,  2983,  2980],
+        [ 4291,  4401,  4397, ...,  2218,  2390,  2423],
+        [ 4367,  4561,  4666, ...,  1933,  1955,  2511]],
+
+       [[ 7216,  7219,  7057, ...,  7753,  7568,  7492],
+        [ 7237,  7130,  6965, ...,  7736,  7485,  7380],
+        [ 7180,  7254,  7169, ...,  7739,  7455,  7404],
+        ...,
+        [ 7908,  7931,  7871, ...,  6827,  6639,  6677],
+        [ 7791,  7863,  7675, ...,  7051,  6710,  6667],
+        [ 7809,  7789,  7636, ...,  6925,  6878,  6860]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>4874 4766 4711 ... 6583 6533 6593</div><input id='attrs-31b9f4e6-c47c-4f92-89e3-b00d38e2f9bc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-31b9f4e6-c47c-4f92-89e3-b00d38e2f9bc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-05d50295-f4ea-4541-84b2-f29525568beb' class='xr-var-data-in' type='checkbox'><label for='data-05d50295-f4ea-4541-84b2-f29525568beb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 4874,  4766,  4711, ...,  6358,  6073,  6050],
+        [ 4378,  4567,  4828, ...,  6316,  6355,  6353],
+        [ 4649,  5052,  4792, ...,  5882,  6367,  6247],
+        ...,
+        [ 4024,  3994,  3804, ...,  6800,  7113,  7307],
+        [ 3521,  3942,  3612, ...,  7633,  7758,  7778],
+        [ 3735,  3702,  3814, ...,  8062,  7891,  7885]],
+
+       [[ 9537, 10168,  9804, ...,  9256,  9399,  9262],
+        [ 9165,  9572,  9747, ...,  9400,  8910,  8994],
+        [ 8575,  9248,  9734, ...,  9313,  8916,  8872],
+        ...,
+        [ 8549,  8506,  8303, ...,  9005,  9075,  9027],
+        [ 7814,  7732,  7840, ...,  9428,  9117,  9095],
+        [ 7737,  7591,  7630, ...,  9353,  9150,  8954]],
+
+       [[ 4124,  4006,  4032, ...,  4433,  4305,  4277],
+        [ 4181,  4231,  4151, ...,  4527,  4503,  4494],
+        [ 4107,  4185,  4196, ...,  4652,  4640,  4611],
+        ...,
+...
+        ...,
+        [ 6321,  6108,  6105, ...,  6058,  5854,  5573],
+        [ 6300,  6441,  6371, ...,  5968,  5778,  5557],
+        [ 6656,  6864,  7250, ...,  5810,  5798,  5825]],
+
+       [[ 5748,  6336,  6534, ...,  5037,  5025,  4637],
+        [ 5673,  5628,  5524, ...,  4771,  4840,  4809],
+        [ 6178,  5763,  5742, ...,  4712,  4831,  4898],
+        ...,
+        [ 4406,  4454,  4456, ...,  3129,  2954,  3055],
+        [ 4497,  4550,  4639, ...,  2382,  2505,  2572],
+        [ 4639,  4703,  4889, ...,  2028,  2045,  2555]],
+
+       [[ 7080,  6974,  6832, ...,  7381,  7223,  7087],
+        [ 7022,  6846,  6780, ...,  7363,  7180,  7053],
+        [ 6977,  6815,  6931, ...,  7393,  7186,  7058],
+        ...,
+        [ 7556,  7489,  7435, ...,  6481,  6346,  6392],
+        [ 7462,  7449,  7292, ...,  6596,  6406,  6376],
+        [ 7465,  7382,  7160, ...,  6583,  6533,  6593]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>5085 4936 4923 ... 6390 6410 6426</div><input id='attrs-4ae0f80c-1b3d-4084-aa2d-8d96484c6f10' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4ae0f80c-1b3d-4084-aa2d-8d96484c6f10' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-832f2a61-cd47-41c4-a8b3-beb42f97cfe6' class='xr-var-data-in' type='checkbox'><label for='data-832f2a61-cd47-41c4-a8b3-beb42f97cfe6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 5085,  4936,  4923, ...,  6602,  6363,  6255],
+        [ 4473,  5033,  5210, ...,  6457,  6553,  6555],
+        [ 4832,  5356,  5141, ...,  5906,  6514,  6327],
+        ...,
+        [ 4382,  4401,  4183, ...,  7194,  7527,  7778],
+        [ 3915,  4254,  3962, ...,  8049,  8186,  8259],
+        [ 4209,  4094,  4200, ...,  8278,  8074,  8188]],
+
+       [[ 9765, 10480, 10095, ...,  9689,  9746,  9551],
+        [ 9519,  9918,  9924, ...,  9684,  9313,  9283],
+        [ 9076,  9631,  9978, ...,  9639,  9258,  9270],
+        ...,
+        [ 9161,  9108,  8874, ...,  9423,  9456,  9362],
+        [ 8349,  8317,  8354, ...,  9719,  9401,  9321],
+        [ 8274,  8144,  8057, ...,  9788,  9691,  9369]],
+
+       [[ 3982,  3911,  3901, ...,  4412,  4289,  4160],
+        [ 4134,  4120,  4105, ...,  4543,  4476,  4462],
+        [ 4030,  4054,  4092, ...,  4557,  4578,  4509],
+        ...,
+...
+        ...,
+        [ 6537,  6338,  6395, ...,  6397,  5893,  5770],
+        [ 6537,  6652,  6507, ...,  6315,  5857,  5850],
+        [ 6805,  6924,  7296, ...,  6078,  5921,  6036]],
+
+       [[ 6047,  6368,  6466, ...,  5316,  5420,  5000],
+        [ 6115,  6145,  5924, ...,  5117,  5213,  5212],
+        [ 6649,  6350,  6054, ...,  5155,  5110,  5227],
+        ...,
+        [ 4846,  4949,  5016, ...,  3419,  3262,  3427],
+        [ 5026,  5066,  5118, ...,  2672,  2804,  2872],
+        [ 5055,  5237,  5452, ...,  2273,  2234,  2802]],
+
+       [[ 6939,  6813,  6796, ...,  7222,  7116,  6955],
+        [ 6970,  6882,  6911, ...,  7219,  6994,  6949],
+        [ 6904,  6859,  6903, ...,  7125,  6951,  7011],
+        ...,
+        [ 7407,  7362,  7220, ...,  6309,  6198,  6264],
+        [ 7245,  7232,  7032, ...,  6340,  6271,  6183],
+        [ 7224,  7138,  7044, ...,  6390,  6410,  6426]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>5180 5036 4900 ... 7151 7132 7168</div><input id='attrs-93486f49-ea44-478b-a8a3-72b759b86f7c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-93486f49-ea44-478b-a8a3-72b759b86f7c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d1c2163-3a1e-48af-bb4d-973719add3ec' class='xr-var-data-in' type='checkbox'><label for='data-0d1c2163-3a1e-48af-bb4d-973719add3ec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 5180,  5036,  4900, ...,  7127,  6702,  6616],
+        [ 4541,  4881,  5065, ...,  7043,  7040,  7044],
+        [ 4789,  5305,  4959, ...,  6314,  7018,  6917],
+        ...,
+        [ 4014,  3997,  3905, ...,  7243,  7679,  7902],
+        [ 3575,  3831,  3586, ...,  8247,  8392,  8505],
+        [ 3729,  3655,  3752, ...,  8638,  8512,  8575]],
+
+       [[ 9959, 10912, 10477, ...,  9498,  9813,  9505],
+        [ 9618, 10220, 10316, ...,  9608,  9187,  9129],
+        [ 8960,  9746, 10364, ...,  9499,  9112,  9031],
+        ...,
+        [ 8759,  8685,  8413, ...,  9259,  9315,  9290],
+        [ 7902,  7723,  7812, ...,  9753,  9404,  9240],
+        [ 7722,  7595,  7544, ...,  9769,  9640,  9250]],
+
+       [[ 4711,  4654,  4614, ...,  5112,  4994,  4817],
+        [ 4856,  4941,  4824, ...,  5225,  5201,  5174],
+        [ 4769,  4832,  4924, ...,  5315,  5321,  5338],
+        ...,
+...
+        ...,
+        [ 6366,  6150,  6127, ...,  6187,  5792,  5578],
+        [ 6403,  6537,  6405, ...,  6135,  5722,  5633],
+        [ 6716,  6924,  7348, ...,  5828,  5730,  5809]],
+
+       [[ 5916,  6429,  6570, ...,  5009,  5157,  4758],
+        [ 5814,  5778,  5738, ...,  4845,  4932,  4957],
+        [ 6406,  6052,  5888, ...,  4792,  4845,  4900],
+        ...,
+        [ 4297,  4316,  4415, ...,  3302,  3170,  3233],
+        [ 4458,  4452,  4594, ...,  2403,  2586,  2663],
+        [ 4529,  4715,  4965, ...,  2097,  2011,  2612]],
+
+       [[ 7425,  7365,  7255, ...,  7932,  7760,  7546],
+        [ 7370,  7289,  7376, ...,  7868,  7617,  7513],
+        [ 7355,  7275,  7427, ...,  7855,  7647,  7538],
+        ...,
+        [ 8355,  8263,  8203, ...,  7006,  6955,  6955],
+        [ 8142,  8123,  8016, ...,  7121,  6992,  6957],
+        [ 8165,  8079,  7852, ...,  7151,  7132,  7168]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir08</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>4827 4773 4625 ... 7500 7136 7161</div><input id='attrs-70391533-2e95-4041-ac3b-cc9b618befb1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-70391533-2e95-4041-ac3b-cc9b618befb1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-69437f3c-fb74-49d6-9b60-66ac9180ded2' class='xr-var-data-in' type='checkbox'><label for='data-69437f3c-fb74-49d6-9b60-66ac9180ded2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[4827, 4773, 4625, ..., 6460, 6341, 6359],
+        [4697, 4612, 4518, ..., 6564, 6549, 6517],
+        [4904, 4743, 4477, ..., 6461, 6608, 6475],
+        ...,
+        [3944, 3642, 3774, ..., 7382, 7620, 6950],
+        [3808, 3589, 3744, ..., 7961, 8116, 7904],
+        [3594, 3759, 3755, ..., 8088, 8058, 8322]],
+
+       [[9396, 9517, 9921, ..., 9010, 8700, 8765],
+        [8610, 9298, 9600, ..., 8837, 8593, 8759],
+        [8208, 8331, 8523, ..., 8444, 8406, 8581],
+        ...,
+        [7248, 7129, 7302, ..., 9155, 9149, 8619],
+        [7168, 7141, 7198, ..., 9048, 8920, 8867],
+        [7271, 7322, 7375, ..., 8880, 8849, 8940]],
+
+       [[4620, 4615, 4595, ..., 4834, 4692, 4627],
+        [4714, 4677, 4557, ..., 4794, 4724, 4770],
+        [4603, 4738, 4775, ..., 5091, 5003, 4890],
+        ...,
+...
+        ...,
+        [6175, 6549, 6295, ..., 5805, 5690, 5518],
+        [6429, 6995, 7162, ..., 5715, 5642, 5700],
+        [7266, 7637, 7507, ..., 5441, 5651, 5733]],
+
+       [[6471, 6566, 6292, ..., 4868, 4617, 4586],
+        [5738, 6017, 6269, ..., 4695, 4541, 4512],
+        [5716, 5683, 6018, ..., 4729, 4737, 4613],
+        ...,
+        [4254, 4184, 4140, ..., 2532, 2554, 2495],
+        [4272, 4328, 4338, ..., 2223, 2286, 2599],
+        [4548, 4596, 4459, ..., 2067, 2583, 2643]],
+
+       [[7425, 7275, 7195, ..., 7871, 7734, 7632],
+        [7541, 7312, 7283, ..., 7748, 7631, 7359],
+        [7600, 7518, 7355, ..., 7665, 7556, 7445],
+        ...,
+        [8051, 8118, 8084, ..., 7217, 7103, 6920],
+        [8079, 7979, 7966, ..., 7291, 7126, 7109],
+        [8032, 8003, 7933, ..., 7500, 7136, 7161]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rededge2</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>4771 4629 4693 ... 6865 6624 6693</div><input id='attrs-76a44b38-7585-4945-844e-4c6a39de5324' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76a44b38-7585-4945-844e-4c6a39de5324' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-77035d19-f760-428a-a8a1-8b7231f90e3b' class='xr-var-data-in' type='checkbox'><label for='data-77035d19-f760-428a-a8a1-8b7231f90e3b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 4771,  4629,  4693, ...,  6589,  6517,  6437],
+        [ 4866,  4702,  4596, ...,  6558,  6648,  6594],
+        [ 4923,  4829,  4541, ...,  6315,  6542,  6401],
+        ...,
+        [ 3872,  3683,  3878, ...,  7624,  7902,  7220],
+        [ 3768,  3669,  3745, ...,  8231,  8357,  8041],
+        [ 3636,  3727,  3782, ...,  8238,  8265,  8421]],
+
+       [[ 9746,  9752, 10279, ...,  9372,  9064,  9112],
+        [ 8874,  9563, 10108, ...,  9126,  8923,  9077],
+        [ 8536,  8685,  8820, ...,  8708,  8697,  8946],
+        ...,
+        [ 7585,  7488,  7697, ...,  9486,  9332,  8743],
+        [ 7429,  7379,  7390, ...,  9421,  9250,  9156],
+        [ 7502,  7645,  7618, ...,  9206,  9227,  9295]],
+
+       [[ 4450,  4421,  4383, ...,  4671,  4509,  4485],
+        [ 4458,  4465,  4332, ...,  4707,  4706,  4568],
+        [ 4401,  4571,  4572, ...,  4919,  4925,  4766],
+        ...,
+...
+        ...,
+        [ 6307,  6637,  6426, ...,  5993,  5862,  5563],
+        [ 6572,  7148,  7307, ...,  5844,  5808,  5845],
+        [ 7501,  7762,  7715, ...,  5749,  5934,  6009]],
+
+       [[ 6427,  6456,  6471, ...,  5097,  4772,  4657],
+        [ 5880,  5921,  6291, ...,  4900,  4855,  4647],
+        [ 6030,  5811,  6075, ...,  4855,  4911,  4732],
+        ...,
+        [ 4374,  4448,  4354, ...,  2474,  2484,  2449],
+        [ 4377,  4540,  4570, ...,  2181,  2265,  2588],
+        [ 4851,  4916,  4722, ...,  2051,  2574,  2598]],
+
+       [[ 6849,  6877,  6753, ...,  7434,  7213,  7062],
+        [ 6909,  6856,  6857, ...,  7231,  7116,  6959],
+        [ 7006,  6983,  6977, ...,  7184,  7147,  7039],
+        ...,
+        [ 7529,  7545,  7497, ...,  6625,  6496,  6432],
+        [ 7535,  7492,  7374, ...,  6685,  6530,  6616],
+        [ 7532,  7439,  7377, ...,  6865,  6624,  6693]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint8</div><div class='xr-var-preview xr-preview'>9 9 9 9 9 9 9 9 ... 9 9 9 9 9 9 9 9</div><input id='attrs-0cc69898-22af-41da-b335-2bbd595e3ebe' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0cc69898-22af-41da-b335-2bbd595e3ebe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2dba58c3-926e-49a6-b2df-10f8ce4c1f4b' class='xr-var-data-in' type='checkbox'><label for='data-2dba58c3-926e-49a6-b2df-10f8ce4c1f4b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        ...,
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9]],
+
+       [[9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        ...,
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9]],
+
+       [[9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        ...,
+...
+        ...,
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9]],
+
+       [[9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        ...,
+        [9, 9, 9, ..., 3, 3, 8],
+        [9, 9, 9, ..., 3, 3, 8],
+        [9, 9, 9, ..., 3, 8, 8]],
+
+       [[9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        ...,
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9]]], dtype=uint8)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-aa675256-d6f4-4fe4-b565-90b4df859801' class='xr-section-summary-in' type='checkbox'  ><label for='section-aa675256-d6f4-4fe4-b565-90b4df859801' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-8d0bd2bf-dfe5-4bb4-9846-c466c8903232' class='xr-index-data-in' type='checkbox'/><label for='index-8d0bd2bf-dfe5-4bb4-9846-c466c8903232' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-01-01 10:23:29.024000&#x27;, &#x27;2021-01-04 10:33:29.024000&#x27;,
+               &#x27;2021-01-06 10:24:11.024000&#x27;, &#x27;2021-01-09 10:34:21.024000&#x27;,
+               &#x27;2021-01-11 10:23:09.024000&#x27;, &#x27;2021-01-14 10:33:09.024000&#x27;,
+               &#x27;2021-01-16 10:23:51.024000&#x27;, &#x27;2021-01-19 10:33:51.024000&#x27;,
+               &#x27;2021-01-21 10:22:39.024000&#x27;, &#x27;2021-01-24 10:32:29.024000&#x27;,
+               ...
+               &#x27;2021-12-07 10:23:19.025000&#x27;, &#x27;2021-12-10 10:33:29.024000&#x27;,
+               &#x27;2021-12-12 10:24:31.024000&#x27;, &#x27;2021-12-15 10:34:41.024000&#x27;,
+               &#x27;2021-12-17 10:23:29.024000&#x27;, &#x27;2021-12-20 10:33:39.024000&#x27;,
+               &#x27;2021-12-22 10:24:41.024000&#x27;, &#x27;2021-12-25 10:34:41.024000&#x27;,
+               &#x27;2021-12-27 10:23:39.024000&#x27;, &#x27;2021-12-30 10:33:39.024000&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=145, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d6d5baf9-1174-49c8-affc-f7b2dce57754' class='xr-index-data-in' type='checkbox'/><label for='index-d6d5baf9-1174-49c8-affc-f7b2dce57754' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15572925.0, 15572895.0, 15572865.0, 15572835.0, 15572805.0, 15572775.0,
+       15572745.0, 15572715.0, 15572685.0, 15572655.0,
+       ...
+       15569445.0, 15569415.0, 15569385.0, 15569355.0, 15569325.0, 15569295.0,
+       15569265.0, 15569235.0, 15569205.0, 15569175.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=126))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-21eda9ec-0707-44b2-b6d8-80b39072bcb5' class='xr-index-data-in' type='checkbox'/><label for='index-21eda9ec-0707-44b2-b6d8-80b39072bcb5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-294465.0, -294435.0, -294405.0, -294375.0, -294345.0, -294315.0,
+       -294285.0, -294255.0, -294225.0, -294195.0,
+       ...
+       -291375.0, -291345.0, -291315.0, -291285.0, -291255.0, -291225.0,
+       -291195.0, -291165.0, -291135.0, -291105.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=113))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-74b763f3-17ca-41b1-b5ae-9ae4541c08a8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-74b763f3-17ca-41b1-b5ae-9ae4541c08a8' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
+</section>
+<section id="calculating-seasonal-median">
+<h3>Calculating Seasonal Median<a class="headerlink" href="#calculating-seasonal-median" title="Permalink to this heading">#</a></h3>
+<p>While we have data for every time step, some basic statistics for each season will be helpful for real applications. We can first group our raster data by season and then use the grouped data to compute the median value at the pixel level. It is achieved by using the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> function, following by a method (i.e. <code class="docutils literal notranslate"><span class="pre">median()</span></code>).</p>
+<p>In xarray, the season is pre-categorized into <code class="docutils literal notranslate"><span class="pre">'DJF'</span></code> (Dec, Jan, Feb), <code class="docutils literal notranslate"><span class="pre">'MAM'</span></code> (Mar, Apr, May), <code class="docutils literal notranslate"><span class="pre">'JJA'</span></code> (June, July, Aug), and <code class="docutils literal notranslate"><span class="pre">'SON'</span></code> (Sep, Oct, Nov).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by Season and Calculate the seasonal Median.</span>
+<span class="n">ds_grp</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">scl</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.season&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ds_grp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:      (season: 4, y: 126, x: 113)
+Coordinates:
+  * y            (y) float64 1.557e+07 1.557e+07 ... 1.557e+07 1.557e+07
+  * x            (x) float64 -2.945e+05 -2.944e+05 ... -2.911e+05 -2.911e+05
+    spatial_ref  int32 32734
+  * season       (season) object &#39;DJF&#39; &#39;JJA&#39; &#39;MAM&#39; &#39;SON&#39;
+Data variables:
+    red          (season, y, x) float32 1.583e+03 1.454e+03 ... 1.205e+03
+    green        (season, y, x) float32 1.565e+03 1.481e+03 ... 1.277e+03
+    blue         (season, y, x) float32 1.325e+03 1.282e+03 ... 1.176e+03
+    nir          (season, y, x) float32 2.442e+03 2.724e+03 ... 3.235e+03
+    nir08        (season, y, x) float32 2.434e+03 2.528e+03 ... 3.989e+03
+    rededge2     (season, y, x) float32 2.143e+03 2.365e+03 ... 3.117e+03
+    scl          (season, y, x) float32 5.0 5.0 5.0 5.0 5.0 ... 4.0 4.0 4.0 4.0
+Attributes:
+    crs:           EPSG:32734
+    grid_mapping:  spatial_ref
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now we can have a look at our cloud free NDVI time series</p>
+</section>
+<section id="calculate-selected-remote-sensing-indices">
+<h3>Calculate selected Remote Sensing Indices<a class="headerlink" href="#calculate-selected-remote-sensing-indices" title="Permalink to this heading">#</a></h3>
+<p>Tasseled cap transformation is a common method for vegetation analysis. It transforms the spectral information of our data into multiple spectral indicators, including wetness, to derive the interrelationship between soil and canopy moisture, the soil brightness index (SBI), and the green vegetation index (GVI). They are calculated using RGB, as well as the NIR band. The formulas are shown below in the code:</p>
+<p><em><strong>Tip: A database of remote sensing indices is available at <a class="reference external" href="https://www.indexdatabase.de/db/i-single.php?id=0">this site</a>.</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">NDVI</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">col</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NDVI</span>
+<span class="n">ndvi</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">nir</span> <span class="o">-</span> <span class="n">ds_grp</span><span class="o">.</span><span class="n">red</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">nir</span><span class="o">+</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
+
+<span class="c1"># Tasseled Cap Wetness</span>
+<span class="n">wet</span> <span class="o">=</span> <span class="mf">0.1509</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">blue</span> <span class="o">+</span> <span class="mf">0.1973</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">green</span> <span class="o">+</span> <span class="mf">0.3279</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">red</span> <span class="o">+</span> <span class="mf">0.3406</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">nir</span> <span class="o">-</span> <span class="mf">0.711211</span> <span class="o">-</span> <span class="mf">0.457212</span>
+<span class="c1"># Tasseled Cap Green Vegetation</span>
+<span class="n">gvi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.2848</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">blue</span><span class="o">-</span><span class="mf">0.2435</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">green</span><span class="o">-</span><span class="mf">0.5436</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">red</span> <span class="o">+</span> <span class="mf">0.7243</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">nir</span> <span class="o">+</span> <span class="mf">0.084011</span> <span class="o">-</span> <span class="mf">0.180012</span>
+<span class="c1"># Tasseled Cap Soil Brightness</span>
+<span class="n">sbi</span> <span class="o">=</span> <span class="mf">0.332</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">green</span> <span class="o">+</span> <span class="mf">0.603</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">red</span> <span class="o">+</span> <span class="mf">0.675</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">rededge2</span> <span class="o">+</span> <span class="mf">0.262</span><span class="o">*</span><span class="n">ds_grp</span><span class="o">.</span><span class="n">nir08</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>After calculating the indices, we can put them into our dataset using <code class="docutils literal notranslate"><span class="pre">assign()</span></code> function.</p>
+<p><em><strong>(Note: we need to assign it back to ds_grp)</strong></em></p>
+<p>Now, there are four new variables we just assigned in the <code class="docutils literal notranslate"><span class="pre">ds_grp</span></code> dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span><span class="o">.</span><span class="n">NDVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="s1">&#39;b-^&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add calculated indices into our Dataset</span>
+<span class="n">ds_grp</span> <span class="o">=</span> <span class="n">ds_grp</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">ndvi</span><span class="o">=</span><span class="n">ndvi</span><span class="p">,</span> <span class="n">wet</span><span class="o">=</span><span class="n">wet</span><span class="p">,</span> <span class="n">gvi</span><span class="o">=</span><span class="n">gvi</span><span class="p">,</span> <span class="n">sbi</span><span class="o">=</span><span class="n">sbi</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">ds_grp</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.Dataset&gt;
+Dimensions:      (season: 4, y: 126, x: 113)
+Coordinates:
+  * y            (y) float64 1.557e+07 1.557e+07 ... 1.557e+07 1.557e+07
+  * x            (x) float64 -2.945e+05 -2.944e+05 ... -2.911e+05 -2.911e+05
+    spatial_ref  int32 32734
+  * season       (season) object &#39;DJF&#39; &#39;JJA&#39; &#39;MAM&#39; &#39;SON&#39;
+Data variables:
+    red          (season, y, x) float32 1.583e+03 1.454e+03 ... 1.205e+03
+    green        (season, y, x) float32 1.565e+03 1.481e+03 ... 1.277e+03
+    blue         (season, y, x) float32 1.325e+03 1.282e+03 ... 1.176e+03
+    nir          (season, y, x) float32 2.442e+03 2.724e+03 ... 3.235e+03
+    nir08        (season, y, x) float32 2.434e+03 2.528e+03 ... 3.989e+03
+    rededge2     (season, y, x) float32 2.143e+03 2.365e+03 ... 3.117e+03
+    scl          (season, y, x) float32 5.0 5.0 5.0 5.0 5.0 ... 4.0 4.0 4.0 4.0
+    ndvi         (season, y, x) float32 0.2134 0.304 0.2569 ... 0.5175 0.4572
+    wet          (season, y, x) float32 1.858e+03 1.889e+03 ... 1.925e+03
+    gvi          (season, y, x) float32 149.7 456.8 ... 1.396e+03 1.042e+03
+    sbi          (season, y, x) float32 3.558e+03 3.627e+03 ... 4.3e+03
+Attributes:
+    crs:           EPSG:32734
+    grid_mapping:  spatial_ref
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="clip-dataset-by-spatial-vector">
+<h3>Clip Dataset by Spatial Vector<a class="headerlink" href="#clip-dataset-by-spatial-vector" title="Permalink to this heading">#</a></h3>
+<p>We can clip the xarray Dataset with a specific geometry given the coordinate reference system to focus our analysis on the area of interest. It can be done using <code class="docutils literal notranslate"><span class="pre">clip()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code> library, which is handy for working with multidimensional datasets.</p>
+<p><em><strong>Tip: We are using functions from the package <code class="docutils literal notranslate"><span class="pre">rioxarray</span></code>; the user documentation of this package is available at <a class="reference external" href="https://corteva.github.io/rioxarray/stable/index.html">this site</a>.</strong></em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">})</span>
-<span class="n">data_frame</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-<span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;NDVI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">NDVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
-<span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;EVI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">EVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
-<span class="n">data_frame</span><span class="p">[</span><span class="s1">&#39;SAVI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">SAVI</span><span class="o">.</span><span class="n">median</span><span class="p">([</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
-<span class="n">data_frame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clip to AOI</span>
+<span class="c1"># ds_clip = ds_grp.rio.clip(aoi_wgs.geometry, aoi_wgs.crs)</span>
+<span class="c1"># print(ds_clip)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="plot-time-series">
+<h3>Plot Time Series<a class="headerlink" href="#plot-time-series" title="Permalink to this heading">#</a></h3>
+<p>After clipping the area, we can perform some basic analysis using our Tasseled cap indices to investigate the seasonal variations in 2019. First, we set up lists of seasons and colormaps. Then, we plot 4 * 4 subplots, followed by few lines of <code class="docutils literal notranslate"><span class="pre">plot()</span></code> inside a enumerate loop iterating over the seasons. <code class="docutils literal notranslate"><span class="pre">axes.flatten()</span></code> flatten the array into one dimension. By looping through it, we can set the title for every individual plot. Other layout options, including setting ticks and labels, can be done by looping through the <code class="docutils literal notranslate"><span class="pre">axes.flat</span></code>.</p>
+<p><em><strong>Tip: robust=True can help to remove the outliners.</strong></em></p>
+<p><em><strong>Tip: sns.set(font_scale) is a function from seaborn library to scale all texts with a single factor.</strong></em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_input</span> <span class="o">=</span> <span class="n">ds_grp</span> <span class="c1"># Define the dataset to be plotted</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DJF&quot;</span><span class="p">,</span> <span class="s2">&quot;MAM&quot;</span><span class="p">,</span> <span class="s2">&quot;JJA&quot;</span><span class="p">,</span> <span class="s2">&quot;SON&quot;</span><span class="p">]</span> <span class="c1">#arrange seasons into our list</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span><span class="s1">&#39;YlGn&#39;</span><span class="p">,</span><span class="s1">&#39;gnuplot2&#39;</span><span class="p">,</span><span class="s1">&#39;RdYlGn&#39;</span><span class="p">]</span> <span class="c1">#the list of color maps</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span> <span class="c1">#scale the texts in plot to 1.5</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span> <span class="c1">#plot subplots</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sea</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
+    <span class="n">ds_input</span><span class="p">[</span><span class="s1">&#39;wet&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">season</span><span class="o">=</span><span class="n">sea</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="n">wet</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">wet</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>                                      
+    <span class="n">ds_input</span><span class="p">[</span><span class="s1">&#39;gvi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">season</span><span class="o">=</span><span class="n">sea</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="n">gvi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">gvi</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ds_input</span><span class="p">[</span><span class="s1">&#39;sbi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">season</span><span class="o">=</span><span class="n">sea</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="n">sbi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">sbi</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ds_input</span><span class="p">[</span><span class="s1">&#39;ndvi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">season</span><span class="o">=</span><span class="n">sea</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="p">],</span> <span class="n">vmin</span><span class="o">=</span><span class="n">ndvi</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">vmax</span><span class="o">=</span><span class="n">ndvi</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">c</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">mylist</span><span class="p">[</span><span class="n">i</span><span class="o">%</span><span class="k">4</span>]) #plot subtitles
+    
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([])</span> <span class="c1">#empty x ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">get_yaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([])</span> <span class="c1">#empty y ticks</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">#empty x label</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="c1">#empty y label</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span> <span class="c1">#remove all axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1">#adjust excessive padding</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Seasonal Median 2019 ~ 2020&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">28</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span> <span class="c1">#main plot title</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.02, &#39;Seasonal Median 2019 ~ 2020&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/c187ea5fbdaf9753ed9805b91bb47d3d98c185f96c5900a7b884f443ddfc117a.png" src="../../_images/c187ea5fbdaf9753ed9805b91bb47d3d98c185f96c5900a7b884f443ddfc117a.png" />
+</div>
+</div>
+<p><em><strong>Tip:</strong></em></p>
+<ul class="simple">
+<li><p><em><strong>You may find the codes for individual color maps at <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">this site</a>.</strong></em></p></li>
+<li><p><em><strong>To learn more about plotting, you could refer to <a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/06_plotting_basics.ipynb">this</a> and <a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/IV_advanced_plotting.ipynb">this</a> notebooks in our training series.</strong></em></p></li>
+</ul>
+</section>
+<section id="plot-zonal-statistics-of-time-series">
+<h3>Plot Zonal Statistics of Time Series<a class="headerlink" href="#plot-zonal-statistics-of-time-series" title="Permalink to this heading">#</a></h3>
+<p>After plotting the indices for each season, we can see some seasonal differences. Nevertheless, it would be helpful if we could quantify them in the time series analysis. We can achieve it by getting the average value for the whole area. Below we define a function that takes the average for all indices and generates a new pandas Dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;wet&quot;</span><span class="p">,</span> <span class="s1">&#39;gvi&#39;</span><span class="p">,</span> <span class="s1">&#39;sbi&#39;</span><span class="p">,</span> <span class="s1">&#39;ndvi&#39;</span><span class="p">]:</span>
+    <span class="n">df_new</span> <span class="o">=</span> <span class="n">ds_grp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;spatial_ref&#39;</span><span class="p">])</span>
+    <span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_all</span><span class="p">,</span> <span class="n">df_new</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_all</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>wet</th>
+      <th>gvi</th>
+      <th>sbi</th>
+      <th>ndvi</th>
+    </tr>
+    <tr>
+      <th>season</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>DJF</th>
+      <td>2123.850586</td>
+      <td>188.068253</td>
+      <td>4084.601562</td>
+      <td>0.218977</td>
+    </tr>
+    <tr>
+      <th>JJA</th>
+      <td>2579.711914</td>
+      <td>1233.334961</td>
+      <td>5236.437012</td>
+      <td>0.427579</td>
+    </tr>
+    <tr>
+      <th>MAM</th>
+      <td>2353.835449</td>
+      <td>579.929993</td>
+      <td>4609.074219</td>
+      <td>0.309796</td>
+    </tr>
+    <tr>
+      <th>SON</th>
+      <td>2304.593994</td>
+      <td>866.876892</td>
+      <td>4595.886719</td>
+      <td>0.385743</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let’s apply this function to ds_clip and get our new Dataframe.</p>
+<p>This 4*4 new pandas Dataframe allows us to do plotting for the whole year. We can plot it using <code class="docutils literal notranslate"><span class="pre">plot()</span></code> after setting the style with <code class="docutils literal notranslate"><span class="pre">seaborn</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define figure style</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;darkgrid&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">,</span> <span class="n">font_scale</span> <span class="o">=</span> <span class="o">.</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;poster&quot;</span><span class="p">,</span> <span class="n">font_scale</span> <span class="o">=</span> <span class="mf">.7</span><span class="p">)</span>
 
 <span class="c1"># plot</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">data_frame</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">7</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># layout</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;(log)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Month&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Dec&#39;</span><span class="p">,</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span> <span class="s1">&#39;June&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">])</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tasseled Cap Indices for 2019-12 to 2020-11&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Tasseled Cap Indices for 2019-12 to 2020-11&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/6aff04b35a63d6edaa8048d30823ed7cb0f26868de6ee3fae5d986fc39e0f291.png" src="../../_images/6aff04b35a63d6edaa8048d30823ed7cb0f26868de6ee3fae5d986fc39e0f291.png" />
 </div>
 </div>
-</div>
-<div class="section" id="recommended-next-steps">
-<h2>Recommended next steps<a class="headerlink" href="#recommended-next-steps" title="Permalink to this headline">¶</a></h2>
-<p>To continue working through the notebooks in this beginner’s guide, the following notebooks are designed to be worked through in the following order:</p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/01_jupyter_introduction.ipynb">Jupyter Notebooks</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/02_eo2cube_introduction.ipynb">eo2cube</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/03_data_lookup_and_loading.ipynb">Loading Data</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/04_xarrayI_data_structure.ipynb">Xarray I: Data Structure</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/05_xarrayII.ipynb">Xarray II: Index and Statistics</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/06_plotting_basics.ipynb">Plotting data</a></p></li>
-<li><p><em><strong>Spatial analysis (this notebook)</strong></em></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/08_parallel_processing_with_dask.ipynb">Parallel processing with Dask</a></p></li>
-</ol>
-<p>The additional notebooks are designed for users to build up both basic and advanced skills which are not covered by the beginner’s guide. Self-motivated users can go through them according to their own needs. They act as complements for the guide:
-<br></p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/I_file_management.ipynb">Python’s file management tools</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/II_numpy_image_processing.ipynb">Image Processing basics using NumPy and Matplotlib</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/III_process_vector_data.ipynb">Vector Processing</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/IV_advanced_plotting.ipynb">Advanced Plotting</a></p></li>
-</ol>
-</div>
+</section>
+</section>
 <hr class="docutils" />
-<div class="section" id="additional-information">
-<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<section id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
 <p><font size="2">This notebook for the usage in the Open Data Cube entities of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>, is adapted from <a class="reference external" href="https://github.com/GeoscienceAustralia/dea-notebooks">Geoscience Australia</a>, published using the Apache License, Version 2.0. Thanks! </font></p>
 <p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
 Digital Earth Australia data is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons by Attribution 4.0</a> license.</p>
 <p><strong>Contact:</strong> If you would like to report an issue with this notebook, you can file one on <a class="reference external" href="https://github.com">Github</a>.</p>
-<p><strong>Last modified:</strong> May 2021</p>
-</div>
-</div>
+<p><strong>Last modified:</strong> January 2023</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -630,7 +1666,7 @@ Digital Earth Australia data is licensed under the <a class="reference external"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/beginners_guide"
         },
         predefinedOutput: true
@@ -638,44 +1674,112 @@ Digital Earth Australia data is licensed under the <a class="reference external"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="04_plotting_basics.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Plotting data</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_plotting_basics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Plotting data</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="06_parallel_processing_with_dask.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="06_parallel_processing_with_dask.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Parallel processing with Dask</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By eo2cube community<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-datasets">Load Datasets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-seasonal-median">Calculating Seasonal Median</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-selected-remote-sensing-indices">Calculate selected Remote Sensing Indices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clip-dataset-by-spatial-vector">Clip Dataset by Spatial Vector</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-time-series">Plot Time Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-zonal-statistics-of-time-series">Plot Zonal Statistics of Time Series</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional information</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By eo2cube community
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

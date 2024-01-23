@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: eo2cube documentation 
+title: eo2cube training material
 author: eo2cube community
 logo: logo.png
 
@@ -16,12 +16,12 @@ latex:
     targetname: book.tex
 
 # Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
+#bibtex_bibfiles:
+#  - references.bib
 
 # Information about where the book exists on the web
 repository:
-  url: https://eo2cube_documentation/  # Online location of your book
+  url: https://github.com/eo2cube/eo2cube_book  # Online location of your book
   path_to_book: docs  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 

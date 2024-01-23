@@ -1,522 +1,419 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Plotting data &#8212; eo2cube documentation</title>
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Plotting data &#8212; eo2cube training material</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
-    
-      
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/beginners_guide/04_plotting_basics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Basic Spatial Analysis" href="05_basic_analysis.html" />
     <link rel="prev" title="Advanced Xarray" href="03_xarrayII.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">eo2cube documentation</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Welcome to the eo2cube documentation
-  </a>
- </li>
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="eo2cube training material - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="eo2cube training material - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome to the eo2cube documentation
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../markdown/introduction.html">Introduction</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../markdown/beginners_guide.html">Welcome to the Beginners Guide</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_data_lookup_and_loading.html">Data Lookup and Loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_xarrayI_data_structure.html">Xarray-I: Data Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_xarrayII.html">Advanced Xarray</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Plotting data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_basic_analysis.html">Basic Spatial Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_parallel_processing_with_dask.html">Parallel processing with Dask</a></li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../markdown/introduction.html">
-   Introduction
-  </a>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../../markdown/beginners_guide.html">
-   Welcome to the Beginners Guide
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_data_lookup_and_loading.html">
-     Data Lookup and Loading
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_xarrayI_data_structure.html">
-     Xarray-I: Data Structure
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_xarrayII.html">
-     Advanced Xarray
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Plotting data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_basic_analysis.html">
-     Basic Spatial Analysis
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="06_parallel_processing_with_dask.html">
-     Parallel processing with Dask
-    </a>
-   </li>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/eo2cube/eo2cube_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/eo2cube/eo2cube_book/issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/04_plotting_basics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/beginners_guide/04_plotting_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+  
 </div>
-
 </div>
+              
+              
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plotting data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/notebooks/beginners_guide/04_plotting_basics.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://eo2cube_documentation/"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://eo2cube_documentation//issues/new?title=Issue%20on%20page%20%2Fnotebooks/beginners_guide/04_plotting_basics.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#description">
-   Description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setting-up">
-   Setting up
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-packages">
-     Load packages
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-data">
-     Load Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rgb-image">
-   <strong>
-    RGB Image
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#true-color-composite">
-     <strong>
-      1) True Color Composite
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#false-color-composite">
-     <strong>
-      2) False Color Composite
-     </strong>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histogram">
-   <strong>
-    Histogram
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatterplot">
-   <strong>
-    Scatterplot
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#d-pcolormesh">
-   <strong>
-    2D pcolormesh
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-single-band">
-     <strong>
-      1) Plotting Single Band
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#facet-plot">
-     <strong>
-      2) Facet Plot
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#masking">
-     <strong>
-      3) Masking
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interactive-layout">
-     <strong>
-      5) Interactive Layout
-     </strong>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-series-linechart">
-   <strong>
-    Time Series Linechart
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-pandas-and-seaborn">
-   <strong>
-    Using Pandas and Seaborn
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recommended-next-steps">
-   Recommended next steps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-information">
-   Additional information
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up">Setting up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages">Load packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load Data</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rgb-image"><strong>RGB Image</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#true-color-composite"><strong>1) True Color Composite</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#false-color-composite"><strong>2) False Color Composite</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram"><strong>Histogram</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot"><strong>Scatterplot</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-pcolormesh"><strong>2D pcolormesh</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-single-band"><strong>1) Plotting Single Band</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facet-plot"><strong>2) Facet Plot</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#masking"><strong>3) Masking</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-linechart"><strong>Time Series Linechart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-and-seaborn"><strong>Using Pandas and Seaborn</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional information</a></li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Plotting data</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#description">
-   Description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#setting-up">
-   Setting up
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-packages">
-     Load packages
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-data">
-     Load Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rgb-image">
-   <strong>
-    RGB Image
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#true-color-composite">
-     <strong>
-      1) True Color Composite
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#false-color-composite">
-     <strong>
-      2) False Color Composite
-     </strong>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#histogram">
-   <strong>
-    Histogram
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatterplot">
-   <strong>
-    Scatterplot
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#d-pcolormesh">
-   <strong>
-    2D pcolormesh
-   </strong>
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#plotting-single-band">
-     <strong>
-      1) Plotting Single Band
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#facet-plot">
-     <strong>
-      2) Facet Plot
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#masking">
-     <strong>
-      3) Masking
-     </strong>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#interactive-layout">
-     <strong>
-      5) Interactive Layout
-     </strong>
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#time-series-linechart">
-   <strong>
-    Time Series Linechart
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-pandas-and-seaborn">
-   <strong>
-    Using Pandas and Seaborn
-   </strong>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#recommended-next-steps">
-   Recommended next steps
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#further-reading">
-   Further Reading
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#additional-information">
-   Additional information
-  </a>
- </li>
-</ul>
 
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-              <div>
+              
                 
-  <img align="right" src="images/banner_siegel.png" style="width:1000px;"><div class="tex2jax_ignore mathjax_ignore section" id="plotting-data">
-<h1>Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>This notebook introduces users plotting within the datacube environment. It aims to introduces useful options to effectivly visualize raster data in the eo2cube environment. Within this notebook the following topics are covered:</p>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <img align="right" src="images/banner_siegel.png" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="plotting-data">
+<h1>Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this heading">#</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<p>This notebook introduces users plotting within the datacube environment. It aims to introduce useful options to visualize raster data in the eo2cube environment. Within this notebook, the following topics are covered:</p>
 <ul class="simple">
 <li><p>Plotting <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">Color</span> <span class="pre">Composite</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">Color</span> <span class="pre">Composite</span></code></p></li>
 <li><p>Plotting <code class="docutils literal notranslate"><span class="pre">Histogram</span></code> to show frequency distributions</p></li>
@@ -524,41 +421,34 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Creating <code class="docutils literal notranslate"><span class="pre">Facet</span> <span class="pre">Plot</span></code> to visualize time series</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Masking</span></code> scene</p></li>
 </ul>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="setting-up">
-<h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="load-packages">
-<h3>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this headline">¶</a></h3>
+<section id="setting-up">
+<h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this heading">#</a></h2>
+<section id="load-packages">
+<h3>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datacube</span>
-<span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span> <span class="c1">#processing bar for loading data</span>
+<span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span> <span class="c1"># processing bar for loading data</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#matplotlib is a plotting for creating static, animated, and interactive visualizations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1"># matplotlib is a plotting for creating static, animated, and interactive visualizations</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">hvplot.xarray</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="c1">#this line allows plotting within the JupyterLab</span>
-
-<span class="kn">import</span> <span class="nn">holoviews</span> <span class="k">as</span> <span class="nn">hv</span> <span class="c1">#holoviews allows interactive plotting</span>
-<span class="n">hv</span><span class="o">.</span><span class="n">extension</span><span class="p">(</span><span class="s1">&#39;bokeh&#39;</span><span class="p">)</span> <span class="c1">#this line allows plotting with the Bokeh server</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">5692</span><span class="n">da93f5bc</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">datacube</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span> <span class="c1">#processing bar for loading data</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">datacube</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">odc.ui</span> <span class="kn">import</span> <span class="n">with_ui_cbk</span> <span class="c1"># processing bar for loading data</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> <span class="c1">#matplotlib is a plotting for creating static, animated, and interactive visualizations</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;odc&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;datacube&#39;
 </pre></div>
 </div>
 </div>
@@ -567,15 +457,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p>To import the functions to the current script, we need a relative path to the file and import display_map, rgb (the name of the functions) from DEAPlotting (the name of the file). <code class="docutils literal notranslate"><span class="pre">sys.path.append()</span></code> is used to add a specific path to the python file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dea_tools.plotting</span> <span class="kn">import</span> <span class="n">display_map</span><span class="p">,</span> <span class="n">rgb</span> <span class="c1">#this line allows us to use specific functions written in another script</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dea_tools.plotting</span> <span class="kn">import</span> <span class="n">display_map</span><span class="p">,</span> <span class="n">rgb</span> <span class="c1"># this line allows us to use specific functions written in another script</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In this example, we will use <code class="docutils literal notranslate"><span class="pre">data</span></code> which contains scenes of the s2_l2a_bavaria product from December 2019 to Februray 2020.</p>
-</div>
-<div class="section" id="load-data">
-<h3>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="load-data">
+<h3>Load Data<a class="headerlink" href="#load-data" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s1">&#39;06_plotting&#39;</span><span class="p">)</span>
@@ -585,72 +474,737 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">product</span><span class="o">=</span> <span class="s2">&quot;s2_l2a&quot;</span><span class="p">,</span>
-             <span class="n">x</span><span class="o">=</span> <span class="p">[</span><span class="mf">12.94</span> <span class="p">,</span><span class="mf">13.05</span><span class="p">],</span>
-             <span class="n">y</span><span class="o">=</span> <span class="p">[</span><span class="mf">53.88</span><span class="p">,</span><span class="mf">53.94</span><span class="p">],</span>
-             <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32632&quot;</span><span class="p">,</span>
-             <span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2020-05-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2020-07-31&quot;</span><span class="p">),</span>
-             <span class="n">measurements</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;nir&quot;</span><span class="p">,</span> <span class="s2">&quot;swir_1&quot;</span><span class="p">,</span> <span class="s2">&quot;SCL&quot;</span><span class="p">],</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">dc</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">product</span><span class="o">=</span> <span class="s2">&quot;s2_c1_l2a&quot;</span><span class="p">,</span>
+             <span class="n">x</span><span class="o">=</span> <span class="p">(</span><span class="mf">9.88</span> <span class="p">,</span><span class="mf">10.0</span><span class="p">),</span>
+             <span class="n">y</span><span class="o">=</span> <span class="p">(</span><span class="mf">49.75</span><span class="p">,</span> <span class="mf">49.82</span><span class="p">),</span>
+             <span class="n">time</span><span class="o">=</span> <span class="p">(</span><span class="s2">&quot;2021-03-01&quot;</span><span class="p">,</span> <span class="s2">&quot;2021-04-15&quot;</span><span class="p">),</span>
+             <span class="n">output_crs</span> <span class="o">=</span> <span class="s2">&quot;EPSG:32734&quot;</span><span class="p">,</span>
+             <span class="n">measurements</span><span class="o">=</span> <span class="p">[</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;nir&quot;</span><span class="p">,</span> <span class="s2">&quot;swir16&quot;</span><span class="p">,</span> <span class="s2">&quot;scl&quot;</span><span class="p">],</span>
              <span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
              <span class="n">group_by</span> <span class="o">=</span> <span class="s2">&quot;solar_day&quot;</span><span class="p">,</span>
              <span class="n">progress_cbk</span><span class="o">=</span><span class="n">with_ui_cbk</span><span class="p">())</span>
-
-<span class="n">data</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f00bc7f4fc244f5c822cd8b0c8ccc6de", "version_major": 2, "version_minor": 0}</script></div>
 </div>
-<p>Let’s have a look of our data.</p>
+<p>Let’s have a look at our data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:      (time: 18, y: 905, x: 977)
+Coordinates:
+  * time         (time) datetime64[ns] 2021-03-02T10:18:39.025000 ... 2021-04...
+  * y            (y) float64 1.558e+07 1.558e+07 ... 1.557e+07 1.557e+07
+  * x            (x) float64 -3.002e+05 -3.002e+05 ... -2.905e+05 -2.904e+05
+    spatial_ref  int32 32734
+Data variables:
+    blue         (time, y, x) uint16 1938 1691 1581 1399 ... 9336 9472 9600 9440
+    green        (time, y, x) uint16 2118 1872 1770 1514 ... 8672 8808 8936 8920
+    red          (time, y, x) uint16 2274 2032 1958 1564 ... 8600 8672 8808 8816
+    nir          (time, y, x) uint16 3493 3307 3235 2758 ... 8688 8816 8952 8952
+    swir16       (time, y, x) uint16 3389 3389 3144 3144 ... 5525 5642 5642 5526
+    scl          (time, y, x) uint8 5 5 5 5 5 5 4 4 4 5 ... 9 9 9 9 9 9 9 9 9 9
+Attributes:
+    crs:           EPSG:32734
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-3e74cf10-0eaf-489c-968c-1b02a5609502' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3e74cf10-0eaf-489c-968c-1b02a5609502' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 18</li><li><span class='xr-has-index'>y</span>: 905</li><li><span class='xr-has-index'>x</span>: 977</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-2c310428-f40e-49ad-bef1-88315298ffcb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2c310428-f40e-49ad-bef1-88315298ffcb' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-03-02T10:18:39.025000 ... 2...</div><input id='attrs-4f1a5b6b-cbfb-494d-a03d-9ed3cace2ec8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4f1a5b6b-cbfb-494d-a03d-9ed3cace2ec8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b4f72a32-a9ea-45a1-91df-2f2fb564300e' class='xr-var-data-in' type='checkbox'><label for='data-b4f72a32-a9ea-45a1-91df-2f2fb564300e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-03-02T10:18:39.025000000&#x27;, &#x27;2021-03-05T10:28:09.024000000&#x27;,
+       &#x27;2021-03-07T10:20:21.024000000&#x27;, &#x27;2021-03-10T10:30:21.024000000&#x27;,
+       &#x27;2021-03-12T10:17:29.024000000&#x27;, &#x27;2021-03-15T10:27:09.024000000&#x27;,
+       &#x27;2021-03-17T10:20:21.024000000&#x27;, &#x27;2021-03-20T10:30:21.024000000&#x27;,
+       &#x27;2021-03-22T10:16:49.024000000&#x27;, &#x27;2021-03-25T10:26:39.024000000&#x27;,
+       &#x27;2021-03-27T10:20:21.024000000&#x27;, &#x27;2021-03-30T10:30:21.024000000&#x27;,
+       &#x27;2021-04-01T10:15:59.024000000&#x27;, &#x27;2021-04-04T10:25:59.024000000&#x27;,
+       &#x27;2021-04-06T10:20:21.025000000&#x27;, &#x27;2021-04-09T10:30:21.024000000&#x27;,
+       &#x27;2021-04-11T10:15:59.024000000&#x27;, &#x27;2021-04-14T10:25:59.024000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.558e+07 1.558e+07 ... 1.557e+07</div><input id='attrs-8d4e9c21-25f4-476c-8535-9cdad411ff46' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8d4e9c21-25f4-476c-8535-9cdad411ff46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6da3e05a-ad6a-4778-8509-1677d98424eb' class='xr-var-data-in' type='checkbox'><label for='data-6da3e05a-ad6a-4778-8509-1677d98424eb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15578205., 15578195., 15578185., ..., 15569185., 15569175., 15569165.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.002e+05 ... -2.904e+05</div><input id='attrs-9c869e75-e16d-46ba-86ad-936271aba425' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9c869e75-e16d-46ba-86ad-936271aba425' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5d97bd32-23cd-4c09-9121-475b90de1548' class='xr-var-data-in' type='checkbox'><label for='data-5d97bd32-23cd-4c09-9121-475b90de1548' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-300205., -300195., -300185., ..., -290465., -290455., -290445.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-0003c403-7bc8-4d7d-a705-a840f68eaf09' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0003c403-7bc8-4d7d-a705-a840f68eaf09' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5940fa92-1f0b-4e02-8cea-0bedca34e853' class='xr-var-data-in' type='checkbox'><label for='data-5940fa92-1f0b-4e02-8cea-0bedca34e853' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-521677e8-25a8-4acb-92a6-8dc7a9dc02eb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-521677e8-25a8-4acb-92a6-8dc7a9dc02eb' class='xr-section-summary' >Data variables: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>1938 1691 1581 ... 9472 9600 9440</div><input id='attrs-98a14b73-02db-4e2d-aa50-fdf2f97b069f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-98a14b73-02db-4e2d-aa50-fdf2f97b069f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-431a29a2-09ec-4652-8d22-421f945223ad' class='xr-var-data-in' type='checkbox'><label for='data-431a29a2-09ec-4652-8d22-421f945223ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 1938,  1691,  1581, ...,  1546,  1575,  1530],
+        [ 2378,  2024,  1842, ...,  1525,  1576,  1586],
+        [ 1980,  1744,  1748, ...,  1499,  1510,  1570],
+        ...,
+        [ 1290,  1286,  1282, ...,  1333,  1400,  1369],
+        [ 1283,  1286,  1269, ...,  1331,  1394,  1380],
+        [ 1316,  1306,  1276, ...,  1376,  1365,  1378]],
+
+       [[ 8352,  8312,  8304, ...,  6308,  6268,  6328],
+        [ 8140,  7996,  7972, ...,  6132,  6068,  6004],
+        [ 8028,  7932,  7888, ...,  6124,  6064,  6036],
+        ...,
+        [10144, 10232, 10296, ...,  8328,  8056,  7776],
+        [10296, 10392, 10496, ...,  8432,  8216,  7896],
+        [10568, 10576, 10624, ...,  8400,  8240,  7828]],
+
+       [[ 1940,  1739,  1728, ...,  1447,  1475,  1458],
+        [ 1824,  1752,  1684, ...,  1363,  1398,  1480],
+        [ 1930,  2188,  1848, ...,  1345,  1403,  1476],
+        ...,
+...
+        ...,
+        [ 2814,  2814,  2810, ...,  2858,  2850,  2812],
+        [ 2814,  2842,  2810, ...,  2860,  2860,  2824],
+        [ 2816,  2838,  2810, ...,  2852,  2832,  2838]],
+
+       [[ 2794,  2536,  2368, ...,  1529,  1531,  1511],
+        [ 2726,  2466,  2284, ...,  1461,  1482,  1506],
+        [ 2450,  2556,  2528, ...,  1448,  1462,  1493],
+        ...,
+        [ 2656,  2668,  2670, ...,  1536,  1514,  1481],
+        [ 2598,  2604,  2676, ...,  1603,  1615,  1502],
+        [ 2644,  2646,  2680, ...,  1678,  1740,  1506]],
+
+       [[ 2126,  2112,  2062, ...,  8256,  8188,  8152],
+        [ 2172,  2068,  2026, ...,  8208,  8144,  8064],
+        [ 2124,  2256,  2102, ...,  8160,  8088,  8040],
+        ...,
+        [ 8904,  8896,  8984, ...,  9008,  9184,  8960],
+        [ 8904,  8936,  8960, ...,  9216,  9376,  9296],
+        [ 8904,  8936,  8952, ...,  9472,  9600,  9440]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2118 1872 1770 ... 8808 8936 8920</div><input id='attrs-0df0cb28-248a-497b-9843-988c12499a36' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0df0cb28-248a-497b-9843-988c12499a36' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d06e260d-e204-418a-9681-d5fcf0da9845' class='xr-var-data-in' type='checkbox'><label for='data-d06e260d-e204-418a-9681-d5fcf0da9845' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2118, 1872, 1770, ..., 1852, 1834, 1836],
+        [2526, 2202, 2028, ..., 1847, 1886, 1860],
+        [2204, 1979, 1939, ..., 1804, 1804, 1866],
+        ...,
+        [1358, 1382, 1375, ..., 1445, 1440, 1406],
+        [1381, 1370, 1358, ..., 1444, 1429, 1416],
+        [1454, 1410, 1333, ..., 1412, 1437, 1413]],
+
+       [[8000, 7932, 7836, ..., 5684, 5696, 5676],
+        [7836, 7808, 7744, ..., 5676, 5636, 5624],
+        [7632, 7556, 7508, ..., 5640, 5688, 5792],
+        ...,
+        [9528, 9616, 9656, ..., 7856, 7748, 7348],
+        [9736, 9776, 9816, ..., 7992, 7856, 7484],
+        [9952, 9904, 9920, ..., 7840, 7748, 7500]],
+
+       [[2158, 2076, 1946, ..., 1804, 1804, 1802],
+        [2028, 1867, 1852, ..., 1756, 1827, 1872],
+        [2070, 2644, 2186, ..., 1739, 1786, 1861],
+        ...,
+...
+        ...,
+        [2916, 2902, 2888, ..., 2918, 2918, 2902],
+        [2916, 2908, 2900, ..., 2928, 2902, 2902],
+        [2926, 2902, 2908, ..., 2892, 2900, 2876]],
+
+       [[3032, 2736, 2596, ..., 1871, 1869, 1856],
+        [2854, 2632, 2560, ..., 1857, 1834, 1833],
+        [2622, 2748, 2700, ..., 1828, 1797, 1802],
+        ...,
+        [2700, 2698, 2690, ..., 1610, 1700, 1686],
+        [2686, 2710, 2700, ..., 1586, 1616, 1650],
+        [2720, 2742, 2740, ..., 1614, 1565, 1634]],
+
+       [[2226, 2096, 2050, ..., 7852, 7792, 7640],
+        [2080, 2100, 2068, ..., 7852, 7680, 7576],
+        [2176, 2254, 2066, ..., 7812, 7676, 7684],
+        ...,
+        [8264, 8312, 8352, ..., 8488, 8640, 8608],
+        [8304, 8272, 8320, ..., 8592, 8744, 8816],
+        [8304, 8264, 8296, ..., 8808, 8936, 8920]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2274 2032 1958 ... 8672 8808 8816</div><input id='attrs-71fe4a8d-97c4-45e9-889b-60339aa5e0df' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71fe4a8d-97c4-45e9-889b-60339aa5e0df' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-63b41a08-1551-4094-adbe-7873f4a51be2' class='xr-var-data-in' type='checkbox'><label for='data-63b41a08-1551-4094-adbe-7873f4a51be2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2274, 2032, 1958, ..., 1960, 1942, 1880],
+        [2852, 2444, 2282, ..., 1892, 1916, 1938],
+        [2294, 2028, 2158, ..., 1784, 1822, 1926],
+        ...,
+        [1492, 1486, 1460, ..., 1532, 1516, 1502],
+        [1509, 1476, 1414, ..., 1525, 1522, 1472],
+        [1480, 1475, 1376, ..., 1514, 1512, 1483]],
+
+       [[7680, 7620, 7568, ..., 5420, 5448, 5500],
+        [7688, 7620, 7592, ..., 5356, 5428, 5540],
+        [7532, 7540, 7496, ..., 5428, 5472, 5608],
+        ...,
+        [9240, 9392, 9400, ..., 7704, 7588, 7208],
+        [9528, 9576, 9544, ..., 7668, 7544, 7356],
+        [9768, 9752, 9600, ..., 7456, 7368, 7352]],
+
+       [[2460, 2252, 2162, ..., 1844, 1880, 1899],
+        [2068, 2062, 2078, ..., 1710, 1792, 1904],
+        [2556, 2838, 2298, ..., 1637, 1697, 1824],
+        ...,
+...
+        ...,
+        [2960, 2964, 2926, ..., 2910, 2916, 2902],
+        [2942, 2942, 2904, ..., 2898, 2920, 2886],
+        [2946, 2908, 2918, ..., 2884, 2878, 2884]],
+
+       [[3100, 2838, 2696, ..., 1572, 1524, 1525],
+        [2886, 2638, 2506, ..., 1506, 1472, 1538],
+        [2576, 2952, 2862, ..., 1490, 1443, 1494],
+        ...,
+        [2740, 2782, 2810, ..., 1788, 1790, 1798],
+        [2768, 2792, 2814, ..., 1800, 1798, 1772],
+        [2758, 2804, 2802, ..., 1790, 1756, 1782]],
+
+       [[2158, 2042, 1970, ..., 7768, 7612, 7564],
+        [2054, 1968, 1976, ..., 7728, 7656, 7636],
+        [2180, 2418, 2022, ..., 7788, 7820, 7796],
+        ...,
+        [8096, 8040, 8096, ..., 8368, 8464, 8520],
+        [8080, 8108, 8116, ..., 8464, 8536, 8584],
+        [8052, 8052, 8076, ..., 8672, 8808, 8816]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>3493 3307 3235 ... 8816 8952 8952</div><input id='attrs-c23cd97c-6f52-4752-806f-11c7f62f784f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c23cd97c-6f52-4752-806f-11c7f62f784f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cfbd32ed-d4f6-4c9a-88d1-ee9fbb2d01c3' class='xr-var-data-in' type='checkbox'><label for='data-cfbd32ed-d4f6-4c9a-88d1-ee9fbb2d01c3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[3493, 3307, 3235, ..., 3858, 3828, 3918],
+        [3556, 3257, 3226, ..., 4068, 3934, 3876],
+        [2962, 2896, 3243, ..., 4312, 4301, 4012],
+        ...,
+        [2500, 2510, 2375, ..., 2460, 2403, 2340],
+        [2618, 2476, 2294, ..., 2448, 2405, 2196],
+        [2792, 2546, 2225, ..., 2467, 2350, 2318]],
+
+       [[7968, 8012, 7924, ..., 5676, 5772, 5704],
+        [7816, 7788, 7748, ..., 5600, 5592, 5588],
+        [7684, 7652, 7652, ..., 5600, 5600, 5732],
+        ...,
+        [9168, 9224, 9288, ..., 7620, 7476, 7176],
+        [9352, 9416, 9488, ..., 7728, 7616, 7232],
+        [9600, 9576, 9616, ..., 7664, 7584, 7264]],
+
+       [[3271, 3291, 3229, ..., 4061, 3918, 3997],
+        [2688, 2838, 3040, ..., 4372, 4271, 4060],
+        [3282, 4124, 3761, ..., 4620, 4643, 4436],
+        ...,
+...
+        ...,
+        [4136, 4124, 4108, ..., 4030, 4038, 3996],
+        [4168, 4152, 4074, ..., 4020, 4030, 3974],
+        [4156, 4140, 4064, ..., 4010, 3974, 3986]],
+
+       [[4528, 4392, 4452, ..., 6180, 6024, 5936],
+        [4156, 3944, 4224, ..., 6464, 6420, 6008],
+        [4168, 4376, 4620, ..., 6600, 6612, 6284],
+        ...,
+        [3608, 3626, 3626, ..., 3004, 3082, 3130],
+        [3610, 3652, 3654, ..., 3140, 3160, 2948],
+        [3654, 3662, 3644, ..., 3278, 3232, 2976]],
+
+       [[2950, 3112, 3194, ..., 8320, 8320, 8280],
+        [2614, 2866, 3170, ..., 8344, 8232, 8192],
+        [2758, 3296, 3422, ..., 8328, 8176, 8192],
+        ...,
+        [8408, 8456, 8464, ..., 8512, 8616, 8520],
+        [8408, 8416, 8432, ..., 8624, 8712, 8688],
+        [8392, 8448, 8392, ..., 8816, 8952, 8952]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swir16</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>3389 3389 3144 ... 5642 5642 5526</div><input id='attrs-3efb373e-aa49-43f7-bc97-0457f5d174e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3efb373e-aa49-43f7-bc97-0457f5d174e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a81478ce-fcc6-4085-8409-5593c0d92513' class='xr-var-data-in' type='checkbox'><label for='data-a81478ce-fcc6-4085-8409-5593c0d92513' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[3389, 3389, 3144, ..., 3913, 3913, 3913],
+        [3662, 3662, 3732, ..., 3913, 3913, 3913],
+        [3662, 3662, 3732, ..., 3895, 3895, 3971],
+        ...,
+        [2776, 2684, 2684, ..., 2855, 2746, 2838],
+        [2776, 2684, 2684, ..., 2855, 2746, 2746],
+        [2782, 2560, 2560, ..., 2738, 2738, 2772]],
+
+       [[6276, 6276, 6270, ..., 4207, 4207, 4264],
+        [6358, 6358, 6252, ..., 4207, 4207, 4264],
+        [6358, 6358, 6252, ..., 4411, 4411, 4529],
+        ...,
+        [6512, 6601, 6601, ..., 5444, 5299, 5239],
+        [6512, 6601, 6601, ..., 5444, 5299, 5299],
+        [6824, 6817, 6817, ..., 5143, 5143, 5138]],
+
+       [[3351, 3351, 3397, ..., 3638, 3638, 3739],
+        [3709, 3709, 3612, ..., 3638, 3638, 3739],
+        [3709, 3709, 3612, ..., 3597, 3597, 3688],
+        ...,
+...
+        ...,
+        [3213, 3211, 3211, ..., 2960, 2952, 2958],
+        [3213, 3211, 3211, ..., 2960, 2952, 2952],
+        [3223, 3198, 3198, ..., 2958, 2958, 2961]],
+
+       [[4220, 4220, 4047, ..., 3289, 3289, 3294],
+        [4309, 4309, 4249, ..., 3289, 3289, 3294],
+        [4309, 4309, 4249, ..., 3237, 3237, 3251],
+        ...,
+        [3891, 3932, 3932, ..., 3521, 3504, 3297],
+        [3891, 3932, 3932, ..., 3521, 3504, 3504],
+        [3879, 3936, 3936, ..., 3533, 3533, 3421]],
+
+       [[2445, 2445, 2500, ..., 6724, 6724, 6672],
+        [2686, 2686, 2606, ..., 6724, 6724, 6672],
+        [2686, 2686, 2606, ..., 6851, 6851, 6831],
+        ...,
+        [3009, 3007, 3007, ..., 5187, 5296, 5090],
+        [3009, 3007, 3007, ..., 5187, 5296, 5296],
+        [2996, 2981, 2981, ..., 5642, 5642, 5526]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint8</div><div class='xr-var-preview xr-preview'>5 5 5 5 5 5 4 4 ... 9 9 9 9 9 9 9 9</div><input id='attrs-90207deb-396f-4947-9e64-934381349172' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-90207deb-396f-4947-9e64-934381349172' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-47b08a5e-70b6-4508-bf54-5551a9220e61' class='xr-var-data-in' type='checkbox'><label for='data-47b08a5e-70b6-4508-bf54-5551a9220e61' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[5, 5, 5, ..., 4, 4, 4],
+        [5, 5, 5, ..., 4, 4, 4],
+        [5, 5, 5, ..., 4, 4, 4],
+        ...,
+        [4, 4, 4, ..., 5, 5, 5],
+        [4, 4, 4, ..., 5, 5, 5],
+        [4, 4, 4, ..., 5, 5, 5]],
+
+       [[9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        ...,
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9],
+        [9, 9, 9, ..., 9, 9, 9]],
+
+       [[5, 5, 5, ..., 4, 4, 4],
+        [5, 5, 5, ..., 4, 4, 4],
+        [5, 5, 5, ..., 4, 4, 4],
+        ...,
+...
+        ...,
+        [8, 8, 8, ..., 8, 8, 8],
+        [8, 8, 8, ..., 8, 8, 8],
+        [8, 8, 8, ..., 8, 8, 8]],
+
+       [[5, 5, 5, ..., 4, 4, 4],
+        [5, 5, 5, ..., 4, 4, 4],
+        [5, 5, 5, ..., 4, 4, 4],
+        ...,
+        [5, 5, 5, ..., 5, 5, 5],
+        [5, 5, 5, ..., 5, 5, 5],
+        [7, 7, 7, ..., 4, 4, 5]],
+
+       [[5, 5, 5, ..., 9, 9, 9],
+        [5, 5, 5, ..., 9, 9, 9],
+        [5, 5, 5, ..., 9, 9, 9],
+        ...,
+        [8, 8, 8, ..., 9, 9, 9],
+        [8, 8, 8, ..., 9, 9, 9],
+        [8, 8, 8, ..., 9, 9, 9]]], dtype=uint8)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c3dfff7d-631c-4bb7-9137-95ea5457abd5' class='xr-section-summary-in' type='checkbox'  ><label for='section-c3dfff7d-631c-4bb7-9137-95ea5457abd5' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-149acce2-e29a-47a5-9245-a21e35a80037' class='xr-index-data-in' type='checkbox'/><label for='index-149acce2-e29a-47a5-9245-a21e35a80037' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-03-02 10:18:39.025000&#x27;, &#x27;2021-03-05 10:28:09.024000&#x27;,
+               &#x27;2021-03-07 10:20:21.024000&#x27;, &#x27;2021-03-10 10:30:21.024000&#x27;,
+               &#x27;2021-03-12 10:17:29.024000&#x27;, &#x27;2021-03-15 10:27:09.024000&#x27;,
+               &#x27;2021-03-17 10:20:21.024000&#x27;, &#x27;2021-03-20 10:30:21.024000&#x27;,
+               &#x27;2021-03-22 10:16:49.024000&#x27;, &#x27;2021-03-25 10:26:39.024000&#x27;,
+               &#x27;2021-03-27 10:20:21.024000&#x27;, &#x27;2021-03-30 10:30:21.024000&#x27;,
+               &#x27;2021-04-01 10:15:59.024000&#x27;, &#x27;2021-04-04 10:25:59.024000&#x27;,
+               &#x27;2021-04-06 10:20:21.025000&#x27;, &#x27;2021-04-09 10:30:21.024000&#x27;,
+               &#x27;2021-04-11 10:15:59.024000&#x27;, &#x27;2021-04-14 10:25:59.024000&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f59a83c2-3cad-404d-911d-09989a6e432b' class='xr-index-data-in' type='checkbox'/><label for='index-f59a83c2-3cad-404d-911d-09989a6e432b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15578205.0, 15578195.0, 15578185.0, 15578175.0, 15578165.0, 15578155.0,
+       15578145.0, 15578135.0, 15578125.0, 15578115.0,
+       ...
+       15569255.0, 15569245.0, 15569235.0, 15569225.0, 15569215.0, 15569205.0,
+       15569195.0, 15569185.0, 15569175.0, 15569165.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=905))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2dd7ae77-4876-4b2c-ab49-b6f906049220' class='xr-index-data-in' type='checkbox'/><label for='index-2dd7ae77-4876-4b2c-ab49-b6f906049220' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-300205.0, -300195.0, -300185.0, -300175.0, -300165.0, -300155.0,
+       -300145.0, -300135.0, -300125.0, -300115.0,
+       ...
+       -290535.0, -290525.0, -290515.0, -290505.0, -290495.0, -290485.0,
+       -290475.0, -290465.0, -290455.0, -290445.0],
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=977))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2e7744a3-4a38-4895-b9d3-ecbe3c7b4980' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2e7744a3-4a38-4895-b9d3-ecbe3c7b4980' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="rgb-image">
-<h2><strong>RGB Image</strong><a class="headerlink" href="#rgb-image" title="Permalink to this headline">¶</a></h2>
-<p>To have a first view of our data, we can use the function <code class="docutils literal notranslate"><span class="pre">rgb()</span></code> defined in our written script DEAPlotting. It can be found under the folder Scripts where we do the import. rgb( ) can be used to plot different bands in the Data Variables in the red, blue, and green channels (in this order). If we input all three bands accordingly into the channels, it is called a <strong>true color composite</strong>, otherwise it is plotted as a <strong>false color composite</strong>.</p>
-<p>However, we have to pay attention that the function can only plot in two dimensions (longitude and latitude). Hence, we can only input data array from a single time stamp. Here, we plot only the first time stamp (time = [0]), with col=”time” argument we define the collapse of time dimension. We can look for the band name under Data Variables of the data set.</p>
-<div class="section" id="true-color-composite">
-<h3><strong>1) True Color Composite</strong><a class="headerlink" href="#true-color-composite" title="Permalink to this headline">¶</a></h3>
-<p>With True color composite we input all bands accordingly.</p>
+</section>
+</section>
+<section id="rgb-image">
+<h2><strong>RGB Image</strong><a class="headerlink" href="#rgb-image" title="Permalink to this heading">#</a></h2>
+<p>To have the first view of our data, we can use the function <code class="docutils literal notranslate"><span class="pre">rgb()</span></code> defined in our written script DEAPlotting, stored in the folder “note_book”. <code class="docutils literal notranslate"><span class="pre">rgb()</span></code> can plot different bands in the Data Variables in the red, blue, and green channels (in this order). If we input all three bands accordingly into the channels, it is called a <strong>true color composite</strong>. Otherwise, it is plotted as a <strong>false color composite</strong>.</p>
+<p>However, we have to pay attention that the function can only plot in two dimensions (longitude and latitude). Hence, we can only input data array from a single time stamp. Here, we plot only the first time stamp (time = [0]), with col=”time” argument, we define the collapse of a time dimension. We can look for the band name under Data Variables of the data set.</p>
+<section id="true-color-composite">
+<h3><strong>1) True Color Composite</strong><a class="headerlink" href="#true-color-composite" title="Permalink to this heading">#</a></h3>
+<p>With True color composite, we input all bands accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">]),</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/070a373981384b5faee27c98209f837bd426c3e9d7c06cac4ee73638adee75f9.png" src="../../_images/070a373981384b5faee27c98209f837bd426c3e9d7c06cac4ee73638adee75f9.png" />
 </div>
 </div>
-<div class="section" id="false-color-composite">
-<h3><strong>2) False Color Composite</strong><a class="headerlink" href="#false-color-composite" title="Permalink to this headline">¶</a></h3>
-<p>Here we visualize Land/Water composite. You can also try out <a class="reference external" href="https://gsp.humboldt.edu/OLM/Courses/GSP_216_Online/lesson3-1/composites.html">different combinations</a> which fit for different purposes.</p>
+</section>
+<section id="false-color-composite">
+<h3><strong>2) False Color Composite</strong><a class="headerlink" href="#false-color-composite" title="Permalink to this heading">#</a></h3>
+<p>Here we visualize the Land/Water composite. Try out <a class="reference external" href="http://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/composites.html">different combinations</a> which fit different purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nir&#39;</span><span class="p">,</span> <span class="s1">&#39;swir_1&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rgb</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">]),</span> <span class="n">bands</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nir&#39;</span><span class="p">,</span> <span class="s1">&#39;swir16&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">],</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/b323acd8794e74cb162edf59f638000d3eabcb161a05eff34f0dc6f604d8c25b.png" src="../../_images/b323acd8794e74cb162edf59f638000d3eabcb161a05eff34f0dc6f604d8c25b.png" />
 </div>
 </div>
-</div>
-<div class="section" id="histogram">
-<h2><strong>Histogram</strong><a class="headerlink" href="#histogram" title="Permalink to this headline">¶</a></h2>
-<p>Besides, we can look at distribution of pixel values by plotting a histogram (i.e. using plot() for a multi-temporal xarray dataset). We can see most of the pixel reflectances lie between 400 and 1000.</p>
+</section>
+</section>
+<section id="histogram">
+<h2><strong>Histogram</strong><a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h2>
+<p>Besides, we can look at the distribution of pixel values by plotting a histogram (i.e., using plot() for a multi-temporal xarray dataset). We can see that most pixel reflectances lie between 400 and 1000.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="c1">#data[&#39;coastal_aerosol&#39;].plot(color=&#39;green&#39;)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([4.176267e+06, 3.867088e+06, 2.350894e+06, 2.266841e+06,
+        1.859713e+06, 9.297180e+05, 3.099990e+05, 1.201880e+05,
+        3.390800e+04, 7.140000e+02]),
+ array([    0. ,  1915.2,  3830.4,  5745.6,  7660.8,  9576. , 11491.2,
+        13406.4, 15321.6, 17236.8, 19152. ]),
+ &lt;BarContainer object of 10 artists&gt;)
+</pre></div>
+</div>
+<img alt="../../_images/d578028e54ba26a6decd5f4ff0b8456293bfb286a3de5c5aed882c60dc8deaa3.png" src="../../_images/d578028e54ba26a6decd5f4ff0b8456293bfb286a3de5c5aed882c60dc8deaa3.png" />
 </div>
 </div>
-<div class="section" id="scatterplot">
-<h2><strong>Scatterplot</strong><a class="headerlink" href="#scatterplot" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="scatterplot">
+<h2><strong>Scatterplot</strong><a class="headerlink" href="#scatterplot" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
@@ -658,78 +1212,79 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Correlation of Red and Green bands&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/0182fff77001c2b8da980cbc58df3acc5c2ebe847ce6c273d2cf8a34f2cea3c8.png" src="../../_images/0182fff77001c2b8da980cbc58df3acc5c2ebe847ce6c273d2cf8a34f2cea3c8.png" />
 </div>
 </div>
-<div class="section" id="d-pcolormesh">
-<h2><strong>2D pcolormesh</strong><a class="headerlink" href="#d-pcolormesh" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="plotting-single-band">
-<h3><strong>1) Plotting Single Band</strong><a class="headerlink" href="#plotting-single-band" title="Permalink to this headline">¶</a></h3>
-<p>We can also directly plot single individual band using xarray functionality. Important to note that it only take one time stamp and one data variable by default. Here we plot coastal aerosol band with the plot function. A specific <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">colormap</a> can be added with the cmap argument and all ther functionality of matplotlib are also available. The argument robust can be used to remove outliners.</p>
+</section>
+<section id="d-pcolormesh">
+<h2><strong>2D pcolormesh</strong><a class="headerlink" href="#d-pcolormesh" title="Permalink to this heading">#</a></h2>
+<section id="plotting-single-band">
+<h3><strong>1) Plotting Single Band</strong><a class="headerlink" href="#plotting-single-band" title="Permalink to this heading">#</a></h3>
+<p>We can also directly plot a single individual band using xarray functionality. It is important to note that it only takes a one-time stamp and one data variable by default. Here we plot the red band with the plot function. A specific <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">colormap</a> can be added with the cmap argument, and all the functionality of matplotlib is also available. The argument robust can be used to remove outliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">red</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">plasma</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Red Band&quot;</span><span class="p">)</span> <span class="c1">#title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Red band&quot;</span><span class="p">)</span> <span class="c1">#title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;latitude&quot;</span><span class="p">)</span> <span class="c1">#labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;longitude&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span> <span class="c1">#remove excessive space in layout</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> <span class="c1">#show plot</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a6aab05177b859c29cc802c99c52e9bc84330845f76a26f683797e73bfdfde1c.png" src="../../_images/a6aab05177b859c29cc802c99c52e9bc84330845f76a26f683797e73bfdfde1c.png" />
 </div>
 </div>
-<div class="section" id="facet-plot">
-<h3><strong>2) Facet Plot</strong><a class="headerlink" href="#facet-plot" title="Permalink to this headline">¶</a></h3>
-<p>We can plot facet plot with the col=”time” argument to show all time stamps. Note that plotting too many time stamps at once is not recommanded.</p>
+</section>
+<section id="facet-plot">
+<h3><strong>2) Facet Plot</strong><a class="headerlink" href="#facet-plot" title="Permalink to this heading">#</a></h3>
+<p>We can plot facet plot with the col=”time” argument to show all time stamps. Note that plotting too many time stamps at once is not recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data.isel(time=[0,2,4,6,8,10]).green.plot()</span>
-<span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7f77804d9c90&gt;
+</pre></div>
+</div>
+<img alt="../../_images/ef008779fdd2cf3ae3d737fdb67cd0de414adba857615101cfc404b51c042d47.png" src="../../_images/ef008779fdd2cf3ae3d737fdb67cd0de414adba857615101cfc404b51c042d47.png" />
 </div>
 </div>
-<div class="section" id="masking">
-<h3><strong>3) Masking</strong><a class="headerlink" href="#masking" title="Permalink to this headline">¶</a></h3>
-<p>We can also mask out area in the plot. The following code excludes the cloud area (scl = 9).</p>
+</section>
+<section id="masking">
+<h3><strong>3) Masking</strong><a class="headerlink" href="#masking" title="Permalink to this heading">#</a></h3>
+<p>We can also mask out the area in the plot. The following code excludes the cloud area (scl = 9).</p>
 <img align="left" src="scl.png" style="width:250px;"><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combining masking in facet plot</span>
-<span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">])</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SCL</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">scl</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">robust</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="interactive-layout">
-<h3><strong>5) Interactive Layout</strong><a class="headerlink" href="#interactive-layout" title="Permalink to this headline">¶</a></h3>
-<p>Also, interative call of different scene is possible to explore around the data.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">eo2cube_tools.plot</span> <span class="kn">import</span> <span class="n">plot_band</span><span class="p">,</span> <span class="n">plot_rgb</span>
-
-<span class="n">plot_band</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="c1">#plot_band(data[[&#39;red&#39;,&#39;green&#39;,&#39;blue&#39;]].resample(time=&#39;2W&#39;).mean())</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7f77804db7c0&gt;
 </pre></div>
 </div>
+<img alt="../../_images/d6c47472c0cd568fa1bbd45196cdb96de16f34726caf911b96e2f45fb56670d1.png" src="../../_images/d6c47472c0cd568fa1bbd45196cdb96de16f34726caf911b96e2f45fb56670d1.png" />
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_rgb</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="time-series-linechart">
-<h2><strong>Time Series Linechart</strong><a class="headerlink" href="#time-series-linechart" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="time-series-linechart">
+<h2><strong>Time Series Linechart</strong><a class="headerlink" href="#time-series-linechart" title="Permalink to this heading">#</a></h2>
 <p>Xarray’s plotting capabilities are centered around DataArray objects, and its functionality is a thin wrapper around matplotlib. Hence, many Matplotlib functionalities, such as <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code>, can be easily called.</p>
-<p>To produce time series plot, we can reduce the dimensions of longitude and latitude with <code class="docutils literal notranslate"><span class="pre">mean(dim=[&quot;longitude&quot;,&quot;latitude&quot;])</span></code> so that we get a single value of the whole area for every single time stamps. The resulting array can be used to plot a linechart with <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>(plt) framework.</p>
+<p>To produce a time series plot, we can reduce the dimensions of longitude and latitude with <code class="docutils literal notranslate"><span class="pre">mean(dim=[&quot;longitude&quot;,&quot;latitude&quot;])</span></code> so that we get a single value of the whole area for every single time stamp. The resulting array can be used to plot a linechart with <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>(plt) framework.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">masked</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">SCL</span> <span class="o">!=</span> <span class="mi">9</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">masked</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">green</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">scl</span> <span class="o">&lt;=</span> <span class="mi">8</span><span class="p">)</span>
 <span class="n">week_data</span> <span class="o">=</span> <span class="n">masked</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">ts_plot</span> <span class="o">=</span> <span class="n">week_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orangered&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#dimension reduction</span>
 <span class="n">ts_plot</span>
@@ -742,26 +1297,86 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/d24c0892d0e46fcae86c1e9d82c493d9ed4f4c0557367a999eb422c107dddad8.png" src="../../_images/d24c0892d0e46fcae86c1e9d82c493d9ed4f4c0557367a999eb422c107dddad8.png" />
+</div>
 </div>
 <p>Additional arguments can be passed directly to the matplotlib function. We can, for example, also plot histogram with the data array.</p>
-</div>
-<div class="section" id="using-pandas-and-seaborn">
-<h2><strong>Using Pandas and Seaborn</strong><a class="headerlink" href="#using-pandas-and-seaborn" title="Permalink to this headline">¶</a></h2>
-<p>In the plotting basics, we have learnt how to create graphics using xarray and pyplot. Yet, we can also utilize pandas and seaborn library with their more developed tools to improve the visuals of our plot. It requires more code but meanwhile gives more flexibility for plot customization.</p>
+</section>
+<section id="using-pandas-and-seaborn">
+<h2><strong>Using Pandas and Seaborn</strong><a class="headerlink" href="#using-pandas-and-seaborn" title="Permalink to this heading">#</a></h2>
+<p>In the plotting basics, we have learned how to create graphics using xarray and pyplot. Yet, we can also utilize pandas and seaborn library with their more developed tools to improve the visuals of our plot. It requires more code but meanwhile gives more flexibility for plot customization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data.to_dataframe()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;swir_1&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1">#convert to pandas</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;swir16&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;y&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span> <span class="c1">#convert to pandas</span>
 <span class="n">df2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>green</th>
+      <th>swir16</th>
+      <th>spatial_ref</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-03-02 10:18:39.025</th>
+      <td>1715.332961</td>
+      <td>3020.914572</td>
+      <td>32734</td>
+    </tr>
+    <tr>
+      <th>2021-03-05 10:28:09.024</th>
+      <td>8378.296930</td>
+      <td>5689.336588</td>
+      <td>32734</td>
+    </tr>
+    <tr>
+      <th>2021-03-07 10:20:21.024</th>
+      <td>1649.496124</td>
+      <td>2871.654400</td>
+      <td>32734</td>
+    </tr>
+    <tr>
+      <th>2021-03-10 10:30:21.024</th>
+      <td>5307.697134</td>
+      <td>4421.048104</td>
+      <td>32734</td>
+    </tr>
+    <tr>
+      <th>2021-03-12 10:17:29.024</th>
+      <td>5048.307103</td>
+      <td>4883.331938</td>
+      <td>32734</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,97 +1385,88 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>green</th>
+      <th>swir16</th>
+    </tr>
+    <tr>
+      <th>time</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2021-03-02 10:18:39.025</th>
+      <td>1715.332961</td>
+      <td>3020.914572</td>
+    </tr>
+    <tr>
+      <th>2021-03-05 10:28:09.024</th>
+      <td>8378.296930</td>
+      <td>5689.336588</td>
+    </tr>
+    <tr>
+      <th>2021-03-07 10:20:21.024</th>
+      <td>1649.496124</td>
+      <td>2871.654400</td>
+    </tr>
+    <tr>
+      <th>2021-03-10 10:30:21.024</th>
+      <td>5307.697134</td>
+      <td>4421.048104</td>
+    </tr>
+    <tr>
+      <th>2021-03-12 10:17:29.024</th>
+      <td>5048.307103</td>
+      <td>4883.331938</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df2</span><span class="p">[[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;swir_1&quot;</span><span class="p">]])</span> <span class="c1">#pairplot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax3</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df2</span><span class="p">[[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;swir16&quot;</span><span class="p">]])</span> <span class="c1">#pairplot</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Correlation between SWIR and Green&quot;</span><span class="p">)</span> <span class="c1">#main title</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax4</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df2</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span> <span class="c1">#violin plot</span>
-
-<span class="n">ax4</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1">#needed to generate two y-tick labels</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([</span><span class="s1">&#39;Green&#39;</span><span class="p">,</span><span class="s1">&#39;SWIR 1&#39;</span><span class="p">])</span> <span class="c1">#List of y-tick labels</span>
-</pre></div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1704ccd25d2b6d1b01b4790af57a542fe2a1e4e08262437dace243224ba64656.png" src="../../_images/1704ccd25d2b6d1b01b4790af57a542fe2a1e4e08262437dace243224ba64656.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="recommended-next-steps">
-<h2>Recommended next steps<a class="headerlink" href="#recommended-next-steps" title="Permalink to this headline">¶</a></h2>
-<p>To continue with the beginner’s guide, the following notebooks are designed to be worked through in the following order:</p>
-<ol class="simple">
-<li><p><span class="xref myst">Jupyter Notebooks</span></p></li>
-<li><p><span class="xref myst">eo2cube</span></p></li>
-<li><p><span class="xref myst">Products and Measurements</span></p></li>
-<li><p><span class="xref myst">Loading data</span></p></li>
-<li><p><span class="xref myst">Advanced xarrays operations</span></p></li>
-<li><p><strong>Plotting data (this notebook)</strong></p></li>
-<li><p><span class="xref myst">Basic analysis of remote sensing data</span></p></li>
-<li><p><span class="xref myst">Parallel processing with Dask</span></p></li>
-</ol>
-</div>
+</section>
 <hr class="docutils" />
-<div class="section" id="further-reading">
-<h2>Further Reading<a class="headerlink" href="#further-reading" title="Permalink to this headline">¶</a></h2>
-<p>For users who are not familar with basics functionality and plottings of matplotlib, please check on the following external tutorial to learn about:</p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://towardsdatascience.com/matplotlib-tutorial-learn-basics-of-pythons-powerful-plotting-library-b5d1b8f67596">Short Introduction of Matplotlib</a></p></li>
-</ol>
-<ul class="simple">
-<li><p>Plotting options and parameters of Matplotlib</p></li>
-</ul>
-<ol class="simple">
-<li><p><a class="reference external" href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/">Introduction to Plotting in Python Using Matplotlib</a>.</p></li>
-</ol>
-<ul class="simple">
-<li><p>Introduction to pyplot module</p></li>
-<li><p>Customize Plots Using Matplotlib (Tick, Label, Title, Marker, Color, etc.)</p></li>
-</ul>
-<ol class="simple">
-<li><p>Working With Datetime Objects in Python</p></li>
-</ol>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/">Introduction to Datetime Object</a></p></li>
-<li><p><a class="reference external" href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/introduction-to-matplotlib-plots/plot-time-series-data-in-python/">Customize Matplotlibe Dates Ticks on the x-axis in Python</a></p></li>
-</ul>
-<br>
-To continue working through the notebooks in this beginner's guide, the following notebooks are designed to be worked through in the following order:
-<ol class="simple">
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/01_jupyter_introduction.ipynb">Jupyter Notebooks</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/02_eo2cube_introduction.ipynb">eo2cube</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/03_data_lookup_and_loading.ipynb">Loading Data</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/04_xarrayI_data_structure.ipynb">Xarray I: Data Structure</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/05_xarrayII.ipynb">Xarray II: Index and Statistics</a></p></li>
-<li><p><em><strong>Plotting data (this notebook)</strong></em></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/07_basic_analysis.ipynb">Spatial analysis</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/08_parallel_processing_with_dask.ipynb">Parallel processing with Dask</a></p></li>
-</ol>
-<p>The additional notebooks are designed for users to build up both basic and advanced skills which are not covered by the beginner’s guide. Self-motivated users can go through them according to their own needs. They act as complements for the guide:
-<br></p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/I_file_management.ipynb">Python’s file management tools</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/II_numpy_image_processing.ipynb">Image Processing basics using NumPy and Matplotlib</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/III_process_vector_data.ipynb">Vector Processing</a></p></li>
-<li><p><a class="reference external" href="https://github.com/eo2cube/eo2cube_notebooks/blob/main/get_started/intro_to_eo2cube/IV_advanced_plotting.ipynb">Advanced Plotting</a></p></li>
-</ol>
-</div>
-<hr class="docutils" />
-<div class="section" id="additional-information">
-<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this headline">¶</a></h2>
+<section id="additional-information">
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
 <p><font size="2">This notebook for the usage in the Open Data Cube entities of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>, is adapted from <a class="reference external" href="https://github.com/GeoscienceAustralia/dea-notebooks">Geoscience Australia</a>, published using the Apache License, Version 2.0. Thanks! </font></p>
 <p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
 Digital Earth Australia data is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons by Attribution 4.0</a> license.</p>
 <p><strong>Contact:</strong> If you would like to report an issue with this notebook, you can file one on <a class="reference external" href="https://github.com">Github</a>.</p>
-<p><strong>Last modified:</strong> February 2021</p>
-</div>
-</div>
+<p><strong>Last modified:</strong> January 2023</p>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -874,7 +1480,7 @@ Digital Earth Australia data is licensed under the <a class="reference external"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./notebooks/beginners_guide"
         },
         predefinedOutput: true
@@ -882,44 +1488,124 @@ Digital Earth Australia data is licensed under the <a class="reference external"
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="03_xarrayII.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Advanced Xarray</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_xarrayII.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Advanced Xarray</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="05_basic_analysis.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="05_basic_analysis.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Basic Spatial Analysis</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
+                </footer>
+              
+            </div>
             
-        </div>
-    </div>
-    <footer class="footer">
-  <p>
-    
-      By eo2cube community<br/>
-    
-        &copy; Copyright 2021.<br/>
-  </p>
-</footer>
-</main>
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#description">Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up">Setting up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-packages">Load packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rgb-image"><strong>RGB Image</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#true-color-composite"><strong>1) True Color Composite</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#false-color-composite"><strong>2) False Color Composite</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogram"><strong>Histogram</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatterplot"><strong>Scatterplot</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-pcolormesh"><strong>2D pcolormesh</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-single-band"><strong>1) Plotting Single Band</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facet-plot"><strong>2) Facet Plot</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#masking"><strong>3) Masking</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-linechart"><strong>Time Series Linechart</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-pandas-and-seaborn"><strong>Using Pandas and Seaborn</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-information">Additional information</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By eo2cube community
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
