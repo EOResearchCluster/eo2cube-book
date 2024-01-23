@@ -411,7 +411,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <img align="right" src="images/banner_siegel.png" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="parallel-processing-with-dask">
+  <img align="right" src="https://github.com/eo2cube/eo2cube_book/blob/7880672deff906b41f993c856fe1a7eb38ed5b3a/images/banner_siegel.png?raw=true" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="parallel-processing-with-dask">
 <h1>Parallel processing with Dask<a class="headerlink" href="#parallel-processing-with-dask" title="Permalink to this heading">#</a></h1>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
@@ -439,16 +439,20 @@ Most of the packages have already been introduced in the previous notebooks. The
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting deafrica_tools
-  Using cached deafrica_tools-2.3.2-py3-none-any.whl.metadata (18 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached deafrica_tools-2.3.2-py3-none-any.whl.metadata (18 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aiohttp (from deafrica_tools)
   Using cached aiohttp-3.9.1-cp39-cp39-macosx_11_0_arm64.whl.metadata (7.4 kB)
-Collecting aiobotocore[boto3] (from deafrica_tools)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached aiobotocore-2.11.0-py3-none-any.whl.metadata (21 kB)
-Collecting branca (from deafrica_tools)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aiobotocore[boto3] (from deafrica_tools)
+  Using cached aiobotocore-2.11.0-py3-none-any.whl.metadata (21 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting branca (from deafrica_tools)
   Using cached branca-0.7.0-py3-none-any.whl.metadata (1.5 kB)
 </pre></div>
 </div>
@@ -462,19 +466,17 @@ Collecting branca (from deafrica_tools)
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dask-gateway (from deafrica_tools)
   Using cached dask_gateway-2024.1.0-py3-none-any.whl.metadata (1.4 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting datacube[performance,s3] (from deafrica_tools)
+Collecting datacube[performance,s3] (from deafrica_tools)
   Using cached datacube-1.8.17-py2.py3-none-any.whl.metadata (9.5 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting fiona (from deafrica_tools)
   Using cached fiona-1.9.5-cp39-cp39-macosx_11_0_arm64.whl.metadata (49 kB)
 Collecting folium (from deafrica_tools)
-  Using cached folium-0.15.1-py2.py3-none-any.whl.metadata (3.4 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting fsspec (from deafrica_tools)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached folium-0.15.1-py2.py3-none-any.whl.metadata (3.4 kB)
+Collecting fsspec (from deafrica_tools)
   Using cached fsspec-2023.12.2-py3-none-any.whl.metadata (6.8 kB)
 </pre></div>
 </div>
@@ -482,7 +484,10 @@ Collecting folium (from deafrica_tools)
   Using cached GDAL-3.8.3.tar.gz (802 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l- done
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Preparing metadata (setup.py) ... ?25l-
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting geojson (from deafrica_tools)
@@ -514,16 +519,10 @@ Collecting geopy (from deafrica_tools)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> -
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> \
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l-
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Getting requirements to build wheel ... ?25l- done
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25h  Preparing metadata (pyproject.toml) ... ?25l-
@@ -533,39 +532,39 @@ Collecting geopy (from deafrica_tools)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hCollecting ipyleaflet (from deafrica_tools)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached ipyleaflet-0.18.1-py3-none-any.whl.metadata (1.0 kB)
+  Using cached ipyleaflet-0.18.1-py3-none-any.whl.metadata (1.0 kB)
 Requirement already satisfied: ipython in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from deafrica_tools) (8.18.1)
-Collecting ipywidgets (from deafrica_tools)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached ipywidgets-8.1.1-py3-none-any.whl.metadata (2.4 kB)
-Collecting joblib (from deafrica_tools)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting ipywidgets (from deafrica_tools)
+  Using cached ipywidgets-8.1.1-py3-none-any.whl.metadata (2.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting joblib (from deafrica_tools)
   Using cached joblib-1.3.2-py3-none-any.whl.metadata (5.4 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting matplotlib (from deafrica_tools)
+  Using cached matplotlib-3.8.2-cp39-cp39-macosx_11_0_arm64.whl.metadata (5.8 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached matplotlib-3.8.2-cp39-cp39-macosx_11_0_arm64.whl.metadata (5.8 kB)
-Collecting numexpr (from deafrica_tools)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached numexpr-2.8.8-cp39-cp39-macosx_11_0_arm64.whl.metadata (7.9 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numexpr (from deafrica_tools)
+  Using cached numexpr-2.8.8-cp39-cp39-macosx_11_0_arm64.whl.metadata (7.9 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting numpy (from deafrica_tools)
-  Using cached numpy-1.26.3-cp39-cp39-macosx_11_0_arm64.whl.metadata (61 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached numpy-1.26.3-cp39-cp39-macosx_11_0_arm64.whl.metadata (61 kB)
 Collecting odc-algo (from deafrica_tools)
   Using cached odc_algo-0.2.3-py3-none-any.whl (52 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting odc-geo (from deafrica_tools)
+  Using cached odc_geo-0.4.1-py3-none-any.whl.metadata (4.3 kB)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached odc_geo-0.4.1-py3-none-any.whl.metadata (4.3 kB)
-Collecting odc-ui (from deafrica_tools)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting odc-ui (from deafrica_tools)
   Using cached odc_ui-0.2.1-py3-none-any.whl.metadata (1.1 kB)
 </pre></div>
 </div>
@@ -585,18 +584,14 @@ Requirement already satisfied: packaging in /Users/administrator/micromamba/envs
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pystac-client (from deafrica_tools)
   Using cached pystac_client-0.7.5-py3-none-any.whl.metadata (5.2 kB)
 Requirement already satisfied: python-dateutil in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from deafrica_tools) (2.8.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyTMD&gt;2 (from deafrica_tools)
+Collecting pyTMD&gt;2 (from deafrica_tools)
   Using cached pyTMD-2.1.0-py3-none-any.whl.metadata (7.0 kB)
 Requirement already satisfied: pytz in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from deafrica_tools) (2023.3.post1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rasterio (from deafrica_tools)
   Using cached rasterio-1.3.9-cp39-cp39-macosx_11_0_arm64.whl.metadata (14 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting rasterstats (from deafrica_tools)
+Collecting rasterstats (from deafrica_tools)
   Using cached rasterstats-0.19.0-py3-none-any.whl.metadata (4.1 kB)
 Requirement already satisfied: requests in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from deafrica_tools) (2.31.0)
 </pre></div>
@@ -606,9 +601,7 @@ Requirement already satisfied: requests in /Users/administrator/micromamba/envs/
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scikit-learn (from deafrica_tools)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached scikit_learn-1.4.0-1-cp39-cp39-macosx_12_0_arm64.whl.metadata (11 kB)
+  Using cached scikit_learn-1.4.0-1-cp39-cp39-macosx_12_0_arm64.whl.metadata (11 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting scipy (from deafrica_tools)
@@ -631,9 +624,7 @@ Collecting seaborn (from deafrica_tools)
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting black (from deafrica_tools)
   Using cached black-23.12.1-cp39-cp39-macosx_11_0_arm64.whl.metadata (68 kB)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting flake8==6.0.0 (from deafrica_tools)
+Collecting flake8==6.0.0 (from deafrica_tools)
   Using cached flake8-6.0.0-py2.py3-none-any.whl (57 kB)
 </pre></div>
 </div>
@@ -652,39 +643,37 @@ Collecting mccabe&lt;0.8.0,&gt;=0.7.0 (from flake8==6.0.0-&gt;deafrica_tools)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycodestyle&lt;2.11.0,&gt;=2.10.0 (from flake8==6.0.0-&gt;deafrica_tools)
   Using cached pycodestyle-2.10.0-py2.py3-none-any.whl (41 kB)
 Collecting pyflakes&lt;3.1.0,&gt;=3.0.0 (from flake8==6.0.0-&gt;deafrica_tools)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pyflakes-3.0.1-py2.py3-none-any.whl (62 kB)
+  Using cached pyflakes-3.0.1-py2.py3-none-any.whl (62 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lxml (from pyTMD&gt;2-&gt;deafrica_tools)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached lxml-5.1.0-cp39-cp39-macosx_11_0_arm64.whl.metadata (3.5 kB)
+  Using cached lxml-5.1.0-cp39-cp39-macosx_11_0_arm64.whl.metadata (3.5 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting netCDF4 (from pyTMD&gt;2-&gt;deafrica_tools)
   Using cached netCDF4-1.6.5-cp39-cp39-macosx_11_0_arm64.whl.metadata (1.8 kB)
+Collecting setuptools-scm (from pyTMD&gt;2-&gt;deafrica_tools)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting setuptools-scm (from pyTMD&gt;2-&gt;deafrica_tools)
-  Using cached setuptools_scm-8.0.4-py3-none-any.whl.metadata (6.4 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached setuptools_scm-8.0.4-py3-none-any.whl.metadata (6.4 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting botocore&lt;1.34.23,&gt;=1.33.2 (from aiobotocore[boto3]-&gt;deafrica_tools)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached botocore-1.34.22-py3-none-any.whl.metadata (5.6 kB)
+  Using cached botocore-1.34.22-py3-none-any.whl.metadata (5.6 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting wrapt&lt;2.0.0,&gt;=1.10.10 (from aiobotocore[boto3]-&gt;deafrica_tools)
   Using cached wrapt-1.16.0-cp39-cp39-macosx_11_0_arm64.whl.metadata (6.6 kB)
-Collecting aioitertools&lt;1.0.0,&gt;=0.5.1 (from aiobotocore[boto3]-&gt;deafrica_tools)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aioitertools&lt;1.0.0,&gt;=0.5.1 (from aiobotocore[boto3]-&gt;deafrica_tools)
   Using cached aioitertools-0.11.0-py3-none-any.whl (23 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting boto3&lt;1.34.23,&gt;=1.33.2 (from aiobotocore[boto3]-&gt;deafrica_tools)
-  Using cached boto3-1.34.22-py3-none-any.whl.metadata (6.6 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached boto3-1.34.22-py3-none-any.whl.metadata (6.6 kB)
 Requirement already satisfied: attrs&gt;=17.3.0 in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from aiohttp-&gt;deafrica_tools) (23.2.0)
 </pre></div>
 </div>
@@ -697,7 +686,9 @@ Requirement already satisfied: attrs&gt;=17.3.0 in /Users/administrator/micromam
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting frozenlist&gt;=1.1.1 (from aiohttp-&gt;deafrica_tools)
-  Using cached frozenlist-1.4.1-cp39-cp39-macosx_11_0_arm64.whl.metadata (12 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached frozenlist-1.4.1-cp39-cp39-macosx_11_0_arm64.whl.metadata (12 kB)
 Collecting aiosignal&gt;=1.1.2 (from aiohttp-&gt;deafrica_tools)
   Using cached aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
 </pre></div>
@@ -710,11 +701,11 @@ Requirement already satisfied: click&gt;=8.0.0 in /Users/administrator/micromamb
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mypy-extensions&gt;=0.4.3 (from black-&gt;deafrica_tools)
   Using cached mypy_extensions-1.0.0-py3-none-any.whl (4.7 kB)
 Collecting pathspec&gt;=0.9.0 (from black-&gt;deafrica_tools)
+  Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: platformdirs&gt;=2 in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from black-&gt;deafrica_tools) (4.1.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
-Requirement already satisfied: platformdirs&gt;=2 in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from black-&gt;deafrica_tools) (4.1.0)
-Collecting tomli&gt;=1.1.0 (from black-&gt;deafrica_tools)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting tomli&gt;=1.1.0 (from black-&gt;deafrica_tools)
   Using cached tomli-2.0.1-py3-none-any.whl (12 kB)
 Requirement already satisfied: typing-extensions&gt;=4.0.1 in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from black-&gt;deafrica_tools) (4.9.0)
 Requirement already satisfied: jinja2 in /Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages (from branca-&gt;deafrica_tools) (3.1.3)
@@ -762,10 +753,10 @@ Requirement already satisfied: importlib-metadata&gt;=4.13.0 in /Users/administr
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyarrow&gt;=7.0 (from dask[complete]-&gt;deafrica_tools)
   Using cached pyarrow-15.0.0-cp39-cp39-macosx_11_0_arm64.whl.metadata (3.0 kB)
-Collecting pyarrow-hotfix (from dask[complete]-&gt;deafrica_tools)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Using cached pyarrow_hotfix-0.6-py3-none-any.whl.metadata (3.6 kB)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyarrow-hotfix (from dask[complete]-&gt;deafrica_tools)
+  Using cached pyarrow_hotfix-0.6-py3-none-any.whl.metadata (3.6 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting lz4&gt;=4.3.2 (from dask[complete]-&gt;deafrica_tools)
@@ -778,7 +769,9 @@ Collecting pyarrow-hotfix (from dask[complete]-&gt;deafrica_tools)
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting affine (from datacube[performance,s3]-&gt;deafrica_tools)
   Using cached affine-2.4.0-py3-none-any.whl (15 kB)
-Collecting cachetools (from datacube[performance,s3]-&gt;deafrica_tools)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting cachetools (from datacube[performance,s3]-&gt;deafrica_tools)
   Using cached cachetools-5.3.2-py3-none-any.whl.metadata (5.2 kB)
 </pre></div>
 </div>
@@ -802,11 +795,11 @@ Requirement already satisfied: jsonschema&gt;=4.18 in /Users/administrator/micro
   <span class=" -Color -Color-Red">│</span> exit code: <span class=" -Color -Color-Bold -Color-Bold-Cyan">1</span>
   <span class=" -Color -Color-Red">╰─&gt;</span> <span class=" -Color -Color-Red">[23 lines of output]</span>
   <span class=" -Color -Color-Red">   </span> running egg_info
-  <span class=" -Color -Color-Red">   </span> creating /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-rsrpaloo/psycopg2.egg-info
-  <span class=" -Color -Color-Red">   </span> writing /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-rsrpaloo/psycopg2.egg-info/PKG-INFO
-  <span class=" -Color -Color-Red">   </span> writing dependency_links to /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-rsrpaloo/psycopg2.egg-info/dependency_links.txt
-  <span class=" -Color -Color-Red">   </span> writing top-level names to /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-rsrpaloo/psycopg2.egg-info/top_level.txt
-  <span class=" -Color -Color-Red">   </span> writing manifest file &#39;/private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-rsrpaloo/psycopg2.egg-info/SOURCES.txt&#39;
+  <span class=" -Color -Color-Red">   </span> creating /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-kx18p19l/psycopg2.egg-info
+  <span class=" -Color -Color-Red">   </span> writing /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-kx18p19l/psycopg2.egg-info/PKG-INFO
+  <span class=" -Color -Color-Red">   </span> writing dependency_links to /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-kx18p19l/psycopg2.egg-info/dependency_links.txt
+  <span class=" -Color -Color-Red">   </span> writing top-level names to /private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-kx18p19l/psycopg2.egg-info/top_level.txt
+  <span class=" -Color -Color-Red">   </span> writing manifest file &#39;/private/var/folders/c9/pwb1fyj91y5gtvjp8jj5zz780000gn/T/pip-pip-egg-info-kx18p19l/psycopg2.egg-info/SOURCES.txt&#39;
   <span class=" -Color -Color-Red">   </span> 
   <span class=" -Color -Color-Red">   </span> Error: pg_config executable not found.
   <span class=" -Color -Color-Red">   </span> 
