@@ -1,36 +1,431 @@
 Traceback (most recent call last):
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/conda/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/asyncio/base_events.py", line 642, in run_until_complete
+  File "/opt/conda/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
     return future.result()
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/administrator/micromamba/envs/jbook/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "/opt/conda/lib/python3.10/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import datacube
-import pandas as pd
-from odc.ui import with_ui_cbk
-
-# Set some configurations for displaying tables nicely
-pd.set_option('display.max_colwidth', 200)
-pd.set_option('display.max_rows', None)
+dc = datacube.Datacube(app = '03_Products_and_measurement') #datacube connection
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mdatacube[39;00m
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
-[1;32m      3[0m [38;5;28;01mfrom[39;00m [38;5;21;01modc[39;00m[38;5;21;01m.[39;00m[38;5;21;01mui[39;00m [38;5;28;01mimport[39;00m with_ui_cbk
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3371[0m, in [0;36mEngine._wrap_pool_connect[0;34m(self, fn, connection)[0m
+[1;32m   3370[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 3371[0m     [38;5;28;01mreturn[39;00m [43mfn[49m[43m([49m[43m)[49m
+[1;32m   3372[0m [38;5;28;01mexcept[39;00m dialect[38;5;241m.[39mdbapi[38;5;241m.[39mError [38;5;28;01mas[39;00m e:
 
-[0;31mModuleNotFoundError[0m: No module named 'datacube'
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:327[0m, in [0;36mPool.connect[0;34m(self)[0m
+[1;32m    320[0m [38;5;250m[39m[38;5;124;03m"""Return a DBAPI connection from the pool.[39;00m
+[1;32m    321[0m 
+[1;32m    322[0m [38;5;124;03mThe connection is instrumented such that when its[39;00m
+[0;32m   (...)[0m
+[1;32m    325[0m 
+[1;32m    326[0m [38;5;124;03m"""[39;00m
+[0;32m--> 327[0m [38;5;28;01mreturn[39;00m [43m_ConnectionFairy[49m[38;5;241;43m.[39;49m[43m_checkout[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:894[0m, in [0;36m_ConnectionFairy._checkout[0;34m(cls, pool, threadconns, fairy)[0m
+[1;32m    893[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m fairy:
+[0;32m--> 894[0m     fairy [38;5;241m=[39m [43m_ConnectionRecord[49m[38;5;241;43m.[39;49m[43mcheckout[49m[43m([49m[43mpool[49m[43m)[49m
+[1;32m    896[0m     fairy[38;5;241m.[39m_pool [38;5;241m=[39m pool
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:493[0m, in [0;36m_ConnectionRecord.checkout[0;34m(cls, pool)[0m
+[1;32m    491[0m [38;5;129m@classmethod[39m
+[1;32m    492[0m [38;5;28;01mdef[39;00m [38;5;21mcheckout[39m([38;5;28mcls[39m, pool):
+[0;32m--> 493[0m     rec [38;5;241m=[39m [43mpool[49m[38;5;241;43m.[39;49m[43m_do_get[49m[43m([49m[43m)[49m
+[1;32m    494[0m     [38;5;28;01mtry[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145[0m, in [0;36mQueuePool._do_get[0;34m(self)[0m
+[1;32m    144[0m [38;5;28;01mexcept[39;00m:
+[0;32m--> 145[0m     [38;5;28;01mwith[39;00m util[38;5;241m.[39msafe_reraise():
+[1;32m    146[0m         [38;5;28mself[39m[38;5;241m.[39m_dec_overflow()
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70[0m, in [0;36msafe_reraise.__exit__[0;34m(self, type_, value, traceback)[0m
+[1;32m     69[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mwarn_only:
+[0;32m---> 70[0m         [43mcompat[49m[38;5;241;43m.[39;49m[43mraise_[49m[43m([49m
+[1;32m     71[0m [43m            [49m[43mexc_value[49m[43m,[49m
+[1;32m     72[0m [43m            [49m[43mwith_traceback[49m[38;5;241;43m=[39;49m[43mexc_tb[49m[43m,[49m
+[1;32m     73[0m [43m        [49m[43m)[49m
+[1;32m     74[0m [38;5;28;01melse[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211[0m, in [0;36mraise_[0;34m(***failed resolving arguments***)[0m
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 211[0m     [38;5;28;01mraise[39;00m exception
+[1;32m    212[0m [38;5;28;01mfinally[39;00m:
+[1;32m    213[0m     [38;5;66;03m# credit to[39;00m
+[1;32m    214[0m     [38;5;66;03m# https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/[39;00m
+[1;32m    215[0m     [38;5;66;03m# as the __traceback__ object creates a cycle[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143[0m, in [0;36mQueuePool._do_get[0;34m(self)[0m
+[1;32m    142[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 143[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_create_connection[49m[43m([49m[43m)[49m
+[1;32m    144[0m [38;5;28;01mexcept[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:273[0m, in [0;36mPool._create_connection[0;34m(self)[0m
+[1;32m    271[0m [38;5;250m[39m[38;5;124;03m"""Called by subclasses to create a new ConnectionRecord."""[39;00m
+[0;32m--> 273[0m [38;5;28;01mreturn[39;00m [43m_ConnectionRecord[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:388[0m, in [0;36m_ConnectionRecord.__init__[0;34m(self, pool, connect)[0m
+[1;32m    387[0m [38;5;28;01mif[39;00m connect:
+[0;32m--> 388[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m__connect[49m[43m([49m[43m)[49m
+[1;32m    389[0m [38;5;28mself[39m[38;5;241m.[39mfinalize_callback [38;5;241m=[39m deque()
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:690[0m, in [0;36m_ConnectionRecord.__connect[0;34m(self)[0m
+[1;32m    689[0m [38;5;28;01mexcept[39;00m [38;5;167;01mBaseException[39;00m [38;5;28;01mas[39;00m e:
+[0;32m--> 690[0m     [38;5;28;01mwith[39;00m util[38;5;241m.[39msafe_reraise():
+[1;32m    691[0m         pool[38;5;241m.[39mlogger[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mError on connect(): [39m[38;5;132;01m%s[39;00m[38;5;124m"[39m, e)
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70[0m, in [0;36msafe_reraise.__exit__[0;34m(self, type_, value, traceback)[0m
+[1;32m     69[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mwarn_only:
+[0;32m---> 70[0m         [43mcompat[49m[38;5;241;43m.[39;49m[43mraise_[49m[43m([49m
+[1;32m     71[0m [43m            [49m[43mexc_value[49m[43m,[49m
+[1;32m     72[0m [43m            [49m[43mwith_traceback[49m[38;5;241;43m=[39;49m[43mexc_tb[49m[43m,[49m
+[1;32m     73[0m [43m        [49m[43m)[49m
+[1;32m     74[0m [38;5;28;01melse[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211[0m, in [0;36mraise_[0;34m(***failed resolving arguments***)[0m
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 211[0m     [38;5;28;01mraise[39;00m exception
+[1;32m    212[0m [38;5;28;01mfinally[39;00m:
+[1;32m    213[0m     [38;5;66;03m# credit to[39;00m
+[1;32m    214[0m     [38;5;66;03m# https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/[39;00m
+[1;32m    215[0m     [38;5;66;03m# as the __traceback__ object creates a cycle[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:686[0m, in [0;36m_ConnectionRecord.__connect[0;34m(self)[0m
+[1;32m    685[0m [38;5;28mself[39m[38;5;241m.[39mstarttime [38;5;241m=[39m time[38;5;241m.[39mtime()
+[0;32m--> 686[0m [38;5;28mself[39m[38;5;241m.[39mdbapi_connection [38;5;241m=[39m connection [38;5;241m=[39m [43mpool[49m[38;5;241;43m.[39;49m[43m_invoke_creator[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+[1;32m    687[0m pool[38;5;241m.[39mlogger[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mCreated new connection [39m[38;5;132;01m%r[39;00m[38;5;124m"[39m, connection)
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/create.py:574[0m, in [0;36mcreate_engine.<locals>.connect[0;34m(connection_record)[0m
+[1;32m    573[0m             [38;5;28;01mreturn[39;00m connection
+[0;32m--> 574[0m [38;5;28;01mreturn[39;00m [43mdialect[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[43mcargs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcparams[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/default.py:598[0m, in [0;36mDefaultDialect.connect[0;34m(self, *cargs, **cparams)[0m
+[1;32m    596[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m, [38;5;241m*[39mcargs, [38;5;241m*[39m[38;5;241m*[39mcparams):
+[1;32m    597[0m     [38;5;66;03m# inherits the docstring from interfaces.Dialect.connect[39;00m
+[0;32m--> 598[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdbapi[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[43mcargs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcparams[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/psycopg2/__init__.py:122[0m, in [0;36mconnect[0;34m(dsn, connection_factory, cursor_factory, **kwargs)[0m
+[1;32m    121[0m dsn [38;5;241m=[39m _ext[38;5;241m.[39mmake_dsn(dsn, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m--> 122[0m conn [38;5;241m=[39m [43m_connect[49m[43m([49m[43mdsn[49m[43m,[49m[43m [49m[43mconnection_factory[49m[38;5;241;43m=[39;49m[43mconnection_factory[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwasync[49m[43m)[49m
+[1;32m    123[0m [38;5;28;01mif[39;00m cursor_factory [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+[0;31mOperationalError[0m: connection to server at "postgres" (172.31.0.12), port 5432 failed: FATAL:  password authentication failed for user "dc_user"
+
+
+The above exception was the direct cause of the following exception:
+
+[0;31mOperationalError[0m                          Traceback (most recent call last)
+Cell [0;32mIn[2], line 1[0m
+[0;32m----> 1[0m dc [38;5;241m=[39m [43mdatacube[49m[38;5;241;43m.[39;49m[43mDatacube[49m[43m([49m[43mapp[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m03_Products_and_measurement[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;66;03m#datacube connection[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/api/core.py:87[0m, in [0;36mDatacube.__init__[0;34m(self, index, config, app, env, validate_connection)[0m
+[1;32m     84[0m     [38;5;28;01mreturn[39;00m config
+[1;32m     86[0m [38;5;28;01mif[39;00m index [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m---> 87[0m     index [38;5;241m=[39m [43mindex_connect[49m[43m([49m[43mnormalise_config[49m[43m([49m[43mconfig[49m[43m)[49m[43m,[49m
+[1;32m     88[0m [43m                          [49m[43mapplication_name[49m[38;5;241;43m=[39;49m[43mapp[49m[43m,[49m
+[1;32m     89[0m [43m                          [49m[43mvalidate_connection[49m[38;5;241;43m=[39;49m[43mvalidate_connection[49m[43m)[49m
+[1;32m     91[0m [38;5;28mself[39m[38;5;241m.[39mindex [38;5;241m=[39m index
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/index/_api.py:45[0m, in [0;36mindex_connect[0;34m(local_config, application_name, validate_connection)[0m
+[1;32m     38[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m index_driver:
+[1;32m     39[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(
+[1;32m     40[0m         [38;5;124m"[39m[38;5;124mNo index driver found for [39m[38;5;132;01m%r[39;00m[38;5;124m. [39m[38;5;132;01m%s[39;00m[38;5;124m available: [39m[38;5;132;01m%s[39;00m[38;5;124m"[39m [38;5;241m%[39m (
+[1;32m     41[0m             driver_name, [38;5;28mlen[39m(index_drivers()), [38;5;124m'[39m[38;5;124m, [39m[38;5;124m'[39m[38;5;241m.[39mjoin(index_drivers())
+[1;32m     42[0m         )
+[1;32m     43[0m     )
+[0;32m---> 45[0m [38;5;28;01mreturn[39;00m [43mindex_driver[49m[38;5;241;43m.[39;49m[43mconnect_to_index[49m[43m([49m[43mlocal_config[49m[43m,[49m
+[1;32m     46[0m [43m                                     [49m[43mapplication_name[49m[38;5;241;43m=[39;49m[43mapplication_name[49m[43m,[49m
+[1;32m     47[0m [43m                                     [49m[43mvalidate_connection[49m[38;5;241;43m=[39;49m[43mvalidate_connection[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/index/postgres/index.py:166[0m, in [0;36mDefaultIndexDriver.connect_to_index[0;34m(config, application_name, validate_connection)[0m
+[1;32m    164[0m [38;5;129m@staticmethod[39m
+[1;32m    165[0m [38;5;28;01mdef[39;00m [38;5;21mconnect_to_index[39m(config, application_name[38;5;241m=[39m[38;5;28;01mNone[39;00m, validate_connection[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[0;32m--> 166[0m     [38;5;28;01mreturn[39;00m [43mIndex[49m[38;5;241;43m.[39;49m[43mfrom_config[49m[43m([49m[43mconfig[49m[43m,[49m[43m [49m[43mapplication_name[49m[43m,[49m[43m [49m[43mvalidate_connection[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/index/postgres/index.py:77[0m, in [0;36mIndex.from_config[0;34m(cls, config, application_name, validate_connection)[0m
+[1;32m     75[0m [38;5;129m@classmethod[39m
+[1;32m     76[0m [38;5;28;01mdef[39;00m [38;5;21mfrom_config[39m([38;5;28mcls[39m, config, application_name[38;5;241m=[39m[38;5;28;01mNone[39;00m, validate_connection[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[0;32m---> 77[0m     db [38;5;241m=[39m [43mPostgresDb[49m[38;5;241;43m.[39;49m[43mfrom_config[49m[43m([49m[43mconfig[49m[43m,[49m[43m [49m[43mapplication_name[49m[38;5;241;43m=[39;49m[43mapplication_name[49m[43m,[49m
+[1;32m     78[0m [43m                                [49m[43mvalidate_connection[49m[38;5;241;43m=[39;49m[43mvalidate_connection[49m[43m)[49m
+[1;32m     79[0m     [38;5;28;01mreturn[39;00m [38;5;28mcls[39m(db)
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_connections.py:75[0m, in [0;36mPostgresDb.from_config[0;34m(cls, config, application_name, validate_connection)[0m
+[1;32m     71[0m [38;5;129m@classmethod[39m
+[1;32m     72[0m [38;5;28;01mdef[39;00m [38;5;21mfrom_config[39m([38;5;28mcls[39m, config, application_name[38;5;241m=[39m[38;5;28;01mNone[39;00m, validate_connection[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m     73[0m     app_name [38;5;241m=[39m [38;5;28mcls[39m[38;5;241m.[39m_expand_app_name(application_name)
+[0;32m---> 75[0m     [38;5;28;01mreturn[39;00m [43mPostgresDb[49m[38;5;241;43m.[39;49m[43mcreate[49m[43m([49m
+[1;32m     76[0m [43m        [49m[43mconfig[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mdb_hostname[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m
+[1;32m     77[0m [43m        [49m[43mconfig[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mdb_database[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m
+[1;32m     78[0m [43m        [49m[43mconfig[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdb_username[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mDEFAULT_DB_USER[49m[43m)[49m[43m,[49m
+[1;32m     79[0m [43m        [49m[43mconfig[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdb_password[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
+[1;32m     80[0m [43m        [49m[43mconfig[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdb_port[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mDEFAULT_DB_PORT[49m[43m)[49m[43m,[49m
+[1;32m     81[0m [43m        [49m[43mapplication_name[49m[38;5;241;43m=[39;49m[43mapp_name[49m[43m,[49m
+[1;32m     82[0m [43m        [49m[43mvalidate[49m[38;5;241;43m=[39;49m[43mvalidate_connection[49m[43m,[49m
+[1;32m     83[0m [43m        [49m[43miam_rds_auth[49m[38;5;241;43m=[39;49m[38;5;28;43mbool[39;49m[43m([49m[43mconfig[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdb_iam_authentication[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mDEFAULT_IAM_AUTH[49m[43m)[49m[43m)[49m[43m,[49m
+[1;32m     84[0m [43m        [49m[43miam_rds_timeout[49m[38;5;241;43m=[39;49m[38;5;28;43mint[39;49m[43m([49m[43mconfig[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mdb_iam_timeout[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mDEFAULT_IAM_TIMEOUT[49m[43m)[49m[43m)[49m[43m,[49m
+[1;32m     85[0m [43m        [49m[43mpool_timeout[49m[38;5;241;43m=[39;49m[38;5;28;43mint[39;49m[43m([49m[43mconfig[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdb_connection_timeout[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;241;43m60[39;49m[43m)[49m[43m)[49m[43m,[49m
+[1;32m     86[0m [43m        [49m[38;5;66;43;03m# pass config?[39;49;00m
+[1;32m     87[0m [43m    [49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_connections.py:107[0m, in [0;36mPostgresDb.create[0;34m(cls, hostname, database, username, password, port, application_name, validate, iam_rds_auth, iam_rds_timeout, pool_timeout)[0m
+[1;32m     96[0m engine [38;5;241m=[39m [38;5;28mcls[39m[38;5;241m.[39m_create_engine(
+[1;32m     97[0m     mk_url(
+[1;32m     98[0m         [38;5;124m'[39m[38;5;124mpostgresql[39m[38;5;124m'[39m,
+[0;32m   (...)[0m
+[1;32m    104[0m     iam_rds_timeout[38;5;241m=[39miam_rds_timeout,
+[1;32m    105[0m     pool_timeout[38;5;241m=[39mpool_timeout)
+[1;32m    106[0m [38;5;28;01mif[39;00m validate:
+[0;32m--> 107[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [43m_core[49m[38;5;241;43m.[39;49m[43mdatabase_exists[49m[43m([49m[43mengine[49m[43m)[49m:
+[1;32m    108[0m         [38;5;28;01mraise[39;00m IndexSetupError([38;5;124m'[39m[38;5;130;01m\n[39;00m[38;5;130;01m\n[39;00m[38;5;124mNo DB schema exists. Have you run init?[39m[38;5;130;01m\n[39;00m[38;5;130;01m\t[39;00m[38;5;132;01m{init_command}[39;00m[38;5;124m'[39m[38;5;241m.[39mformat(
+[1;32m    109[0m             init_command[38;5;241m=[39m[38;5;124m'[39m[38;5;124mdatacube system init[39m[38;5;124m'[39m
+[1;32m    110[0m         ))
+[1;32m    112[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m _core[38;5;241m.[39mschema_is_latest(engine):
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_core.py:152[0m, in [0;36mdatabase_exists[0;34m(engine)[0m
+[1;32m    148[0m [38;5;28;01mdef[39;00m [38;5;21mdatabase_exists[39m(engine):
+[1;32m    149[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    150[0m [38;5;124;03m    Have they init'd this database?[39;00m
+[1;32m    151[0m [38;5;124;03m    """[39;00m
+[0;32m--> 152[0m     [38;5;28;01mreturn[39;00m [43mhas_schema[49m[43m([49m[43mengine[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_core.py:237[0m, in [0;36mhas_schema[0;34m(engine)[0m
+[1;32m    236[0m [38;5;28;01mdef[39;00m [38;5;21mhas_schema[39m(engine):
+[0;32m--> 237[0m     inspector [38;5;241m=[39m [43minspect[49m[43m([49m[43mengine[49m[43m)[49m
+[1;32m    238[0m     [38;5;28;01mreturn[39;00m SCHEMA_NAME [38;5;129;01min[39;00m inspector[38;5;241m.[39mget_schema_names()
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/inspection.py:64[0m, in [0;36minspect[0;34m(subject, raiseerr)[0m
+[1;32m     62[0m [38;5;28;01mif[39;00m reg [38;5;129;01mis[39;00m [38;5;28;01mTrue[39;00m:
+[1;32m     63[0m     [38;5;28;01mreturn[39;00m subject
+[0;32m---> 64[0m ret [38;5;241m=[39m [43mreg[49m[43m([49m[43msubject[49m[43m)[49m
+[1;32m     65[0m [38;5;28;01mif[39;00m ret [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m     66[0m     [38;5;28;01mbreak[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:182[0m, in [0;36mInspector._engine_insp[0;34m(bind)[0m
+[1;32m    180[0m [38;5;129m@inspection[39m[38;5;241m.[39m_inspects(Engine)
+[1;32m    181[0m [38;5;28;01mdef[39;00m [38;5;21m_engine_insp[39m(bind):
+[0;32m--> 182[0m     [38;5;28;01mreturn[39;00m [43mInspector[49m[38;5;241;43m.[39;49m[43m_construct[49m[43m([49m[43mInspector[49m[38;5;241;43m.[39;49m[43m_init_engine[49m[43m,[49m[43m [49m[43mbind[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:117[0m, in [0;36mInspector._construct[0;34m(cls, init, bind)[0m
+[1;32m    114[0m     [38;5;28mcls[39m [38;5;241m=[39m bind[38;5;241m.[39mdialect[38;5;241m.[39minspector
+[1;32m    116[0m [38;5;28mself[39m [38;5;241m=[39m [38;5;28mcls[39m[38;5;241m.[39m[38;5;21m__new__[39m([38;5;28mcls[39m)
+[0;32m--> 117[0m [43minit[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mbind[49m[43m)[49m
+[1;32m    118[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:128[0m, in [0;36mInspector._init_engine[0;34m(self, engine)[0m
+[1;32m    126[0m [38;5;28;01mdef[39;00m [38;5;21m_init_engine[39m([38;5;28mself[39m, engine):
+[1;32m    127[0m     [38;5;28mself[39m[38;5;241m.[39mbind [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mengine [38;5;241m=[39m engine
+[0;32m--> 128[0m     [43mengine[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[43m)[49m[38;5;241m.[39mclose()
+[1;32m    129[0m     [38;5;28mself[39m[38;5;241m.[39m_op_context_requires_connect [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+[1;32m    130[0m     [38;5;28mself[39m[38;5;241m.[39mdialect [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mengine[38;5;241m.[39mdialect
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3325[0m, in [0;36mEngine.connect[0;34m(self, close_with_result)[0m
+[1;32m   3310[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m, close_with_result[38;5;241m=[39m[38;5;28;01mFalse[39;00m):
+[1;32m   3311[0m [38;5;250m    [39m[38;5;124;03m"""Return a new :class:`_engine.Connection` object.[39;00m
+[1;32m   3312[0m 
+[1;32m   3313[0m [38;5;124;03m    The :class:`_engine.Connection` object is a facade that uses a DBAPI[39;00m
+[0;32m   (...)[0m
+[1;32m   3322[0m 
+[1;32m   3323[0m [38;5;124;03m    """[39;00m
+[0;32m-> 3325[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_connection_cls[49m[43m([49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mclose_with_result[49m[38;5;241;43m=[39;49m[43mclose_with_result[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:96[0m, in [0;36mConnection.__init__[0;34m(self, engine, connection, close_with_result, _branch_from, _execution_options, _dispatch, _has_events, _allow_revalidate)[0m
+[1;32m     91[0m     [38;5;28mself[39m[38;5;241m.[39m_has_events [38;5;241m=[39m _branch_from[38;5;241m.[39m_has_events
+[1;32m     92[0m [38;5;28;01melse[39;00m:
+[1;32m     93[0m     [38;5;28mself[39m[38;5;241m.[39m_dbapi_connection [38;5;241m=[39m (
+[1;32m     94[0m         connection
+[1;32m     95[0m         [38;5;28;01mif[39;00m connection [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
+[0;32m---> 96[0m         [38;5;28;01melse[39;00m [43mengine[49m[38;5;241;43m.[39;49m[43mraw_connection[49m[43m([49m[43m)[49m
+[1;32m     97[0m     )
+[1;32m     99[0m     [38;5;28mself[39m[38;5;241m.[39m_transaction [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_nested_transaction [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m    100[0m     [38;5;28mself[39m[38;5;241m.[39m__savepoint_seq [38;5;241m=[39m [38;5;241m0[39m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3404[0m, in [0;36mEngine.raw_connection[0;34m(self, _connection)[0m
+[1;32m   3382[0m [38;5;28;01mdef[39;00m [38;5;21mraw_connection[39m([38;5;28mself[39m, _connection[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[1;32m   3383[0m [38;5;250m    [39m[38;5;124;03m"""Return a "raw" DBAPI connection from the connection pool.[39;00m
+[1;32m   3384[0m 
+[1;32m   3385[0m [38;5;124;03m    The returned object is a proxied version of the DBAPI[39;00m
+[0;32m   (...)[0m
+[1;32m   3402[0m 
+[1;32m   3403[0m [38;5;124;03m    """[39;00m
+[0;32m-> 3404[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_wrap_pool_connect[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mpool[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m,[49m[43m [49m[43m_connection[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3374[0m, in [0;36mEngine._wrap_pool_connect[0;34m(self, fn, connection)[0m
+[1;32m   3372[0m [38;5;28;01mexcept[39;00m dialect[38;5;241m.[39mdbapi[38;5;241m.[39mError [38;5;28;01mas[39;00m e:
+[1;32m   3373[0m     [38;5;28;01mif[39;00m connection [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m-> 3374[0m         [43mConnection[49m[38;5;241;43m.[39;49m[43m_handle_dbapi_exception_noconnection[49m[43m([49m
+[1;32m   3375[0m [43m            [49m[43me[49m[43m,[49m[43m [49m[43mdialect[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m
+[1;32m   3376[0m [43m        [49m[43m)[49m
+[1;32m   3377[0m     [38;5;28;01melse[39;00m:
+[1;32m   3378[0m         util[38;5;241m.[39mraise_(
+[1;32m   3379[0m             sys[38;5;241m.[39mexc_info()[[38;5;241m1[39m], with_traceback[38;5;241m=[39msys[38;5;241m.[39mexc_info()[[38;5;241m2[39m]
+[1;32m   3380[0m         )
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2208[0m, in [0;36mConnection._handle_dbapi_exception_noconnection[0;34m(cls, e, dialect, engine)[0m
+[1;32m   2206[0m     util[38;5;241m.[39mraise_(newraise, with_traceback[38;5;241m=[39mexc_info[[38;5;241m2[39m], from_[38;5;241m=[39me)
+[1;32m   2207[0m [38;5;28;01melif[39;00m should_wrap:
+[0;32m-> 2208[0m     [43mutil[49m[38;5;241;43m.[39;49m[43mraise_[49m[43m([49m
+[1;32m   2209[0m [43m        [49m[43msqlalchemy_exception[49m[43m,[49m[43m [49m[43mwith_traceback[49m[38;5;241;43m=[39;49m[43mexc_info[49m[43m[[49m[38;5;241;43m2[39;49m[43m][49m[43m,[49m[43m [49m[43mfrom_[49m[38;5;241;43m=[39;49m[43me[49m
+[1;32m   2210[0m [43m    [49m[43m)[49m
+[1;32m   2211[0m [38;5;28;01melse[39;00m:
+[1;32m   2212[0m     util[38;5;241m.[39mraise_(exc_info[[38;5;241m1[39m], with_traceback[38;5;241m=[39mexc_info[[38;5;241m2[39m])
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211[0m, in [0;36mraise_[0;34m(***failed resolving arguments***)[0m
+[1;32m    208[0m     exception[38;5;241m.[39m__cause__ [38;5;241m=[39m replace_context
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 211[0m     [38;5;28;01mraise[39;00m exception
+[1;32m    212[0m [38;5;28;01mfinally[39;00m:
+[1;32m    213[0m     [38;5;66;03m# credit to[39;00m
+[1;32m    214[0m     [38;5;66;03m# https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/[39;00m
+[1;32m    215[0m     [38;5;66;03m# as the __traceback__ object creates a cycle[39;00m
+[1;32m    216[0m     [38;5;28;01mdel[39;00m exception, replace_context, from_, with_traceback
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3371[0m, in [0;36mEngine._wrap_pool_connect[0;34m(self, fn, connection)[0m
+[1;32m   3369[0m dialect [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mdialect
+[1;32m   3370[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 3371[0m     [38;5;28;01mreturn[39;00m [43mfn[49m[43m([49m[43m)[49m
+[1;32m   3372[0m [38;5;28;01mexcept[39;00m dialect[38;5;241m.[39mdbapi[38;5;241m.[39mError [38;5;28;01mas[39;00m e:
+[1;32m   3373[0m     [38;5;28;01mif[39;00m connection [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:327[0m, in [0;36mPool.connect[0;34m(self)[0m
+[1;32m    319[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m):
+[1;32m    320[0m [38;5;250m    [39m[38;5;124;03m"""Return a DBAPI connection from the pool.[39;00m
+[1;32m    321[0m 
+[1;32m    322[0m [38;5;124;03m    The connection is instrumented such that when its[39;00m
+[0;32m   (...)[0m
+[1;32m    325[0m 
+[1;32m    326[0m [38;5;124;03m    """[39;00m
+[0;32m--> 327[0m     [38;5;28;01mreturn[39;00m [43m_ConnectionFairy[49m[38;5;241;43m.[39;49m[43m_checkout[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:894[0m, in [0;36m_ConnectionFairy._checkout[0;34m(cls, pool, threadconns, fairy)[0m
+[1;32m    891[0m [38;5;129m@classmethod[39m
+[1;32m    892[0m [38;5;28;01mdef[39;00m [38;5;21m_checkout[39m([38;5;28mcls[39m, pool, threadconns[38;5;241m=[39m[38;5;28;01mNone[39;00m, fairy[38;5;241m=[39m[38;5;28;01mNone[39;00m):
+[1;32m    893[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m fairy:
+[0;32m--> 894[0m         fairy [38;5;241m=[39m [43m_ConnectionRecord[49m[38;5;241;43m.[39;49m[43mcheckout[49m[43m([49m[43mpool[49m[43m)[49m
+[1;32m    896[0m         fairy[38;5;241m.[39m_pool [38;5;241m=[39m pool
+[1;32m    897[0m         fairy[38;5;241m.[39m_counter [38;5;241m=[39m [38;5;241m0[39m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:493[0m, in [0;36m_ConnectionRecord.checkout[0;34m(cls, pool)[0m
+[1;32m    491[0m [38;5;129m@classmethod[39m
+[1;32m    492[0m [38;5;28;01mdef[39;00m [38;5;21mcheckout[39m([38;5;28mcls[39m, pool):
+[0;32m--> 493[0m     rec [38;5;241m=[39m [43mpool[49m[38;5;241;43m.[39;49m[43m_do_get[49m[43m([49m[43m)[49m
+[1;32m    494[0m     [38;5;28;01mtry[39;00m:
+[1;32m    495[0m         dbapi_connection [38;5;241m=[39m rec[38;5;241m.[39mget_connection()
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145[0m, in [0;36mQueuePool._do_get[0;34m(self)[0m
+[1;32m    143[0m         [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_create_connection()
+[1;32m    144[0m     [38;5;28;01mexcept[39;00m:
+[0;32m--> 145[0m         [38;5;28;01mwith[39;00m util[38;5;241m.[39msafe_reraise():
+[1;32m    146[0m             [38;5;28mself[39m[38;5;241m.[39m_dec_overflow()
+[1;32m    147[0m [38;5;28;01melse[39;00m:
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70[0m, in [0;36msafe_reraise.__exit__[0;34m(self, type_, value, traceback)[0m
+[1;32m     68[0m     [38;5;28mself[39m[38;5;241m.[39m_exc_info [38;5;241m=[39m [38;5;28;01mNone[39;00m  [38;5;66;03m# remove potential circular references[39;00m
+[1;32m     69[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mwarn_only:
+[0;32m---> 70[0m         [43mcompat[49m[38;5;241;43m.[39;49m[43mraise_[49m[43m([49m
+[1;32m     71[0m [43m            [49m[43mexc_value[49m[43m,[49m
+[1;32m     72[0m [43m            [49m[43mwith_traceback[49m[38;5;241;43m=[39;49m[43mexc_tb[49m[43m,[49m
+[1;32m     73[0m [43m        [49m[43m)[49m
+[1;32m     74[0m [38;5;28;01melse[39;00m:
+[1;32m     75[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m compat[38;5;241m.[39mpy3k [38;5;129;01mand[39;00m [38;5;28mself[39m[38;5;241m.[39m_exc_info [38;5;129;01mand[39;00m [38;5;28mself[39m[38;5;241m.[39m_exc_info[[38;5;241m1[39m]:
+[1;32m     76[0m         [38;5;66;03m# emulate Py3K's behavior of telling us when an exception[39;00m
+[1;32m     77[0m         [38;5;66;03m# occurs in an exception handler.[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211[0m, in [0;36mraise_[0;34m(***failed resolving arguments***)[0m
+[1;32m    208[0m     exception[38;5;241m.[39m__cause__ [38;5;241m=[39m replace_context
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 211[0m     [38;5;28;01mraise[39;00m exception
+[1;32m    212[0m [38;5;28;01mfinally[39;00m:
+[1;32m    213[0m     [38;5;66;03m# credit to[39;00m
+[1;32m    214[0m     [38;5;66;03m# https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/[39;00m
+[1;32m    215[0m     [38;5;66;03m# as the __traceback__ object creates a cycle[39;00m
+[1;32m    216[0m     [38;5;28;01mdel[39;00m exception, replace_context, from_, with_traceback
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143[0m, in [0;36mQueuePool._do_get[0;34m(self)[0m
+[1;32m    141[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_inc_overflow():
+[1;32m    142[0m     [38;5;28;01mtry[39;00m:
+[0;32m--> 143[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_create_connection[49m[43m([49m[43m)[49m
+[1;32m    144[0m     [38;5;28;01mexcept[39;00m:
+[1;32m    145[0m         [38;5;28;01mwith[39;00m util[38;5;241m.[39msafe_reraise():
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:273[0m, in [0;36mPool._create_connection[0;34m(self)[0m
+[1;32m    270[0m [38;5;28;01mdef[39;00m [38;5;21m_create_connection[39m([38;5;28mself[39m):
+[1;32m    271[0m [38;5;250m    [39m[38;5;124;03m"""Called by subclasses to create a new ConnectionRecord."""[39;00m
+[0;32m--> 273[0m     [38;5;28;01mreturn[39;00m [43m_ConnectionRecord[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:388[0m, in [0;36m_ConnectionRecord.__init__[0;34m(self, pool, connect)[0m
+[1;32m    386[0m [38;5;28mself[39m[38;5;241m.[39m__pool [38;5;241m=[39m pool
+[1;32m    387[0m [38;5;28;01mif[39;00m connect:
+[0;32m--> 388[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m__connect[49m[43m([49m[43m)[49m
+[1;32m    389[0m [38;5;28mself[39m[38;5;241m.[39mfinalize_callback [38;5;241m=[39m deque()
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:690[0m, in [0;36m_ConnectionRecord.__connect[0;34m(self)[0m
+[1;32m    688[0m     [38;5;28mself[39m[38;5;241m.[39mfresh [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+[1;32m    689[0m [38;5;28;01mexcept[39;00m [38;5;167;01mBaseException[39;00m [38;5;28;01mas[39;00m e:
+[0;32m--> 690[0m     [38;5;28;01mwith[39;00m util[38;5;241m.[39msafe_reraise():
+[1;32m    691[0m         pool[38;5;241m.[39mlogger[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mError on connect(): [39m[38;5;132;01m%s[39;00m[38;5;124m"[39m, e)
+[1;32m    692[0m [38;5;28;01melse[39;00m:
+[1;32m    693[0m     [38;5;66;03m# in SQLAlchemy 1.4 the first_connect event is not used by[39;00m
+[1;32m    694[0m     [38;5;66;03m# the engine, so this will usually not be set[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70[0m, in [0;36msafe_reraise.__exit__[0;34m(self, type_, value, traceback)[0m
+[1;32m     68[0m     [38;5;28mself[39m[38;5;241m.[39m_exc_info [38;5;241m=[39m [38;5;28;01mNone[39;00m  [38;5;66;03m# remove potential circular references[39;00m
+[1;32m     69[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39mwarn_only:
+[0;32m---> 70[0m         [43mcompat[49m[38;5;241;43m.[39;49m[43mraise_[49m[43m([49m
+[1;32m     71[0m [43m            [49m[43mexc_value[49m[43m,[49m
+[1;32m     72[0m [43m            [49m[43mwith_traceback[49m[38;5;241;43m=[39;49m[43mexc_tb[49m[43m,[49m
+[1;32m     73[0m [43m        [49m[43m)[49m
+[1;32m     74[0m [38;5;28;01melse[39;00m:
+[1;32m     75[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m compat[38;5;241m.[39mpy3k [38;5;129;01mand[39;00m [38;5;28mself[39m[38;5;241m.[39m_exc_info [38;5;129;01mand[39;00m [38;5;28mself[39m[38;5;241m.[39m_exc_info[[38;5;241m1[39m]:
+[1;32m     76[0m         [38;5;66;03m# emulate Py3K's behavior of telling us when an exception[39;00m
+[1;32m     77[0m         [38;5;66;03m# occurs in an exception handler.[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211[0m, in [0;36mraise_[0;34m(***failed resolving arguments***)[0m
+[1;32m    208[0m     exception[38;5;241m.[39m__cause__ [38;5;241m=[39m replace_context
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 211[0m     [38;5;28;01mraise[39;00m exception
+[1;32m    212[0m [38;5;28;01mfinally[39;00m:
+[1;32m    213[0m     [38;5;66;03m# credit to[39;00m
+[1;32m    214[0m     [38;5;66;03m# https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/[39;00m
+[1;32m    215[0m     [38;5;66;03m# as the __traceback__ object creates a cycle[39;00m
+[1;32m    216[0m     [38;5;28;01mdel[39;00m exception, replace_context, from_, with_traceback
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:686[0m, in [0;36m_ConnectionRecord.__connect[0;34m(self)[0m
+[1;32m    684[0m [38;5;28;01mtry[39;00m:
+[1;32m    685[0m     [38;5;28mself[39m[38;5;241m.[39mstarttime [38;5;241m=[39m time[38;5;241m.[39mtime()
+[0;32m--> 686[0m     [38;5;28mself[39m[38;5;241m.[39mdbapi_connection [38;5;241m=[39m connection [38;5;241m=[39m [43mpool[49m[38;5;241;43m.[39;49m[43m_invoke_creator[49m[43m([49m[38;5;28;43mself[39;49m[43m)[49m
+[1;32m    687[0m     pool[38;5;241m.[39mlogger[38;5;241m.[39mdebug([38;5;124m"[39m[38;5;124mCreated new connection [39m[38;5;132;01m%r[39;00m[38;5;124m"[39m, connection)
+[1;32m    688[0m     [38;5;28mself[39m[38;5;241m.[39mfresh [38;5;241m=[39m [38;5;28;01mTrue[39;00m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/create.py:574[0m, in [0;36mcreate_engine.<locals>.connect[0;34m(connection_record)[0m
+[1;32m    572[0m         [38;5;28;01mif[39;00m connection [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    573[0m             [38;5;28;01mreturn[39;00m connection
+[0;32m--> 574[0m [38;5;28;01mreturn[39;00m [43mdialect[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[43mcargs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcparams[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/default.py:598[0m, in [0;36mDefaultDialect.connect[0;34m(self, *cargs, **cparams)[0m
+[1;32m    596[0m [38;5;28;01mdef[39;00m [38;5;21mconnect[39m([38;5;28mself[39m, [38;5;241m*[39mcargs, [38;5;241m*[39m[38;5;241m*[39mcparams):
+[1;32m    597[0m     [38;5;66;03m# inherits the docstring from interfaces.Dialect.connect[39;00m
+[0;32m--> 598[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mdbapi[49m[38;5;241;43m.[39;49m[43mconnect[49m[43m([49m[38;5;241;43m*[39;49m[43mcargs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mcparams[49m[43m)[49m
+
+File [0;32m/opt/conda/lib/python3.10/site-packages/psycopg2/__init__.py:122[0m, in [0;36mconnect[0;34m(dsn, connection_factory, cursor_factory, **kwargs)[0m
+[1;32m    119[0m     kwasync[[38;5;124m'[39m[38;5;124masync_[39m[38;5;124m'[39m] [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m'[39m[38;5;124masync_[39m[38;5;124m'[39m)
+[1;32m    121[0m dsn [38;5;241m=[39m _ext[38;5;241m.[39mmake_dsn(dsn, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m--> 122[0m conn [38;5;241m=[39m [43m_connect[49m[43m([49m[43mdsn[49m[43m,[49m[43m [49m[43mconnection_factory[49m[38;5;241;43m=[39;49m[43mconnection_factory[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwasync[49m[43m)[49m
+[1;32m    123[0m [38;5;28;01mif[39;00m cursor_factory [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    124[0m     conn[38;5;241m.[39mcursor_factory [38;5;241m=[39m cursor_factory
+
+[0;31mOperationalError[0m: (psycopg2.OperationalError) connection to server at "postgres" (172.31.0.12), port 5432 failed: FATAL:  password authentication failed for user "dc_user"
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
 

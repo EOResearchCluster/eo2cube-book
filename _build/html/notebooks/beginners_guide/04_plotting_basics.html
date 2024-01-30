@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Plotting data &#8212; eo2cube training material</title>
   
@@ -29,42 +28,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script type="application/vnd.jupyter.widget-state+json">{"state": {"1f56cfed0a624f3698c4b694c15d3816": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "100%"}}, "e22a23e899ff44d7af1334103504bfe1": {"model_name": "ProgressStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "5d014cbc49944ac98e8402461e5f9cca": {"model_name": "IntProgressModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "IntProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_1f56cfed0a624f3698c4b694c15d3816", "max": 144, "min": 0, "orientation": "horizontal", "style": "IPY_MODEL_e22a23e899ff44d7af1334103504bfe1", "tabbable": null, "tooltip": null, "value": 144}}, "5b9b9e3091ed4c0cbe2a48c6755d8b66": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "518efa7cba6e4d31a200a1d9ec8ddc28": {"model_name": "LabelStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "6607a6db88f64967ab36c572684212af": {"model_name": "LabelModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_5b9b9e3091ed4c0cbe2a48c6755d8b66", "placeholder": "\u200b", "style": "IPY_MODEL_518efa7cba6e4d31a200a1d9ec8ddc28", "tabbable": null, "tooltip": null, "value": "144 of 144"}}, "44ca595454ea4ef188fcb96cbbf1eefa": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8bbff99a8dd747818cc70428df8000e1": {"model_name": "LabelStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_family": null, "font_size": null, "font_style": null, "font_variant": null, "font_weight": null, "text_color": null, "text_decoration": null}}, "5bb5677ca10c4b5c80d3fffd2df7279f": {"model_name": "LabelModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "LabelModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "LabelView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_44ca595454ea4ef188fcb96cbbf1eefa", "placeholder": "\u200b", "style": "IPY_MODEL_8bbff99a8dd747818cc70428df8000e1", "tabbable": null, "tooltip": null, "value": "FPS: 5.1 (0.0 s remaining)"}}, "1b6b61e3cec14cda90b3ee3f0c19c002": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": "space-between", "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8e4f4259392644289c106b30070a94d2": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_5bb5677ca10c4b5c80d3fffd2df7279f", "IPY_MODEL_6607a6db88f64967ab36c572684212af"], "layout": "IPY_MODEL_1b6b61e3cec14cda90b3ee3f0c19c002", "tabbable": null, "tooltip": null}}, "e7f727d6446e47cdb6b59fcdc6db43ec": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f0199cbec79a45ea9612cff1f0d33ba3": {"model_name": "HBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_5d014cbc49944ac98e8402461e5f9cca"], "layout": "IPY_MODEL_e7f727d6446e47cdb6b59fcdc6db43ec", "tabbable": null, "tooltip": null}}, "1724e987383c424f972170badaa55e20": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "2.0.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": "100%"}}, "ffab8b927afe467d84cce7947d05e7ad": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "2.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "2.0.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "2.0.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_8e4f4259392644289c106b30070a94d2", "IPY_MODEL_f0199cbec79a45ea9612cff1f0d33ba3"], "layout": "IPY_MODEL_1724e987383c424f972170badaa55e20", "tabbable": null, "tooltip": null}}}, "version_major": 2, "version_minor": 0}</script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/beginners_guide/04_plotting_basics';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -163,7 +163,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -412,9 +423,9 @@ document.write(`
                 <article class="bd-article">
                   
   <img align="right" src="https://github.com/eo2cube/eo2cube_book/blob/7880672deff906b41f993c856fe1a7eb38ed5b3a/images/banner_siegel.png?raw=true" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="plotting-data">
-<h1>Plotting data<a class="headerlink" href="#plotting-data" title="Permalink to this heading">#</a></h1>
+<h1>Plotting data<a class="headerlink" href="#plotting-data" title="Link to this heading">#</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
 <p>This notebook introduces users plotting within the datacube environment. It aims to introduce useful options to visualize raster data in the eo2cube environment. Within this notebook, the following topics are covered:</p>
 <ul class="simple">
 <li><p>Plotting <code class="docutils literal notranslate"><span class="pre">True</span> <span class="pre">Color</span> <span class="pre">Composite</span></code> and <code class="docutils literal notranslate"><span class="pre">False</span> <span class="pre">Color</span> <span class="pre">Composite</span></code></p></li>
@@ -426,9 +437,9 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="setting-up">
-<h2>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this heading">#</a></h2>
+<h2>Setting up<a class="headerlink" href="#setting-up" title="Link to this heading">#</a></h2>
 <section id="load-packages">
-<h3>Load packages<a class="headerlink" href="#load-packages" title="Permalink to this heading">#</a></h3>
+<h3>Load packages<a class="headerlink" href="#load-packages" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datacube</span>
@@ -454,10 +465,423 @@ document.write(`
 </div>
 </section>
 <section id="load-data">
-<h3>Load Data<a class="headerlink" href="#load-data" title="Permalink to this heading">#</a></h3>
+<h3>Load Data<a class="headerlink" href="#load-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s1">&#39;06_plotting&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3371,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3370</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3371</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3372</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:327,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="sd"> The connection is instrumented such that when its</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">327</span> <span class="k">return</span> <span class="n">_ConnectionFairy</span><span class="o">.</span><span class="n">_checkout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:894,</span> in <span class="ni">_ConnectionFairy._checkout</span><span class="nt">(cls, pool, threadconns, fairy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">fairy</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">894</span>     <span class="n">fairy</span> <span class="o">=</span> <span class="n">_ConnectionRecord</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>     <span class="n">fairy</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">pool</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:493,</span> in <span class="ni">_ConnectionRecord.checkout</span><span class="nt">(cls, pool)</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="n">rec</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_do_get</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">except</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_dec_overflow</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">except</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:273,</span> in <span class="ni">Pool._create_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Called by subclasses to create a new ConnectionRecord.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">273</span> <span class="k">return</span> <span class="n">_ConnectionRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:388,</span> in <span class="ni">_ConnectionRecord.__init__</span><span class="nt">(self, pool, connect)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">388</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalize_callback</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:690,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span> <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">690</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span>         <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error on connect(): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:686,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="bp">self</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">686</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_invoke_creator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new connection </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/create.py:574,</span> in <span class="ni">create_engine.&lt;locals&gt;.connect</span><span class="nt">(connection_record)</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>             <span class="k">return</span> <span class="n">connection</span>
+<span class="ne">--&gt; </span><span class="mi">574</span> <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/default.py:598,</span> in <span class="ni">DefaultDialect.connect</span><span class="nt">(self, *cargs, **cparams)</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>     <span class="c1"># inherits the docstring from interfaces.Dialect.connect</span>
+<span class="ne">--&gt; </span><span class="mi">598</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/psycopg2/__init__.py:122,</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">122</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span>: connection to server at &quot;postgres&quot; (172.31.0.12), port 5432 failed: FATAL:  password authentication failed for user &quot;dc_user&quot;
+
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s1">&#39;06_plotting&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/api/core.py:87,</span> in <span class="ni">Datacube.__init__</span><span class="nt">(self, index, config, app, env, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="k">return</span> <span class="n">config</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">87</span>     <span class="n">index</span> <span class="o">=</span> <span class="n">index_connect</span><span class="p">(</span><span class="n">normalise_config</span><span class="p">(</span><span class="n">config</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>                           <span class="n">application_name</span><span class="o">=</span><span class="n">app</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>                           <span class="n">validate_connection</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/index/_api.py:45,</span> in <span class="ni">index_connect</span><span class="nt">(local_config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">index_driver</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>         <span class="s2">&quot;No index driver found for </span><span class="si">%r</span><span class="s2">. </span><span class="si">%s</span><span class="s2"> available: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>             <span class="n">driver_name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">index_drivers</span><span class="p">()),</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">index_drivers</span><span class="p">())</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">45</span> <span class="k">return</span> <span class="n">index_driver</span><span class="o">.</span><span class="n">connect_to_index</span><span class="p">(</span><span class="n">local_config</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>                                      <span class="n">application_name</span><span class="o">=</span><span class="n">application_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>                                      <span class="n">validate_connection</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/index/postgres/index.py:166,</span> in <span class="ni">DefaultIndexDriver.connect_to_index</span><span class="nt">(config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span> <span class="nd">@staticmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span> <span class="k">def</span> <span class="nf">connect_to_index</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_connection</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">166</span>     <span class="k">return</span> <span class="n">Index</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="p">,</span> <span class="n">validate_connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/index/postgres/index.py:77,</span> in <span class="ni">Index.from_config</span><span class="nt">(cls, config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_connection</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">77</span>     <span class="n">db</span> <span class="o">=</span> <span class="n">PostgresDb</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="n">application_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>                                 <span class="n">validate_connection</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_connections.py:75,</span> in <span class="ni">PostgresDb.from_config</span><span class="nt">(cls, config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_connection</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="n">app_name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_expand_app_name</span><span class="p">(</span><span class="n">application_name</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">PostgresDb</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_hostname&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_database&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_username&#39;</span><span class="p">,</span> <span class="n">DEFAULT_DB_USER</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>         <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_port&#39;</span><span class="p">,</span> <span class="n">DEFAULT_DB_PORT</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>         <span class="n">application_name</span><span class="o">=</span><span class="n">app_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>         <span class="n">validate</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">iam_rds_auth</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;db_iam_authentication&quot;</span><span class="p">,</span> <span class="n">DEFAULT_IAM_AUTH</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>         <span class="n">iam_rds_timeout</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;db_iam_timeout&quot;</span><span class="p">,</span> <span class="n">DEFAULT_IAM_TIMEOUT</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="n">pool_timeout</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_connection_timeout&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="c1"># pass config?</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_connections.py:107,</span> in <span class="ni">PostgresDb.create</span><span class="nt">(cls, hostname, database, username, password, port, application_name, validate, iam_rds_auth, iam_rds_timeout, pool_timeout)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="n">engine</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_create_engine</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">mk_url</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="s1">&#39;postgresql&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="n">iam_rds_timeout</span><span class="o">=</span><span class="n">iam_rds_timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="n">pool_timeout</span><span class="o">=</span><span class="n">pool_timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">107</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_core</span><span class="o">.</span><span class="n">database_exists</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="k">raise</span> <span class="n">IndexSetupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">No DB schema exists. Have you run init?</span><span class="se">\n\t</span><span class="si">{init_command}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>             <span class="n">init_command</span><span class="o">=</span><span class="s1">&#39;datacube system init&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_core</span><span class="o">.</span><span class="n">schema_is_latest</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_core.py:152,</span> in <span class="ni">database_exists</span><span class="nt">(engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="k">def</span> <span class="nf">database_exists</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span><span class="sd">     Have they init&#39;d this database?</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">152</span>     <span class="k">return</span> <span class="n">has_schema</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_core.py:237,</span> in <span class="ni">has_schema</span><span class="nt">(engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="k">def</span> <span class="nf">has_schema</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">237</span>     <span class="n">inspector</span> <span class="o">=</span> <span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="nn">    238     return SCHEMA_NAME</span> in <span class="ni">inspector.get_schema_names</span><span class="nt">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/inspection.py:64,</span> in <span class="ni">inspect</span><span class="nt">(subject, raiseerr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="k">return</span> <span class="n">subject</span>
+<span class="ne">---&gt; </span><span class="mi">64</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="k">break</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:182,</span> in <span class="ni">Inspector._engine_insp</span><span class="nt">(bind)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span> <span class="nd">@inspection</span><span class="o">.</span><span class="n">_inspects</span><span class="p">(</span><span class="n">Engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">def</span> <span class="nf">_engine_insp</span><span class="p">(</span><span class="n">bind</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">182</span>     <span class="k">return</span> <span class="n">Inspector</span><span class="o">.</span><span class="n">_construct</span><span class="p">(</span><span class="n">Inspector</span><span class="o">.</span><span class="n">_init_engine</span><span class="p">,</span> <span class="n">bind</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:117,</span> in <span class="ni">Inspector._construct</span><span class="nt">(cls, init, bind)</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="bp">cls</span> <span class="o">=</span> <span class="n">bind</span><span class="o">.</span><span class="n">dialect</span><span class="o">.</span><span class="n">inspector</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">117</span> <span class="n">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bind</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">return</span> <span class="bp">self</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:128,</span> in <span class="ni">Inspector._init_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="k">def</span> <span class="nf">_init_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">bind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span>
+<span class="ne">--&gt; </span><span class="mi">128</span>     <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_op_context_requires_connect</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dialect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">dialect</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3325,</span> in <span class="ni">Engine.connect</span><span class="nt">(self, close_with_result)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3310</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">close_with_result</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3311</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a new :class:`_engine.Connection` object.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3312</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3313</span><span class="sd">     The :class:`_engine.Connection` object is a facade that uses a DBAPI</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3322</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3323</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3325</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connection_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">close_with_result</span><span class="o">=</span><span class="n">close_with_result</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:96,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, engine, connection, close_with_result, _branch_from, _execution_options, _dispatch, _has_events, _allow_revalidate)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_has_events</span> <span class="o">=</span> <span class="n">_branch_from</span><span class="o">.</span><span class="n">_has_events</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dbapi_connection</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="n">connection</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>         <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">else</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_transaction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nested_transaction</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__savepoint_seq</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3404,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self, _connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3382</span> <span class="k">def</span> <span class="nf">raw_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3383</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3384</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3385</span><span class="sd">     The returned object is a proxied version of the DBAPI</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3402</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3403</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3404</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_pool_connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">_connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3374,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3372</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3373</span>     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3374</span>         <span class="n">Connection</span><span class="o">.</span><span class="n">_handle_dbapi_exception_noconnection</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3375</span>             <span class="n">e</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="bp">self</span>
+<span class="g g-Whitespace">   </span><span class="mi">3376</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3377</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3378</span>         <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3379</span>             <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">3380</span>         <span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2208,</span> in <span class="ni">Connection._handle_dbapi_exception_noconnection</span><span class="nt">(cls, e, dialect, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2206</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span><span class="n">newraise</span><span class="p">,</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">from_</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2207</span> <span class="k">elif</span> <span class="n">should_wrap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2208</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2209</span>         <span class="n">sqlalchemy_exception</span><span class="p">,</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">from_</span><span class="o">=</span><span class="n">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">2210</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2211</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2212</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3371,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3369</span> <span class="n">dialect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialect</span>
+<span class="g g-Whitespace">   </span><span class="mi">3370</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3371</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3372</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3373</span>     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:327,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="sd">     The connection is instrumented such that when its</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">327</span>     <span class="k">return</span> <span class="n">_ConnectionFairy</span><span class="o">.</span><span class="n">_checkout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:894,</span> in <span class="ni">_ConnectionFairy._checkout</span><span class="nt">(cls, pool, threadconns, fairy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span> <span class="k">def</span> <span class="nf">_checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">threadconns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fairy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">fairy</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">894</span>         <span class="n">fairy</span> <span class="o">=</span> <span class="n">_ConnectionRecord</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>         <span class="n">fairy</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">pool</span>
+<span class="g g-Whitespace">    </span><span class="mi">897</span>         <span class="n">fairy</span><span class="o">.</span><span class="n">_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:493,</span> in <span class="ni">_ConnectionRecord.checkout</span><span class="nt">(cls, pool)</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="n">rec</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_do_get</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">get_connection</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="k">except</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>         <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_dec_overflow</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># remove potential circular references</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">compat</span><span class="o">.</span><span class="n">py3k</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="c1"># emulate Py3K&#39;s behavior of telling us when an exception</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="c1"># occurs in an exception handler.</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inc_overflow</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:273,</span> in <span class="ni">Pool._create_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">def</span> <span class="nf">_create_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Called by subclasses to create a new ConnectionRecord.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">273</span>     <span class="k">return</span> <span class="n">_ConnectionRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:388,</span> in <span class="ni">_ConnectionRecord.__init__</span><span class="nt">(self, pool, connect)</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span> <span class="o">=</span> <span class="n">pool</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">388</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalize_callback</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:690,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span> <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">690</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span>         <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error on connect(): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="c1"># in SQLAlchemy 1.4 the first_connect event is not used by</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span>     <span class="c1"># the engine, so this will usually not be set</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># remove potential circular references</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">compat</span><span class="o">.</span><span class="n">py3k</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="c1"># emulate Py3K&#39;s behavior of telling us when an exception</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="c1"># occurs in an exception handler.</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:686,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span>     <span class="bp">self</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_invoke_creator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new connection </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/create.py:574,</span> in <span class="ni">create_engine.&lt;locals&gt;.connect</span><span class="nt">(connection_record)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>         <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>             <span class="k">return</span> <span class="n">connection</span>
+<span class="ne">--&gt; </span><span class="mi">574</span> <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/default.py:598,</span> in <span class="ni">DefaultDialect.connect</span><span class="nt">(self, *cargs, **cparams)</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>     <span class="c1"># inherits the docstring from interfaces.Dialect.connect</span>
+<span class="ne">--&gt; </span><span class="mi">598</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/psycopg2/__init__.py:122,</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">kwasync</span><span class="p">[</span><span class="s1">&#39;async_&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;async_&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">122</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">conn</span><span class="o">.</span><span class="n">cursor_factory</span> <span class="o">=</span> <span class="n">cursor_factory</span>
+
+<span class="ne">OperationalError</span>: (psycopg2.OperationalError) connection to server at &quot;postgres&quot; (172.31.0.12), port 5432 failed: FATAL:  password authentication failed for user &quot;dc_user&quot;
+
+<span class="p">(</span><span class="n">Background</span> <span class="n">on</span> <span class="n">this</span> <span class="n">error</span> <span class="n">at</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sqlalche</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="n">e3q8</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -477,7 +901,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "ffab8b927afe467d84cce7947d05e7ad"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "f00bc7f4fc244f5c822cd8b0c8ccc6de", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <p>Let’s have a look at our data.</p>
 <div class="cell docutils container">
@@ -866,7 +1290,7 @@ Data variables:
     scl          (time, y, x) uint8 5 5 5 5 5 5 4 4 4 5 ... 9 9 9 9 9 9 9 9 9 9
 Attributes:
     crs:           EPSG:32734
-    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-8fe99c40-af76-424e-83b9-cc23e3a4a329' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8fe99c40-af76-424e-83b9-cc23e3a4a329' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 18</li><li><span class='xr-has-index'>y</span>: 905</li><li><span class='xr-has-index'>x</span>: 977</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-af71d43b-6ca1-4934-83ca-e8c9412dce73' class='xr-section-summary-in' type='checkbox'  checked><label for='section-af71d43b-6ca1-4934-83ca-e8c9412dce73' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-03-02T10:18:39.025000 ... 2...</div><input id='attrs-70033f16-0e80-4dad-a4b8-97ee23644aee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-70033f16-0e80-4dad-a4b8-97ee23644aee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2241c020-73d1-4520-888f-b22a47ee26f1' class='xr-var-data-in' type='checkbox'><label for='data-2241c020-73d1-4520-888f-b22a47ee26f1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-03-02T10:18:39.025000000&#x27;, &#x27;2021-03-05T10:28:09.024000000&#x27;,
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-3e74cf10-0eaf-489c-968c-1b02a5609502' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3e74cf10-0eaf-489c-968c-1b02a5609502' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 18</li><li><span class='xr-has-index'>y</span>: 905</li><li><span class='xr-has-index'>x</span>: 977</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-2c310428-f40e-49ad-bef1-88315298ffcb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2c310428-f40e-49ad-bef1-88315298ffcb' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-03-02T10:18:39.025000 ... 2...</div><input id='attrs-4f1a5b6b-cbfb-494d-a03d-9ed3cace2ec8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4f1a5b6b-cbfb-494d-a03d-9ed3cace2ec8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b4f72a32-a9ea-45a1-91df-2f2fb564300e' class='xr-var-data-in' type='checkbox'><label for='data-b4f72a32-a9ea-45a1-91df-2f2fb564300e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-03-02T10:18:39.025000000&#x27;, &#x27;2021-03-05T10:28:09.024000000&#x27;,
        &#x27;2021-03-07T10:20:21.024000000&#x27;, &#x27;2021-03-10T10:30:21.024000000&#x27;,
        &#x27;2021-03-12T10:17:29.024000000&#x27;, &#x27;2021-03-15T10:27:09.024000000&#x27;,
        &#x27;2021-03-17T10:20:21.024000000&#x27;, &#x27;2021-03-20T10:30:21.024000000&#x27;,
@@ -875,7 +1299,7 @@ Attributes:
        &#x27;2021-04-01T10:15:59.024000000&#x27;, &#x27;2021-04-04T10:25:59.024000000&#x27;,
        &#x27;2021-04-06T10:20:21.025000000&#x27;, &#x27;2021-04-09T10:30:21.024000000&#x27;,
        &#x27;2021-04-11T10:15:59.024000000&#x27;, &#x27;2021-04-14T10:25:59.024000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.558e+07 1.558e+07 ... 1.557e+07</div><input id='attrs-7e746de1-2038-413a-91c0-6f45b9638665' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e746de1-2038-413a-91c0-6f45b9638665' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e772c030-1861-41e6-b1e0-155849891944' class='xr-var-data-in' type='checkbox'><label for='data-e772c030-1861-41e6-b1e0-155849891944' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15578205., 15578195., 15578185., ..., 15569185., 15569175., 15569165.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.002e+05 ... -2.904e+05</div><input id='attrs-9362d91f-3f5f-4c38-9b83-8296d375d818' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9362d91f-3f5f-4c38-9b83-8296d375d818' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ddb000b3-f983-4066-8d2a-569b40e09bf8' class='xr-var-data-in' type='checkbox'><label for='data-ddb000b3-f983-4066-8d2a-569b40e09bf8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-300205., -300195., -300185., ..., -290465., -290455., -290445.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-c1973f54-0c23-4956-8bd0-785771d1393c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c1973f54-0c23-4956-8bd0-785771d1393c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-104a1b46-166e-4b4a-a6f8-9d7b5d72695b' class='xr-var-data-in' type='checkbox'><label for='data-104a1b46-166e-4b4a-a6f8-9d7b5d72695b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6f192d09-8dca-4326-a63b-e537a568986b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6f192d09-8dca-4326-a63b-e537a568986b' class='xr-section-summary' >Data variables: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>1938 1691 1581 ... 9472 9600 9440</div><input id='attrs-9839b1ce-7fc9-45e2-8cb5-9d206bfba488' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9839b1ce-7fc9-45e2-8cb5-9d206bfba488' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dd9ce5d8-5bd7-44a6-99db-6e297e8a215b' class='xr-var-data-in' type='checkbox'><label for='data-dd9ce5d8-5bd7-44a6-99db-6e297e8a215b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 1938,  1691,  1581, ...,  1546,  1575,  1530],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.558e+07 1.558e+07 ... 1.557e+07</div><input id='attrs-8d4e9c21-25f4-476c-8535-9cdad411ff46' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8d4e9c21-25f4-476c-8535-9cdad411ff46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6da3e05a-ad6a-4778-8509-1677d98424eb' class='xr-var-data-in' type='checkbox'><label for='data-6da3e05a-ad6a-4778-8509-1677d98424eb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15578205., 15578195., 15578185., ..., 15569185., 15569175., 15569165.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.002e+05 ... -2.904e+05</div><input id='attrs-9c869e75-e16d-46ba-86ad-936271aba425' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9c869e75-e16d-46ba-86ad-936271aba425' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5d97bd32-23cd-4c09-9121-475b90de1548' class='xr-var-data-in' type='checkbox'><label for='data-5d97bd32-23cd-4c09-9121-475b90de1548' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-300205., -300195., -300185., ..., -290465., -290455., -290445.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-0003c403-7bc8-4d7d-a705-a840f68eaf09' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0003c403-7bc8-4d7d-a705-a840f68eaf09' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5940fa92-1f0b-4e02-8cea-0bedca34e853' class='xr-var-data-in' type='checkbox'><label for='data-5940fa92-1f0b-4e02-8cea-0bedca34e853' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-521677e8-25a8-4acb-92a6-8dc7a9dc02eb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-521677e8-25a8-4acb-92a6-8dc7a9dc02eb' class='xr-section-summary' >Data variables: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>1938 1691 1581 ... 9472 9600 9440</div><input id='attrs-98a14b73-02db-4e2d-aa50-fdf2f97b069f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-98a14b73-02db-4e2d-aa50-fdf2f97b069f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-431a29a2-09ec-4652-8d22-421f945223ad' class='xr-var-data-in' type='checkbox'><label for='data-431a29a2-09ec-4652-8d22-421f945223ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 1938,  1691,  1581, ...,  1546,  1575,  1530],
         [ 2378,  2024,  1842, ...,  1525,  1576,  1586],
         [ 1980,  1744,  1748, ...,  1499,  1510,  1570],
         ...,
@@ -915,7 +1339,7 @@ Attributes:
         ...,
         [ 8904,  8896,  8984, ...,  9008,  9184,  8960],
         [ 8904,  8936,  8960, ...,  9216,  9376,  9296],
-        [ 8904,  8936,  8952, ...,  9472,  9600,  9440]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2118 1872 1770 ... 8808 8936 8920</div><input id='attrs-dac20283-7fa9-48aa-a4e9-318b4579fa80' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dac20283-7fa9-48aa-a4e9-318b4579fa80' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-905a8905-79f9-4e2c-b17c-33ca9b9e90ff' class='xr-var-data-in' type='checkbox'><label for='data-905a8905-79f9-4e2c-b17c-33ca9b9e90ff' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2118, 1872, 1770, ..., 1852, 1834, 1836],
+        [ 8904,  8936,  8952, ...,  9472,  9600,  9440]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2118 1872 1770 ... 8808 8936 8920</div><input id='attrs-0df0cb28-248a-497b-9843-988c12499a36' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0df0cb28-248a-497b-9843-988c12499a36' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d06e260d-e204-418a-9681-d5fcf0da9845' class='xr-var-data-in' type='checkbox'><label for='data-d06e260d-e204-418a-9681-d5fcf0da9845' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2118, 1872, 1770, ..., 1852, 1834, 1836],
         [2526, 2202, 2028, ..., 1847, 1886, 1860],
         [2204, 1979, 1939, ..., 1804, 1804, 1866],
         ...,
@@ -955,7 +1379,7 @@ Attributes:
         ...,
         [8264, 8312, 8352, ..., 8488, 8640, 8608],
         [8304, 8272, 8320, ..., 8592, 8744, 8816],
-        [8304, 8264, 8296, ..., 8808, 8936, 8920]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2274 2032 1958 ... 8672 8808 8816</div><input id='attrs-65698b7d-2124-402d-bf67-ea9d2df7bc75' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-65698b7d-2124-402d-bf67-ea9d2df7bc75' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d196ecdd-efa3-4e3d-b7ba-b8275b53406b' class='xr-var-data-in' type='checkbox'><label for='data-d196ecdd-efa3-4e3d-b7ba-b8275b53406b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2274, 2032, 1958, ..., 1960, 1942, 1880],
+        [8304, 8264, 8296, ..., 8808, 8936, 8920]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2274 2032 1958 ... 8672 8808 8816</div><input id='attrs-71fe4a8d-97c4-45e9-889b-60339aa5e0df' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71fe4a8d-97c4-45e9-889b-60339aa5e0df' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-63b41a08-1551-4094-adbe-7873f4a51be2' class='xr-var-data-in' type='checkbox'><label for='data-63b41a08-1551-4094-adbe-7873f4a51be2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2274, 2032, 1958, ..., 1960, 1942, 1880],
         [2852, 2444, 2282, ..., 1892, 1916, 1938],
         [2294, 2028, 2158, ..., 1784, 1822, 1926],
         ...,
@@ -995,7 +1419,7 @@ Attributes:
         ...,
         [8096, 8040, 8096, ..., 8368, 8464, 8520],
         [8080, 8108, 8116, ..., 8464, 8536, 8584],
-        [8052, 8052, 8076, ..., 8672, 8808, 8816]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>3493 3307 3235 ... 8816 8952 8952</div><input id='attrs-9e80bd30-2821-4b3e-af2f-5674a33db560' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9e80bd30-2821-4b3e-af2f-5674a33db560' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9c4143c0-2233-4cf2-8434-30229170e088' class='xr-var-data-in' type='checkbox'><label for='data-9c4143c0-2233-4cf2-8434-30229170e088' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[3493, 3307, 3235, ..., 3858, 3828, 3918],
+        [8052, 8052, 8076, ..., 8672, 8808, 8816]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>3493 3307 3235 ... 8816 8952 8952</div><input id='attrs-c23cd97c-6f52-4752-806f-11c7f62f784f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c23cd97c-6f52-4752-806f-11c7f62f784f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cfbd32ed-d4f6-4c9a-88d1-ee9fbb2d01c3' class='xr-var-data-in' type='checkbox'><label for='data-cfbd32ed-d4f6-4c9a-88d1-ee9fbb2d01c3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[3493, 3307, 3235, ..., 3858, 3828, 3918],
         [3556, 3257, 3226, ..., 4068, 3934, 3876],
         [2962, 2896, 3243, ..., 4312, 4301, 4012],
         ...,
@@ -1035,7 +1459,7 @@ Attributes:
         ...,
         [8408, 8456, 8464, ..., 8512, 8616, 8520],
         [8408, 8416, 8432, ..., 8624, 8712, 8688],
-        [8392, 8448, 8392, ..., 8816, 8952, 8952]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swir16</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>3389 3389 3144 ... 5642 5642 5526</div><input id='attrs-0c28ee15-03b0-4a1f-852f-de895cd212de' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0c28ee15-03b0-4a1f-852f-de895cd212de' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d2e1b636-f38f-4201-aee4-ae3497d7b0b1' class='xr-var-data-in' type='checkbox'><label for='data-d2e1b636-f38f-4201-aee4-ae3497d7b0b1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[3389, 3389, 3144, ..., 3913, 3913, 3913],
+        [8392, 8448, 8392, ..., 8816, 8952, 8952]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>swir16</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>3389 3389 3144 ... 5642 5642 5526</div><input id='attrs-3efb373e-aa49-43f7-bc97-0457f5d174e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3efb373e-aa49-43f7-bc97-0457f5d174e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a81478ce-fcc6-4085-8409-5593c0d92513' class='xr-var-data-in' type='checkbox'><label for='data-a81478ce-fcc6-4085-8409-5593c0d92513' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[3389, 3389, 3144, ..., 3913, 3913, 3913],
         [3662, 3662, 3732, ..., 3913, 3913, 3913],
         [3662, 3662, 3732, ..., 3895, 3895, 3971],
         ...,
@@ -1075,7 +1499,7 @@ Attributes:
         ...,
         [3009, 3007, 3007, ..., 5187, 5296, 5090],
         [3009, 3007, 3007, ..., 5187, 5296, 5296],
-        [2996, 2981, 2981, ..., 5642, 5642, 5526]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint8</div><div class='xr-var-preview xr-preview'>5 5 5 5 5 5 4 4 ... 9 9 9 9 9 9 9 9</div><input id='attrs-0a1904d4-f30c-49a3-9ddc-a787adee9aa0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0a1904d4-f30c-49a3-9ddc-a787adee9aa0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1378ad6f-09d3-4648-a408-118ac76675e5' class='xr-var-data-in' type='checkbox'><label for='data-1378ad6f-09d3-4648-a408-118ac76675e5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[5, 5, 5, ..., 4, 4, 4],
+        [2996, 2981, 2981, ..., 5642, 5642, 5526]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint8</div><div class='xr-var-preview xr-preview'>5 5 5 5 5 5 4 4 ... 9 9 9 9 9 9 9 9</div><input id='attrs-90207deb-396f-4947-9e64-934381349172' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-90207deb-396f-4947-9e64-934381349172' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-47b08a5e-70b6-4508-bf54-5551a9220e61' class='xr-var-data-in' type='checkbox'><label for='data-47b08a5e-70b6-4508-bf54-5551a9220e61' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[5, 5, 5, ..., 4, 4, 4],
         [5, 5, 5, ..., 4, 4, 4],
         [5, 5, 5, ..., 4, 4, 4],
         ...,
@@ -1115,7 +1539,7 @@ Attributes:
         ...,
         [8, 8, 8, ..., 9, 9, 9],
         [8, 8, 8, ..., 9, 9, 9],
-        [8, 8, 8, ..., 9, 9, 9]]], dtype=uint8)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f4c8e120-e802-45d7-8174-e80747519f97' class='xr-section-summary-in' type='checkbox'  ><label for='section-f4c8e120-e802-45d7-8174-e80747519f97' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-372bf2cf-7a41-4fc1-a4a8-cb0a594d2a21' class='xr-index-data-in' type='checkbox'/><label for='index-372bf2cf-7a41-4fc1-a4a8-cb0a594d2a21' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-03-02 10:18:39.025000&#x27;, &#x27;2021-03-05 10:28:09.024000&#x27;,
+        [8, 8, 8, ..., 9, 9, 9]]], dtype=uint8)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c3dfff7d-631c-4bb7-9137-95ea5457abd5' class='xr-section-summary-in' type='checkbox'  ><label for='section-c3dfff7d-631c-4bb7-9137-95ea5457abd5' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-149acce2-e29a-47a5-9245-a21e35a80037' class='xr-index-data-in' type='checkbox'/><label for='index-149acce2-e29a-47a5-9245-a21e35a80037' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-03-02 10:18:39.025000&#x27;, &#x27;2021-03-05 10:28:09.024000&#x27;,
                &#x27;2021-03-07 10:20:21.024000&#x27;, &#x27;2021-03-10 10:30:21.024000&#x27;,
                &#x27;2021-03-12 10:17:29.024000&#x27;, &#x27;2021-03-15 10:27:09.024000&#x27;,
                &#x27;2021-03-17 10:20:21.024000&#x27;, &#x27;2021-03-20 10:30:21.024000&#x27;,
@@ -1124,26 +1548,26 @@ Attributes:
                &#x27;2021-04-01 10:15:59.024000&#x27;, &#x27;2021-04-04 10:25:59.024000&#x27;,
                &#x27;2021-04-06 10:20:21.025000&#x27;, &#x27;2021-04-09 10:30:21.024000&#x27;,
                &#x27;2021-04-11 10:15:59.024000&#x27;, &#x27;2021-04-14 10:25:59.024000&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-176bd32b-a30d-4818-b1d0-f6749f74b655' class='xr-index-data-in' type='checkbox'/><label for='index-176bd32b-a30d-4818-b1d0-f6749f74b655' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15578205.0, 15578195.0, 15578185.0, 15578175.0, 15578165.0, 15578155.0,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f59a83c2-3cad-404d-911d-09989a6e432b' class='xr-index-data-in' type='checkbox'/><label for='index-f59a83c2-3cad-404d-911d-09989a6e432b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15578205.0, 15578195.0, 15578185.0, 15578175.0, 15578165.0, 15578155.0,
        15578145.0, 15578135.0, 15578125.0, 15578115.0,
        ...
        15569255.0, 15569245.0, 15569235.0, 15569225.0, 15569215.0, 15569205.0,
        15569195.0, 15569185.0, 15569175.0, 15569165.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=905))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5f48f0a0-be7e-42ed-bac0-ccf8d0703946' class='xr-index-data-in' type='checkbox'/><label for='index-5f48f0a0-be7e-42ed-bac0-ccf8d0703946' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-300205.0, -300195.0, -300185.0, -300175.0, -300165.0, -300155.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=905))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2dd7ae77-4876-4b2c-ab49-b6f906049220' class='xr-index-data-in' type='checkbox'/><label for='index-2dd7ae77-4876-4b2c-ab49-b6f906049220' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-300205.0, -300195.0, -300185.0, -300175.0, -300165.0, -300155.0,
        -300145.0, -300135.0, -300125.0, -300115.0,
        ...
        -290535.0, -290525.0, -290515.0, -290505.0, -290495.0, -290485.0,
        -290475.0, -290465.0, -290455.0, -290445.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=977))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d17c14ab-f745-4a74-87eb-95021220cb71' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d17c14ab-f745-4a74-87eb-95021220cb71' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=977))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2e7744a3-4a38-4895-b9d3-ecbe3c7b4980' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2e7744a3-4a38-4895-b9d3-ecbe3c7b4980' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 </section>
 <section id="rgb-image">
-<h2><strong>RGB Image</strong><a class="headerlink" href="#rgb-image" title="Permalink to this heading">#</a></h2>
+<h2><strong>RGB Image</strong><a class="headerlink" href="#rgb-image" title="Link to this heading">#</a></h2>
 <p>To have the first view of our data, we can use the function <code class="docutils literal notranslate"><span class="pre">rgb()</span></code> defined in our written script DEAPlotting, stored in the folder “note_book”. <code class="docutils literal notranslate"><span class="pre">rgb()</span></code> can plot different bands in the Data Variables in the red, blue, and green channels (in this order). If we input all three bands accordingly into the channels, it is called a <strong>true color composite</strong>. Otherwise, it is plotted as a <strong>false color composite</strong>.</p>
 <p>However, we have to pay attention that the function can only plot in two dimensions (longitude and latitude). Hence, we can only input data array from a single time stamp. Here, we plot only the first time stamp (time = [0]), with col=”time” argument, we define the collapse of a time dimension. We can look for the band name under Data Variables of the data set.</p>
 <section id="true-color-composite">
-<h3><strong>1) True Color Composite</strong><a class="headerlink" href="#true-color-composite" title="Permalink to this heading">#</a></h3>
+<h3><strong>1) True Color Composite</strong><a class="headerlink" href="#true-color-composite" title="Link to this heading">#</a></h3>
 <p>With True color composite, we input all bands accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1157,7 +1581,7 @@ Attributes:
 </div>
 </section>
 <section id="false-color-composite">
-<h3><strong>2) False Color Composite</strong><a class="headerlink" href="#false-color-composite" title="Permalink to this heading">#</a></h3>
+<h3><strong>2) False Color Composite</strong><a class="headerlink" href="#false-color-composite" title="Link to this heading">#</a></h3>
 <p>Here we visualize the Land/Water composite. Try out <a class="reference external" href="http://gsp.humboldt.edu/olm/Courses/GSP_216/lessons/composites.html">different combinations</a> which fit different purposes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1172,7 +1596,7 @@ Attributes:
 </section>
 </section>
 <section id="histogram">
-<h2><strong>Histogram</strong><a class="headerlink" href="#histogram" title="Permalink to this heading">#</a></h2>
+<h2><strong>Histogram</strong><a class="headerlink" href="#histogram" title="Link to this heading">#</a></h2>
 <p>Besides, we can look at the distribution of pixel values by plotting a histogram (i.e., using plot() for a multi-temporal xarray dataset). We can see that most pixel reflectances lie between 400 and 1000.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1194,7 +1618,7 @@ Attributes:
 </div>
 </section>
 <section id="scatterplot">
-<h2><strong>Scatterplot</strong><a class="headerlink" href="#scatterplot" title="Permalink to this heading">#</a></h2>
+<h2><strong>Scatterplot</strong><a class="headerlink" href="#scatterplot" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">)</span>
@@ -1211,9 +1635,9 @@ Attributes:
 </div>
 </section>
 <section id="d-pcolormesh">
-<h2><strong>2D pcolormesh</strong><a class="headerlink" href="#d-pcolormesh" title="Permalink to this heading">#</a></h2>
+<h2><strong>2D pcolormesh</strong><a class="headerlink" href="#d-pcolormesh" title="Link to this heading">#</a></h2>
 <section id="plotting-single-band">
-<h3><strong>1) Plotting Single Band</strong><a class="headerlink" href="#plotting-single-band" title="Permalink to this heading">#</a></h3>
+<h3><strong>1) Plotting Single Band</strong><a class="headerlink" href="#plotting-single-band" title="Link to this heading">#</a></h3>
 <p>We can also directly plot a single individual band using xarray functionality. It is important to note that it only takes a one-time stamp and one data variable by default. Here we plot the red band with the plot function. A specific <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">colormap</a> can be added with the cmap argument, and all the functionality of matplotlib is also available. The argument robust can be used to remove outliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1233,7 +1657,7 @@ Attributes:
 </div>
 </section>
 <section id="facet-plot">
-<h3><strong>2) Facet Plot</strong><a class="headerlink" href="#facet-plot" title="Permalink to this heading">#</a></h3>
+<h3><strong>2) Facet Plot</strong><a class="headerlink" href="#facet-plot" title="Link to this heading">#</a></h3>
 <p>We can plot facet plot with the col=”time” argument to show all time stamps. Note that plotting too many time stamps at once is not recommended.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1242,7 +1666,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7fef89263d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7f77804d9c90&gt;
 </pre></div>
 </div>
 <img alt="../../_images/ef008779fdd2cf3ae3d737fdb67cd0de414adba857615101cfc404b51c042d47.png" src="../../_images/ef008779fdd2cf3ae3d737fdb67cd0de414adba857615101cfc404b51c042d47.png" />
@@ -1250,7 +1674,7 @@ Attributes:
 </div>
 </section>
 <section id="masking">
-<h3><strong>3) Masking</strong><a class="headerlink" href="#masking" title="Permalink to this heading">#</a></h3>
+<h3><strong>3) Masking</strong><a class="headerlink" href="#masking" title="Link to this heading">#</a></h3>
 <p>We can also mask out the area in the plot. The following code excludes the cloud area (scl = 9).</p>
 <img align="left" src="scl.png" style="width:250px;"><div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1260,7 +1684,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7fef88b97f10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.plot.facetgrid.FacetGrid at 0x7f77804db7c0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/d6c47472c0cd568fa1bbd45196cdb96de16f34726caf911b96e2f45fb56670d1.png" src="../../_images/d6c47472c0cd568fa1bbd45196cdb96de16f34726caf911b96e2f45fb56670d1.png" />
@@ -1269,7 +1693,7 @@ Attributes:
 </section>
 </section>
 <section id="time-series-linechart">
-<h2><strong>Time Series Linechart</strong><a class="headerlink" href="#time-series-linechart" title="Permalink to this heading">#</a></h2>
+<h2><strong>Time Series Linechart</strong><a class="headerlink" href="#time-series-linechart" title="Link to this heading">#</a></h2>
 <p>Xarray’s plotting capabilities are centered around DataArray objects, and its functionality is a thin wrapper around matplotlib. Hence, many Matplotlib functionalities, such as <code class="docutils literal notranslate"><span class="pre">plt.title()</span></code>, can be easily called.</p>
 <p>To produce a time series plot, we can reduce the dimensions of longitude and latitude with <code class="docutils literal notranslate"><span class="pre">mean(dim=[&quot;longitude&quot;,&quot;latitude&quot;])</span></code> so that we get a single value of the whole area for every single time stamp. The resulting array can be used to plot a linechart with <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>(plt) framework.</p>
 <div class="cell docutils container">
@@ -1294,7 +1718,7 @@ Attributes:
 <p>Additional arguments can be passed directly to the matplotlib function. We can, for example, also plot histogram with the data array.</p>
 </section>
 <section id="using-pandas-and-seaborn">
-<h2><strong>Using Pandas and Seaborn</strong><a class="headerlink" href="#using-pandas-and-seaborn" title="Permalink to this heading">#</a></h2>
+<h2><strong>Using Pandas and Seaborn</strong><a class="headerlink" href="#using-pandas-and-seaborn" title="Link to this heading">#</a></h2>
 <p>In the plotting basics, we have learned how to create graphics using xarray and pyplot. Yet, we can also utilize pandas and seaborn library with their more developed tools to improve the visuals of our plot. It requires more code but meanwhile gives more flexibility for plot customization.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1449,7 +1873,7 @@ Attributes:
 </section>
 <hr class="docutils" />
 <section id="additional-information">
-<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>
 <p><font size="2">This notebook for the usage in the Open Data Cube entities of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>, is adapted from <a class="reference external" href="https://github.com/GeoscienceAustralia/dea-notebooks">Geoscience Australia</a>, published using the Apache License, Version 2.0. Thanks! </font></p>
 <p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
 Digital Earth Australia data is licensed under the <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons by Attribution 4.0</a> license.</p>
@@ -1568,7 +1992,7 @@ By eo2cube community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

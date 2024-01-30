@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Parallel processing with Dask &#8212; eo2cube training material</title>
   
@@ -29,39 +28,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/beginners_guide/06_parallel_processing_with_dask';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -159,7 +162,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -412,19 +426,19 @@ document.write(`
                 <article class="bd-article">
                   
   <img align="right" src="https://github.com/eo2cube/eo2cube_book/blob/7880672deff906b41f993c856fe1a7eb38ed5b3a/images/banner_siegel.png?raw=true" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="parallel-processing-with-dask">
-<h1>Parallel processing with Dask<a class="headerlink" href="#parallel-processing-with-dask" title="Permalink to this heading">#</a></h1>
+<h1>Parallel processing with Dask<a class="headerlink" href="#parallel-processing-with-dask" title="Link to this heading">#</a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
-<p>This notebook builds upon the notebook <span class="xref myst">07_basic_analysis</span>. In that notebook, we presented a sample workflow for spatial data processing. In this notebook, we will perform a partially similar workflow. The main difference is that we will perform the calculation using <code class="docutils literal notranslate"><span class="pre">Dask</span></code>. The following workflow will be applied:
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
+<p>This notebook builds upon the notebook <a class="reference internal" href="#07_basic_analysis.ipynb"><span class="xref myst">07_basic_analysis</span></a>. In that notebook, we presented a sample workflow for spatial data processing. In this notebook, we will perform a partially similar workflow. The main difference is that we will perform the calculation using <code class="docutils literal notranslate"><span class="pre">Dask</span></code>. The following workflow will be applied:
 <img alt="Dask Notebook Structure(1).png" src="notebooks/beginners_guide/attachment:36495c7c-ff3f-461e-aeda-05b9f68e9ddc.png" /></p>
 </section>
 <section id="what-is-dask">
-<h2>What is Dask?<a class="headerlink" href="#what-is-dask" title="Permalink to this heading">#</a></h2>
+<h2>What is Dask?<a class="headerlink" href="#what-is-dask" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://dask.org/">Dask</a> is a library for parallel computing. It can be used to scale Pandas, NumPy, and Scikit-Learn workflows. Initially, datasets created with those libraries can only be scaled on a single machine. Dask internally uses the structures of Pandas, Numpy, and Scikit-Learn. Thus, if you are familiar with those libraries, it will be easy to transform your “old” code into a new, scalable Dask-version of it. <br>
 In this notebook, we will mainly work with <a class="reference external" href="https://docs.dask.org/en/latest/array.html">daskArray</a>, the dask-equivalent of NumPy ndarray.</p>
 </section>
 <section id="package-import-and-datacube-connection">
-<h2>Package import and datacube connection<a class="headerlink" href="#package-import-and-datacube-connection" title="Permalink to this heading">#</a></h2>
+<h2>Package import and datacube connection<a class="headerlink" href="#package-import-and-datacube-connection" title="Link to this heading">#</a></h2>
 <p>First of all, we start with importing all the needed packages for our analysis.<br>
 Most of the packages have already been introduced in the previous notebooks. The newly introduced package here is Dask.</p>
 <div class="cell docutils container">
@@ -435,99 +449,170 @@ Most of the packages have already been introduced in the previous notebooks. The
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: graphviz in /opt/conda/lib/python3.10/site-packages (0.20.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting graphviz
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: deafrica_tools in /opt/conda/lib/python3.10/site-packages (2.3.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading graphviz-0.20.1-py3-none-any.whl (47 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/47.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">47.0/47.0 kB</span> <span class=" -Color -Color-Red">1.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: graphviz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed graphviz-0.20.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting deafrica_tools
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading deafrica_tools-2.3.3-py3-none-any.whl.metadata (18 kB)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: aiohttp in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.9.1)
-Requirement already satisfied: aiobotocore[boto3] in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.8.0)
-Requirement already satisfied: branca in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.7.0)
-Requirement already satisfied: dask[complete] in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2023.12.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aiobotocore[boto3] (from deafrica_tools)
+  Downloading aiobotocore-2.11.1-py3-none-any.whl.metadata (21 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: branca in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.7.0)
+Requirement already satisfied: dask[complete] in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2024.1.0)
 Requirement already satisfied: dask-ml in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2023.3.24)
-Requirement already satisfied: dask-gateway in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2024.1.0)
-Requirement already satisfied: datacube[performance,s3] in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.8.17)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting dask-gateway (from deafrica_tools)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading dask_gateway-2024.1.0-py3-none-any.whl.metadata (1.4 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: datacube[performance,s3] in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.8.17)
 Requirement already satisfied: fiona in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.9.5)
 Requirement already satisfied: folium in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.15.1)
-Requirement already satisfied: fsspec in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2023.12.1)
-Requirement already satisfied: gdal in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.7.3)
-Requirement already satisfied: geojson in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.1.0)
-Requirement already satisfied: geopandas in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.14.1)
+Requirement already satisfied: fsspec in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2023.12.2)
+Requirement already satisfied: gdal in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.8.3)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting geojson (from deafrica_tools)
+  Downloading geojson-3.1.0-py3-none-any.whl.metadata (16 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geopandas in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.14.2)
 Requirement already satisfied: geopy in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.4.1)
 Requirement already satisfied: hdstats in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.2.1)
-Requirement already satisfied: ipyleaflet in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.18.0)
-Requirement already satisfied: ipython in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (8.18.1)
+Requirement already satisfied: ipyleaflet in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.18.2)
+Requirement already satisfied: ipython in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (8.20.0)
 Requirement already satisfied: ipywidgets in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (8.1.1)
 Requirement already satisfied: joblib in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.3.2)
 Requirement already satisfied: matplotlib in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.8.2)
-Requirement already satisfied: numexpr in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.8.7)
-Requirement already satisfied: numpy in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.26.2)
+Requirement already satisfied: numexpr in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.8.8)
+Requirement already satisfied: numpy in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.26.3)
 Requirement already satisfied: odc-algo in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.2.3)
 Requirement already satisfied: odc-geo in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.4.1)
 Requirement already satisfied: odc-ui in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.2.1)
 Requirement already satisfied: owslib in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.29.3)
 Requirement already satisfied: packaging in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (23.2)
-Requirement already satisfied: pandas in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.1.3)
-Requirement already satisfied: pyproj in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.4.1)
+Requirement already satisfied: pandas in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.2.0)
+Requirement already satisfied: pyproj in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (3.6.1)
 Requirement already satisfied: pystac-client in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.7.5)
 Requirement already satisfied: python-dateutil in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.8.2)
-Requirement already satisfied: pyTMD&gt;2 in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.0.9)
+Requirement already satisfied: pyTMD&gt;2 in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.1.0)
 Requirement already satisfied: pytz in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2023.3.post1)
 Requirement already satisfied: rasterio in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.3.9)
 Requirement already satisfied: rasterstats in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.19.0)
 Requirement already satisfied: requests in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.31.0)
 Requirement already satisfied: scikit-image in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.22.0)
-Requirement already satisfied: scikit-learn in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.3.2)
-Requirement already satisfied: scipy in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.11.4)
-Requirement already satisfied: seaborn in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.13.0)
+Requirement already satisfied: scikit-learn in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.4.0)
+Requirement already satisfied: scipy in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (1.12.0)
+Requirement already satisfied: seaborn in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (0.13.1)
 Requirement already satisfied: shapely in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2.0.2)
 Requirement already satisfied: tqdm in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (4.66.1)
-Requirement already satisfied: xarray in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2023.11.0)
+Requirement already satisfied: xarray in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (2024.1.1)
 Requirement already satisfied: black in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (23.12.1)
-Requirement already satisfied: flake8==6.0.0 in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (6.0.0)
-Requirement already satisfied: isort in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (5.13.2)
-Requirement already satisfied: pytest in /opt/conda/lib/python3.10/site-packages (from deafrica_tools) (7.4.4)
-Requirement already satisfied: mccabe&lt;0.8.0,&gt;=0.7.0 in /opt/conda/lib/python3.10/site-packages (from flake8==6.0.0-&gt;deafrica_tools) (0.7.0)
-Requirement already satisfied: pycodestyle&lt;2.11.0,&gt;=2.10.0 in /opt/conda/lib/python3.10/site-packages (from flake8==6.0.0-&gt;deafrica_tools) (2.10.0)
-Requirement already satisfied: pyflakes&lt;3.1.0,&gt;=3.0.0 in /opt/conda/lib/python3.10/site-packages (from flake8==6.0.0-&gt;deafrica_tools) (3.0.1)
-Requirement already satisfied: lxml in /opt/conda/lib/python3.10/site-packages (from pyTMD&gt;2-&gt;deafrica_tools) (4.9.3)
-Requirement already satisfied: netCDF4 in /opt/conda/lib/python3.10/site-packages (from pyTMD&gt;2-&gt;deafrica_tools) (1.6.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: setuptools-scm in /opt/conda/lib/python3.10/site-packages (from pyTMD&gt;2-&gt;deafrica_tools) (8.0.4)
-Requirement already satisfied: botocore&lt;1.33.2,&gt;=1.32.4 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (1.33.1)
-Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (1.16.0)
-Requirement already satisfied: aioitertools&lt;1.0.0,&gt;=0.5.1 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (0.11.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting flake8==6.0.0 (from deafrica_tools)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: boto3&lt;1.33.2,&gt;=1.29.4 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (1.33.1)
-Requirement already satisfied: attrs&gt;=17.3.0 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (23.1.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading flake8-6.0.0-py2.py3-none-any.whl (57 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/57.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">57.8/57.8 kB</span> <span class=" -Color -Color-Red">1.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting isort (from deafrica_tools)
+  Downloading isort-5.13.2-py3-none-any.whl.metadata (12 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pytest (from deafrica_tools)
+  Downloading pytest-8.0.0-py3-none-any.whl.metadata (7.8 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting mccabe&lt;0.8.0,&gt;=0.7.0 (from flake8==6.0.0-&gt;deafrica_tools)
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pycodestyle&lt;2.11.0,&gt;=2.10.0 (from flake8==6.0.0-&gt;deafrica_tools)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pycodestyle-2.10.0-py2.py3-none-any.whl (41 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/41.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">41.3/41.3 kB</span> <span class=" -Color -Color-Red">1.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting pyflakes&lt;3.1.0,&gt;=3.0.0 (from flake8==6.0.0-&gt;deafrica_tools)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading pyflakes-3.0.1-py2.py3-none-any.whl (62 kB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/62.8 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">62.8/62.8 kB</span> <span class=" -Color -Color-Red">2.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: lxml in /opt/conda/lib/python3.10/site-packages (from pyTMD&gt;2-&gt;deafrica_tools) (5.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: netCDF4 in /opt/conda/lib/python3.10/site-packages (from pyTMD&gt;2-&gt;deafrica_tools) (1.6.5)
+Requirement already satisfied: setuptools-scm in /opt/conda/lib/python3.10/site-packages (from pyTMD&gt;2-&gt;deafrica_tools) (8.0.4)
+Requirement already satisfied: botocore&lt;1.34.28,&gt;=1.33.2 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (1.34.26)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt&lt;2.0.0,&gt;=1.10.10 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting aioitertools&lt;1.0.0,&gt;=0.5.1 (from aiobotocore[boto3]-&gt;deafrica_tools)
+  Downloading aioitertools-0.11.0-py3-none-any.whl (23 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: boto3&lt;1.34.28,&gt;=1.33.2 in /opt/conda/lib/python3.10/site-packages (from aiobotocore[boto3]-&gt;deafrica_tools) (1.34.26)
+Requirement already satisfied: attrs&gt;=17.3.0 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (23.2.0)
 Requirement already satisfied: multidict&lt;7.0,&gt;=4.5 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (6.0.4)
-Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (1.9.3)
-Requirement already satisfied: frozenlist&gt;=1.1.1 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (1.4.0)
-Requirement already satisfied: aiosignal&gt;=1.1.2 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (1.3.1)
+Requirement already satisfied: yarl&lt;2.0,&gt;=1.0 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (1.9.4)
+Requirement already satisfied: frozenlist&gt;=1.1.1 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (1.4.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: aiosignal&gt;=1.1.2 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (1.3.1)
 Requirement already satisfied: async-timeout&lt;5.0,&gt;=4.0 in /opt/conda/lib/python3.10/site-packages (from aiohttp-&gt;deafrica_tools) (4.0.3)
 Requirement already satisfied: click&gt;=8.0.0 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (8.1.7)
 Requirement already satisfied: mypy-extensions&gt;=0.4.3 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (1.0.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pathspec&gt;=0.9.0 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (0.12.1)
+Requirement already satisfied: pathspec&gt;=0.9.0 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (0.12.1)
 Requirement already satisfied: platformdirs&gt;=2 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (4.1.0)
 Requirement already satisfied: tomli&gt;=1.1.0 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (2.0.1)
-Requirement already satisfied: typing-extensions&gt;=4.0.1 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (4.8.0)
-Requirement already satisfied: jinja2 in /opt/conda/lib/python3.10/site-packages (from branca-&gt;deafrica_tools) (3.1.2)
-Requirement already satisfied: distributed&gt;=2022.4.0 in /opt/conda/lib/python3.10/site-packages (from dask-gateway-&gt;deafrica_tools) (2023.12.0)
+Requirement already satisfied: typing-extensions&gt;=4.0.1 in /opt/conda/lib/python3.10/site-packages (from black-&gt;deafrica_tools) (4.9.0)
+Requirement already satisfied: jinja2 in /opt/conda/lib/python3.10/site-packages (from branca-&gt;deafrica_tools) (3.1.3)
+Requirement already satisfied: distributed&gt;=2022.4.0 in /opt/conda/lib/python3.10/site-packages (from dask-gateway-&gt;deafrica_tools) (2024.1.0)
 Requirement already satisfied: pyyaml in /opt/conda/lib/python3.10/site-packages (from dask-gateway-&gt;deafrica_tools) (6.0.1)
-Requirement already satisfied: tornado in /opt/conda/lib/python3.10/site-packages (from dask-gateway-&gt;deafrica_tools) (6.3.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numba&gt;=0.51.0 in /opt/conda/lib/python3.10/site-packages (from dask-ml-&gt;deafrica_tools) (0.58.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tornado in /opt/conda/lib/python3.10/site-packages (from dask-gateway-&gt;deafrica_tools) (6.3.3)
+Requirement already satisfied: numba&gt;=0.51.0 in /opt/conda/lib/python3.10/site-packages (from dask-ml-&gt;deafrica_tools) (0.58.1)
 Requirement already satisfied: dask-glm&gt;=0.2.0 in /opt/conda/lib/python3.10/site-packages (from dask-ml-&gt;deafrica_tools) (0.3.2)
 Requirement already satisfied: multipledispatch&gt;=0.4.9 in /opt/conda/lib/python3.10/site-packages (from dask-ml-&gt;deafrica_tools) (0.6.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tzdata&gt;=2022.1 in /opt/conda/lib/python3.10/site-packages (from pandas-&gt;deafrica_tools) (2023.3)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: tzdata&gt;=2022.7 in /opt/conda/lib/python3.10/site-packages (from pandas-&gt;deafrica_tools) (2023.4)
 Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.10/site-packages (from python-dateutil-&gt;deafrica_tools) (1.16.0)
 </pre></div>
 </div>
@@ -536,21 +621,21 @@ Requirement already satisfied: six&gt;=1.5 in /opt/conda/lib/python3.10/site-pac
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cloudpickle&gt;=1.5.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (3.0.0)
 Requirement already satisfied: partd&gt;=1.2.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (1.4.1)
-Requirement already satisfied: toolz&gt;=0.10.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (0.12.0)
-Requirement already satisfied: importlib-metadata&gt;=4.13.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (7.0.0)
-Requirement already satisfied: pyarrow&gt;=7.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (14.0.1)
+Requirement already satisfied: toolz&gt;=0.10.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (0.12.1)
+Requirement already satisfied: importlib-metadata&gt;=4.13.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (7.0.1)
+Requirement already satisfied: pyarrow&gt;=7.0 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (14.0.2)
 Requirement already satisfied: pyarrow-hotfix in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (0.6)
-Requirement already satisfied: lz4&gt;=4.3.2 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (4.3.2)
+Requirement already satisfied: lz4&gt;=4.3.2 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (4.3.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: affine in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (2.4.0)
 Requirement already satisfied: cachetools in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (5.3.2)
-Requirement already satisfied: jsonschema&gt;=4.18 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (4.20.0)
+Requirement already satisfied: jsonschema&gt;=4.18 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (4.21.1)
 Requirement already satisfied: psycopg2 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (2.9.9)
-Requirement already satisfied: lark in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (1.1.8)
+Requirement already satisfied: lark in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (1.1.9)
 Requirement already satisfied: ruamel.yaml in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (0.17.40)
 Requirement already satisfied: sqlalchemy&lt;2.0,&gt;=1.4 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (1.4.49)
-Requirement already satisfied: GeoAlchemy2 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (0.13.3)
+Requirement already satisfied: GeoAlchemy2 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (0.14.3)
 Requirement already satisfied: deprecat in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (2.1.1)
 Requirement already satisfied: ciso8601 in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (2.3.1)
 Requirement already satisfied: bottleneck in /opt/conda/lib/python3.10/site-packages (from datacube[performance,s3]-&gt;deafrica_tools) (1.3.7)
@@ -560,7 +645,7 @@ Requirement already satisfied: bottleneck in /opt/conda/lib/python3.10/site-pack
 Requirement already satisfied: cligj&gt;=0.5 in /opt/conda/lib/python3.10/site-packages (from rasterio-&gt;deafrica_tools) (0.7.2)
 Requirement already satisfied: snuggs&gt;=1.4.1 in /opt/conda/lib/python3.10/site-packages (from rasterio-&gt;deafrica_tools) (1.4.7)
 Requirement already satisfied: click-plugins in /opt/conda/lib/python3.10/site-packages (from rasterio-&gt;deafrica_tools) (1.1.1)
-Requirement already satisfied: setuptools in /opt/conda/lib/python3.10/site-packages (from rasterio-&gt;deafrica_tools) (68.2.2)
+Requirement already satisfied: setuptools in /opt/conda/lib/python3.10/site-packages (from rasterio-&gt;deafrica_tools) (69.0.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: xyzservices in /opt/conda/lib/python3.10/site-packages (from folium-&gt;deafrica_tools) (2023.10.1)
@@ -568,8 +653,8 @@ Requirement already satisfied: setuptools in /opt/conda/lib/python3.10/site-pack
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: geographiclib&lt;3,&gt;=1.52 in /opt/conda/lib/python3.10/site-packages (from geopy-&gt;deafrica_tools) (2.0)
 Requirement already satisfied: traittypes&lt;3,&gt;=0.2.1 in /opt/conda/lib/python3.10/site-packages (from ipyleaflet-&gt;deafrica_tools) (0.2.1)
-Requirement already satisfied: comm&gt;=0.1.3 in /opt/conda/lib/python3.10/site-packages (from ipywidgets-&gt;deafrica_tools) (0.1.4)
-Requirement already satisfied: traitlets&gt;=4.3.1 in /opt/conda/lib/python3.10/site-packages (from ipywidgets-&gt;deafrica_tools) (5.14.0)
+Requirement already satisfied: comm&gt;=0.1.3 in /opt/conda/lib/python3.10/site-packages (from ipywidgets-&gt;deafrica_tools) (0.2.1)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /opt/conda/lib/python3.10/site-packages (from ipywidgets-&gt;deafrica_tools) (5.14.1)
 Requirement already satisfied: widgetsnbextension~=4.0.9 in /opt/conda/lib/python3.10/site-packages (from ipywidgets-&gt;deafrica_tools) (4.0.9)
 Requirement already satisfied: jupyterlab-widgets~=3.0.9 in /opt/conda/lib/python3.10/site-packages (from ipywidgets-&gt;deafrica_tools) (3.0.9)
 </pre></div>
@@ -577,18 +662,18 @@ Requirement already satisfied: jupyterlab-widgets~=3.0.9 in /opt/conda/lib/pytho
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: decorator in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (5.1.1)
 Requirement already satisfied: jedi&gt;=0.16 in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (0.19.1)
 Requirement already satisfied: matplotlib-inline in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (0.1.6)
-Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.41 in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (3.0.41)
+Requirement already satisfied: prompt-toolkit&lt;3.1.0,&gt;=3.0.41 in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (3.0.42)
 Requirement already satisfied: pygments&gt;=2.4.0 in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (2.17.2)
 Requirement already satisfied: stack-data in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (0.6.2)
 Requirement already satisfied: exceptiongroup in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (1.2.0)
-Requirement already satisfied: pexpect&gt;4.3 in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (4.8.0)
+Requirement already satisfied: pexpect&gt;4.3 in /opt/conda/lib/python3.10/site-packages (from ipython-&gt;deafrica_tools) (4.9.0)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: contourpy&gt;=1.0.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (1.2.0)
 Requirement already satisfied: cycler&gt;=0.10 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (0.12.1)
-Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (4.46.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (4.47.2)
 Requirement already satisfied: kiwisolver&gt;=1.3.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (1.4.5)
-Requirement already satisfied: pillow&gt;=8 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (10.1.0)
+Requirement already satisfied: pillow&gt;=8 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (10.2.0)
 Requirement already satisfied: pyparsing&gt;=2.3.1 in /opt/conda/lib/python3.10/site-packages (from matplotlib-&gt;deafrica_tools) (3.1.1)
 Requirement already satisfied: dask-image in /opt/conda/lib/python3.10/site-packages (from odc-algo-&gt;deafrica_tools) (2023.8.1)
 </pre></div>
@@ -600,29 +685,34 @@ Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /opt/conda/lib/python
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pystac&gt;=1.8.2 in /opt/conda/lib/python3.10/site-packages (from pystac[validation]&gt;=1.8.2-&gt;pystac-client-&gt;deafrica_tools) (1.9.0)
-Requirement already satisfied: iniconfig in /opt/conda/lib/python3.10/site-packages (from pytest-&gt;deafrica_tools) (2.0.0)
-Requirement already satisfied: pluggy&lt;2.0,&gt;=0.12 in /opt/conda/lib/python3.10/site-packages (from pytest-&gt;deafrica_tools) (1.3.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting iniconfig (from pytest-&gt;deafrica_tools)
+  Downloading iniconfig-2.0.0-py3-none-any.whl (5.9 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pluggy&lt;2.0,&gt;=1.3.0 in /opt/conda/lib/python3.10/site-packages (from pytest-&gt;deafrica_tools) (1.3.0)
 Requirement already satisfied: simplejson in /opt/conda/lib/python3.10/site-packages (from rasterstats-&gt;deafrica_tools) (3.19.2)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: networkx&gt;=2.8 in /opt/conda/lib/python3.10/site-packages (from scikit-image-&gt;deafrica_tools) (3.2.1)
-Requirement already satisfied: imageio&gt;=2.27 in /opt/conda/lib/python3.10/site-packages (from scikit-image-&gt;deafrica_tools) (2.31.5)
-Requirement already satisfied: tifffile&gt;=2022.8.12 in /opt/conda/lib/python3.10/site-packages (from scikit-image-&gt;deafrica_tools) (2023.9.26)
+Requirement already satisfied: imageio&gt;=2.27 in /opt/conda/lib/python3.10/site-packages (from scikit-image-&gt;deafrica_tools) (2.33.1)
+Requirement already satisfied: tifffile&gt;=2022.8.12 in /opt/conda/lib/python3.10/site-packages (from scikit-image-&gt;deafrica_tools) (2023.12.9)
 Requirement already satisfied: lazy_loader&gt;=0.3 in /opt/conda/lib/python3.10/site-packages (from scikit-image-&gt;deafrica_tools) (0.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /opt/conda/lib/python3.10/site-packages (from boto3&lt;1.33.2,&gt;=1.29.4-&gt;aiobotocore[boto3]-&gt;deafrica_tools) (1.0.1)
-Requirement already satisfied: s3transfer&lt;0.9.0,&gt;=0.8.0 in /opt/conda/lib/python3.10/site-packages (from boto3&lt;1.33.2,&gt;=1.29.4-&gt;aiobotocore[boto3]-&gt;deafrica_tools) (0.8.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jmespath&lt;2.0.0,&gt;=0.7.1 in /opt/conda/lib/python3.10/site-packages (from boto3&lt;1.34.28,&gt;=1.33.2-&gt;aiobotocore[boto3]-&gt;deafrica_tools) (1.0.1)
+Requirement already satisfied: s3transfer&lt;0.11.0,&gt;=0.10.0 in /opt/conda/lib/python3.10/site-packages (from boto3&lt;1.34.28,&gt;=1.33.2-&gt;aiobotocore[boto3]-&gt;deafrica_tools) (0.10.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sparse&gt;=0.7.0 in /opt/conda/lib/python3.10/site-packages (from dask-glm&gt;=0.2.0-&gt;dask-ml-&gt;deafrica_tools) (0.14.0)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sparse&gt;=0.7.0 in /opt/conda/lib/python3.10/site-packages (from dask-glm&gt;=0.2.0-&gt;dask-ml-&gt;deafrica_tools) (0.15.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: locket&gt;=1.0.0 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (1.0.0)
 Requirement already satisfied: msgpack&gt;=1.0.0 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (1.0.7)
-Requirement already satisfied: psutil&gt;=5.7.2 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (5.9.5)
+Requirement already satisfied: psutil&gt;=5.7.2 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (5.9.8)
 Requirement already satisfied: sortedcontainers&gt;=2.0.5 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (2.4.0)
-Requirement already satisfied: tblib&gt;=1.6.0 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (2.0.0)
+Requirement already satisfied: tblib&gt;=1.6.0 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (3.0.0)
 Requirement already satisfied: zict&gt;=3.0.0 in /opt/conda/lib/python3.10/site-packages (from distributed&gt;=2022.4.0-&gt;dask-gateway-&gt;deafrica_tools) (3.0.0)
 </pre></div>
 </div>
@@ -630,12 +720,14 @@ Requirement already satisfied: zict&gt;=3.0.0 in /opt/conda/lib/python3.10/site-
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: parso&lt;0.9.0,&gt;=0.8.3 in /opt/conda/lib/python3.10/site-packages (from jedi&gt;=0.16-&gt;ipython-&gt;deafrica_tools) (0.8.3)
-Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/conda/lib/python3.10/site-packages (from jinja2-&gt;branca-&gt;deafrica_tools) (2.1.3)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /opt/conda/lib/python3.10/site-packages (from jsonschema&gt;=4.18-&gt;datacube[performance,s3]-&gt;deafrica_tools) (2023.11.2)
-Requirement already satisfied: referencing&gt;=0.28.4 in /opt/conda/lib/python3.10/site-packages (from jsonschema&gt;=4.18-&gt;datacube[performance,s3]-&gt;deafrica_tools) (0.32.0)
-Requirement already satisfied: rpds-py&gt;=0.7.1 in /opt/conda/lib/python3.10/site-packages (from jsonschema&gt;=4.18-&gt;datacube[performance,s3]-&gt;deafrica_tools) (0.13.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /opt/conda/lib/python3.10/site-packages (from jinja2-&gt;branca-&gt;deafrica_tools) (2.1.4)
+Requirement already satisfied: jsonschema-specifications&gt;=2023.03.6 in /opt/conda/lib/python3.10/site-packages (from jsonschema&gt;=4.18-&gt;datacube[performance,s3]-&gt;deafrica_tools) (2023.12.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: referencing&gt;=0.28.4 in /opt/conda/lib/python3.10/site-packages (from jsonschema&gt;=4.18-&gt;datacube[performance,s3]-&gt;deafrica_tools) (0.32.1)
+Requirement already satisfied: rpds-py&gt;=0.7.1 in /opt/conda/lib/python3.10/site-packages (from jsonschema&gt;=4.18-&gt;datacube[performance,s3]-&gt;deafrica_tools) (0.17.1)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: llvmlite&lt;0.42,&gt;=0.41.0dev0 in /opt/conda/lib/python3.10/site-packages (from numba&gt;=0.51.0-&gt;dask-ml-&gt;deafrica_tools) (0.41.1)
@@ -644,16 +736,16 @@ Requirement already satisfied: rpds-py&gt;=0.7.1 in /opt/conda/lib/python3.10/si
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: ptyprocess&gt;=0.5 in /opt/conda/lib/python3.10/site-packages (from pexpect&gt;4.3-&gt;ipython-&gt;deafrica_tools) (0.7.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wcwidth in /opt/conda/lib/python3.10/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython-&gt;deafrica_tools) (0.2.12)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wcwidth in /opt/conda/lib/python3.10/site-packages (from prompt-toolkit&lt;3.1.0,&gt;=3.0.41-&gt;ipython-&gt;deafrica_tools) (0.2.13)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: greenlet!=0.4.17 in /opt/conda/lib/python3.10/site-packages (from sqlalchemy&lt;2.0,&gt;=1.4-&gt;datacube[performance,s3]-&gt;deafrica_tools) (3.0.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: greenlet!=0.4.17 in /opt/conda/lib/python3.10/site-packages (from sqlalchemy&lt;2.0,&gt;=1.4-&gt;datacube[performance,s3]-&gt;deafrica_tools) (3.0.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pims&gt;=0.4.1 in /opt/conda/lib/python3.10/site-packages (from dask-image-&gt;odc-algo-&gt;deafrica_tools) (0.6.1)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: bokeh&gt;=2.4.2 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (3.3.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: bokeh&gt;=2.4.2 in /opt/conda/lib/python3.10/site-packages (from dask[complete]-&gt;deafrica_tools) (3.3.3)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cftime in /opt/conda/lib/python3.10/site-packages (from netCDF4-&gt;pyTMD&gt;2-&gt;deafrica_tools) (1.6.3)
@@ -668,6 +760,45 @@ Requirement already satisfied: pure-eval in /opt/conda/lib/python3.10/site-packa
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: slicerator&gt;=0.9.8 in /opt/conda/lib/python3.10/site-packages (from pims&gt;=0.4.1-&gt;dask-image-&gt;odc-algo-&gt;deafrica_tools) (1.1.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading deafrica_tools-2.3.3-py3-none-any.whl (153 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/153.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺━━ <span class=" -Color -Color-Green">143.4/153.1 kB</span> <span class=" -Color -Color-Red">26.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">153.1/153.1 kB</span> <span class=" -Color -Color-Red">3.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading dask_gateway-2024.1.0-py3-none-any.whl (24 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading geojson-3.1.0-py3-none-any.whl (15 kB)
+Downloading isort-5.13.2-py3-none-any.whl (92 kB)
+?25l
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/92.3 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">92.2/92.3 kB</span> <span class=" -Color -Color-Red">70.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">92.3/92.3 kB</span> <span class=" -Color -Color-Red">1.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading pytest-8.0.0-py3-none-any.whl (334 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/334.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">327.7/334.0 kB</span> <span class=" -Color -Color-Red">84.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">334.0/334.0 kB</span> <span class=" -Color -Color-Red">8.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hDownloading aiobotocore-2.11.1-py3-none-any.whl (76 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/76.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">76.1/76.1 kB</span> <span class=" -Color -Color-Red">2.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: pyflakes, pycodestyle, mccabe, isort, iniconfig, geojson, aioitertools, pytest, flake8, aiobotocore, dask-gateway, deafrica_tools
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed aiobotocore-2.11.1 aioitertools-0.11.0 dask-gateway-2024.1.0 deafrica_tools-2.3.3 flake8-6.0.0 geojson-3.1.0 iniconfig-2.0.0 isort-5.13.2 mccabe-0.7.0 pycodestyle-2.10.0 pyflakes-3.0.1 pytest-8.0.0
 </pre></div>
 </div>
 </div>
@@ -705,14 +836,14 @@ Requirement already satisfied: pure-eval in /opt/conda/lib/python3.10/site-packa
 </div>
 </section>
 <section id="dask-schedulers">
-<h2>Dask Schedulers<a class="headerlink" href="#dask-schedulers" title="Permalink to this heading">#</a></h2>
+<h2>Dask Schedulers<a class="headerlink" href="#dask-schedulers" title="Link to this heading">#</a></h2>
 <section id="single-machine-scheduler-vs-distributed-scheduler">
-<h3>(Single machine scheduler vs. Distributed scheduler)<a class="headerlink" href="#single-machine-scheduler-vs-distributed-scheduler" title="Permalink to this heading">#</a></h3>
+<h3>(Single machine scheduler vs. Distributed scheduler)<a class="headerlink" href="#single-machine-scheduler-vs-distributed-scheduler" title="Link to this heading">#</a></h3>
 <p>One of the significant features of Dask is that it can take advantage of multiple CPU cores (cluster) to speed up computations, which is known as distributed computing. This is good for situations where you need to do many calculations on large datasets. <br></p>
 <p>We are using the distributed scheduler for the following analysis since we are working on a datacube.<br></p>
 </section>
 <section id="setting-up-dask-distributed">
-<h3>Setting up Dask.distributed<a class="headerlink" href="#setting-up-dask-distributed" title="Permalink to this heading">#</a></h3>
+<h3>Setting up Dask.distributed<a class="headerlink" href="#setting-up-dask-distributed" title="Link to this heading">#</a></h3>
 <p><span style='color:red'><strong>for me not working</strong></span></p>
 <p>To start the Dask Client, we use the Dask-plugin within the Phenocube.
 To use it, click on the orange Dask symbol on the left side of the window. Then click on the “+ New” Button. A new LocalCluster is created. <br>By clicking on the “Scale” button, the Client can be scaled (i.e. reducing the number of workers). <br>
@@ -729,7 +860,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
 </div>
 </section>
 <section id="set-up-a-dask-cluster-and-enabling-dask">
-<h3>Set up a Dask cluster and enabling Dask<a class="headerlink" href="#set-up-a-dask-cluster-and-enabling-dask" title="Permalink to this heading">#</a></h3>
+<h3>Set up a Dask cluster and enabling Dask<a class="headerlink" href="#set-up-a-dask-cluster-and-enabling-dask" title="Link to this heading">#</a></h3>
 <p>To set up distributed computing with Dask, we need to first set up a Dask client using the function below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -742,7 +873,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-fafb7d8b-ba0a-11ee-ab15-0242ac1f0008</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-fc95981e-bf80-11ee-b0b1-0242ac1f000c</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -777,7 +908,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">205f5ec9</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">9a111ece</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -789,10 +920,10 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
             </tr>
             <tr>
                 <td style="text-align: left;">
-                    <strong>Total threads:</strong> 80
+                    <strong>Total threads:</strong> 70
                 </td>
                 <td style="text-align: left;">
-                    <strong>Total memory:</strong> 1.42 TiB
+                    <strong>Total memory:</strong> 0.97 TiB
                 </td>
             </tr>
             
@@ -814,11 +945,11 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-0c382101-974e-46e5-87f1-a95b738ab538</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-9f41dbfb-3706-4d7d-84dc-3fc1ae62ea5c</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:38605
+                        <strong>Comm:</strong> tcp://127.0.0.1:38271
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 1
@@ -829,7 +960,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
                         <strong>Dashboard:</strong> <a href="/user/steven_hill/proxy/8787/status" target="_blank">/user/steven_hill/proxy/8787/status</a>
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total threads:</strong> 80
+                        <strong>Total threads:</strong> 70
                     </td>
                 </tr>
                 <tr>
@@ -837,7 +968,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
                         <strong>Started:</strong> Just now
                     </td>
                     <td style="text-align: left;">
-                        <strong>Total memory:</strong> 1.42 TiB
+                        <strong>Total memory:</strong> 0.97 TiB
                     </td>
                 </tr>
             </table>
@@ -860,29 +991,29 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:41095
+                            <strong>Comm: </strong> tcp://127.0.0.1:40161
                         </td>
                         <td style="text-align: left;">
-                            <strong>Total threads: </strong> 80
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="/user/steven_hill/proxy/35081/status" target="_blank">/user/steven_hill/proxy/35081/status</a>
-                        </td>
-                        <td style="text-align: left;">
-                            <strong>Memory: </strong> 1.42 TiB
+                            <strong>Total threads: </strong> 70
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:45477
+                            <strong>Dashboard: </strong> <a href="/user/steven_hill/proxy/44411/status" target="_blank">/user/steven_hill/proxy/44411/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 0.97 TiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:42947
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-l1wefaoi
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-y1rll1bq
                         </td>
                     </tr>
 
@@ -913,7 +1044,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
 <p>We will now cover how to do the second option.</p>
 </section>
 <section id="dask-dashboard-in-eo2cube">
-<h3>Dask dashboard in eo2cube<a class="headerlink" href="#dask-dashboard-in-eo2cube" title="Permalink to this heading">#</a></h3>
+<h3>Dask dashboard in eo2cube<a class="headerlink" href="#dask-dashboard-in-eo2cube" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>On the left-hand menu bar, click the Dask icon <img src="../../additional_data/dask_img.png" style="width:20px; height:22px;" >.</p></li>
 <li><p>Copy and paste the <code class="docutils literal notranslate"><span class="pre">Dashboard</span> <span class="pre">hyperlink</span></code> from the Client output in the <code class="docutils literal notranslate"><span class="pre">DASK</span> <span class="pre">DASHBOARD</span> <span class="pre">URL</span></code> text box. If the url is valid, the buttons should go from grey to orange.</p></li>
@@ -921,7 +1052,7 @@ Now, drag and drop the cluster into this code and reduce the number of workers t
 </section>
 </section>
 <section id="loading-the-data-using-dask">
-<h2>Loading the data using dask<a class="headerlink" href="#loading-the-data-using-dask" title="Permalink to this heading">#</a></h2>
+<h2>Loading the data using dask<a class="headerlink" href="#loading-the-data-using-dask" title="Link to this heading">#</a></h2>
 <p>In the following, the data is loaded.
 For loading data with dask, you just add the “dask_chunks”-parameter. <br>
 This looks like this:</p>
@@ -1331,7 +1462,7 @@ Data variables:
     scl          (time, y, x) uint8 dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;
 Attributes:
     crs:           EPSG:32734
-    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-ce91dcae-a26c-413b-b87d-2c01bc637852' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ce91dcae-a26c-413b-b87d-2c01bc637852' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 145</li><li><span class='xr-has-index'>y</span>: 126</li><li><span class='xr-has-index'>x</span>: 113</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-c2e1336d-a9f4-482f-ada7-798d65231fa1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c2e1336d-a9f4-482f-ada7-798d65231fa1' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-01-01T10:23:29.024000 ... 2...</div><input id='attrs-0d7e2d24-91e6-48bb-8e02-daccbab801b3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d7e2d24-91e6-48bb-8e02-daccbab801b3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61ba9830-eab0-4178-83bd-38f18a2afccd' class='xr-var-data-in' type='checkbox'><label for='data-61ba9830-eab0-4178-83bd-38f18a2afccd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-01-01T10:23:29.024000000&#x27;, &#x27;2021-01-04T10:33:29.024000000&#x27;,
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-8d309296-3170-41a8-a7ba-73cf9ff60682' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8d309296-3170-41a8-a7ba-73cf9ff60682' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 145</li><li><span class='xr-has-index'>y</span>: 126</li><li><span class='xr-has-index'>x</span>: 113</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-eddce02b-14e1-4e71-b049-0436bb49654b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-eddce02b-14e1-4e71-b049-0436bb49654b' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-01-01T10:23:29.024000 ... 2...</div><input id='attrs-0af4c5d8-dd80-4c1f-8942-d3b7d9df010c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0af4c5d8-dd80-4c1f-8942-d3b7d9df010c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-934ac7af-0817-4bd8-9511-0a3d8f46dbfc' class='xr-var-data-in' type='checkbox'><label for='data-934ac7af-0817-4bd8-9511-0a3d8f46dbfc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-01-01T10:23:29.024000000&#x27;, &#x27;2021-01-04T10:33:29.024000000&#x27;,
        &#x27;2021-01-06T10:24:11.024000000&#x27;, &#x27;2021-01-09T10:34:21.024000000&#x27;,
        &#x27;2021-01-11T10:23:09.024000000&#x27;, &#x27;2021-01-14T10:33:09.024000000&#x27;,
        &#x27;2021-01-16T10:23:51.024000000&#x27;, &#x27;2021-01-19T10:33:51.024000000&#x27;,
@@ -1403,7 +1534,7 @@ Attributes:
        &#x27;2021-12-15T10:34:41.024000000&#x27;, &#x27;2021-12-17T10:23:29.024000000&#x27;,
        &#x27;2021-12-20T10:33:39.024000000&#x27;, &#x27;2021-12-22T10:24:41.024000000&#x27;,
        &#x27;2021-12-25T10:34:41.024000000&#x27;, &#x27;2021-12-27T10:23:39.024000000&#x27;,
-       &#x27;2021-12-30T10:33:39.024000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.557e+07 1.557e+07 ... 1.557e+07</div><input id='attrs-dc44b315-8862-45f6-8431-2fa24a2d7dd2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc44b315-8862-45f6-8431-2fa24a2d7dd2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4c4a3c5e-d825-44c8-9b53-b118fd40f8f0' class='xr-var-data-in' type='checkbox'><label for='data-4c4a3c5e-d825-44c8-9b53-b118fd40f8f0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15572925., 15572895., 15572865., 15572835., 15572805., 15572775.,
+       &#x27;2021-12-30T10:33:39.024000000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.557e+07 1.557e+07 ... 1.557e+07</div><input id='attrs-9bc3fda6-246f-4198-b220-ba4345c139a9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9bc3fda6-246f-4198-b220-ba4345c139a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d6af4faa-9178-40b4-9b32-8a20b3941665' class='xr-var-data-in' type='checkbox'><label for='data-d6af4faa-9178-40b4-9b32-8a20b3941665' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15572925., 15572895., 15572865., 15572835., 15572805., 15572775.,
        15572745., 15572715., 15572685., 15572655., 15572625., 15572595.,
        15572565., 15572535., 15572505., 15572475., 15572445., 15572415.,
        15572385., 15572355., 15572325., 15572295., 15572265., 15572235.,
@@ -1423,7 +1554,7 @@ Attributes:
        15569865., 15569835., 15569805., 15569775., 15569745., 15569715.,
        15569685., 15569655., 15569625., 15569595., 15569565., 15569535.,
        15569505., 15569475., 15569445., 15569415., 15569385., 15569355.,
-       15569325., 15569295., 15569265., 15569235., 15569205., 15569175.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-2.945e+05 ... -2.911e+05</div><input id='attrs-e414d1d3-b976-4bf6-b609-6d69a91d9ed0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e414d1d3-b976-4bf6-b609-6d69a91d9ed0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cacb2f66-e8a6-4027-9111-1ee510144efb' class='xr-var-data-in' type='checkbox'><label for='data-cacb2f66-e8a6-4027-9111-1ee510144efb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-294465., -294435., -294405., -294375., -294345., -294315., -294285.,
+       15569325., 15569295., 15569265., 15569235., 15569205., 15569175.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-2.945e+05 ... -2.911e+05</div><input id='attrs-1ba6b7a9-0a54-4ac5-8331-9ec44c38c4f9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1ba6b7a9-0a54-4ac5-8331-9ec44c38c4f9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-02876af0-4aa5-4716-9b93-0cc4cb54d897' class='xr-var-data-in' type='checkbox'><label for='data-02876af0-4aa5-4716-9b93-0cc4cb54d897' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-294465., -294435., -294405., -294375., -294345., -294315., -294285.,
        -294255., -294225., -294195., -294165., -294135., -294105., -294075.,
        -294045., -294015., -293985., -293955., -293925., -293895., -293865.,
        -293835., -293805., -293775., -293745., -293715., -293685., -293655.,
@@ -1439,7 +1570,7 @@ Attributes:
        -291735., -291705., -291675., -291645., -291615., -291585., -291555.,
        -291525., -291495., -291465., -291435., -291405., -291375., -291345.,
        -291315., -291285., -291255., -291225., -291195., -291165., -291135.,
-       -291105.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-ef902bde-8b10-4bbf-8b16-03f8069399b9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ef902bde-8b10-4bbf-8b16-03f8069399b9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5796073f-85c7-4ec8-bfe9-a7d77aeceeef' class='xr-var-data-in' type='checkbox'><label for='data-5796073f-85c7-4ec8-bfe9-a7d77aeceeef' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d5220101-d9fa-4fb2-af3a-8f0ea6f6f8cd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d5220101-d9fa-4fb2-af3a-8f0ea6f6f8cd' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-4bc8e4b9-772e-4e51-a483-cac8e73cccc3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4bc8e4b9-772e-4e51-a483-cac8e73cccc3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f36fad27-8c96-4e35-9205-88dccdaa2975' class='xr-var-data-in' type='checkbox'><label for='data-f36fad27-8c96-4e35-9205-88dccdaa2975' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+       -291105.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-f3b7298f-9a77-40fb-b1ec-0cd708164ac2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f3b7298f-9a77-40fb-b1ec-0cd708164ac2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ce6ec047-c074-463e-b256-1f4ed986501d' class='xr-var-data-in' type='checkbox'><label for='data-ce6ec047-c074-463e-b256-1f4ed986501d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6cdb7c98-9308-41bf-b881-20d5da5cbefb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6cdb7c98-9308-41bf-b881-20d5da5cbefb' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-f663a19e-1227-4184-bdd0-0213bd639822' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f663a19e-1227-4184-bdd0-0213bd639822' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-75d886fa-c050-4020-8754-ce531f5b3fe7' class='xr-var-data-in' type='checkbox'><label for='data-75d886fa-c050-4020-8754-ce531f5b3fe7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1553,7 +1684,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-7f1162a2-fd92-45d2-898a-fb6f68d553b1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7f1162a2-fd92-45d2-898a-fb6f68d553b1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c19ab24b-5599-49c6-b5c1-ef9adf54bcde' class='xr-var-data-in' type='checkbox'><label for='data-c19ab24b-5599-49c6-b5c1-ef9adf54bcde' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-a10a225c-eeaa-4b13-b5d7-b72a5ef2d648' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a10a225c-eeaa-4b13-b5d7-b72a5ef2d648' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7ff5ae80-a945-45c8-bdd3-7cd13fbf935a' class='xr-var-data-in' type='checkbox'><label for='data-7ff5ae80-a945-45c8-bdd3-7cd13fbf935a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1667,7 +1798,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-6219c52f-738b-43b9-8123-bf853205b0a2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6219c52f-738b-43b9-8123-bf853205b0a2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a25b8a2a-a1d8-4652-b719-dab260ffd53e' class='xr-var-data-in' type='checkbox'><label for='data-a25b8a2a-a1d8-4652-b719-dab260ffd53e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-0c552202-b3ca-461f-a173-d069e70b1dc0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0c552202-b3ca-461f-a173-d069e70b1dc0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ce6fef54-5aa0-4574-876c-6aeb2fc8d077' class='xr-var-data-in' type='checkbox'><label for='data-ce6fef54-5aa0-4574-876c-6aeb2fc8d077' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1781,7 +1912,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-0b85f6ba-20df-42a5-a54d-3e0ae58cc854' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0b85f6ba-20df-42a5-a54d-3e0ae58cc854' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7714bff0-0a38-46e2-ba98-40ac6e6cb8f7' class='xr-var-data-in' type='checkbox'><label for='data-7714bff0-0a38-46e2-ba98-40ac6e6cb8f7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-659cdbb3-e263-45b1-bb90-fa554fc715c3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-659cdbb3-e263-45b1-bb90-fa554fc715c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8af14861-c0d1-4246-a6ec-b32dc6d9cd90' class='xr-var-data-in' type='checkbox'><label for='data-8af14861-c0d1-4246-a6ec-b32dc6d9cd90' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1895,7 +2026,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir08</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-9a7f6662-0700-4622-9a3e-b8acc82efdc3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9a7f6662-0700-4622-9a3e-b8acc82efdc3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a8e75bdb-9d63-442c-855b-5e7d3f5086fe' class='xr-var-data-in' type='checkbox'><label for='data-a8e75bdb-9d63-442c-855b-5e7d3f5086fe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir08</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-a0e9d429-a39f-4102-ba7f-defd4c14e990' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a0e9d429-a39f-4102-ba7f-defd4c14e990' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ed65a54f-7764-491e-af75-6d6bcf5428eb' class='xr-var-data-in' type='checkbox'><label for='data-ed65a54f-7764-491e-af75-6d6bcf5428eb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2009,7 +2140,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rededge2</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-7ac5a1ec-742f-41ec-a4a9-795dd5dafefa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7ac5a1ec-742f-41ec-a4a9-795dd5dafefa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9165cb20-cb13-4854-94df-db71c34200a9' class='xr-var-data-in' type='checkbox'><label for='data-9165cb20-cb13-4854-94df-db71c34200a9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rededge2</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-32711bf7-ac54-4ab5-b937-0d92813f6ec1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-32711bf7-ac54-4ab5-b937-0d92813f6ec1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d8fd62c1-77ca-4605-a600-b35034262607' class='xr-var-data-in' type='checkbox'><label for='data-d8fd62c1-77ca-4605-a600-b35034262607' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2123,7 +2254,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint8</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-ac85acc1-5188-48d7-810a-7b7631cf04c6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac85acc1-5188-48d7-810a-7b7631cf04c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2ac62c66-0111-4586-92be-8b2da11a851a' class='xr-var-data-in' type='checkbox'><label for='data-2ac62c66-0111-4586-92be-8b2da11a851a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint8</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-0f5dcdd0-31d4-41cb-ab75-f41525967477' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0f5dcdd0-31d4-41cb-ab75-f41525967477' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-56c3cc2d-ee93-4537-bffc-555a4def7093' class='xr-var-data-in' type='checkbox'><label for='data-56c3cc2d-ee93-4537-bffc-555a4def7093' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2237,7 +2368,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-a9b6e1e2-f0a6-4b44-8195-3c7780bb8ba9' class='xr-section-summary-in' type='checkbox'  ><label for='section-a9b6e1e2-f0a6-4b44-8195-3c7780bb8ba9' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5129c123-a267-4609-b54c-165c25cd166a' class='xr-index-data-in' type='checkbox'/><label for='index-5129c123-a267-4609-b54c-165c25cd166a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-01-01 10:23:29.024000&#x27;, &#x27;2021-01-04 10:33:29.024000&#x27;,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-3fdc7d92-acbf-4a2d-b035-724716e066e4' class='xr-section-summary-in' type='checkbox'  ><label for='section-3fdc7d92-acbf-4a2d-b035-724716e066e4' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-52198fb2-fb6b-468b-8360-0db86d462cbd' class='xr-index-data-in' type='checkbox'/><label for='index-52198fb2-fb6b-468b-8360-0db86d462cbd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-01-01 10:23:29.024000&#x27;, &#x27;2021-01-04 10:33:29.024000&#x27;,
                &#x27;2021-01-06 10:24:11.024000&#x27;, &#x27;2021-01-09 10:34:21.024000&#x27;,
                &#x27;2021-01-11 10:23:09.024000&#x27;, &#x27;2021-01-14 10:33:09.024000&#x27;,
                &#x27;2021-01-16 10:23:51.024000&#x27;, &#x27;2021-01-19 10:33:51.024000&#x27;,
@@ -2248,23 +2379,23 @@ Attributes:
                &#x27;2021-12-17 10:23:29.024000&#x27;, &#x27;2021-12-20 10:33:39.024000&#x27;,
                &#x27;2021-12-22 10:24:41.024000&#x27;, &#x27;2021-12-25 10:34:41.024000&#x27;,
                &#x27;2021-12-27 10:23:39.024000&#x27;, &#x27;2021-12-30 10:33:39.024000&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=145, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-8278b114-c330-4016-bc06-5cd5887f49ba' class='xr-index-data-in' type='checkbox'/><label for='index-8278b114-c330-4016-bc06-5cd5887f49ba' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15572925.0, 15572895.0, 15572865.0, 15572835.0, 15572805.0, 15572775.0,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=145, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0a1ffc84-e761-4724-a6b1-b6442cd7815f' class='xr-index-data-in' type='checkbox'/><label for='index-0a1ffc84-e761-4724-a6b1-b6442cd7815f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15572925.0, 15572895.0, 15572865.0, 15572835.0, 15572805.0, 15572775.0,
        15572745.0, 15572715.0, 15572685.0, 15572655.0,
        ...
        15569445.0, 15569415.0, 15569385.0, 15569355.0, 15569325.0, 15569295.0,
        15569265.0, 15569235.0, 15569205.0, 15569175.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=126))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-717d86fc-4df2-48b9-805b-ca424dc9b66e' class='xr-index-data-in' type='checkbox'/><label for='index-717d86fc-4df2-48b9-805b-ca424dc9b66e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-294465.0, -294435.0, -294405.0, -294375.0, -294345.0, -294315.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=126))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-da97aaf5-6c2b-464e-9b34-b151be2b21f8' class='xr-index-data-in' type='checkbox'/><label for='index-da97aaf5-6c2b-464e-9b34-b151be2b21f8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-294465.0, -294435.0, -294405.0, -294375.0, -294345.0, -294315.0,
        -294285.0, -294255.0, -294225.0, -294195.0,
        ...
        -291375.0, -291345.0, -291315.0, -291285.0, -291255.0, -291225.0,
        -291195.0, -291165.0, -291135.0, -291105.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=113))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-392c8dda-5cf2-4ad6-a7ff-378d8e9bb672' class='xr-section-summary-in' type='checkbox'  checked><label for='section-392c8dda-5cf2-4ad6-a7ff-378d8e9bb672' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=113))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4e0ace86-f790-4b65-b71b-d4c9e6ee4177' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4e0ace86-f790-4b65-b71b-d4c9e6ee4177' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>You see that the xarray.Dataset consists of multiple <a class="reference external" href="https://docs.dask.org/en/latest/array.html">dask.array</a> objects but we cannot see any values inside our data. <br>
 This type of data is called “lazy data” as it is not loaded properly but in a “lazy” way without evaluated data values.</p>
 </section>
 <section id="dask-chunks">
-<h2>Dask Chunks<a class="headerlink" href="#dask-chunks" title="Permalink to this heading">#</a></h2>
+<h2>Dask Chunks<a class="headerlink" href="#dask-chunks" title="Link to this heading">#</a></h2>
 <p>The parameter added to the dc.load() command is called “dask_chunks”. It defines how many parts of our original dataset will be split. As described in the previous notebooks, the dc.load() command usually produces a xarray dataset consisting of integer values.<br>
 In our case, the dataset is split into smaller chunks. Since the data we are interested in is three-dimensional, we also need to provide three dimensions for subdividing the data. <br>
 The chunk size of the dask.arrays scales according to the provided values within the “dask_chunks” parameter.
@@ -2398,15 +2529,15 @@ In the following, we will visualize the lazy-loaded data for the red band to get
 Looking at the memory size of the chunks compared to the complete array, the motivation for using dask becomes clear. Especially when working with large amounts of data, splitting the data into smaller chunks enables computations that would crash the cube environment when calculated over the complete array.</p>
 </section>
 <section id="lazy-operations">
-<h2>Lazy operations<a class="headerlink" href="#lazy-operations" title="Permalink to this heading">#</a></h2>
+<h2>Lazy operations<a class="headerlink" href="#lazy-operations" title="Link to this heading">#</a></h2>
 <p>When working with large amounts of data, it makes sense to postpone loading the data as far back as possible. To do so, we can perform operations on lazy data directly, without loading its values. <br>
 When we want to do a computation on lazy data, it makes sense to chain operations together and calculate the result right at the end (with the compute() function). <br>
-In the <span class="xref myst">previous notebook</span>, we did some basic analysis. Now, this analysis will be repeated but using dask. As already mentioned, the code will not differ a lot since dask is built on NumPy. The main difference is that the calculation is performed in a “lazy” way in this case. Thus, the resulting values are not calculated directly but will be on-demand (using the compute() function).<br></p>
+In the <a class="reference internal" href="#07_basic_analysis.ipynb"><span class="xref myst">previous notebook</span></a>, we did some basic analysis. Now, this analysis will be repeated but using dask. As already mentioned, the code will not differ a lot since dask is built on NumPy. The main difference is that the calculation is performed in a “lazy” way in this case. Thus, the resulting values are not calculated directly but will be on-demand (using the compute() function).<br></p>
 <section id="grouping-the-data-by-month-and-extracting-the-mean">
-<h3>Grouping the data by month and extracting the mean<a class="headerlink" href="#grouping-the-data-by-month-and-extracting-the-mean" title="Permalink to this heading">#</a></h3>
+<h3>Grouping the data by month and extracting the mean<a class="headerlink" href="#grouping-the-data-by-month-and-extracting-the-mean" title="Link to this heading">#</a></h3>
 <p>We start with grouping our data by season and calculating the mean value for each pixel. <br>
 As you may remember, <code class="docutils literal notranslate"><span class="pre">groupby('time.season')</span></code>creates four groups: ‘DJF’(Dec, Jan, Feb), ‘MAM’ (Mar, Apr, May), ‘JJA’ (Jun, Jul, Aug) and ‘SON’ (Sep, Oct, Nov) <br>
-<strong>NOTE</strong>: In <span class="xref myst">previous notebook</span>, we calculated the median on the seasonal values. Here we calculate the mean because the  <code class="docutils literal notranslate"><span class="pre">median()</span></code> function is not implemented on dask arrays.</p>
+<strong>NOTE</strong>: In <a class="reference internal" href="#07_basic_analysis.ipynb"><span class="xref myst">previous notebook</span></a>, we calculated the median on the seasonal values. Here we calculate the mean because the  <code class="docutils literal notranslate"><span class="pre">median()</span></code> function is not implemented on dask arrays.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by Season and Calculate the seasonal Median.</span>
@@ -2442,7 +2573,7 @@ Attributes:
 <p>The data is now grouped into monthly timesteps but still in dask.array-format as it is not computed yet.</p>
 </section>
 <section id="calculating-indices-on-grouped-lazy-loaded-data">
-<h3>Calculating indices on grouped, lazy-loaded data<a class="headerlink" href="#calculating-indices-on-grouped-lazy-loaded-data" title="Permalink to this heading">#</a></h3>
+<h3>Calculating indices on grouped, lazy-loaded data<a class="headerlink" href="#calculating-indices-on-grouped-lazy-loaded-data" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#NDVI</span>
@@ -2854,7 +2985,7 @@ Data variables:
     sbi          (season, y, x) float32 dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;
 Attributes:
     crs:           EPSG:32734
-    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-0213aa3f-592b-4dba-a3f1-1aac1122ccd5' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0213aa3f-592b-4dba-a3f1-1aac1122ccd5' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>season</span>: 4</li><li><span class='xr-has-index'>y</span>: 126</li><li><span class='xr-has-index'>x</span>: 113</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-c5e082eb-4f06-4683-bd05-bb72805e08b0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c5e082eb-4f06-4683-bd05-bb72805e08b0' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.557e+07 1.557e+07 ... 1.557e+07</div><input id='attrs-4a3d956c-d9d0-4346-ae9b-9bbdc57ed8a3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4a3d956c-d9d0-4346-ae9b-9bbdc57ed8a3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7c4ae9db-58b5-4952-8e0f-f1d64887b933' class='xr-var-data-in' type='checkbox'><label for='data-7c4ae9db-58b5-4952-8e0f-f1d64887b933' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15572925., 15572895., 15572865., 15572835., 15572805., 15572775.,
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-4471a502-7a96-41a1-b07f-fcffe46ac2ae' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4471a502-7a96-41a1-b07f-fcffe46ac2ae' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>season</span>: 4</li><li><span class='xr-has-index'>y</span>: 126</li><li><span class='xr-has-index'>x</span>: 113</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-5d462717-6318-4c5b-8ac7-d1de3ced634c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5d462717-6318-4c5b-8ac7-d1de3ced634c' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.557e+07 1.557e+07 ... 1.557e+07</div><input id='attrs-53375591-d392-4607-a5be-e4b3571c7c98' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-53375591-d392-4607-a5be-e4b3571c7c98' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e7c24a51-91a7-40b7-8cd2-5a4daa7e794f' class='xr-var-data-in' type='checkbox'><label for='data-e7c24a51-91a7-40b7-8cd2-5a4daa7e794f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15572925., 15572895., 15572865., 15572835., 15572805., 15572775.,
        15572745., 15572715., 15572685., 15572655., 15572625., 15572595.,
        15572565., 15572535., 15572505., 15572475., 15572445., 15572415.,
        15572385., 15572355., 15572325., 15572295., 15572265., 15572235.,
@@ -2874,7 +3005,7 @@ Attributes:
        15569865., 15569835., 15569805., 15569775., 15569745., 15569715.,
        15569685., 15569655., 15569625., 15569595., 15569565., 15569535.,
        15569505., 15569475., 15569445., 15569415., 15569385., 15569355.,
-       15569325., 15569295., 15569265., 15569235., 15569205., 15569175.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-2.945e+05 ... -2.911e+05</div><input id='attrs-cfae34f3-29b0-45e3-9f0a-8a4929afb4f3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cfae34f3-29b0-45e3-9f0a-8a4929afb4f3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6271cdff-4d06-4370-9526-2cdc712ccd0c' class='xr-var-data-in' type='checkbox'><label for='data-6271cdff-4d06-4370-9526-2cdc712ccd0c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-294465., -294435., -294405., -294375., -294345., -294315., -294285.,
+       15569325., 15569295., 15569265., 15569235., 15569205., 15569175.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-2.945e+05 ... -2.911e+05</div><input id='attrs-dc224d6e-ab1f-41d1-8435-ad8c87f4c10e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc224d6e-ab1f-41d1-8435-ad8c87f4c10e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7283127e-44fa-468a-b62f-5ab60eb75f5a' class='xr-var-data-in' type='checkbox'><label for='data-7283127e-44fa-468a-b62f-5ab60eb75f5a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>30.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-294465., -294435., -294405., -294375., -294345., -294315., -294285.,
        -294255., -294225., -294195., -294165., -294135., -294105., -294075.,
        -294045., -294015., -293985., -293955., -293925., -293895., -293865.,
        -293835., -293805., -293775., -293745., -293715., -293685., -293655.,
@@ -2890,7 +3021,7 @@ Attributes:
        -291735., -291705., -291675., -291645., -291615., -291585., -291555.,
        -291525., -291495., -291465., -291435., -291405., -291375., -291345.,
        -291315., -291285., -291255., -291225., -291195., -291165., -291135.,
-       -291105.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-54df4964-7463-4104-a124-6cc81cee65e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54df4964-7463-4104-a124-6cc81cee65e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bb9d300b-5c1e-4ce4-bc77-f140ab890557' class='xr-var-data-in' type='checkbox'><label for='data-bb9d300b-5c1e-4ce4-bc77-f140ab890557' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>season</span></div><div class='xr-var-dims'>(season)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;DJF&#x27; &#x27;JJA&#x27; &#x27;MAM&#x27; &#x27;SON&#x27;</div><input id='attrs-9d803d4b-cbf0-4f24-9426-2c503c9ad4c3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9d803d4b-cbf0-4f24-9426-2c503c9ad4c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d0ef8504-d034-465b-9ba4-149823e2d05b' class='xr-var-data-in' type='checkbox'><label for='data-d0ef8504-d034-465b-9ba4-149823e2d05b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;DJF&#x27;, &#x27;JJA&#x27;, &#x27;MAM&#x27;, &#x27;SON&#x27;], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-60c7b91f-4cc1-4be9-b517-dbcdcb0ca1ef' class='xr-section-summary-in' type='checkbox'  checked><label for='section-60c7b91f-4cc1-4be9-b517-dbcdcb0ca1ef' class='xr-section-summary' >Data variables: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-945b809e-f03e-4c2c-9d76-f13c45f59845' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-945b809e-f03e-4c2c-9d76-f13c45f59845' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0ceade22-110c-4f95-bfdf-188c0a9dacf9' class='xr-var-data-in' type='checkbox'><label for='data-0ceade22-110c-4f95-bfdf-188c0a9dacf9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+       -291105.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-80c5518a-4149-4738-a051-9738fa06ef4a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-80c5518a-4149-4738-a051-9738fa06ef4a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a597f838-08ab-418e-970b-7a49e03dcfbb' class='xr-var-data-in' type='checkbox'><label for='data-a597f838-08ab-418e-970b-7a49e03dcfbb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>season</span></div><div class='xr-var-dims'>(season)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;DJF&#x27; &#x27;JJA&#x27; &#x27;MAM&#x27; &#x27;SON&#x27;</div><input id='attrs-bb801a1d-6430-4d9a-a4b3-a18e00ff3575' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bb801a1d-6430-4d9a-a4b3-a18e00ff3575' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-518ed5e2-a7b5-4dff-a6a3-23a825bbbb58' class='xr-var-data-in' type='checkbox'><label for='data-518ed5e2-a7b5-4dff-a6a3-23a825bbbb58' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;DJF&#x27;, &#x27;JJA&#x27;, &#x27;MAM&#x27;, &#x27;SON&#x27;], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0936ebf5-f472-4707-af94-f5038a56fbf3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0936ebf5-f472-4707-af94-f5038a56fbf3' class='xr-section-summary' >Data variables: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-25fa1254-06e2-4b4d-ab32-140519ecae00' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-25fa1254-06e2-4b4d-ab32-140519ecae00' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-58302620-2dd7-4814-b1e8-ff82ba477197' class='xr-var-data-in' type='checkbox'><label for='data-58302620-2dd7-4814-b1e8-ff82ba477197' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2974,7 +3105,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-c8956be6-ea7a-49ec-86a7-af43c025ccca' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c8956be6-ea7a-49ec-86a7-af43c025ccca' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3aa6c65c-c44c-44a7-a966-2197e5283869' class='xr-var-data-in' type='checkbox'><label for='data-3aa6c65c-c44c-44a7-a966-2197e5283869' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-8c9f8889-1a28-4a73-b6b0-9c6b3cafa351' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8c9f8889-1a28-4a73-b6b0-9c6b3cafa351' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b79b8ec1-1f1d-4749-b331-6c731cf6fddb' class='xr-var-data-in' type='checkbox'><label for='data-b79b8ec1-1f1d-4749-b331-6c731cf6fddb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3058,7 +3189,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-25a963a0-b845-408b-a8b1-0fe0265392cc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-25a963a0-b845-408b-a8b1-0fe0265392cc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-78c08a16-d2d3-44f5-bf8c-73dad304ddde' class='xr-var-data-in' type='checkbox'><label for='data-78c08a16-d2d3-44f5-bf8c-73dad304ddde' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-dfbe1abc-494f-4e4a-88e1-4fa9d44bb063' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dfbe1abc-494f-4e4a-88e1-4fa9d44bb063' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-60256a56-f74d-4d95-99e8-4222c9ab534d' class='xr-var-data-in' type='checkbox'><label for='data-60256a56-f74d-4d95-99e8-4222c9ab534d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3142,7 +3273,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-b94498b9-827f-4039-a85e-9129a8db86b3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b94498b9-827f-4039-a85e-9129a8db86b3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5072fc9d-4a8b-4543-bc94-f18bef9e06c4' class='xr-var-data-in' type='checkbox'><label for='data-5072fc9d-4a8b-4543-bc94-f18bef9e06c4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-24d8bc15-40b7-4010-9668-ef380c4e3000' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-24d8bc15-40b7-4010-9668-ef380c4e3000' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3418e429-8a76-43e3-952a-c6b589978b16' class='xr-var-data-in' type='checkbox'><label for='data-3418e429-8a76-43e3-952a-c6b589978b16' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3226,7 +3357,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir08</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-6efc6ff3-3f61-4aa6-b02a-badbb5525f3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6efc6ff3-3f61-4aa6-b02a-badbb5525f3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-412e89dc-187b-419b-8d9e-6354607b3a0d' class='xr-var-data-in' type='checkbox'><label for='data-412e89dc-187b-419b-8d9e-6354607b3a0d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>nir08</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-d1e4a530-4f90-4ecd-bf76-42537bf60292' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d1e4a530-4f90-4ecd-bf76-42537bf60292' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7beb6a7-06e2-4608-ab6c-16d21d4d8cd8' class='xr-var-data-in' type='checkbox'><label for='data-f7beb6a7-06e2-4608-ab6c-16d21d4d8cd8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3310,7 +3441,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rededge2</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-4735e1a6-833e-4950-b4c5-2562737ed6bb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4735e1a6-833e-4950-b4c5-2562737ed6bb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7a7f620c-0493-4326-933e-df32fb0af440' class='xr-var-data-in' type='checkbox'><label for='data-7a7f620c-0493-4326-933e-df32fb0af440' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rededge2</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-9f84dc82-4f5b-44f0-878a-553c2d2701b5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9f84dc82-4f5b-44f0-878a-553c2d2701b5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a4d56f6b-f549-488e-9806-eab30716e613' class='xr-var-data-in' type='checkbox'><label for='data-a4d56f6b-f549-488e-9806-eab30716e613' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3394,7 +3525,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-a27cd419-6398-45c3-a446-c78bd2d0c23d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a27cd419-6398-45c3-a446-c78bd2d0c23d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3ef2454d-4ef6-416b-b971-96ebe5e2b329' class='xr-var-data-in' type='checkbox'><label for='data-3ef2454d-4ef6-416b-b971-96ebe5e2b329' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>scl</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-34b7025f-cf59-46d6-b914-8f9c3c3e14bd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-34b7025f-cf59-46d6-b914-8f9c3c3e14bd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d42ec106-0b49-464a-81d8-807bfc79b9b1' class='xr-var-data-in' type='checkbox'><label for='data-d42ec106-0b49-464a-81d8-807bfc79b9b1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>flags_definition :</span></dt><dd>{&#x27;sca&#x27;: {&#x27;bits&#x27;: [0, 1, 2, 3, 4, 5, 6, 7], &#x27;values&#x27;: {&#x27;1&#x27;: &#x27;saturated or defective&#x27;, &#x27;2&#x27;: &#x27;dark area pixels&#x27;, &#x27;3&#x27;: &#x27;cloud shadows&#x27;, &#x27;4&#x27;: &#x27;vegetation&#x27;, &#x27;5&#x27;: &#x27;bare soils&#x27;, &#x27;6&#x27;: &#x27;water&#x27;, &#x27;7&#x27;: &#x27;unclassified&#x27;, &#x27;8&#x27;: &#x27;cloud medium probability&#x27;, &#x27;9&#x27;: &#x27;cloud high probability&#x27;, &#x27;10&#x27;: &#x27;thin cirrus&#x27;, &#x27;11&#x27;: &#x27;snow or ice&#x27;}, &#x27;description&#x27;: &#x27;Sen2Cor Scene Classification&#x27;}}</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3478,7 +3609,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ndvi</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-653bf32d-587f-40c1-963e-9101ab6c83ec' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-653bf32d-587f-40c1-963e-9101ab6c83ec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f62fcaf7-5598-423a-9a8f-83413444c975' class='xr-var-data-in' type='checkbox'><label for='data-f62fcaf7-5598-423a-9a8f-83413444c975' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ndvi</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-5ce36617-f826-4f58-95e3-f75b1bac3667' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5ce36617-f826-4f58-95e3-f75b1bac3667' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e29ef416-f73d-4987-8360-ac43b291801f' class='xr-var-data-in' type='checkbox'><label for='data-e29ef416-f73d-4987-8360-ac43b291801f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3562,7 +3693,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>wet</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-297c1b1a-ac8e-4f9e-a57c-d845bae9055d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-297c1b1a-ac8e-4f9e-a57c-d845bae9055d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2b1ba35f-3e24-4eef-9fd9-705126fd22f0' class='xr-var-data-in' type='checkbox'><label for='data-2b1ba35f-3e24-4eef-9fd9-705126fd22f0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>wet</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-6e97da48-5107-4887-b670-79c7fe3677af' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6e97da48-5107-4887-b670-79c7fe3677af' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ba264627-f0d5-4aad-bb7d-961882b6abc7' class='xr-var-data-in' type='checkbox'><label for='data-ba264627-f0d5-4aad-bb7d-961882b6abc7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3646,7 +3777,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gvi</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-e8ac8b85-0376-4035-aeb1-4e3862667fad' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e8ac8b85-0376-4035-aeb1-4e3862667fad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e9f31f08-7620-401a-99c5-8d87163a0055' class='xr-var-data-in' type='checkbox'><label for='data-e9f31f08-7620-401a-99c5-8d87163a0055' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gvi</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-85723b6f-cc5a-41e0-9bed-5bc68cbebd80' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-85723b6f-cc5a-41e0-9bed-5bc68cbebd80' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-da0b2b56-7097-4c11-825c-bd1a6bb4290b' class='xr-var-data-in' type='checkbox'><label for='data-da0b2b56-7097-4c11-825c-bd1a6bb4290b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3730,7 +3861,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sbi</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-01bd2e96-3aaa-4ea5-b291-fdbbe34cd46e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-01bd2e96-3aaa-4ea5-b291-fdbbe34cd46e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3674f066-b23a-468e-8450-a430c59f5614' class='xr-var-data-in' type='checkbox'><label for='data-3674f066-b23a-468e-8450-a430c59f5614' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>sbi</span></div><div class='xr-var-dims'>(season, y, x)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 126, 113), meta=np.ndarray&gt;</div><input id='attrs-d0de1aaa-7d07-4e14-a3f8-c01c39011a1e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d0de1aaa-7d07-4e14-a3f8-c01c39011a1e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d090d466-4277-417c-bc79-6bfdb4b429a8' class='xr-var-data-in' type='checkbox'><label for='data-d090d466-4277-417c-bc79-6bfdb4b429a8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3814,23 +3945,23 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-1af72a5b-ff5b-41b7-8a41-54f4e68cfa91' class='xr-section-summary-in' type='checkbox'  ><label for='section-1af72a5b-ff5b-41b7-8a41-54f4e68cfa91' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0ff454fa-f16f-4bc6-b991-393da3c96be3' class='xr-index-data-in' type='checkbox'/><label for='index-0ff454fa-f16f-4bc6-b991-393da3c96be3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15572925.0, 15572895.0, 15572865.0, 15572835.0, 15572805.0, 15572775.0,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-0372fd65-607e-429c-805f-57f133d911cb' class='xr-section-summary-in' type='checkbox'  ><label for='section-0372fd65-607e-429c-805f-57f133d911cb' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4f3b9a76-f122-425e-83fb-1858f4a0322c' class='xr-index-data-in' type='checkbox'/><label for='index-4f3b9a76-f122-425e-83fb-1858f4a0322c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15572925.0, 15572895.0, 15572865.0, 15572835.0, 15572805.0, 15572775.0,
        15572745.0, 15572715.0, 15572685.0, 15572655.0,
        ...
        15569445.0, 15569415.0, 15569385.0, 15569355.0, 15569325.0, 15569295.0,
        15569265.0, 15569235.0, 15569205.0, 15569175.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=126))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-490b8ca4-3f51-423d-983f-3ad7e2455b0e' class='xr-index-data-in' type='checkbox'/><label for='index-490b8ca4-3f51-423d-983f-3ad7e2455b0e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-294465.0, -294435.0, -294405.0, -294375.0, -294345.0, -294315.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=126))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ebe3f110-7e2f-42ee-b601-766ac0387b26' class='xr-index-data-in' type='checkbox'/><label for='index-ebe3f110-7e2f-42ee-b601-766ac0387b26' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-294465.0, -294435.0, -294405.0, -294375.0, -294345.0, -294315.0,
        -294285.0, -294255.0, -294225.0, -294195.0,
        ...
        -291375.0, -291345.0, -291315.0, -291285.0, -291255.0, -291225.0,
        -291195.0, -291165.0, -291135.0, -291105.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=113))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>season</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b63cadce-7237-4430-a774-4c2b8fcd5b1c' class='xr-index-data-in' type='checkbox'/><label for='index-b63cadce-7237-4430-a774-4c2b8fcd5b1c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;DJF&#x27;, &#x27;JJA&#x27;, &#x27;MAM&#x27;, &#x27;SON&#x27;], dtype=&#x27;object&#x27;, name=&#x27;season&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c86b4eac-ef3e-469f-9aea-6f7db011ccdd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c86b4eac-ef3e-469f-9aea-6f7db011ccdd' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=113))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>season</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c575d6f2-bd7c-44ad-8705-6a53156aeff7' class='xr-index-data-in' type='checkbox'/><label for='index-c575d6f2-bd7c-44ad-8705-6a53156aeff7' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;DJF&#x27;, &#x27;JJA&#x27;, &#x27;MAM&#x27;, &#x27;SON&#x27;], dtype=&#x27;object&#x27;, name=&#x27;season&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-be5f5298-b6fc-47e2-901d-89ce9d7c454d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-be5f5298-b6fc-47e2-901d-89ce9d7c454d' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>We now calculated some indices based on lazy-loaded data. Since we have not used the compute() function, the indices are lazy-loaded dask.arrays as well.</p>
 </section>
 </section>
 <section id="task-graph">
-<h2>Task Graph<a class="headerlink" href="#task-graph" title="Permalink to this heading">#</a></h2>
+<h2>Task Graph<a class="headerlink" href="#task-graph" title="Link to this heading">#</a></h2>
 <p>To get a better feeling for what happens when we chain tasks in dask, we now will have a look at the task graph using the visualize()function. This produces a graph that shows all the tasks that dask needs to execute.
 If the graph is too large, an error occurs. In this case, look at the working folder for a .png file. It should contain the produced graph.
 If the graph opens within the notebook, double-clicking on it will enlarge it.
@@ -3844,10 +3975,10 @@ If the graph opens within the notebook, double-clicking on it will enlarge it.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dot: graph is too large for cairo-renderer bitmaps. Scaling by 0.554424 to fit
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dot: graph is too large for cairo-renderer bitmaps. Scaling by 0.554527 to fit
 </pre></div>
 </div>
-<img alt="../../_images/290fef3f49e6154943ecbd8603ba66f0e19beaec2e847060c47d35aecf8d6dab.png" src="../../_images/290fef3f49e6154943ecbd8603ba66f0e19beaec2e847060c47d35aecf8d6dab.png" />
+<img alt="../../_images/41d6ce82a5d2aae12a0dc90285312383bb5718053c19173e592ca84fd0222ef0.png" src="../../_images/41d6ce82a5d2aae12a0dc90285312383bb5718053c19173e592ca84fd0222ef0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3857,13 +3988,13 @@ If the graph opens within the notebook, double-clicking on it will enlarge it.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a433ef288a429d8acd843c75f2fb546412aad8c62d9f7033d973f965a658acf1.svg" src="../../_images/a433ef288a429d8acd843c75f2fb546412aad8c62d9f7033d973f965a658acf1.svg" /></div>
+<img alt="../../_images/a94cf1ea2c2402b0e8a64d48cc8f0ef8738a154d4bacd04669ffe27f1f75dcee.svg" src="../../_images/a94cf1ea2c2402b0e8a64d48cc8f0ef8738a154d4bacd04669ffe27f1f75dcee.svg" /></div>
 </div>
 </section>
 <section id="loading-computing-lazy-data">
-<h2>Loading/ computing lazy data<a class="headerlink" href="#loading-computing-lazy-data" title="Permalink to this heading">#</a></h2>
+<h2>Loading/ computing lazy data<a class="headerlink" href="#loading-computing-lazy-data" title="Link to this heading">#</a></h2>
 <section id="compute">
-<h3>compute()<a class="headerlink" href="#compute" title="Permalink to this heading">#</a></h3>
+<h3>compute()<a class="headerlink" href="#compute" title="Link to this heading">#</a></h3>
 <p>Lazy Dask arrays do not evaluate (e.g., contain actual values) until we initiate their calculation. The <code class="docutils literal notranslate"><span class="pre">compute()</span></code>-function triggers such an evaluation.<br>
 It is important to note that <code class="docutils literal notranslate"><span class="pre">compute()</span></code>writes its results into memory. So only use it if the results will fit in it. If they are too large, it is possible to write them to disk directly.
 For dask Arrays the <code class="docutils literal notranslate"><span class="pre">to_hdf5()</span></code>command can be used (<code class="docutils literal notranslate"><span class="pre">my_dask_array.to_hdf5(&quot;myfile.hdf5&quot;)</span></code>) to do so. <br>
@@ -3886,92 +4017,13 @@ The same has already been done in Notebook 7. The only difference is, that in th
   _reproject(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-23 16:18:44,574 - distributed.worker.state_machine - ERROR - Unhandled exception in async instruction for &lt;Task finished name=&quot;execute((&#39;getitem-where-mean_chunk-575ebfbb38f19a5833dd2491b6a00941&#39;, 33, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /opt/conda/lib/python3.10/site-packages/distributed/worker_state_machine.py:3615&gt; exception=KeyboardInterrupt()&gt;
-Traceback (most recent call last):
-  File &quot;/opt/conda/lib/python3.10/site-packages/distributed/worker_state_machine.py&quot;, line 3638, in _finish_async_instruction
-    stim = task.result()
-  File &quot;/opt/conda/lib/python3.10/site-packages/distributed/worker_state_machine.py&quot;, line 3618, in wrapper
-    return await func(*args, **kwargs)
-  File &quot;/opt/conda/lib/python3.10/site-packages/distributed/worker.py&quot;, line 206, in wrapper
-    return await method(self, *args, **kwargs)  # type: ignore
-  File &quot;/opt/conda/lib/python3.10/site-packages/distributed/worker.py&quot;, line 2278, in execute
-    result = await run_in_executor_with_context(
-  File &quot;/opt/conda/lib/python3.10/site-packages/distributed/utils.py&quot;, line 1540, in run_in_executor_with_context
-    return await loop.run_in_executor(
-  File &quot;/opt/conda/lib/python3.10/asyncio/base_events.py&quot;, line 821, in run_in_executor
-    executor.submit(func, *args), loop=self)
-  File &quot;/opt/conda/lib/python3.10/site-packages/distributed/_concurrent_futures_thread.py&quot;, line 131, in submit
-    self._work_queue.put(w)
-  File &quot;/opt/conda/lib/python3.10/queue.py&quot;, line 133, in put
-    with self.not_full:
-  File &quot;/opt/conda/lib/python3.10/threading.py&quot;, line 265, in __enter__
-    return self._lock.__enter__()
-KeyboardInterrupt
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-23 16:18:45,057 - distributed.nanny - WARNING - Restarting worker
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds_grp_dask_computed</span> <span class="o">=</span> <span class="n">ds_grp_dask</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">ds_grp_dask_computed</span>
-
-<span class="nn">File /opt/conda/lib/python3.10/site-packages/xarray/core/dataset.py:1014,</span> in <span class="ni">Dataset.compute</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">995</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Manually trigger loading and/or computation of this dataset&#39;s data</span>
-<span class="g g-Whitespace">    </span><span class="mi">996</span><span class="sd"> from disk or a remote source into memory and return a new dataset.</span>
-<span class="g g-Whitespace">    </span><span class="mi">997</span><span class="sd"> Unlike load, the original dataset is left unaltered.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1011</span><span class="sd"> dask.compute</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">new</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1014</span> <span class="k">return</span> <span class="n">new</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.10/site-packages/xarray/core/dataset.py:848,</span> in <span class="ni">Dataset.load</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">845</span> <span class="n">chunkmanager</span> <span class="o">=</span> <span class="n">get_chunked_array_type</span><span class="p">(</span><span class="o">*</span><span class="n">lazy_data</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">847</span> <span class="c1"># evaluate all the chunked arrays simultaneously</span>
-<span class="ne">--&gt; </span><span class="mi">848</span> <span class="n">evaluated_data</span> <span class="o">=</span> <span class="n">chunkmanager</span><span class="o">.</span><span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">lazy_data</span><span class="o">.</span><span class="n">values</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">850</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">lazy_data</span><span class="p">,</span> <span class="n">evaluated_data</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">851</span>     <span class="bp">self</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-
-<span class="nn">File /opt/conda/lib/python3.10/site-packages/xarray/core/daskmanager.py:70,</span> in <span class="ni">DaskManager.compute</span><span class="nt">(self, *data, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="k">def</span> <span class="nf">compute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">data</span><span class="p">:</span> <span class="n">DaskArray</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">...</span><span class="p">]:</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="kn">from</span> <span class="nn">dask.array</span> <span class="kn">import</span> <span class="n">compute</span>
-<span class="ne">---&gt; </span><span class="mi">70</span>     <span class="k">return</span> <span class="n">compute</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/conda/lib/python3.10/site-packages/dask/base.py:628,</span> in <span class="ni">compute</span><span class="nt">(traverse, optimize_graph, scheduler, get, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span>     <span class="n">postcomputes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">__dask_postcompute__</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span> <span class="k">with</span> <span class="n">shorten_traceback</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">628</span>     <span class="n">results</span> <span class="o">=</span> <span class="n">schedule</span><span class="p">(</span><span class="n">dsk</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="nn">    630 return repack([f(r, *a) for r, (f, a)</span> in <span class="ni">zip</span><span class="nt">(results, postcomputes)])</span>
-
-<span class="nn">File /opt/conda/lib/python3.10/threading.py:607,</span> in <span class="ni">Event.wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">signaled</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">607</span>     <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cond</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="k">return</span> <span class="n">signaled</span>
-
-<span class="nn">File /opt/conda/lib/python3.10/threading.py:324,</span> in <span class="ni">Condition.wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">322</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">323</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">324</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">325</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">326</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-01-23 16:18:46,932 - distributed.nanny - WARNING - Restarting worker
-</pre></div>
-</div>
 </div>
 </div>
 <p>As you see, the values of the Data variables now have changed from <code class="docutils literal notranslate"><span class="pre">dask.array</span></code>to actual <code class="docutils literal notranslate"><span class="pre">int16</span></code>values. This data can now for example be plotted. <br>
 <strong>Note:</strong> When you try to plot lazy loaded data directly (without applying the <code class="docutils literal notranslate"><span class="pre">compute()</span></code>function beforehand) the data will be computed automatically. Thus, plotting lazy loaded data will take some time due to the inherent computation process. <br></p>
 </section>
 <section id="plot-time-series">
-<h3>Plot Time Series<a class="headerlink" href="#plot-time-series" title="Permalink to this heading">#</a></h3>
+<h3>Plot Time Series<a class="headerlink" href="#plot-time-series" title="Link to this heading">#</a></h3>
 <p>After computing the lazy data, we will now plot the ndvi, wet, gvi and sbi values for each season.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4011,7 +4063,7 @@ KeyboardInterrupt
 </div>
 </section>
 <section id="load">
-<h3>load()<a class="headerlink" href="#load" title="Permalink to this heading">#</a></h3>
+<h3>load()<a class="headerlink" href="#load" title="Link to this heading">#</a></h3>
 <p>Dask also provides the <code class="docutils literal notranslate"><span class="pre">load()</span></code>function as a second version to calculate lazy-loaded data. When using the load() command, we do not only get the calulated data as a return but also change the values in the lazy-loaded dataset to its calculated values. This is not true for the <code class="docutils literal notranslate"><span class="pre">compute()</span></code>command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7942,12 +7994,12 @@ Data variables:
 </section>
 </section>
 <section id="further-information">
-<h2>Further Information<a class="headerlink" href="#further-information" title="Permalink to this heading">#</a></h2>
+<h2>Further Information<a class="headerlink" href="#further-information" title="Link to this heading">#</a></h2>
 <p>For further information about Dask, please have a look at the <a class="reference external" href="https://docs.dask.org/en/latest/">Dask webpage</a>.</p>
 </section>
 <hr class="docutils" />
 <section id="additional-information">
-<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>
 <p><font size="2">This notebook for the usage in the Open Data Cube entities of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>, is adapted from <a class="reference external" href="https://github.com/GeoscienceAustralia/dea-notebooks">Geoscience Australia</a>, published using the Apache License, Version 2.0. Thanks!</font></p>
 <p><a class="reference external" href="https://doi.org/10.26186/145234">https://doi.org/10.26186/145234</a> <br></p>
 <p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.
@@ -8062,7 +8114,7 @@ By eo2cube community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

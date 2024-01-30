@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Xarray-I: Data Structure &#8212; eo2cube training material</title>
   
@@ -29,39 +28,43 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=afe5de03"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/beginners_guide/02_xarrayI_data_structure';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -160,7 +163,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -396,14 +410,14 @@ document.write(`
                 <article class="bd-article">
                   
   <img align="right" src="https://github.com/eo2cube/eo2cube_book/blob/7880672deff906b41f993c856fe1a7eb38ed5b3a/images/banner_siegel.png?raw=true" style="width:1000px;"><section class="tex2jax_ignore mathjax_ignore" id="xarray-i-data-structure">
-<h1>Xarray-I: Data Structure<a class="headerlink" href="#xarray-i-data-structure" title="Permalink to this heading">#</a></h1>
+<h1>Xarray-I: Data Structure<a class="headerlink" href="#xarray-i-data-structure" title="Link to this heading">#</a></h1>
 <section id="background">
-<h2>Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
+<h2>Background<a class="headerlink" href="#background" title="Link to this heading">#</a></h2>
 <p>The Python library <strong><code class="docutils literal notranslate"><span class="pre">xarray</span></code></strong> is the form in which earth observation data are usually stored in a datacube.
 It is an open source project and Python package which offers a toolkit for working with <em><strong>multi-dimensional arrays</strong></em> of data. <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong> is an in-memory representation of a netCDF (network Common Data Form) file. Understanding the structure of a <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong> is the key to enabling our work with these data. Thus, in this notebook, we are mainly dedicated to helping users of our datacube understand its data structure.</p>
 </section>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">#</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading">#</a></h2>
 <p>In this notebook, topics covered include:</p>
 <ul class="simple">
 <li><p><strong>What is inside a <code class="docutils literal notranslate"><span class="pre">xrray.dataset</span></code> (the structure)?</strong></p></li>
@@ -430,6 +444,422 @@ It is an open source project and Python package which offers a toolkit for worki
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3371,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3370</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3371</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3372</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:327,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="sd"> The connection is instrumented such that when its</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">327</span> <span class="k">return</span> <span class="n">_ConnectionFairy</span><span class="o">.</span><span class="n">_checkout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:894,</span> in <span class="ni">_ConnectionFairy._checkout</span><span class="nt">(cls, pool, threadconns, fairy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">fairy</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">894</span>     <span class="n">fairy</span> <span class="o">=</span> <span class="n">_ConnectionRecord</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>     <span class="n">fairy</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">pool</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:493,</span> in <span class="ni">_ConnectionRecord.checkout</span><span class="nt">(cls, pool)</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="n">rec</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_do_get</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">try</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">except</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_dec_overflow</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span> <span class="k">except</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:273,</span> in <span class="ni">Pool._create_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Called by subclasses to create a new ConnectionRecord.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">273</span> <span class="k">return</span> <span class="n">_ConnectionRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:388,</span> in <span class="ni">_ConnectionRecord.__init__</span><span class="nt">(self, pool, connect)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">388</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalize_callback</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:690,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span> <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">690</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span>         <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error on connect(): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:686,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="bp">self</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">686</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_invoke_creator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span> <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new connection </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/create.py:574,</span> in <span class="ni">create_engine.&lt;locals&gt;.connect</span><span class="nt">(connection_record)</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>             <span class="k">return</span> <span class="n">connection</span>
+<span class="ne">--&gt; </span><span class="mi">574</span> <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/default.py:598,</span> in <span class="ni">DefaultDialect.connect</span><span class="nt">(self, *cargs, **cparams)</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>     <span class="c1"># inherits the docstring from interfaces.Dialect.connect</span>
+<span class="ne">--&gt; </span><span class="mi">598</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/psycopg2/__init__.py:122,</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">122</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span>: connection to server at &quot;postgres&quot; (172.31.0.12), port 5432 failed: FATAL:  password authentication failed for user &quot;dc_user&quot;
+
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">OperationalError</span><span class="g g-Whitespace">                          </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">15</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Connect to DataCube</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># argument &quot;app&quot; --- user defined name for a session (e.g. choose one matching the purpose of this notebook)</span>
+<span class="ne">---&gt; </span><span class="mi">15</span> <span class="n">dc</span> <span class="o">=</span> <span class="n">datacube</span><span class="o">.</span><span class="n">Datacube</span><span class="p">(</span><span class="n">app</span> <span class="o">=</span> <span class="s2">&quot;nb_understand_ndArrays&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/api/core.py:87,</span> in <span class="ni">Datacube.__init__</span><span class="nt">(self, index, config, app, env, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="k">return</span> <span class="n">config</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">87</span>     <span class="n">index</span> <span class="o">=</span> <span class="n">index_connect</span><span class="p">(</span><span class="n">normalise_config</span><span class="p">(</span><span class="n">config</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>                           <span class="n">application_name</span><span class="o">=</span><span class="n">app</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>                           <span class="n">validate_connection</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">index</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/index/_api.py:45,</span> in <span class="ni">index_connect</span><span class="nt">(local_config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">index_driver</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>         <span class="s2">&quot;No index driver found for </span><span class="si">%r</span><span class="s2">. </span><span class="si">%s</span><span class="s2"> available: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">41</span>             <span class="n">driver_name</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">index_drivers</span><span class="p">()),</span> <span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">index_drivers</span><span class="p">())</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>     <span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">45</span> <span class="k">return</span> <span class="n">index_driver</span><span class="o">.</span><span class="n">connect_to_index</span><span class="p">(</span><span class="n">local_config</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">46</span>                                      <span class="n">application_name</span><span class="o">=</span><span class="n">application_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>                                      <span class="n">validate_connection</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/index/postgres/index.py:166,</span> in <span class="ni">DefaultIndexDriver.connect_to_index</span><span class="nt">(config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">    </span><span class="mi">164</span> <span class="nd">@staticmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span> <span class="k">def</span> <span class="nf">connect_to_index</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_connection</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">166</span>     <span class="k">return</span> <span class="n">Index</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="p">,</span> <span class="n">validate_connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/index/postgres/index.py:77,</span> in <span class="ni">Index.from_config</span><span class="nt">(cls, config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span> <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_connection</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">77</span>     <span class="n">db</span> <span class="o">=</span> <span class="n">PostgresDb</span><span class="o">.</span><span class="n">from_config</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="n">application_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>                                 <span class="n">validate_connection</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">db</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_connections.py:75,</span> in <span class="ni">PostgresDb.from_config</span><span class="nt">(cls, config, application_name, validate_connection)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span> <span class="k">def</span> <span class="nf">from_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">validate_connection</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="n">app_name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_expand_app_name</span><span class="p">(</span><span class="n">application_name</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">75</span>     <span class="k">return</span> <span class="n">PostgresDb</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_hostname&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="n">config</span><span class="p">[</span><span class="s1">&#39;db_database&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>         <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_username&#39;</span><span class="p">,</span> <span class="n">DEFAULT_DB_USER</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>         <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_password&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>         <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_port&#39;</span><span class="p">,</span> <span class="n">DEFAULT_DB_PORT</span><span class="p">),</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span>         <span class="n">application_name</span><span class="o">=</span><span class="n">app_name</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span>         <span class="n">validate</span><span class="o">=</span><span class="n">validate_connection</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>         <span class="n">iam_rds_auth</span><span class="o">=</span><span class="nb">bool</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;db_iam_authentication&quot;</span><span class="p">,</span> <span class="n">DEFAULT_IAM_AUTH</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>         <span class="n">iam_rds_timeout</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;db_iam_timeout&quot;</span><span class="p">,</span> <span class="n">DEFAULT_IAM_TIMEOUT</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span>         <span class="n">pool_timeout</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;db_connection_timeout&#39;</span><span class="p">,</span> <span class="mi">60</span><span class="p">)),</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>         <span class="c1"># pass config?</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_connections.py:107,</span> in <span class="ni">PostgresDb.create</span><span class="nt">(cls, hostname, database, username, password, port, application_name, validate, iam_rds_auth, iam_rds_timeout, pool_timeout)</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="n">engine</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_create_engine</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="n">mk_url</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="s1">&#39;postgresql&#39;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>     <span class="n">iam_rds_timeout</span><span class="o">=</span><span class="n">iam_rds_timeout</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>     <span class="n">pool_timeout</span><span class="o">=</span><span class="n">pool_timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="k">if</span> <span class="n">validate</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">107</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_core</span><span class="o">.</span><span class="n">database_exists</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">108</span>         <span class="k">raise</span> <span class="n">IndexSetupError</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">No DB schema exists. Have you run init?</span><span class="se">\n\t</span><span class="si">{init_command}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">109</span>             <span class="n">init_command</span><span class="o">=</span><span class="s1">&#39;datacube system init&#39;</span>
+<span class="g g-Whitespace">    </span><span class="mi">110</span>         <span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">112</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">_core</span><span class="o">.</span><span class="n">schema_is_latest</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_core.py:152,</span> in <span class="ni">database_exists</span><span class="nt">(engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">148</span> <span class="k">def</span> <span class="nf">database_exists</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">150</span><span class="sd">     Have they init&#39;d this database?</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">152</span>     <span class="k">return</span> <span class="n">has_schema</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/datacube/drivers/postgres/_core.py:237,</span> in <span class="ni">has_schema</span><span class="nt">(engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span> <span class="k">def</span> <span class="nf">has_schema</span><span class="p">(</span><span class="n">engine</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">237</span>     <span class="n">inspector</span> <span class="o">=</span> <span class="n">inspect</span><span class="p">(</span><span class="n">engine</span><span class="p">)</span>
+<span class="nn">    238     return SCHEMA_NAME</span> in <span class="ni">inspector.get_schema_names</span><span class="nt">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/inspection.py:64,</span> in <span class="ni">inspect</span><span class="nt">(subject, raiseerr)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> <span class="k">if</span> <span class="n">reg</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="k">return</span> <span class="n">subject</span>
+<span class="ne">---&gt; </span><span class="mi">64</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">reg</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">if</span> <span class="n">ret</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>     <span class="k">break</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:182,</span> in <span class="ni">Inspector._engine_insp</span><span class="nt">(bind)</span>
+<span class="g g-Whitespace">    </span><span class="mi">180</span> <span class="nd">@inspection</span><span class="o">.</span><span class="n">_inspects</span><span class="p">(</span><span class="n">Engine</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="k">def</span> <span class="nf">_engine_insp</span><span class="p">(</span><span class="n">bind</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">182</span>     <span class="k">return</span> <span class="n">Inspector</span><span class="o">.</span><span class="n">_construct</span><span class="p">(</span><span class="n">Inspector</span><span class="o">.</span><span class="n">_init_engine</span><span class="p">,</span> <span class="n">bind</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:117,</span> in <span class="ni">Inspector._construct</span><span class="nt">(cls, init, bind)</span>
+<span class="g g-Whitespace">    </span><span class="mi">114</span>     <span class="bp">cls</span> <span class="o">=</span> <span class="n">bind</span><span class="o">.</span><span class="n">dialect</span><span class="o">.</span><span class="n">inspector</span>
+<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="bp">self</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">117</span> <span class="n">init</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bind</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">return</span> <span class="bp">self</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/reflection.py:128,</span> in <span class="ni">Inspector._init_engine</span><span class="nt">(self, engine)</span>
+<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="k">def</span> <span class="nf">_init_engine</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">bind</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span> <span class="o">=</span> <span class="n">engine</span>
+<span class="ne">--&gt; </span><span class="mi">128</span>     <span class="n">engine</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_op_context_requires_connect</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dialect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="o">.</span><span class="n">dialect</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3325,</span> in <span class="ni">Engine.connect</span><span class="nt">(self, close_with_result)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3310</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">close_with_result</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3311</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a new :class:`_engine.Connection` object.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3312</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3313</span><span class="sd">     The :class:`_engine.Connection` object is a facade that uses a DBAPI</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3322</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3323</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3325</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connection_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">close_with_result</span><span class="o">=</span><span class="n">close_with_result</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:96,</span> in <span class="ni">Connection.__init__</span><span class="nt">(self, engine, connection, close_with_result, _branch_from, _execution_options, _dispatch, _has_events, _allow_revalidate)</span>
+<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_has_events</span> <span class="o">=</span> <span class="n">_branch_from</span><span class="o">.</span><span class="n">_has_events</span>
+<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_dbapi_connection</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span>         <span class="n">connection</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>         <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">else</span> <span class="n">engine</span><span class="o">.</span><span class="n">raw_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_transaction</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_nested_transaction</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">100</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__savepoint_seq</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3404,</span> in <span class="ni">Engine.raw_connection</span><span class="nt">(self, _connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3382</span> <span class="k">def</span> <span class="nf">raw_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_connection</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3383</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a &quot;raw&quot; DBAPI connection from the connection pool.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3384</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3385</span><span class="sd">     The returned object is a proxied version of the DBAPI</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3402</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3403</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">3404</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_pool_connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pool</span><span class="o">.</span><span class="n">connect</span><span class="p">,</span> <span class="n">_connection</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3374,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3372</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3373</span>     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3374</span>         <span class="n">Connection</span><span class="o">.</span><span class="n">_handle_dbapi_exception_noconnection</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3375</span>             <span class="n">e</span><span class="p">,</span> <span class="n">dialect</span><span class="p">,</span> <span class="bp">self</span>
+<span class="g g-Whitespace">   </span><span class="mi">3376</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3377</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3378</span>         <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3379</span>             <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">3380</span>         <span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:2208,</span> in <span class="ni">Connection._handle_dbapi_exception_noconnection</span><span class="nt">(cls, e, dialect, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2206</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span><span class="n">newraise</span><span class="p">,</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">from_</span><span class="o">=</span><span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2207</span> <span class="k">elif</span> <span class="n">should_wrap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2208</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2209</span>         <span class="n">sqlalchemy_exception</span><span class="p">,</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">from_</span><span class="o">=</span><span class="n">e</span>
+<span class="g g-Whitespace">   </span><span class="mi">2210</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2211</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2212</span>     <span class="n">util</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_info</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/base.py:3371,</span> in <span class="ni">Engine._wrap_pool_connect</span><span class="nt">(self, fn, connection)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3369</span> <span class="n">dialect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dialect</span>
+<span class="g g-Whitespace">   </span><span class="mi">3370</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3371</span>     <span class="k">return</span> <span class="n">fn</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3372</span> <span class="k">except</span> <span class="n">dialect</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3373</span>     <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:327,</span> in <span class="ni">Pool.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Return a DBAPI connection from the pool.</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="sd">     The connection is instrumented such that when its</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">327</span>     <span class="k">return</span> <span class="n">_ConnectionFairy</span><span class="o">.</span><span class="n">_checkout</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:894,</span> in <span class="ni">_ConnectionFairy._checkout</span><span class="nt">(cls, pool, threadconns, fairy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">891</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">892</span> <span class="k">def</span> <span class="nf">_checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">,</span> <span class="n">threadconns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fairy</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">fairy</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">894</span>         <span class="n">fairy</span> <span class="o">=</span> <span class="n">_ConnectionRecord</span><span class="o">.</span><span class="n">checkout</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>         <span class="n">fairy</span><span class="o">.</span><span class="n">_pool</span> <span class="o">=</span> <span class="n">pool</span>
+<span class="g g-Whitespace">    </span><span class="mi">897</span>         <span class="n">fairy</span><span class="o">.</span><span class="n">_counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:493,</span> in <span class="ni">_ConnectionRecord.checkout</span><span class="nt">(cls, pool)</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span> <span class="nd">@classmethod</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="k">def</span> <span class="nf">checkout</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">493</span>     <span class="n">rec</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_do_get</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>         <span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">rec</span><span class="o">.</span><span class="n">get_connection</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:145,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">143</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="k">except</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">145</span>         <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_dec_overflow</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">147</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># remove potential circular references</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">compat</span><span class="o">.</span><span class="n">py3k</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="c1"># emulate Py3K&#39;s behavior of telling us when an exception</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="c1"># occurs in an exception handler.</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/impl.py:143,</span> in <span class="ni">QueuePool._do_get</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_inc_overflow</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">143</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_connection</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">144</span>     <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:273,</span> in <span class="ni">Pool._create_connection</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">def</span> <span class="nf">_create_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Called by subclasses to create a new ConnectionRecord.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">273</span>     <span class="k">return</span> <span class="n">_ConnectionRecord</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:388,</span> in <span class="ni">_ConnectionRecord.__init__</span><span class="nt">(self, pool, connect)</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span> <span class="bp">self</span><span class="o">.</span><span class="n">__pool</span> <span class="o">=</span> <span class="n">pool</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span> <span class="k">if</span> <span class="n">connect</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">388</span>     <span class="bp">self</span><span class="o">.</span><span class="n">__connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="bp">self</span><span class="o">.</span><span class="n">finalize_callback</span> <span class="o">=</span> <span class="n">deque</span><span class="p">()</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:690,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">689</span> <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">690</span>     <span class="k">with</span> <span class="n">util</span><span class="o">.</span><span class="n">safe_reraise</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span>         <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error on connect(): </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="c1"># in SQLAlchemy 1.4 the first_connect event is not used by</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span>     <span class="c1"># the engine, so this will usually not be set</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py:70,</span> in <span class="ni">safe_reraise.__exit__</span><span class="nt">(self, type_, value, traceback)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># remove potential circular references</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_only</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">compat</span><span class="o">.</span><span class="n">raise_</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="n">exc_value</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span>             <span class="n">with_traceback</span><span class="o">=</span><span class="n">exc_tb</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">compat</span><span class="o">.</span><span class="n">py3k</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_exc_info</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>         <span class="c1"># emulate Py3K&#39;s behavior of telling us when an exception</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span>         <span class="c1"># occurs in an exception handler.</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/util/compat.py:211,</span> in <span class="ni">raise_</span><span class="nt">(***failed resolving arguments***)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span>     <span class="n">exception</span><span class="o">.</span><span class="n">__cause__</span> <span class="o">=</span> <span class="n">replace_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="k">raise</span> <span class="n">exception</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span>     <span class="c1"># credit to</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="c1"># https://cosmicpercolator.com/2016/01/13/exception-leaks-in-python-2-and-3/</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="c1"># as the __traceback__ object creates a cycle</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="k">del</span> <span class="n">exception</span><span class="p">,</span> <span class="n">replace_context</span><span class="p">,</span> <span class="n">from_</span><span class="p">,</span> <span class="n">with_traceback</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/pool/base.py:686,</span> in <span class="ni">_ConnectionRecord.__connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">684</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span>     <span class="bp">self</span><span class="o">.</span><span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">686</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dbapi_connection</span> <span class="o">=</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">_invoke_creator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="n">pool</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Created new connection </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span>     <span class="bp">self</span><span class="o">.</span><span class="n">fresh</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/create.py:574,</span> in <span class="ni">create_engine.&lt;locals&gt;.connect</span><span class="nt">(connection_record)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span>         <span class="k">if</span> <span class="n">connection</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>             <span class="k">return</span> <span class="n">connection</span>
+<span class="ne">--&gt; </span><span class="mi">574</span> <span class="k">return</span> <span class="n">dialect</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/sqlalchemy/engine/default.py:598,</span> in <span class="ni">DefaultDialect.connect</span><span class="nt">(self, *cargs, **cparams)</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span> <span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>     <span class="c1"># inherits the docstring from interfaces.Dialect.connect</span>
+<span class="ne">--&gt; </span><span class="mi">598</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dbapi</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">*</span><span class="n">cargs</span><span class="p">,</span> <span class="o">**</span><span class="n">cparams</span><span class="p">)</span>
+
+<span class="nn">File /opt/conda/lib/python3.10/site-packages/psycopg2/__init__.py:122,</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="n">kwasync</span><span class="p">[</span><span class="s1">&#39;async_&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;async_&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span> <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">122</span> <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span> <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">124</span>     <span class="n">conn</span><span class="o">.</span><span class="n">cursor_factory</span> <span class="o">=</span> <span class="n">cursor_factory</span>
+
+<span class="ne">OperationalError</span>: (psycopg2.OperationalError) connection to server at &quot;postgres&quot; (172.31.0.12), port 5432 failed: FATAL:  password authentication failed for user &quot;dc_user&quot;
+
+<span class="p">(</span><span class="n">Background</span> <span class="n">on</span> <span class="n">this</span> <span class="n">error</span> <span class="n">at</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">sqlalche</span><span class="o">.</span><span class="n">me</span><span class="o">/</span><span class="n">e</span><span class="o">/</span><span class="mi">14</span><span class="o">/</span><span class="n">e3q8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -449,7 +879,7 @@ It is an open source project and Python package which offers a toolkit for worki
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "55111f5660184ddda89c4f80bb8a9c4e"}</script><div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "1f40f1e269be404e938acd5a3dab00f1", "version_major": 2, "version_minor": 0}</script><div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
 <symbol id="icon-database" viewBox="0 0 32 32">
 <path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
@@ -820,13 +1250,12 @@ Coordinates:
   * x            (x) float64 -3.002e+05 -3.002e+05 ... -2.905e+05 -2.904e+05
     spatial_ref  int32 32734
 Data variables:
-    blue         (time, y, x) uint16 1938 1691 1581 1399 1410 1511 ... 0 0 0 0 0
-    green        (time, y, x) uint16 2118 1872 1770 1514 1531 1698 ... 0 0 0 0 0
-    red          (time, y, x) uint16 2274 2032 1958 1564 1594 1761 ... 0 0 0 0 0
+    blue         (time, y, x) uint16 1938 1691 1581 1399 ... 1812 1832 1827 1816
+    green        (time, y, x) uint16 2118 1872 1770 1514 ... 1929 1943 1949 1927
+    red          (time, y, x) uint16 2274 2032 1958 1564 ... 1717 1750 1758 1767
 Attributes:
-    crs:              EPSG:32734
-    grid_mapping:     spatial_ref
-    dc_partial_load:  True</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-40f97a2e-1b00-4589-ba93-dc668bfc0755' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-40f97a2e-1b00-4589-ba93-dc668bfc0755' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 42</li><li><span class='xr-has-index'>y</span>: 905</li><li><span class='xr-has-index'>x</span>: 977</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-906e789c-8f0b-4115-a57e-6834a87962a0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-906e789c-8f0b-4115-a57e-6834a87962a0' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-03-02T10:18:39.025000 ... 2...</div><input id='attrs-bd2549e4-7cd9-4aee-84a8-9b424e2289a1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bd2549e4-7cd9-4aee-84a8-9b424e2289a1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-095b8d9d-e094-4d1d-880c-637adfcf71b7' class='xr-var-data-in' type='checkbox'><label for='data-095b8d9d-e094-4d1d-880c-637adfcf71b7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-03-02T10:18:39.025000000&#x27;, &#x27;2021-03-05T10:28:09.024000000&#x27;,
+    crs:           EPSG:32734
+    grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-e88d50c4-da66-4629-8bbd-6eacd8b4c142' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e88d50c4-da66-4629-8bbd-6eacd8b4c142' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 42</li><li><span class='xr-has-index'>y</span>: 905</li><li><span class='xr-has-index'>x</span>: 977</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a73c67c8-67ac-49c1-92ea-1eb4fc98f3cf' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a73c67c8-67ac-49c1-92ea-1eb4fc98f3cf' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2021-03-02T10:18:39.025000 ... 2...</div><input id='attrs-31080777-81cd-45bf-8709-289f9e7ba0f7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-31080777-81cd-45bf-8709-289f9e7ba0f7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-79abbcc4-8680-4b49-b28f-43cfd9a152c7' class='xr-var-data-in' type='checkbox'><label for='data-79abbcc4-8680-4b49-b28f-43cfd9a152c7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2021-03-02T10:18:39.025000000&#x27;, &#x27;2021-03-05T10:28:09.024000000&#x27;,
        &#x27;2021-03-07T10:20:21.024000000&#x27;, &#x27;2021-03-10T10:30:21.024000000&#x27;,
        &#x27;2021-03-12T10:17:29.024000000&#x27;, &#x27;2021-03-15T10:27:09.024000000&#x27;,
        &#x27;2021-03-17T10:20:21.024000000&#x27;, &#x27;2021-03-20T10:30:21.024000000&#x27;,
@@ -847,7 +1276,7 @@ Attributes:
        &#x27;2021-06-03T10:25:59.024000000&#x27;, &#x27;2021-06-05T10:20:21.024000000&#x27;,
        &#x27;2021-06-08T10:30:21.024000000&#x27;, &#x27;2021-06-10T10:15:59.024000000&#x27;,
        &#x27;2021-06-13T10:25:59.024000000&#x27;, &#x27;2021-06-15T10:20:21.024000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.558e+07 1.558e+07 ... 1.557e+07</div><input id='attrs-c5ff574c-5226-490b-b1f9-f185ba41d80c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c5ff574c-5226-490b-b1f9-f185ba41d80c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-48c699ef-7eb3-45a6-849e-b13fcfe150bb' class='xr-var-data-in' type='checkbox'><label for='data-48c699ef-7eb3-45a6-849e-b13fcfe150bb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15578205., 15578195., 15578185., ..., 15569185., 15569175., 15569165.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.002e+05 ... -2.904e+05</div><input id='attrs-12db392c-3443-4ad9-be1b-42a9fdf8e30d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-12db392c-3443-4ad9-be1b-42a9fdf8e30d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c7274396-d26b-4032-8dee-f2c6382adfe1' class='xr-var-data-in' type='checkbox'><label for='data-c7274396-d26b-4032-8dee-f2c6382adfe1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-300205., -300195., -300185., ..., -290465., -290455., -290445.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-56fe3aed-0c4c-4842-97bf-899cbeb6540a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-56fe3aed-0c4c-4842-97bf-899cbeb6540a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9391f4f9-6069-41c4-af31-6ea0d9dcb082' class='xr-var-data-in' type='checkbox'><label for='data-9391f4f9-6069-41c4-af31-6ea0d9dcb082' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4cea95a1-9e6f-4d04-a02e-1f3186d227e3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4cea95a1-9e6f-4d04-a02e-1f3186d227e3' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>1938 1691 1581 1399 ... 0 0 0 0</div><input id='attrs-a388a84c-0191-4936-9764-19306401066e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a388a84c-0191-4936-9764-19306401066e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a406d3c4-0ca7-46f8-88fb-0ebb8a241a87' class='xr-var-data-in' type='checkbox'><label for='data-a406d3c4-0ca7-46f8-88fb-0ebb8a241a87' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 1938,  1691,  1581, ...,  1546,  1575,  1530],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>y</span></div><div class='xr-var-dims'>(y)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.558e+07 1.558e+07 ... 1.557e+07</div><input id='attrs-f04b7063-af7e-4351-9995-342eb23a7ba4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f04b7063-af7e-4351-9995-342eb23a7ba4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-09cdece2-7a75-4942-b16c-8143b6014455' class='xr-var-data-in' type='checkbox'><label for='data-09cdece2-7a75-4942-b16c-8143b6014455' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([15578205., 15578195., 15578185., ..., 15569185., 15569175., 15569165.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>x</span></div><div class='xr-var-dims'>(x)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.002e+05 ... -2.904e+05</div><input id='attrs-65f4493b-733f-4fa2-9381-9b2edd0fc115' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-65f4493b-733f-4fa2-9381-9b2edd0fc115' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3a143352-02e3-482a-8a3e-46eea531eb12' class='xr-var-data-in' type='checkbox'><label for='data-3a143352-02e3-482a-8a3e-46eea531eb12' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array([-300205., -300195., -300185., ..., -290465., -290455., -290445.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-4a669789-1b02-4138-a877-427ced628beb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4a669789-1b02-4138-a877-427ced628beb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-09227491-2727-40e7-bb10-6cb1b599fa8a' class='xr-var-data-in' type='checkbox'><label for='data-09227491-2727-40e7-bb10-6cb1b599fa8a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6bcbe4e1-5dbf-41a0-b263-f2d41e45b9f7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6bcbe4e1-5dbf-41a0-b263-f2d41e45b9f7' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>blue</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>1938 1691 1581 ... 1832 1827 1816</div><input id='attrs-8ed013b7-97a6-43bb-8cb4-95b79053fd46' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8ed013b7-97a6-43bb-8cb4-95b79053fd46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0cfbeb29-9ea9-463a-9766-2867f33a1561' class='xr-var-data-in' type='checkbox'><label for='data-0cfbeb29-9ea9-463a-9766-2867f33a1561' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[ 1938,  1691,  1581, ...,  1546,  1575,  1530],
         [ 2378,  2024,  1842, ...,  1525,  1576,  1586],
         [ 1980,  1744,  1748, ...,  1499,  1510,  1570],
         ...,
@@ -869,25 +1298,25 @@ Attributes:
         ...,
 ...
         ...,
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0]],
+        [ 5532,  5988,  6184, ...,  1258,  1240,  1216],
+        [ 5952,  6088,  6136, ...,  1268,  1225,  1241],
+        [ 5808,  5904,  6176, ...,  1205,  1231,  1228]],
 
-       [[    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
+       [[ 2016,  1776,  1570, ...,  2021,  2010,  2028],
+        [ 1884,  1634,  1472, ...,  1988,  2007,  1990],
+        [ 2094,  2230,  1758, ...,  1960,  2016,  1976],
         ...,
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0]],
+        [ 1186,  1199,  1202, ...,  1220,  1204,  1176],
+        [ 1206,  1208,  1210, ...,  1205,  1219,  1195],
+        [ 1205,  1198,  1195, ...,  1221,  1224,  1208]],
 
-       [[    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
+       [[ 2176,  1822,  1584, ...,  1417,  1456,  1462],
+        [ 1995,  1728,  1576, ...,  1420,  1459,  1466],
+        [ 2050,  2282,  1847, ...,  1426,  1440,  1415],
         ...,
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0],
-        [    0,     0,     0, ...,     0,     0,     0]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2118 1872 1770 1514 ... 0 0 0 0</div><input id='attrs-5317cfd0-023b-47c5-b10e-26bb49ec47b5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5317cfd0-023b-47c5-b10e-26bb49ec47b5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ae0e6b58-562b-438f-a615-e3abaa542e41' class='xr-var-data-in' type='checkbox'><label for='data-ae0e6b58-562b-438f-a615-e3abaa542e41' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2118, 1872, 1770, ..., 1852, 1834, 1836],
+        [ 1327,  1302,  1277, ...,  1808,  1824,  1868],
+        [ 1332,  1340,  1320, ...,  1778,  1808,  1836],
+        [ 1333,  1353,  1359, ...,  1832,  1827,  1816]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>green</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2118 1872 1770 ... 1943 1949 1927</div><input id='attrs-6afa1d6e-5aad-43db-b960-65ac53f95cf2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6afa1d6e-5aad-43db-b960-65ac53f95cf2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6207db04-210b-4b0e-a516-c7f322c7d7eb' class='xr-var-data-in' type='checkbox'><label for='data-6207db04-210b-4b0e-a516-c7f322c7d7eb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2118, 1872, 1770, ..., 1852, 1834, 1836],
         [2526, 2202, 2028, ..., 1847, 1886, 1860],
         [2204, 1979, 1939, ..., 1804, 1804, 1866],
         ...,
@@ -909,25 +1338,25 @@ Attributes:
         ...,
 ...
         ...,
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0]],
+        [5456, 5784, 5904, ..., 1364, 1296, 1305],
+        [5624, 5784, 5776, ..., 1362, 1313, 1299],
+        [5324, 5516, 5860, ..., 1306, 1302, 1339]],
 
-       [[   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
+       [[2244, 1976, 1839, ..., 2332, 2360, 2374],
+        [2058, 1996, 1822, ..., 2328, 2324, 2350],
+        [2382, 2420, 2040, ..., 2276, 2316, 2328],
         ...,
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0]],
+        [1336, 1366, 1392, ..., 1346, 1298, 1325],
+        [1360, 1394, 1391, ..., 1358, 1345, 1318],
+        [1373, 1354, 1356, ..., 1349, 1366, 1372]],
 
-       [[   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
+       [[2254, 2050, 1913, ..., 1684, 1702, 1724],
+        [2170, 2060, 1914, ..., 1692, 1706, 1720],
+        [2228, 2448, 2078, ..., 1684, 1714, 1728],
         ...,
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2274 2032 1958 1564 ... 0 0 0 0</div><input id='attrs-8eb613fb-5344-4d72-91da-66021bb2135e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8eb613fb-5344-4d72-91da-66021bb2135e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f336778d-070b-4761-a3f1-e06c603ed428' class='xr-var-data-in' type='checkbox'><label for='data-f336778d-070b-4761-a3f1-e06c603ed428' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2274, 2032, 1958, ..., 1960, 1942, 1880],
+        [1540, 1545, 1558, ..., 1868, 1875, 1866],
+        [1524, 1542, 1548, ..., 1890, 1897, 1884],
+        [1470, 1508, 1512, ..., 1943, 1949, 1927]]], dtype=uint16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>red</span></div><div class='xr-var-dims'>(time, y, x)</div><div class='xr-var-dtype'>uint16</div><div class='xr-var-preview xr-preview'>2274 2032 1958 ... 1750 1758 1767</div><input id='attrs-bb2fec1a-2185-4f34-880a-a7c0028aed53' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bb2fec1a-2185-4f34-880a-a7c0028aed53' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6c6c640a-5e88-414d-8cef-51ffab6fc54e' class='xr-var-data-in' type='checkbox'><label for='data-6c6c640a-5e88-414d-8cef-51ffab6fc54e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div><div class='xr-var-data'><pre>array([[[2274, 2032, 1958, ..., 1960, 1942, 1880],
         [2852, 2444, 2282, ..., 1892, 1916, 1938],
         [2294, 2028, 2158, ..., 1784, 1822, 1926],
         ...,
@@ -949,25 +1378,25 @@ Attributes:
         ...,
 ...
         ...,
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0]],
+        [5228, 5460, 5528, ..., 1190, 1178, 1185],
+        [5244, 5344, 5500, ..., 1195, 1179, 1177],
+        [4840, 5040, 5476, ..., 1167, 1176, 1187]],
 
-       [[   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
+       [[2148, 1913, 1639, ..., 2368, 2412, 2426],
+        [2118, 1855, 1604, ..., 2404, 2358, 2334],
+        [2462, 2710, 1922, ..., 2378, 2338, 2328],
         ...,
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0]],
+        [1160, 1170, 1179, ..., 1146, 1154, 1126],
+        [1178, 1177, 1178, ..., 1144, 1154, 1140],
+        [1168, 1166, 1168, ..., 1160, 1169, 1167]],
 
-       [[   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
+       [[2324, 2034, 1772, ..., 1750, 1766, 1759],
+        [2140, 1918, 1752, ..., 1767, 1795, 1769],
+        [2300, 2682, 2064, ..., 1760, 1798, 1786],
         ...,
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0],
-        [   0,    0,    0, ...,    0,    0,    0]]], dtype=uint16)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-69a4e07d-b08e-4edd-9905-cd8e7e5d28a6' class='xr-section-summary-in' type='checkbox'  ><label for='section-69a4e07d-b08e-4edd-9905-cd8e7e5d28a6' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-372d07ed-26f4-43c6-8b1b-b79e35a06eb3' class='xr-index-data-in' type='checkbox'/><label for='index-372d07ed-26f4-43c6-8b1b-b79e35a06eb3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-03-02 10:18:39.025000&#x27;, &#x27;2021-03-05 10:28:09.024000&#x27;,
+        [1265, 1264, 1281, ..., 1700, 1711, 1716],
+        [1253, 1262, 1269, ..., 1700, 1738, 1714],
+        [1257, 1256, 1267, ..., 1750, 1758, 1767]]], dtype=uint16)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4223a63b-fa2a-4337-9187-9f6787ebe20b' class='xr-section-summary-in' type='checkbox'  ><label for='section-4223a63b-fa2a-4337-9187-9f6787ebe20b' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4943280c-82a3-4aa3-9db6-0f8ce7df627b' class='xr-index-data-in' type='checkbox'/><label for='index-4943280c-82a3-4aa3-9db6-0f8ce7df627b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2021-03-02 10:18:39.025000&#x27;, &#x27;2021-03-05 10:28:09.024000&#x27;,
                &#x27;2021-03-07 10:20:21.024000&#x27;, &#x27;2021-03-10 10:30:21.024000&#x27;,
                &#x27;2021-03-12 10:17:29.024000&#x27;, &#x27;2021-03-15 10:27:09.024000&#x27;,
                &#x27;2021-03-17 10:20:21.024000&#x27;, &#x27;2021-03-20 10:30:21.024000&#x27;,
@@ -988,17 +1417,17 @@ Attributes:
                &#x27;2021-06-03 10:25:59.024000&#x27;, &#x27;2021-06-05 10:20:21.024000&#x27;,
                &#x27;2021-06-08 10:30:21.024000&#x27;, &#x27;2021-06-10 10:15:59.024000&#x27;,
                &#x27;2021-06-13 10:25:59.024000&#x27;, &#x27;2021-06-15 10:20:21.024000&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1811d602-a9b4-487a-8144-332bc18ec015' class='xr-index-data-in' type='checkbox'/><label for='index-1811d602-a9b4-487a-8144-332bc18ec015' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15578205.0, 15578195.0, 15578185.0, 15578175.0, 15578165.0, 15578155.0,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>y</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2ee3195c-1374-49fd-9be1-e24bb42e0132' class='xr-index-data-in' type='checkbox'/><label for='index-2ee3195c-1374-49fd-9be1-e24bb42e0132' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([15578205.0, 15578195.0, 15578185.0, 15578175.0, 15578165.0, 15578155.0,
        15578145.0, 15578135.0, 15578125.0, 15578115.0,
        ...
        15569255.0, 15569245.0, 15569235.0, 15569225.0, 15569215.0, 15569205.0,
        15569195.0, 15569185.0, 15569175.0, 15569165.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=905))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-33d8fac8-9bb2-4401-9d38-6a8001f6433c' class='xr-index-data-in' type='checkbox'/><label for='index-33d8fac8-9bb2-4401-9d38-6a8001f6433c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-300205.0, -300195.0, -300185.0, -300175.0, -300165.0, -300155.0,
+      dtype=&#x27;float64&#x27;, name=&#x27;y&#x27;, length=905))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>x</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-859b133c-38e5-4c62-998c-51c9d5d930af' class='xr-index-data-in' type='checkbox'/><label for='index-859b133c-38e5-4c62-998c-51c9d5d930af' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-300205.0, -300195.0, -300185.0, -300175.0, -300165.0, -300155.0,
        -300145.0, -300135.0, -300125.0, -300115.0,
        ...
        -290535.0, -290525.0, -290515.0, -290505.0, -290495.0, -290485.0,
        -290475.0, -290465.0, -290455.0, -290445.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=977))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-62baca3c-f8c3-480b-b72a-15697991c1a4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-62baca3c-f8c3-480b-b72a-15697991c1a4' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd><dt><span>dc_partial_load :</span></dt><dd>True</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;x&#x27;, length=977))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4e278ea7-66c1-442d-a712-709f5dcfff38' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4e278ea7-66c1-442d-a712-709f5dcfff38' class='xr-section-summary' >Attributes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1999,7 +2428,7 @@ Attributes:
 </div>
 </section>
 <section id="what-is-inside-a-xarray-dataset">
-<h2><strong>What is inside a <code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code>?</strong><a class="headerlink" href="#what-is-inside-a-xarray-dataset" title="Permalink to this heading">#</a></h2>
+<h2><strong>What is inside a <code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code>?</strong><a class="headerlink" href="#what-is-inside-a-xarray-dataset" title="Link to this heading">#</a></h2>
 <p>The figure below is a diagram depicting the structure of the <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong> we’ve just loaded. We hope you may better interpret the texts below explaining the data structure of a <strong><code class="docutils literal notranslate"><span class="pre">xarray.dataset</span></code></strong>, with the diagram.</p>
 <p><img alt="xarray data structure" src="https://live.staticflickr.com/65535/51083605166_70dd29baa8_k.jpg" /></p>
 <p>As we read from the output block, this dataset has three <em><strong>Data Variables</strong></em>, “blue”, “green”, and “red” (shown with colors in the diagram), referring to the individual spectral band.</p>
@@ -2527,7 +2956,7 @@ Attributes:
 </div>
 </section>
 <section id="subset-dataset-dataarray">
-<h2><strong>Subset Dataset / DataArray</strong><a class="headerlink" href="#subset-dataset-dataarray" title="Permalink to this heading">#</a></h2>
+<h2><strong>Subset Dataset / DataArray</strong><a class="headerlink" href="#subset-dataset-dataarray" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>To select all data of “blue” band</strong>
 <br>
@@ -4364,7 +4793,7 @@ Attributes:
     grid_mapping:  spatial_ref</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'blue'</div></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e1edc631-5a5a-49d7-bb35-1a4496cb7e62' class='xr-array-in' type='checkbox' checked><label for='section-e1edc631-5a5a-49d7-bb35-1a4496cb7e62' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>9640</span></div><div class='xr-array-data'><pre>array(9640, dtype=uint16)</pre></div></div></li><li class='xr-section-item'><input id='section-8c308ef4-2daf-4e2d-a813-4e7686ba6c0f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8c308ef4-2daf-4e2d-a813-4e7686ba6c0f' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2022-03-02T10:19:41.024000</div><input id='attrs-d87d39bf-ea2d-41c4-b890-63ea737ab670' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d87d39bf-ea2d-41c4-b890-63ea737ab670' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-65720e7e-c5f9-4ac0-bc29-610fdf264cd6' class='xr-var-data-in' type='checkbox'><label for='data-65720e7e-c5f9-4ac0-bc29-610fdf264cd6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>seconds since 1970-01-01 00:00:00</dd></dl></div><div class='xr-var-data'><pre>array(&#x27;2022-03-02T10:19:41.024000000&#x27;, dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>y</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.558e+07</div><input id='attrs-5a0f1b98-63c5-46d8-95b4-3cfd7a4f844d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5a0f1b98-63c5-46d8-95b4-3cfd7a4f844d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-939f439a-ffe6-4abc-9796-9895463ccd40' class='xr-var-data-in' type='checkbox'><label for='data-939f439a-ffe6-4abc-9796-9895463ccd40' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>-10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array(15578205.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-3.002e+05</div><input id='attrs-82fe33b1-ffdf-4a9a-abd0-34f651f456e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82fe33b1-ffdf-4a9a-abd0-34f651f456e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9a9ee0bc-31d8-4933-a1ba-cd5416e0da23' class='xr-var-data-in' type='checkbox'><label for='data-9a9ee0bc-31d8-4933-a1ba-cd5416e0da23' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>metre</dd><dt><span>resolution :</span></dt><dd>10.0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd></dl></div><div class='xr-var-data'><pre>array(-300205.)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>spatial_ref</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>32734</div><input id='attrs-fd66d103-01cb-4b64-b06a-3c0e07348963' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fd66d103-01cb-4b64-b06a-3c0e07348963' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2344a3cf-418c-449b-b150-adc98b1191d0' class='xr-var-data-in' type='checkbox'><label for='data-2344a3cf-418c-449b-b150-adc98b1191d0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>spatial_ref :</span></dt><dd>PROJCS[&quot;WGS 84 / UTM zone 34S&quot;,GEOGCS[&quot;WGS 84&quot;,DATUM[&quot;WGS_1984&quot;,SPHEROID[&quot;WGS 84&quot;,6378137,298.257223563,AUTHORITY[&quot;EPSG&quot;,&quot;7030&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;6326&quot;]],PRIMEM[&quot;Greenwich&quot;,0,AUTHORITY[&quot;EPSG&quot;,&quot;8901&quot;]],UNIT[&quot;degree&quot;,0.0174532925199433,AUTHORITY[&quot;EPSG&quot;,&quot;9122&quot;]],AUTHORITY[&quot;EPSG&quot;,&quot;4326&quot;]],PROJECTION[&quot;Transverse_Mercator&quot;],PARAMETER[&quot;latitude_of_origin&quot;,0],PARAMETER[&quot;central_meridian&quot;,21],PARAMETER[&quot;scale_factor&quot;,0.9996],PARAMETER[&quot;false_easting&quot;,500000],PARAMETER[&quot;false_northing&quot;,10000000],UNIT[&quot;metre&quot;,1,AUTHORITY[&quot;EPSG&quot;,&quot;9001&quot;]],AXIS[&quot;Easting&quot;,EAST],AXIS[&quot;Northing&quot;,NORTH],AUTHORITY[&quot;EPSG&quot;,&quot;32734&quot;]]</dd><dt><span>grid_mapping_name :</span></dt><dd>transverse_mercator</dd></dl></div><div class='xr-var-data'><pre>array(32734, dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5758e394-b896-4185-b259-d514f5b2789d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5758e394-b896-4185-b259-d514f5b2789d' class='xr-section-summary'  title='Expand/collapse section'>Indexes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'></ul></div></li><li class='xr-section-item'><input id='section-c55d2ef5-572d-4460-8217-c2e13d873142' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c55d2ef5-572d-4460-8217-c2e13d873142' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>1</dd><dt><span>nodata :</span></dt><dd>0</dd><dt><span>crs :</span></dt><dd>EPSG:32734</dd><dt><span>grid_mapping :</span></dt><dd>spatial_ref</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <section id="subset-dataset-with-isel-vs-sel">
-<h3><strong>subset dataset with <code class="docutils literal notranslate"><span class="pre">isel</span></code> vs. <code class="docutils literal notranslate"><span class="pre">sel</span></code></strong><a class="headerlink" href="#subset-dataset-with-isel-vs-sel" title="Permalink to this heading">#</a></h3>
+<h3><strong>subset dataset with <code class="docutils literal notranslate"><span class="pre">isel</span></code> vs. <code class="docutils literal notranslate"><span class="pre">sel</span></code></strong><a class="headerlink" href="#subset-dataset-with-isel-vs-sel" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">isel</span></code> when subsetting with <strong>index</strong></p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">sel</span></code> when subsetting with <strong>labels</strong></p></li>
@@ -5208,7 +5637,7 @@ Attributes:
 </section>
 </section>
 <section id="reshape-dataset">
-<h2><strong>Reshape Dataset</strong><a class="headerlink" href="#reshape-dataset" title="Permalink to this heading">#</a></h2>
+<h2><strong>Reshape Dataset</strong><a class="headerlink" href="#reshape-dataset" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Convert the Dataset (subset to 2022-03) to a <em>4-dimension</em> DataArray</strong></p></li>
 </ul>
@@ -5739,7 +6168,7 @@ Attributes:
 </section>
 <hr class="docutils" />
 <section id="additional-information">
-<h2>Additional information<a class="headerlink" href="#additional-information" title="Permalink to this heading">#</a></h2>
+<h2>Additional information<a class="headerlink" href="#additional-information" title="Link to this heading">#</a></h2>
 <p>This notebook is for the usage of Jupyter Notebook of the <a class="reference external" href="http://remote-sensing.org/">Department of Remote Sensing</a>, <a class="reference external" href="https://www.uni-wuerzburg.de/startseite/">University of Wuerzburg</a>.</p>
 <p><strong>License:</strong> The code in this notebook is licensed under the <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.</p>
 <p><strong>Contact:</strong> If you would like to report an issue with this notebook, you can file one on <a class="reference external" href="https://github.com">Github</a>.</p>
@@ -5844,7 +6273,7 @@ By eo2cube community
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
